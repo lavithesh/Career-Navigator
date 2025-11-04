@@ -1,0 +1,1955 @@
+[
+{
+  "problemId": 1,
+  "courseId": "hcltech",
+  "title": "Move Hashes to Front",
+  "difficulty": "Easy",
+  "description": "Write a function that accepts a string and moves all '#' characters to the front of the string, preserving the relative order of the other characters.",
+  "examples": [
+    {
+      "input": "Move#Hash#to#Front\n",
+      "output": "###MoveHashtoFront\n"
+    }
+  ],
+  "constraints": [
+    "1 <= len <= 10^5",
+    "The string contains uppercase and lowercase English letters and '#'."
+  ],
+  "testCases": [
+    {
+      "input": "Move#Hash#to#Front\n",
+      "expectedOutput": "###MoveHashtoFront\n"
+    },
+    {
+      "input": "NoHashesHere\n",
+      "expectedOutput": "NoHashesHere\n"
+    },
+    {
+      "input": "#####OnlyHashes\n",
+      "expectedOutput": "#####OnlyHashes\n"
+    },
+    {
+      "input": "#AtTheBeginning\n",
+      "expectedOutput": "#AtTheBeginning\n"
+    },
+    {
+      "input": "AtTheEnd#\n",
+      "expectedOutput": "#AtTheEnd\n"
+    },
+    {
+      "input": "M#o#v#e#It\n",
+      "expectedOutput": "####MoveIt\n"
+    },
+    {
+      "input": "A#B#C#D#E#F#G\n",
+      "expectedOutput": "#######ABCDEFG\n"
+    }
+  ],
+  "hints": [
+    "Use two pointers, one to keep track of the position to place the next hash, and another to iterate through the string.",
+    "Iterate through the string. If the current character is '#', swap it with the character at the hash pointer's position and increment the hash pointer.",
+    "After iterating through the entire string, the '#' characters will be at the front."
+  ],
+  "tags": ["String", "Two Pointers"]
+},
+{
+  "problemId": 2,
+  "courseId": "hcltech",
+  "title": "Borrow Operations in Subtraction",
+  "difficulty": "Medium",
+  "description": "Given two non-negative integers, number1 and number2, calculate the number of borrow operations needed to subtract number1 from number2. If the subtraction is not possible (number1 > number2), return the string 'Not possible'.",
+  "examples": [
+    {
+      "input": "754\n658\n",
+      "output": "2\n"
+    },
+    {
+      "input": "654\n666\n",
+      "output": "Not possible\n"
+    }
+  ],
+  "constraints": [
+    "0 <= number1 <= 10^9",
+    "0 <= number2 <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "754\n658\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "654\n666\n",
+      "expectedOutput": "Not possible\n"
+    },
+    {
+      "input": "10\n5\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "5\n10\n",
+      "expectedOutput": "Not possible\n"
+    },
+    {
+      "input": "100\n99\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "99\n100\n",
+      "expectedOutput": "Not possible\n"
+    },
+    {
+      "input": "12345\n10000\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "10000\n12345\n",
+      "expectedOutput": "Not possible\n"
+    },
+    {
+      "input": "111\n111\n",
+      "expectedOutput": "0\n"
+    }
+  ],
+  "hints": [
+    "First, check if number1 is greater than number2. If it is, return 'Not possible'.",
+    "Convert both numbers to strings or process them digit by digit from right to left.",
+    "Keep track of a borrow flag, initialized to 0.",
+    "Iterate through the digits of both numbers (padding the shorter number with leading zeros if necessary).",
+    "For each digit position, subtract the digit of number1 from the digit of number2, considering the borrow.",
+    "If the result is negative, increment the borrow count and add 10 to the current digit of number2.",
+    "Update the borrow flag for the next digit position.",
+    "Return the final borrow count."
+  ],
+  "tags": ["Math", "String"]
+},
+{
+  "problemId": 3,
+  "courseId": "hcltech",
+  "title": "Case Manipulation After Replacement",
+  "difficulty": "Easy",
+  "description": "Write a function that accepts a string, its length, and a character. Replace all occurrences of the character in the string and change its case (uppercase to lowercase, or lowercase to uppercase).",
+  "examples": [
+    {
+      "input": "hello world\nl\n",
+      "output": "heLLo worLd\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of string <= 10^5",
+    "The string contains lowercase and uppercase English letters.",
+    "The character 'c' will be a single lowercase or uppercase English letter."
+  ],
+  "testCases": [
+    {
+      "input": "hello world\nl\n",
+      "expectedOutput": "heLLo worLd\n"
+    },
+    {
+      "input": "Programming\nm\n",
+      "expectedOutput": "PrograMMing\n"
+    },
+    {
+      "input": "UPPERCASE\np\n",
+      "expectedOutput": "UPPERCASE\n"
+    },
+    {
+      "input": "lowercase\nL\n",
+      "expectedOutput": "lOWERCASE\n"
+    },
+    {
+      "input": "MiXeDcAsE\ne\n",
+      "expectedOutput": "MiXEdCaSe\n"
+    },
+    {
+      "input": "tHisIsIt\nt\n",
+      "expectedOutput": "ThisIsIT\n"
+    },
+    {
+      "input": "aBcDeFg\na\n",
+      "expectedOutput": "AbcDeFg\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the input string character by character.",
+    "For each character, compare it with the given character 'c' (case-insensitive).",
+    "If a match is found, change the case of the character in the result string (lowercase to uppercase, or uppercase to lowercase).",
+    "If no match is found, append the original character to the result string.",
+    "Return the modified string."
+  ],
+  "tags": ["String", "Case Manipulation"]
+},
+{
+  "problemId": 4,
+  "courseId": "hcltech",
+  "title": "Reduce Consecutive Characters",
+  "difficulty": "Easy",
+  "description": "Given a string where multiple characters are repeated consecutively, reduce the size of the string by replacing consecutive repetitions with the character followed by the count of repetitions if the count is greater than 1.",
+  "examples": [
+    {
+      "input": "abbccccc\n",
+      "output": "ab2c5\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of string <= 10^5",
+    "The string contains lowercase and uppercase English letters."
+  ],
+  "testCases": [
+    {
+      "input": "abbccccc\n",
+      "expectedOutput": "ab2c5\n"
+    },
+    {
+      "input": "aabbccddeeff\n",
+      "expectedOutput": "a2b2c2d2e2f2\n"
+    },
+    {
+      "input": "aaaaabbbbbbbbcccc\n",
+      "expectedOutput": "a5b8c4\n"
+    },
+    {
+      "input": "abcdefg\n",
+      "expectedOutput": "abcdefg\n"
+    },
+    {
+      "input": "aaaaaaaaaa\n",
+      "expectedOutput": "a10\n"
+    },
+    {
+      "input": "b\n",
+      "expectedOutput": "b\n"
+    },
+    {
+      "input": "ZZZZZ\n",
+      "expectedOutput": "Z5\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the input string.",
+    "Keep track of the current character and its consecutive count.",
+    "When the character changes or the end of the string is reached, append the current character to the result.",
+    "If the count of the previous character was greater than 1, append the count as a string to the result.",
+    "Reset the current character and count for the new sequence of characters."
+  ],
+  "tags": ["String", "Character Counting"]
+},
+{
+  "problemId": 5,
+  "courseId": "hcltech",
+  "title": "Find the Missing Number",
+  "difficulty": "Easy",
+  "description": "Given an array arr[] of size n-1 with distinct integers in the range of [1, n]. This array represents a permutation of the integers from 1 to n with one element missing. Find the missing element in the array.",
+  "examples": [
+    {
+      "input": "[1, 2, 4, 6, 3, 7, 8]\n",
+      "output": "5\n"
+    },
+    {
+      "input": "[1, 2, 3, 5]\n",
+      "output": "4\n"
+    }
+  ],
+  "constraints": [
+    "2 <= n <= 10^5",
+    "The array contains distinct integers.",
+    "The integers are in the range [1, n]."
+  ],
+  "testCases": [
+    {
+      "input": "[1, 2, 4, 6, 3, 7, 8]\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "[1, 2, 3, 5]\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "[2, 3, 4, 5, 6]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input": "[5, 1, 3, 2]\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "[1]\n",
+      "expectedOutput": "2\n"
+    }
+  ],
+  "hints": [
+    "Consider the sum of the first n natural numbers.",
+    "Calculate the sum of the elements in the given array.",
+    "The difference between these two sums will be the missing number.",
+    "Alternatively, you can use the XOR operation."
+  ],
+  "tags": ["Array", "Mathematics", "Missing Number"]
+},
+{
+  "problemId": 6,
+  "courseId": "hcltech",
+  "title": "Find if two rectangles overlap",
+  "difficulty": "Easy",
+  "description": "Given two rectangles, find if the given two rectangles overlap or not. A rectangle is represented by its top-left and bottom-right coordinates.",
+  "examples": [
+    {
+      "input": "l1 = { 0, 10 }, r1 = { 10, 0 }, l2 = { 5, 5 }, r2 = { 15, 0 }\n",
+      "output": "Rectangles Overlap\n"
+    },
+    {
+      "input": "l1 = { 0, 10 }, r1 = { 10, 0 }, l2 = { -10, 5 }, r2 = { -1, 0 }\n",
+      "output": "Rectangles Don’t Overlap\n"
+    }
+  ],
+  "constraints": [
+    "Coordinates are integers.",
+    "Top-left x-coordinate is always less than or equal to bottom-right x-coordinate.",
+    "Top-left y-coordinate is always greater than or equal to bottom-right y-coordinate."
+  ],
+  "testCases": [
+    {
+      "input": "l1 = { 0, 10 }, r1 = { 10, 0 }, l2 = { 5, 5 }, r2 = { 15, 0 }\n",
+      "expectedOutput": "Rectangles Overlap\n"
+    },
+    {
+      "input": "l1 = { 0, 10 }, r1 = { 10, 0 }, l2 = { -10, 5 }, r2 = { -1, 0 }\n",
+      "expectedOutput": "Rectangles Don’t Overlap\n"
+    },
+    {
+      "input": "l1 = { 0, 0 }, r1 = { 2, 2 }, l2 = { 1, 1 }, r2 = { 3, 3 }\n",
+      "expectedOutput": "Rectangles Overlap\n"
+    },
+    {
+      "input": "l1 = { 0, 0 }, r1 = { 2, 2 }, l2 = { 3, 3 }, r2 = { 4, 4 }\n",
+      "expectedOutput": "Rectangles Don’t Overlap\n"
+    },
+    {
+      "input": "l1 = { 0, 0 }, r1 = { 2, 2 }, l2 = { 2, 0 }, r2 = { 4, 2 }\n",
+      "expectedOutput": "Rectangles Overlap\n"
+    },
+    {
+      "input": "l1 = { 0, 0 }, r1 = { 2, 2 }, l2 = { 0, 2 }, r2 = { 2, 4 }\n",
+      "expectedOutput": "Rectangles Overlap\n"
+    },
+    {
+      "input": "l1 = { 0, 0 }, r1 = { 2, 2 }, l2 = { 2, 3 }, r2 = { 4, 5 }\n",
+      "expectedOutput": "Rectangles Don’t Overlap\n"
+    }
+  ],
+  "hints": [
+    "Two rectangles do not overlap if one of the following conditions is true:",
+    "One rectangle is completely to the left of the other.",
+    "One rectangle is completely to the right of the other.",
+    "One rectangle is completely above the other.",
+    "One rectangle is completely below the other.",
+    "Consider the x and y coordinates separately."
+  ],
+  "tags": ["Geometry", "Rectangle", "Overlap"]
+},
+{
+  "problemId": 7,
+  "courseId": "hcltech",
+  "title": "Program for sum of primes from 1 to n",
+  "difficulty": "Easy",
+  "description": "Given a positive integer n, compute and return the sum of all prime numbers between 1 and n (inclusive).",
+  "examples": [
+    {
+      "input": "10\n",
+      "output": "17\n"
+    },
+    {
+      "input": "11\n",
+      "output": "28\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^6"
+  ],
+  "testCases": [
+    {
+      "input": "10\n",
+      "expectedOutput": "17\n"
+    },
+    {
+      "input": "11\n",
+      "expectedOutput": "28\n"
+    },
+    {
+      "input": "1\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "2\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "3\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "20\n",
+      "expectedOutput": "77\n"
+    },
+    {
+      "input": "0\n",
+      "expectedOutput": "0\n"
+    }
+  ],
+  "hints": [
+    "Iterate through numbers from 2 to n.",
+    "For each number, check if it's prime.",
+    "A number is prime if it is greater than 1 and not divisible by any number other than 1 and itself.",
+    "To check for primality of a number `num`, iterate from 2 up to the square root of `num`. If any number in this range divides `num` evenly, then `num` is not prime.",
+    "Keep a running sum of all prime numbers found."
+  ],
+  "tags": ["Mathematics", "Prime Numbers", "Summation"]
+},
+{
+  "problemId": 8,
+  "courseId": "hcltech",
+  "title": "Find an element in array such that sum of left array is equal to sum of right array",
+  "difficulty": "Easy",
+  "description": "Given an array of size n, find an element that divides the array into two sub-arrays with equal sums.",
+  "examples": [
+    {
+      "input": "[1, 4, 2, 5, 0]\n",
+      "output": "2\n"
+    },
+    {
+      "input": "[2, 3, 4, 1, 4, 5]\n",
+      "output": "1\n"
+    },
+    {
+      "input": "[1, 2, 3]\n",
+      "output": "-1\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "0 <= arr[i] <= 10^4"
+  ],
+  "testCases": [
+    {
+      "input": "[1, 4, 2, 5, 0]\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "[2, 3, 4, 1, 4, 5]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[1, 2, 3]\n",
+      "expectedOutput": "-1\n"
+    },
+    {
+      "input": "[0, 0, 0, 0]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[1, 0, 1]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[1, 2, 1, 3, 3]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[6, 2, 4, 5, 1, 9, 0]\n",
+      "expectedOutput": "5\n"
+    }
+  ],
+  "hints": [
+    "Calculate the total sum of the array.",
+    "Iterate through the array, keeping track of the left sum.",
+    "For each element, the right sum can be calculated by subtracting the left sum and the current element from the total sum.",
+    "If the left sum is equal to the right sum, the current element is the answer.",
+    "If no such element is found after iterating through the entire array, return -1."
+  ],
+  "tags": ["Array", "Summation", "Partition"]
+},
+{
+  "problemId": 9,
+  "courseId": "hcltech",
+  "title": "Last duplicate element in a sorted array",
+  "difficulty": "Easy",
+  "description": "Given a sorted array with duplicate elements, find the index of the last occurrence of a duplicate element and the element itself. If no duplicate element is found, print a message.",
+  "examples": [
+    {
+      "input": "[1, 5, 5, 6, 6, 7]\n",
+      "output": "Last index: 4\nLast duplicate item: 6\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "output": "No duplicate found\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "The array is sorted in non-decreasing order.",
+    "0 <= arr[i] <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "[1, 5, 5, 6, 6, 7]\n",
+      "expectedOutput": "Last index: 4\nLast duplicate item: 6\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "expectedOutput": "No duplicate found\n"
+    },
+    {
+      "input": "[1, 1, 1, 1, 1]\n",
+      "expectedOutput": "Last index: 4\nLast duplicate item: 1\n"
+    },
+    {
+      "input": "[1, 2, 2, 2, 3]\n",
+      "expectedOutput": "Last index: 3\nLast duplicate item: 2\n"
+    },
+    {
+      "input": "[1, 2, 3, 3, 4]\n",
+      "expectedOutput": "Last index: 3\nLast duplicate item: 3\n"
+    },
+    {
+      "input": "[5, 6, 7, 8, 8]\n",
+      "expectedOutput": "Last index: 4\nLast duplicate item: 8\n"
+    },
+    {
+      "input": "[2]\n",
+      "expectedOutput": "No duplicate found\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the array from the second element.",
+    "Compare the current element with the previous element.",
+    "Keep track of the last seen duplicate element and its index.",
+    "Since the array is sorted, all duplicates will be adjacent.",
+    "If a duplicate is found, update the last duplicate element and its index.",
+    "After iterating through the array, if a duplicate was found, print its index and value. Otherwise, print the 'No duplicate found' message."
+  ],
+  "tags": ["Array", "Sorted Array", "Duplicates", "Index"]
+},
+{
+  "problemId": 10,
+  "courseId": "hcltech",
+  "title": "Find the Largest Number Among Three Numbers",
+  "difficulty": "Easy",
+  "description": "Given three integer numbers, find and return the largest number among them.",
+  "examples": [
+    {
+      "input": "a = 10, b = 22, c = 19\n",
+      "output": "22 is the largest number.\n"
+    },
+    {
+      "input": "a = 12, b = 7, c = 9\n",
+      "output": "12 is the largest number.\n"
+    }
+  ],
+  "constraints": [
+    "The input numbers are integers."
+  ],
+  "testCases": [
+    {
+      "input": "a = 10, b = 22, c = 19\n",
+      "expectedOutput": "22 is the largest number.\n"
+    },
+    {
+      "input": "a = 12, b = 7, c = 9\n",
+      "expectedOutput": "12 is the largest number.\n"
+    },
+    {
+      "input": "a = 5, b = 8, c = 3\n",
+      "expectedOutput": "8 is the largest number.\n"
+    },
+    {
+      "input": "a = -1, b = -5, c = -3\n",
+      "expectedOutput": "-1 is the largest number.\n"
+    },
+    {
+      "input": "a = 0, b = 0, c = 0\n",
+      "expectedOutput": "0 is the largest number.\n"
+    },
+    {
+      "input": "a = 100, b = 1, c = 10\n",
+      "expectedOutput": "100 is the largest number.\n"
+    },
+    {
+      "input": "a = -10, b = 5, c = -20\n",
+      "expectedOutput": "5 is the largest number.\n"
+    }
+  ],
+  "hints": [
+    "Compare the first two numbers and find the larger one.",
+    "Compare the result with the third number to find the largest among all three.",
+    "You can also use conditional statements (if-else) to compare the numbers."
+  ],
+  "tags": ["Comparison", "Conditional Logic", "Basic Math"]
+},
+{
+  "problemId": 11,
+  "courseId": "hcltech",
+  "title": "Calculate sum of all numbers present in a string",
+  "difficulty": "Easy",
+  "description": "Given a string S containing alphanumeric characters, calculate the sum of all numbers present in the string.",
+  "examples": [
+    {
+      "input": "1abc23\n",
+      "output": "24\n"
+    },
+    {
+      "input": "geeks4geeks\n",
+      "output": "4\n"
+    },
+    {
+      "input": "1abc2x30yz67\n",
+      "output": "100\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of S <= 10^5",
+    "The string S contains alphanumeric characters (lowercase and uppercase English letters, and digits 0-9)."
+  ],
+  "testCases": [
+    {
+      "input": "1abc23\n",
+      "expectedOutput": "24\n"
+    },
+    {
+      "input": "geeks4geeks\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "1abc2x30yz67\n",
+      "expectedOutput": "100\n"
+    },
+    {
+      "input": "12345\n",
+      "expectedOutput": "12345\n"
+    },
+    {
+      "input": "abcdefg\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "a1b2c3d4e5f6g7h8i9j0\n",
+      "expectedOutput": "45\n"
+    },
+    {
+      "input": "007bond\n",
+      "expectedOutput": "7\n"
+    },
+    {
+      "input": "number10andnumber20\n",
+      "expectedOutput": "30\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the string character by character.",
+    "If a character is a digit, it might be part of a multi-digit number.",
+    "Keep track of the current number being formed.",
+    "When a non-digit character is encountered or the end of the string is reached, if a number was being formed, add it to the total sum and reset the current number.",
+    "Be careful with single-digit numbers as well."
+  ],
+  "tags": ["String", "Number Extraction", "Summation"]
+},
+{
+  "problemId": 12,
+  "courseId": "hcltech",
+  "title": "Rotate a Linked List",
+  "difficulty": "Medium",
+  "description": "Given a singly linked list and an integer k, rotate the linked list to the left by k places.",
+  "examples": [
+    {
+      "input": "linked list = 10 -> 20 -> 30 -> 40 -> 50, k = 4\n",
+      "output": "50 -> 10 -> 20 -> 30 -> 40\n"
+    },
+    {
+      "input": "linked list = 10 -> 20 -> 30 -> 40, k = 6\n",
+      "output": "30 -> 40 -> 10 -> 20\n"
+    }
+  ],
+  "constraints": [
+    "1 <= number of nodes in the linked list <= 10^5",
+    "0 <= k <= 2 * 10^5",
+    "The value of each node is between 0 and 1000."
+  ],
+  "testCases": [
+    {
+      "input": "linked list = 10 -> 20 -> 30 -> 40 -> 50, k = 4\n",
+      "expectedOutput": "50 -> 10 -> 20 -> 30 -> 40\n"
+    },
+    {
+      "input": "linked list = 10 -> 20 -> 30 -> 40, k = 6\n",
+      "expectedOutput": "30 -> 40 -> 10 -> 20\n"
+    },
+    {
+      "input": "linked list = 1 -> 2 -> 3 -> 4 -> 5, k = 2\n",
+      "expectedOutput": "3 -> 4 -> 5 -> 1 -> 2\n"
+    },
+    {
+      "input": "linked list = 1 -> 2 -> 3, k = 3\n",
+      "expectedOutput": "1 -> 2 -> 3\n"
+    },
+    {
+      "input": "linked list = 1 -> 2 -> 3, k = 0\n",
+      "expectedOutput": "1 -> 2 -> 3\n"
+    },
+    {
+      "input": "linked list = 1, k = 5\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "linked list = 1 -> 2, k = 1\n",
+      "expectedOutput": "2 -> 1\n"
+    }
+  ],
+  "hints": [
+    "Calculate the length of the linked list.",
+    "The effective number of rotations will be k % length.",
+    "If k % length is 0, the list remains unchanged.",
+    "Find the (length - k % length)th node from the beginning. This node will become the new head.",
+    "Make the previous node of the new head the tail of the rotated list.",
+    "The original head should now follow the original tail.",
+    "Handle the edge cases where the list is empty or has only one node."
+  ],
+  "tags": ["Linked List", "Rotation", "Data Structures"]
+},
+{
+  "problemId": 13,
+  "courseId": "hcltech",
+  "title": "Remove spaces from a given string",
+  "difficulty": "Easy",
+  "description": "Given a string, remove all spaces from the string and return the modified string.",
+  "examples": [
+    {
+      "input": "g  eeks   for ge  eeks  \n",
+      "output": "geeksforgeeks\n"
+    },
+    {
+      "input": "abc d \n",
+      "output": "abcd\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of string <= 10^5",
+    "The string may contain leading, trailing, and multiple spaces between words.",
+    "The string consists of printable ASCII characters."
+  ],
+  "testCases": [
+    {
+      "input": "g  eeks   for ge  eeks  \n",
+      "expectedOutput": "geeksforgeeks\n"
+    },
+    {
+      "input": "abc d \n",
+      "expectedOutput": "abcd\n"
+    },
+    {
+      "input": " no spaces here \n",
+      "expectedOutput": "nospaceshere\n"
+    },
+    {
+      "input": " \t with tabs \n",
+      "expectedOutput": "withtabs\n"
+    },
+    {
+      "input": "onlyspaces   \n",
+      "expectedOutput": "\n"
+    },
+    {
+      "input": "   leading spaces\n",
+      "expectedOutput": "leadingspaces\n"
+    },
+    {
+      "input": "trailing spaces   \n",
+      "expectedOutput": "trailingspaces\n"
+    },
+    {
+      "input": "\n",
+      "expectedOutput": "\n"
+    },
+    {
+      "input": " a b c \n",
+      "expectedOutput": "abc\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the input string.",
+    "Build a new string by appending only the non-space characters.",
+    "Alternatively, you can use built-in string manipulation functions if the programming language provides them."
+  ],
+  "tags": ["String", "Space Removal", "String Manipulation"]
+},
+{
+  "problemId": 14,
+  "courseId": "hcltech",
+  "title": "The Celebrity Problem",
+  "difficulty": "Medium",
+  "description": "Given a square matrix mat[][] of size n x n, where mat[i][j] = 1 means the ith person knows the jth person, find the celebrity. A celebrity is known by everyone but knows no one. Return the index of the celebrity (0-based), or -1 if no celebrity exists. Note that mat[i][i] will always be 1.",
+  "examples": [
+    {
+      "input": "[[1, 1, 0], [0, 1, 0], [0, 1, 1]]\n",
+      "output": "1\n"
+    },
+    {
+      "input": "[[1, 1], [1, 1]]\n",
+      "output": "-1\n"
+    },
+    {
+      "input": "[[1]]\n",
+      "output": "0\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 500",
+    "mat[i][j] will be either 0 or 1.",
+    "mat[i][i] will always be 1."
+  ],
+  "testCases": [
+    {
+      "input": "[[1, 1, 0], [0, 1, 0], [0, 1, 1]]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[[1, 1], [1, 1]]\n",
+      "expectedOutput": "-1\n"
+    },
+    {
+      "input": "[[1]]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[[1, 0, 0], [0, 1, 0], [1, 1, 1]]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[[1, 0, 1], [1, 1, 1], [0, 0, 1]]\n",
+      "expectedOutput": "-1\n"
+    },
+    {
+      "input": "[[1, 0], [1, 1]]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[[1, 1, 1, 1], [0, 1, 0, 0], [0, 1, 1, 0], [0, 1, 0, 1]]\n",
+      "expectedOutput": "1\n"
+    }
+  ],
+  "hints": [
+    "A celebrity knows no one, so their entire row in the matrix will be 0 (except the diagonal element which is 1).",
+    "Everyone knows a celebrity, so their entire column in the matrix will be 1 (except the diagonal element which is 1).",
+    "One efficient approach is to use a stack. Push all person indices onto the stack.",
+    "While there are more than one person on the stack, pop the top two persons, say 'a' and 'b'.",
+    "If 'a' knows 'b' (mat[a][b] == 1), then 'a' cannot be the celebrity, so push 'b' back onto the stack.",
+    "Otherwise, if 'a' doesn't know 'b' (mat[a][b] == 0), then 'b' cannot be the celebrity, so push 'a' back onto the stack.",
+    "After the loop, there will be only one person left on the stack. This person is a potential celebrity.",
+    "Verify if this potential celebrity is actually known by everyone else and knows no one else."
+  ],
+  "tags": ["Matrix", "Graph", "Celebrity Problem"]
+},
+{
+  "problemId": 15,
+  "courseId": "hcltech",
+  "title": "Merge Sort for Linked Lists",
+  "difficulty": "Medium",
+  "description": "Given a singly linked list, sort it in non-decreasing order using the merge sort algorithm.",
+  "examples": [
+    {
+      "input": "40 -> 20 -> 60 -> 10 -> 50 -> 30 -> NULL\n",
+      "output": "10 -> 20 -> 30 -> 40 -> 50 -> 60 -> NULL\n"
+    },
+    {
+      "input": "9 -> 5 -> 2 -> 8 -> NULL\n",
+      "output": "2 -> 5 -> 8 -> 9 -> NULL\n"
+    }
+  ],
+  "constraints": [
+    "0 <= number of nodes in the linked list <= 10^5",
+    "The value of each node is between -10^5 and 10^5."
+  ],
+  "testCases": [
+    {
+      "input": "40 -> 20 -> 60 -> 10 -> 50 -> 30 -> NULL\n",
+      "expectedOutput": "10 -> 20 -> 30 -> 40 -> 50 -> 60 -> NULL\n"
+    },
+    {
+      "input": "9 -> 5 -> 2 -> 8 -> NULL\n",
+      "expectedOutput": "2 -> 5 -> 8 -> 9 -> NULL\n"
+    },
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> 5 -> NULL\n",
+      "expectedOutput": "1 -> 2 -> 3 -> 4 -> 5 -> NULL\n"
+    },
+    {
+      "input": "5 -> 4 -> 3 -> 2 -> 1 -> NULL\n",
+      "expectedOutput": "1 -> 2 -> 3 -> 4 -> 5 -> NULL\n"
+    },
+    {
+      "input": "1 -> 1 -> 1 -> 1 -> NULL\n",
+      "expectedOutput": "1 -> 1 -> 1 -> 1 -> NULL\n"
+    },
+    {
+      "input": "NULL\n",
+      "expectedOutput": "NULL\n"
+    },
+    {
+      "input": "-5 -> 10 -> -2 -> 8 -> 3 -> NULL\n",
+      "expectedOutput": "-5 -> -2 -> 3 -> 8 -> 10 -> NULL\n"
+    }
+  ],
+  "hints": [
+    "Merge sort is a divide and conquer algorithm.",
+    "Divide the linked list into two halves recursively until each sublist contains only one element (which is considered sorted).",
+    "To divide the list, find the middle node using the slow and fast pointer approach.",
+    "Recursively sort the left and right halves.",
+    "Merge the two sorted sublists into a single sorted list.",
+    "The merge operation involves comparing the nodes from both lists and appending the smaller node to the result list. Repeat until one of the lists is empty, then append the remaining elements of the other list."
+  ],
+  "tags": ["Linked List", "Sorting", "Merge Sort", "Divide and Conquer"]
+},
+{
+  "problemId": 16,
+  "courseId": "hcltech",
+  "title": "Longest Valid Parentheses Substring",
+  "difficulty": "Hard",
+  "description": "Given a string str consisting of opening '(' and closing ')' parentheses, find the length of the longest valid parentheses substring.",
+  "examples": [
+    {
+      "input": "\"((()\"\n",
+      "output": "2\n"
+    },
+    {
+      "input": "\")()())\"\n",
+      "output": "4\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of str <= 10^5",
+    "str consists only of '(' and ')' characters."
+  ],
+  "testCases": [
+    {
+      "input": "\"((()\"\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "\")()())\"\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "\"(())\"\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "\"()(())((()))\"\n",
+      "expectedOutput": "12\n"
+    },
+    {
+      "input": "\"()\"\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "\"(\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "\")\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "\"\"\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "\"(()(())))\"\n",
+      "expectedOutput": "10\n"
+    }
+  ],
+  "hints": [
+    "Consider using dynamic programming.",
+    "Create a dp array where dp[i] stores the length of the longest valid parentheses substring ending at index i.",
+    "If str[i] is '(', then dp[i] will be 0.",
+    "If str[i] is ')', check str[i-1]. If str[i-1] is '(', then dp[i] = dp[i-2] + 2 (handle the case where i < 2).",
+    "If str[i] is ')' and str[i-1] is also ')', and if str[i - dp[i-1] - 1] is '(', then dp[i] = dp[i-1] + dp[i - dp[i-1] - 2] + 2 (handle boundary conditions).",
+    "Keep track of the maximum value in the dp array.",
+    "Alternatively, you can use a stack-based approach. Push the indices of '(' onto the stack. When a ')' is encountered, if the stack is not empty, pop the top index. The length of the current valid substring is the difference between the current index and the top of the stack (or -1 if the stack is empty). Keep track of the maximum length found."
+  ],
+  "tags": ["String", "Parentheses", "Dynamic Programming", "Stack"]
+},
+{
+  "problemId": 17,
+  "courseId": "hcltech",
+  "title": "Alternate Lower Upper String Sort",
+  "difficulty": "Medium",
+  "description": "Given a string containing lowercase and uppercase letters, sort it such that the uppercase and lowercase letters appear alternately in a sorted manner as much as possible.",
+  "examples": [
+    {
+      "input": "bAwutndekWEdkd\n",
+      "output": "AbEdWddekkntuw\n"
+    },
+    {
+      "input": "abbfDDhGFBvdFDGBNDasZVDFjkb\n",
+      "output": "BaBaDbDbDbDdDfFhFjFkGsGvNVZ\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of string <= 10^5",
+    "The string contains only uppercase and lowercase English letters."
+  ],
+  "testCases": [
+    {
+      "input": "bAwutndekWEdkd\n",
+      "expectedOutput": "AbEdWddekkntuw\n"
+    },
+    {
+      "input": "abbfDDhGFBvdFDGBNDasZVDFjkb\n",
+      "expectedOutput": "BaBaDbDbDbDdDfFhFjFkGsGvNVZ\n"
+    },
+    {
+      "input": "aBcDeFgH\n",
+      "expectedOutput": "aBcDeFgH\n"
+    },
+    {
+      "input": "AaBbCc\n",
+      "expectedOutput": "AaBbCc\n"
+    },
+    {
+      "input": "ZYXwvutsrqponmlkjihgfedcba\n",
+      "expectedOutput": "aZbYcXdWvUeTsRfQpOgNnMmLlKjJiHhGfFeDdCcBbAa\n"
+    },
+    {
+      "input": "onlylowercase\n",
+      "expectedOutput": "aeillnoorstvy\n"
+    },
+    {
+      "input": "ONLYUPPERCASE\n",
+      "expectedOutput": "ACEILNOPRSUY\n"
+    },
+    {
+      "input": "aAA\n",
+      "expectedOutput": "AaA\n"
+    },
+    {
+      "input": "BBBb\n",
+      "expectedOutput": "BbBB\n"
+    }
+  ],
+  "hints": [
+    "Separate the lowercase and uppercase letters into two different lists.",
+    "Sort both the lowercase and uppercase lists alphabetically.",
+    "Iterate through both sorted lists, picking one character from each list alternately to form the result string.",
+    "If one list becomes empty before the other, append the remaining characters of the non-empty list to the result.",
+    "Start with the type of letter (lowercase or uppercase) that appears more frequently to maintain the alternating pattern as much as possible."
+  ],
+  "tags": ["String", "Sorting", "Alternating Characters"]
+},
+{
+  "problemId": 18,
+  "courseId": "hcltech",
+  "title": "Check if a binary string has a 0 between 1s or not | Set 1 (General approach)",
+  "difficulty": "Easy",
+  "description": "Given a string of 0s and 1s, check if the string is valid. A string is valid if there are no 0s present between any two 1s.",
+  "examples": [
+    {
+      "input": "100\n",
+      "output": "VALID\n"
+    },
+    {
+      "input": "1110001\n",
+      "output": "NOT VALID\n"
+    },
+    {
+      "input": "00011\n",
+      "output": "VALID\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of string <= 10^5",
+    "The string contains only '0' and '1' characters."
+  ],
+  "testCases": [
+    {
+      "input": "100\n",
+      "expectedOutput": "VALID\n"
+    },
+    {
+      "input": "1110001\n",
+      "expectedOutput": "NOT VALID\n"
+    },
+    {
+      "input": "00011\n",
+      "expectedOutput": "VALID\n"
+    },
+    {
+      "input": "1111\n",
+      "expectedOutput": "VALID\n"
+    },
+    {
+      "input": "0000\n",
+      "expectedOutput": "VALID\n"
+    },
+    {
+      "input": "010\n",
+      "expectedOutput": "NOT VALID\n"
+    },
+    {
+      "input": "1010\n",
+      "expectedOutput": "NOT VALID\n"
+    },
+    {
+      "input": "0110\n",
+      "expectedOutput": "NOT VALID\n"
+    },
+    {
+      "input": "110\n",
+      "expectedOutput": "VALID\n"
+    },
+    {
+      "input": "011\n",
+      "expectedOutput": "VALID\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the string.",
+    "Keep track of whether you have encountered a '1'.",
+    "Once a '1' is encountered, if you encounter a '0', set a flag indicating that a zero has appeared after a one.",
+    "After the flag is set, if you encounter another '1', the string is invalid.",
+    "If you reach the end of the string without encountering a '1' after a '0' that followed a '1', the string is valid."
+  ],
+  "tags": ["String", "Binary String", "Pattern Checking"]
+},
+{
+  "problemId": 19,
+  "courseId": "hcltech",
+  "title": "Farthest Right Smaller for all in an Array",
+  "difficulty": "Medium",
+  "description": "Given an array arr[] of size n, for every element in the array, find the index of the farthest element to its right which is smaller than the current element. If no such element exists, return -1.",
+  "examples": [
+    {
+      "input": "[3, 1, 5, 2, 4]\n",
+      "output": "[3, -1, 4, -1, -1]\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 0]\n",
+      "output": "[4, 4, 4, 4, -1]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "0 <= arr[i] <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "[3, 1, 5, 2, 4]\n",
+      "expectedOutput": "[3, -1, 4, -1, -1]\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 0]\n",
+      "expectedOutput": "[4, 4, 4, 4, -1]\n"
+    },
+    {
+      "input": "[5, 4, 3, 2, 1]\n",
+      "expectedOutput": "[-1, -1, -1, -1, -1]\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "expectedOutput": "[-1, -1, -1, -1, -1]\n"
+    },
+    {
+      "input": "[5, 1, 5, 1, 5]\n",
+      "expectedOutput": "[3, -1, 3, -1, -1]\n"
+    },
+    {
+      "input": "[10, 5, 8, 3, 9, 1]\n",
+      "expectedOutput": "[5, -1, 5, -1, 5, -1]\n"
+    },
+    {
+      "input": "[2, 9, 3, 6, 5]\n",
+      "expectedOutput": "[4, 4, 4, 4, -1]\n"
+    }
+  ],
+  "hints": [
+    "For each element, iterate through the array to its right.",
+    "Keep track of the index of the smallest element found so far that is smaller than the current element.",
+    "Since we need the farthest right element, continue iterating to the end of the array to find if there's any other smaller element at a farther index.",
+    "If a smaller element is found, update its index.",
+    "If no smaller element is found to the right, store -1 for the current element.",
+    "Store the result in a new array of the same size as the input array."
+  ],
+  "tags": ["Array", "Searching", "Right Farthest", "Smaller Element"]
+},
+{
+  "problemId": 20,
+  "courseId": "hcltech",
+  "title": "Generate Valid IP Addresses from String",
+  "difficulty": "Medium",
+  "description": "Given a string containing only digits, restore it by returning all possible valid IP address combinations. A valid IP address must be in the form of A.B.C.D, where A, B, C, and D are numbers from 0-255. The numbers cannot have leading zeros unless they are 0.",
+  "examples": [
+    {
+      "input": "\"255678166\"\n",
+      "output": "[\"25.56.78.166\", \"255.6.78.166\", \"255.67.8.166\", \"255.67.81.66\"]\n"
+    },
+    {
+      "input": "\"25505011535\"\n",
+      "output": "[]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of string <= 12",
+    "The string contains only digits."
+  ],
+  "testCases": [
+    {
+      "input": "\"255678166\"\n",
+      "expectedOutput": "[\"25.56.78.166\", \"255.6.78.166\", \"255.67.8.166\", \"255.67.81.66\"]\n"
+    },
+    {
+      "input": "\"25505011535\"\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "\"0000\"\n",
+      "expectedOutput": "[\"0.0.0.0\"]\n"
+    },
+    {
+      "input": "\"0100100\"\n",
+      "expectedOutput": "[\"0.10.0.100\", \"0.100.1.0\", \"0.100.10.0\", \"1.0.0.100\", \"10.0.10.0\", \"10.0.100.0\", \"10.0.1.00\", \"100.1.0.0\"]\n"
+    },
+    {
+      "input": "\"1111\"\n",
+      "expectedOutput": "[\"1.1.1.1\"]\n"
+    },
+    {
+      "input": "\"12345\"\n",
+      "expectedOutput": "[\"1.2.3.45\", \"1.2.34.5\", \"1.23.4.5\", \"12.3.4.5\"]\n"
+    },
+    {
+      "input": "\"10101010\"\n",
+      "expectedOutput": "[\"1.0.10.1010\", \"1.0.101.010\", \"1.0.1010.10\", \"10.1.0.1010\", \"10.1.010.10\", \"10.10.1.010\", \"10.10.10.10\", \"101.0.1.010\", \"101.0.10.10\", \"101.0.101.0\", \"1010.1.0.10\", \"1010.10.1.0\"]\n"
+    },
+    {
+      "input": "\"00000\"\n",
+      "expectedOutput": "[\"0.0.0.0\"]\n"
+    }
+  ],
+  "hints": [
+    "Use recursion or backtracking to explore all possible ways to split the string into four parts.",
+    "For each part, check if it's a valid IP address segment (between 0 and 255, and no leading zeros unless it's just '0').",
+    "Keep track of the number of segments formed so far.",
+    "If four valid segments are formed and the entire input string has been used, add the resulting IP address to the list of valid IP addresses.",
+    "Be careful with the base cases for the recursion and the conditions for a valid segment."
+  ],
+  "tags": ["String", "Backtracking", "IP Address"]
+},
+{
+  "problemId": 21,
+  "courseId": "hcltech",
+  "title": "Sort elements by frequency",
+  "difficulty": "Medium",
+  "description": "Given an array of integers arr[], sort the array according to the frequency of elements. Elements with higher frequency should come first. If two elements have the same frequency, the smaller number should come first.",
+  "examples": [
+    {
+      "input": "[5, 5, 4, 6, 4]\n",
+      "output": "[4, 4, 5, 5, 6]\n"
+    },
+    {
+      "input": "[9, 9, 9, 2, 5]\n",
+      "output": "[9, 9, 9, 2, 5]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "-10^5 <= arr[i] <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "[5, 5, 4, 6, 4]\n",
+      "expectedOutput": "[4, 4, 5, 5, 6]\n"
+    },
+    {
+      "input": "[9, 9, 9, 2, 5]\n",
+      "expectedOutput": "[9, 9, 9, 2, 5]\n"
+    },
+    {
+      "input": "[1, 2, 2, 3, 3, 3]\n",
+      "expectedOutput": "[3, 3, 3, 2, 2, 1]\n"
+    },
+    {
+      "input": "[1, 1, 2, 2, 2, 3]\n",
+      "expectedOutput": "[2, 2, 2, 1, 1, 3]\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "expectedOutput": "[1, 2, 3, 4, 5]\n"
+    },
+    {
+      "input": "[5, 2, 8, 5, 2, 8, 5]\n",
+      "expectedOutput": "[5, 5, 5, 2, 2, 8, 8]\n"
+    },
+    {
+      "input": "[-1, 2, -1, 3, 2]\n",
+      "expectedOutput": "[-1, -1, 2, 2, 3]\n"
+    }
+  ],
+  "hints": [
+    "Use a hash map (or a dictionary) to store the frequency of each element in the array.",
+    "Create a custom comparison function for sorting.",
+    "The comparison function should first compare the frequencies of two elements. If the frequencies are different, the element with the higher frequency comes first.",
+    "If the frequencies are the same, compare the values of the elements. The smaller element comes first.",
+    "Sort the original array using this custom comparison function."
+  ],
+  "tags": ["Array", "Sorting", "Frequency Counting", "Comparison"]
+},
+{
+  "problemId": 22,
+  "courseId": "hcltech",
+  "title": "Stock Buy and Sell – Multiple Transaction Allowed",
+  "difficulty": "Easy",
+  "description": "Given an array prices[] of size n denoting the cost of stock on each day, find the maximum total profit if you can buy and sell the stocks any number of times. You can only sell a stock which you have bought earlier and cannot hold multiple stocks on any day.",
+  "examples": [
+    {
+      "input": "[100, 180, 260, 310, 40, 535, 695]\n",
+      "output": "865\n"
+    },
+    {
+      "input": "[4, 2, 2, 2, 4]\n",
+      "output": "2\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "0 <= prices[i] <= 10^4"
+  ],
+  "testCases": [
+    {
+      "input": "[100, 180, 260, 310, 40, 535, 695]\n",
+      "expectedOutput": "865\n"
+    },
+    {
+      "input": "[4, 2, 2, 2, 4]\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "[7, 1, 5, 3, 6, 4]\n",
+      "expectedOutput": "7\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "[5, 4, 3, 2, 1]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[1, 4, 5, 7, 6, 3]\n",
+      "expectedOutput": "9\n"
+    },
+    {
+      "input": "[1, 9, 2, 8, 3, 7]\n",
+      "expectedOutput": "18\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the prices array.",
+    "If the current day's price is greater than the previous day's price, it's a potential selling opportunity. Buy on the previous day and sell on the current day to accumulate profit.",
+    "Keep track of the total profit.",
+    "You don't need to explicitly find buy and sell days; just accumulate the difference when the price increases from the previous day."
+  ],
+  "tags": ["Array", "Greedy", "Stocks", "Profit"]
+},
+{
+  "problemId": 23,
+  "courseId": "hcltech",
+  "title": "Longest repeating and non-overlapping substring",
+  "difficulty": "Hard",
+  "description": "Given a string s, find the longest repeating non-overlapping substring in it. In other words, find 2 identical substrings of maximum length which do not overlap. If no such string exists, return -1. If multiple answers are possible, return the substring whose first occurrence is earlier.",
+  "examples": [
+    {
+      "input": "\"acdcdacdc\"\n",
+      "output": "\"acdc\"\n"
+    },
+    {
+      "input": "\"geeksforgeeks\"\n",
+      "output": "\"geeks\"\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of s <= 1000"
+  ],
+  "testCases": [
+    {
+      "input": "\"acdcdacdc\"\n",
+      "expectedOutput": "\"acdc\"\n"
+    },
+    {
+      "input": "\"geeksforgeeks\"\n",
+      "expectedOutput": "\"geeks\"\n"
+    },
+    {
+      "input": "\"banana\"\n",
+      "expectedOutput": "\"ana\"\n"
+    },
+    {
+      "input": "\"ababa\"\n",
+      "expectedOutput": "\"aba\"\n"
+    },
+    {
+      "input": "\"abcde\"\n",
+      "expectedOutput": "-1\n"
+    },
+    {
+      "input": "\"aaaaa\"\n",
+      "expectedOutput": "\"aa\"\n"
+    },
+    {
+      "input": "\"ababab\"\n",
+      "expectedOutput": "\"abab\"\n"
+    },
+    {
+      "input": "\"stringstring\"\n",
+      "expectedOutput": "\"string\"\n"
+    },
+    {
+      "input": "\"abcab\"\n",
+      "expectedOutput": "\"ab\"\n"
+    }
+  ],
+  "hints": [
+    "Iterate through all possible substring lengths, starting from the longest possible length down to 1.",
+    "For each length, iterate through all possible starting positions of the first substring.",
+    "For each first substring, iterate through all possible starting positions of the second substring such that it does not overlap with the first one.",
+    "Compare the two substrings. If they are equal, you have found a repeating non-overlapping substring of the current length. Since you are iterating from the longest length downwards, this will be the longest such substring.",
+    "Return the first occurring of these longest substrings.",
+    "If no such substring is found after checking all possible lengths, return -1."
+  ],
+  "tags": ["String", "Substring", "Pattern Matching"]
+},
+{
+  "problemId": 24,
+  "courseId": "hcltech",
+  "title": "Merge two BSTs with limited extra space",
+  "difficulty": "Medium",
+  "description": "Given two Binary Search Trees (BSTs), print the inorder traversal of the merged BSTs. Aim for a solution with limited extra space.",
+  "examples": [
+    {
+      "input": "First BST:\n    3\n   / \\\n  1   5\nSecond BST:\n    4\n   / \\\n  2   6\n",
+      "output": "1 2 3 4 5 6\n"
+    },
+    {
+      "input": "First BST:\n        8\n       / \\\n      2  10\n     /\n    1\nSecond BST:\n      5\n     /\n    3\n   /\n  0\n",
+      "output": "0 1 2 3 5 8 10\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in each BST can be up to 10^5.",
+    "The values in the BSTs are distinct.",
+    "The values of the nodes are integers."
+  ],
+  "testCases": [
+    {
+      "input": "First BST:\n    3\n   / \\\n  1   5\nSecond BST:\n    4\n   / \\\n  2   6\n",
+      "expectedOutput": "1 2 3 4 5 6\n"
+    },
+    {
+      "input": "First BST:\n        8\n       / \\\n      2  10\n     /\n    1\nSecond BST:\n      5\n     /\n    3\n   /\n  0\n",
+      "expectedOutput": "0 1 2 3 5 8 10\n"
+    },
+    {
+      "input": "First BST:\n  1\n   \\\n    2\n     \\\n      3\nSecond BST:\n  4\n   \\\n    5\n     \\\n      6\n",
+      "expectedOutput": "1 2 3 4 5 6\n"
+    },
+    {
+      "input": "First BST:\n    5\n   /\n  3\n /\n1\nSecond BST:\n      8\n     /\n    7\n   /\n  6\n",
+      "expectedOutput": "1 3 5 6 7 8\n"
+    },
+    {
+      "input": "First BST:\n  10\nSecond BST:\n  5\n",
+      "expectedOutput": "5 10\n"
+    },
+    {
+      "input": "First BST:\n  5\nSecond BST:\n  10\n",
+      "expectedOutput": "5 10\n"
+    },
+    {
+      "input": "First BST:\n  1\nSecond BST:\nNULL\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "First BST:\nNULL\nSecond BST:\n  1\n",
+      "expectedOutput": "1\n"
+    }
+  ],
+  "hints": [
+    "One approach with limited extra space involves iterative inorder traversal using stacks for both BSTs.",
+    "Initialize two stacks, one for each BST.",
+    "While either stack is not empty, or the current pointers in either BST are not NULL:",
+    "  Move as far left as possible in the first BST, pushing nodes onto its stack.",
+    "  Move as far left as possible in the second BST, pushing nodes onto its stack.",
+    "  Compare the top nodes of the two stacks (if they exist).",
+    "  If one stack is empty, pop from the other and process.",
+    "  If both have nodes, pop the smaller node, print its value, and then move to its right child (which will be processed in the next iteration by going left again).",
+    "This approach avoids storing the entire inorder traversal of both trees at once, thus limiting extra space."
+  ],
+  "tags": ["Binary Search Tree", "BST", "Merge", "Inorder Traversal", "Limited Space"]
+},
+{
+  "problemId": 25,
+  "courseId": "hcltech",
+  "title": "Round the given number to nearest multiple of 10",
+  "difficulty": "Easy",
+  "description": "Given a positive integer n, round it to the nearest whole number that has zero as its last digit (i.e., the nearest multiple of 10).",
+  "examples": [
+    {
+      "input": "4722\n",
+      "output": "4720\n"
+    },
+    {
+      "input": "38\n",
+      "output": "40\n"
+    },
+    {
+      "input": "10\n",
+      "output": "10\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "4722\n",
+      "expectedOutput": "4720\n"
+    },
+    {
+      "input": "38\n",
+      "expectedOutput": "40\n"
+    },
+    {
+      "input": "10\n",
+      "expectedOutput": "10\n"
+    },
+    {
+      "input": "5\n",
+      "expectedOutput": "10\n"
+    },
+    {
+      "input": "15\n",
+      "expectedOutput": "20\n"
+    },
+    {
+      "input": "23\n",
+      "expectedOutput": "20\n"
+    },
+    {
+      "input": "27\n",
+      "expectedOutput": "30\n"
+    },
+    {
+      "input": "99\n",
+      "expectedOutput": "100\n"
+    },
+    {
+      "input": "100\n",
+      "expectedOutput": "100\n"
+    }
+  ],
+  "hints": [
+    "Consider the last digit of the number.",
+    "If the last digit is less than 5, round down to the previous multiple of 10.",
+    "If the last digit is 5 or greater, round up to the next multiple of 10.",
+    "To round down, you can integer divide the number by 10 and then multiply by 10.",
+    "To round up, if the last digit is >= 5, add (10 - last digit) to the original number."
+  ],
+  "tags": ["Mathematics", "Rounding"]
+},
+{
+  "problemId": 26,
+  "courseId": "hcltech",
+  "title": "Count of substrings that start and end with 1 in given Binary String",
+  "difficulty": "Easy",
+  "description": "Given a binary string, count the number of substrings that start and end with the character '1'.",
+  "examples": [
+    {
+      "input": "\"00100101\"\n",
+      "output": "3\n"
+    },
+    {
+      "input": "\"1001\"\n",
+      "output": "1\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of string <= 10^5",
+    "The string contains only '0' and '1' characters."
+  ],
+  "testCases": [
+    {
+      "input": "\"00100101\"\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "\"1001\"\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "\"1111\"\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input": "\"0000\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "\"10101\"\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "\"1\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "\"0\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "\"10\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "\"01\"\n",
+      "expectedOutput": "0\n"
+    }
+  ],
+  "hints": [
+    "Iterate through all possible starting positions of a substring.",
+    "For each starting position, iterate through all possible ending positions of a substring (where the end position is greater than or equal to the start position).",
+    "For each substring, check if it starts with '1' and ends with '1'.",
+    "If it does, increment a counter.",
+    "Finally, return the counter.",
+    "Optimization: You can first count the total number of '1's in the string. If the count of '1's is 'c', then the number of substrings that start and end with '1' is c * (c - 1) / 2."
+  ],
+  "tags": ["String", "Binary String", "Substrings", "Counting"]
+},
+{
+  "problemId": 27,
+  "courseId": "hcltech",
+  "title": "Alternatively Merge two Strings",
+  "difficulty": "Easy",
+  "description": "Given two strings, merge them in an alternate way. The first character of the result is from the first string, the second from the second string, and so on. If one string is longer, append the remaining characters of the longer string to the end of the merged string.",
+  "examples": [
+    {
+      "input": "string 1 :\"geeks\"\nstring 2 :\"forgeeks\"\n",
+      "output": "\"gfeoerkgseeks\"\n"
+    },
+    {
+      "input": "string 1 :\"hello\"\nstring 2 :\"geeks\"\n",
+      "output": "\"hgeelelkos\"\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of each string <= 10^5",
+    "The strings contain lowercase English letters."
+  ],
+  "testCases": [
+    {
+      "input": "string 1 :\"geeks\"\nstring 2 :\"forgeeks\"\n",
+      "expectedOutput": "\"gfeoerkgseeks\"\n"
+    },
+    {
+      "input": "string 1 :\"hello\"\nstring 2 :\"geeks\"\n",
+      "expectedOutput": "\"hgeelelkos\"\n"
+    },
+    {
+      "input": "string 1 :\"abc\"\nstring 2 :\"def\"\n",
+      "expectedOutput": "\"adbecf\"\n"
+    },
+    {
+      "input": "string 1 :\"abc\"\nstring 2 :\"de\"\n",
+      "expectedOutput": "\"adbec\"\n"
+    },
+    {
+      "input": "string 1 :\"ab\"\nstring 2 :\"cde\"\n",
+      "expectedOutput": "\"acbde\"\n"
+    },
+    {
+      "input": "string 1 :\"a\"\nstring 2 :\"bc\"\n",
+      "expectedOutput": "\"abc\"\n"
+    },
+    {
+      "input": "string 1 :\"ab\"\nstring 2 :\"c\"\n",
+      "expectedOutput": "\"acb\"\n"
+    },
+    {
+      "input": "string 1 :\"\"\nstring 2 :\"abc\"\n",
+      "expectedOutput": "\"abc\"\n"
+    },
+    {
+      "input": "string 1 :\"abc\"\nstring 2 :\"\"\n",
+      "expectedOutput": "\"abc\"\n"
+    }
+  ],
+  "hints": [
+    "Use two pointers, one for each string, initialized to the beginning of the strings.",
+    "Iterate while both pointers are within the bounds of their respective strings.",
+    "Append the character at the first pointer to the result string, then increment the first pointer.",
+    "Append the character at the second pointer to the result string, then increment the second pointer.",
+    "After one of the pointers reaches the end of its string, append the remaining part of the other string (if any) to the result string."
+  ],
+  "tags": ["String", "Merging", "Alternating"]
+},
+{
+  "problemId": 28,
+  "courseId": "hcltech",
+  "title": "Trim the array to satisfy 2 * min > max with minimum removals",
+  "difficulty": "Medium",
+  "description": "Given an unsorted array, trim it by removing elements from either end such that twice the minimum element in the trimmed array is greater than the maximum element in the trimmed array. The number of removals should be minimum.",
+  "examples": [
+    {
+      "input": "[4, 5, 100, 9, 10, 11, 12, 15, 200]\n",
+      "output": "4\n"
+    },
+    {
+      "input": "[4, 7, 5, 6]\n",
+      "output": "0\n"
+    },
+    {
+      "input": "[20, 7, 5, 6]\n",
+      "output": "1\n"
+    },
+    {
+      "input": "[20, 4, 1, 3]\n",
+      "output": "3\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "1 <= arr[i] <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "[4, 5, 100, 9, 10, 11, 12, 15, 200]\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "[4, 7, 5, 6]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[20, 7, 5, 6]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[20, 4, 1, 3]\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[5, 4, 3, 2, 1]\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "[10, 1, 100, 2]\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "[1, 1, 1, 1, 1]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[1, 1000]\n",
+      "expectedOutput": "1\n"
+    }
+  ],
+  "hints": [
+    "First, sort the array. This will help in easily identifying the minimum and maximum elements of any subarray formed by trimming from the ends.",
+    "After sorting, iterate through all possible trimmed arrays. A trimmed array is formed by removing some prefix and some suffix (possibly empty).",
+    "For each trimmed array, find the minimum and maximum elements.",
+    "Check if the condition (2 * min > max) is satisfied for the trimmed array.",
+    "Keep track of the maximum length of a trimmed array that satisfies the condition.",
+    "The minimum number of removals will be the original length of the array minus the maximum length of a valid trimmed array.",
+    "Consider all possible combinations of left and right removals."
+  ],
+  "tags": ["Array", "Sorting", "Trimming", "Minimum Removals"]
+},
+{
+  "problemId": 29,
+  "courseId": "hcltech",
+  "title": "Check if two Strings are Anagrams of each other",
+  "difficulty": "Easy",
+  "description": "Given two strings s1 and s2 consisting of lowercase characters, check if the two strings are anagrams of each other. An anagram is a string formed by rearranging the letters of another string.",
+  "examples": [
+    {
+      "input": "s1 = “geeks”  s2 = “kseeg”\n",
+      "output": "true\n"
+    },
+    {
+      "input": "s1 = “allergy”  s2 = “allergic”\n",
+      "output": "false\n"
+    },
+    {
+      "input": "s1 = “g”, s2 = “g”\n",
+      "output": "true\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of s1, s2 <= 10^5",
+    "The strings consist of lowercase English characters."
+  ],
+  "testCases": [
+    {
+      "input": "s1 = “geeks”  s2 = “kseeg”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "s1 = “allergy”  s2 = “allergic”\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "s1 = “g”, s2 = “g”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "s1 = “listen” s2 = “silent”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "s1 = “aabb” s2 = “abab”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "s1 = “aab” s2 = “abb”\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "s1 = “” s2 = “”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "s1 = “abc” s2 = “abcd”\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "s1 = “abcd” s2 = “abc”\n",
+      "expectedOutput": "false\n"
+    }
+  ],
+  "hints": [
+    "Two strings are anagrams if they have the same length and the same characters with the same frequencies.",
+    "One way to check this is to count the frequency of each character in both strings.",
+    "If the character counts are identical for all characters, the strings are anagrams.",
+    "You can use a hash map (or an array of size 26 since the characters are lowercase English letters) to store the frequencies.",
+    "Alternatively, you can sort both strings. If the sorted strings are equal, then the original strings are anagrams."
+  ],
+  "tags": ["String", "Anagram", "Character Counting", "Sorting"]
+},
+{
+  "problemId": 30,
+  "courseId": "hcltech",
+  "title": "String to Integer – Write your own atoi()",
+  "difficulty": "Medium",
+  "description": "Given a string s, convert it into a 32-bit signed integer format without using any built-in functions like atoi(). Follow the rules similar to the standard atoi() function.",
+  "examples": [
+    {
+      "input": "s = “-123”\n",
+      "output": "-123\n"
+    },
+    {
+      "input": "s = ”   -“\n",
+      "output": "0\n"
+    },
+    {
+      "input": "s = ”  1231231231311133″\n",
+      "output": "2147483647\n"
+    },
+    {
+      "input": "s = “-999999999999”\n",
+      "output": "-2147483648\n"
+    },
+    {
+      "input": "s = ”  -0012gfg4″\n",
+      "output": "-12\n"
+    }
+  ],
+  "constraints": [
+    "0 <= length of s <= 200",
+    "The string s consists of English letters (lower and upper case), digits (0-9), ' ', '+', '-', and '.'."
+  ],
+  "testCases": [
+    {
+      "input": "“-123”\n",
+      "expectedOutput": "-123\n"
+    },
+    {
+      "input": "”   -“\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "”  1231231231311133″\n",
+      "expectedOutput": "2147483647\n"
+    },
+    {
+      "input": "“-999999999999”\n",
+      "expectedOutput": "-2147483648\n"
+    },
+    {
+      "input": "”  -0012gfg4″\n",
+      "expectedOutput": "-12\n"
+    },
+    {
+      "input": "“42”\n",
+      "expectedOutput": "42\n"
+    },
+    {
+      "input": "”   42”\n",
+      "expectedOutput": "42\n"
+    },
+    {
+      "input": "“4193 with words”\n",
+      "expectedOutput": "4193\n"
+    },
+    {
+      "input": "“words and 987”\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "“+1”\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "“+-12”\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "“-+12”\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "“0”\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "“00000”\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "“  000123”\n",
+      "expectedOutput": "123\n"
+    }
+  ],
+  "hints": [
+    "Start by skipping leading whitespace characters.",
+    "Check for an optional sign ('+' or '-') at the beginning. Keep track of the sign.",
+    "Iterate through the subsequent characters. If a character is a digit, build the integer value.",
+    "Stop when a non-digit character is encountered or the end of the string is reached.",
+    "Handle potential integer overflow and underflow. The result should be clamped to the 32-bit signed integer range [-2^31, 2^31 - 1].",
+    "If no digits are read, the result is 0."
+  ],
+  "tags": ["String", "Integer Conversion", "atoi"]
+}
+]

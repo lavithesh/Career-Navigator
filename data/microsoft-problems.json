@@ -1,0 +1,1791 @@
+[
+    {
+        "problemId": 1,
+        "courseId": "microsoft",
+        "title": "Copy List with Random Pointer",
+        "difficulty": "Medium",
+        "description": "A linked list of length n is given such that each node contains an additional random pointer, which could point to any node in the list, or null.\n\nConstruct a deep copy of the list. The deep copy should consist of exactly n brand new nodes, where each new node has its value set to the value of its corresponding original node. Both the next and random pointer of the new nodes should point to new nodes in the copied list such that the pointers in the original list and copied list represent the same list state. None of the pointers in the new list should point to nodes in the original list.\n\nFor example, if there are two nodes X and Y in the original list, where X.random --> Y, then for the corresponding two nodes x and y in the copied list, x.random --> y.\n\nReturn the head of the copied linked list.\n\nThe linked list is represented in the input/output as a list of n nodes. Each node is represented as a pair of [val, random_index] where:\n\nval: an integer representing Node.val\nrandom_index: the index of the node (range from 0 to n-1) that the random pointer points to, or null if it does not point to any node.\nYour code will only be given the head of the original linked list.",
+        "examples": [
+          {
+            "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]\n",
+            "output": "[[7,null],[13,0],[11,4],[10,2],[1,0]]\n"
+          },
+          {
+            "input": "head = [[1,1],[2,1]]\n",
+            "output": "[[1,1],[2,1]]\n"
+          },
+          {
+            "input": "head = [[3,null],[3,0],[3,null]]\n",
+            "output": "[[3,null],[3,0],[3,null]]\n"
+          }
+        ],
+        "constraints": [
+          "0 <= n <= 1000",
+          "-104 <= Node.val <= 104",
+          "Node.random is null or is pointing to some node in the linked list."
+        ],
+        "testCases": [
+          {
+            "input": "head = [[7,null],[13,0],[11,4],[10,2],[1,0]]\n",
+            "expectedOutput": "[[7,null],[13,0],[11,4],[10,2],[1,0]]\n"
+          },
+          {
+            "input": "head = [[1,1],[2,1]]\n",
+            "expectedOutput": "[[1,1],[2,1]]\n"
+          },
+          {
+            "input": "head = [[3,null],[3,0],[3,null]]\n",
+            "expectedOutput": "[[3,null],[3,0],[3,null]]\n"
+          },
+          {
+            "input": "head = []\n",
+            "expectedOutput": "[]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [[1,null]]\n",
+            "expectedOutput": "[[1,null]]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Just iterate the linked list and create copies of the nodes on the go. Since a node can be referenced from multiple nodes due to the random pointers, ensure you are not making multiple copies of the same node.",
+          "You may want to use extra space to keep old_node ---> new_node mapping to prevent creating multiple copies of the same node.",
+          "We can avoid using extra space for old_node ---> new_node mapping by tweaking the original linked list. Simply interweave the nodes of the old and copied list. For example: Old List: A --> B --> C --> D InterWeaved List: A --> A' --> B --> B' --> C --> C' --> D --> D'",
+          "The interweaving is done using next pointers and we can make use of interweaved structure to get the correct reference nodes for random pointers."
+        ],
+        "tags": ["Hash Table", "Linked List"]
+      },
+       {
+        "problemId": 2,
+        "courseId": "microsoft",
+        "title": "Integer to English Words",
+        "difficulty": "Hard",
+        "description": "Convert a non-negative integer num to its English words representation.",
+        "examples": [
+          {
+            "input": "num = 123\n",
+            "output": "One Hundred Twenty Three\n"
+          },
+          {
+            "input": "num = 12345\n",
+            "output": "Twelve Thousand Three Hundred Forty Five\n"
+          },
+          {
+            "input": "num = 1234567\n",
+            "output": "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven\n"
+          }
+        ],
+        "constraints": [
+          "0 <= num <= 231 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "num = 123\n",
+            "expectedOutput": "One Hundred Twenty Three\n"
+          },
+          {
+            "input": "num = 12345\n",
+            "expectedOutput": "Twelve Thousand Three Hundred Forty Five\n"
+          },
+          {
+            "input": "num = 1234567\n",
+            "expectedOutput": "One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven\n"
+          },
+          {
+            "input": "num = 0\n",
+            "expectedOutput": "Zero\n",
+            "isHidden": true
+          },
+          {
+            "input": "num = 1000010\n",
+            "expectedOutput": "One Million Ten\n",
+            "isHidden": true
+          },
+          {
+            "input": "num = 1000000\n",
+            "expectedOutput": "One Million\n",
+            "isHidden": true
+          },
+          {
+              "input": "num = 2147483647\n",
+              "expectedOutput": "Two Billion One Hundred Forty Seven Million Four Hundred Eighty Three Thousand Six Hundred Forty Seven\n",
+              "isHidden": true
+          }
+        ],
+        "hints": [
+          "Did you see a pattern in dividing the number into chunk of words? For example, 123 and 123000.",
+          "Group the number by thousands (3 digits). You can write a helper function that takes a number less than 1000 and convert just that chunk to words.",
+          "There are many edge cases. What are some good test cases? Does your code work with input such as 0? Or 1000010? (middle chunk is zero and should not be printed out)"
+        ],
+        "tags": ["Math", "String", "Recursion"]
+      },
+      {
+        "problemId": 3,
+        "courseId": "microsoft",
+        "title": "The Skyline Problem",
+        "difficulty": "Hard",
+        "description": "A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Given the locations and heights of all the buildings, return the skyline formed by these buildings collectively.\nThe geometric information of each building is given in the array buildings where buildings[i] = [lefti, righti, heighti]:\nlefti is the x coordinate of the left edge of the ith building.\nrighti is the x coordinate of the right edge of the ith building.\nheighti is the height of the ith building.\nYou may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0.\nThe skyline should be represented as a list of \"key points\" sorted by their x-coordinate in the form [[x1,y1],[x2,y2],...]. Each key point is the left endpoint of some horizontal segment in the skyline except the last point in the list, which always has a y-coordinate 0 and is used to mark the skyline's termination where the rightmost building ends. Any ground between the leftmost and rightmost buildings should be part of the skyline's contour.\nNote: There must be no consecutive horizontal lines of equal height in the output skyline. For instance, [...,[2 3],[4 5],[7 5],[11 5],[12 7],...] is not acceptable; the three lines of height 5 should be merged into one in the final output as such: [...,[2 3],[4 5],[12 7],...]",
+        "examples": [
+          {
+            "input": "buildings = [[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]\n",
+            "output": "[[2,10],[3,15],[7,12],[12,0],[15,10],[20,8],[24,0]]\n",
+            "explanation": "Figure A shows the buildings of the input.\nFigure B shows the skyline formed by those buildings. The red points in figure B represent the key points in the output list.\n"
+          },
+          {
+            "input": "buildings = [[0,2,3],[2,5,3]]\n",
+            "output": "[[0,3],[5,0]]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= buildings.length <= 104",
+          "0 <= lefti < righti <= 231 - 1",
+          "1 <= heighti <= 231 - 1",
+          "buildings is sorted by lefti in non-decreasing order."
+        ],
+        "testCases": [
+          {
+            "input": "buildings = [[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]]\n",
+            "expectedOutput": "[[2,10],[3,15],[7,12],[12,0],[15,10],[20,8],[24,0]]\n"
+          },
+          {
+            "input": "buildings = [[0,2,3],[2,5,3]]\n",
+            "expectedOutput": "[[0,3],[5,0]]\n"
+          },
+          {
+            "input": "buildings = [[1,2,1],[1,2,2],[1,2,3]]\n",
+            "expectedOutput": "[[1,3],[2,0]]\n",
+            "isHidden": true
+          },
+          {
+            "input": "buildings = [[0,1,3],[0,2,3]]\n",
+            "expectedOutput": "[[0,3],[2,0]]\n",
+            "isHidden": true
+          },
+          {
+            "input": "buildings = [[0,2,3],[1,3,3],[2,4,4],[3,5,4]]\n",
+            "expectedOutput": "[[0,3],[2,4],[5,0]]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use a line sweep algorithm to solve this problem.",
+          "Maintain a priority queue (or multiset) of active building heights.",
+          "Process the buildings' left and right edges as events, sorted by x-coordinate.",
+          "When processing a left edge, add the building's height to the priority queue.",
+          "When processing a right edge, remove the building's height from the priority queue.",
+          "Track the maximum height in the priority queue and add key points to the skyline when the maximum height changes."
+        ],
+        "tags": ["Array", "Divide and Conquer", "Binary Indexed Tree", "Segment Tree", "Line Sweep", "Heap (Priority Queue)"]
+      },
+       {
+        "problemId": 4,
+        "courseId": "microsoft",
+        "title": "Compare Version Numbers",
+        "difficulty": "Medium",
+        "description": "Given two version strings, version1 and version2, compare them. A version string consists of revisions separated by dots '.'. The value of the revision is its integer conversion ignoring leading zeros.\nTo compare version strings, compare their revision values in left-to-right order. If one of the version strings has fewer revisions, treat the missing revision values as 0.\nReturn the following:\nIf version1 < version2, return -1.\nIf version1 > version2, return 1.\nOtherwise, return 0.",
+        "examples": [
+          {
+            "input": "version1 = \"1.2\", version2 = \"1.10\"\n",
+            "output": "-1\n",
+            "explanation": "version1's second revision is \"2\" and version2's second revision is \"10\": 2 < 10, so version1 < version2.\n"
+          },
+          {
+            "input": "version1 = \"1.01\", version2 = \"1.001\"\n",
+            "output": "0\n",
+            "explanation": "Ignoring leading zeroes, both \"01\" and \"001\" represent the same integer \"1\".\n"
+          },
+          {
+            "input": "version1 = \"1.0\", version2 = \"1.0.0.0\"\n",
+            "output": "0\n",
+            "explanation": "version1 has less revisions, which means every missing revision are treated as \"0\".\n"
+          }
+        ],
+        "constraints": [
+          "1 <= version1.length, version2.length <= 500",
+          "version1 and version2 only contain digits and '.'.",
+          "version1 and version2 are valid version numbers.",
+          "All the given revisions in version1 and version2 can be stored in a 32-bit integer."
+        ],
+        "testCases": [
+          {
+            "input": "version1 = \"1.2\", version2 = \"1.10\"\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "version1 = \"1.01\", version2 = \"1.001\"\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "version1 = \"1.0\", version2 = \"1.0.0.0\"\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "version1 = \"1.0.1\", version2 = \"1\"\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "version1 = \"1\", version2 = \"1.0.1\"\n",
+            "expectedOutput": "-1\n",
+            "isHidden": true
+          },
+          {
+            "input": "version1 = \"1.0.0.0.0.0.0.0.0.0\", version2 = \"1\"\n",
+            "expectedOutput": "0\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "You can use two pointers for each version string to traverse them together while comparing the corresponding segments.",
+          "Utilize the substring method to extract each version segment delimited by '.'. Ensure you're extracting the segments correctly by adjusting the start and end indices accordingly."
+        ],
+        "tags": ["Two Pointers", "String"]
+      },
+       {
+        "problemId": 5,
+        "courseId": "microsoft",
+        "title": "Reverse Nodes in k-Group",
+        "difficulty": "Hard",
+        "description": "Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.\nk is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.\nYou may not alter the values in the list's nodes, only nodes themselves may be changed.",
+        "examples": [
+          {
+            "input": "head = [1,2,3,4,5], k = 2\n",
+            "output": "[2,1,4,3,5]\n"
+          },
+          {
+            "input": "head = [1,2,3,4,5], k = 3\n",
+            "output": "[3,2,1,4,5]\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in the list is n.",
+          "1 <= k <= n <= 5000",
+          "0 <= Node.val <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "head = [1,2,3,4,5], k = 2\n",
+            "expectedOutput": "[2,1,4,3,5]\n"
+          },
+          {
+            "input": "head = [1,2,3,4,5], k = 3\n",
+            "expectedOutput": "[3,2,1,4,5]\n"
+          },
+          {
+            "input": "head = [1,2], k = 2\n",
+            "expectedOutput": "[2,1]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,2,3], k = 1\n",
+            "expectedOutput": "[1,2,3]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,2,3,4,5,6,7,8], k = 4\n",
+            "expectedOutput": "[4,3,2,1,8,7,6,5]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use recursion or iteration to solve this problem.",
+          "For recursion, reverse the first k nodes and then recursively call the function for the remaining nodes.",
+          "For iteration, use a dummy node to keep track of the head of the reversed list.",
+          "Keep track of the previous and next nodes while reversing the list.",
+          "Check if there are at least k nodes remaining before reversing."
+        ],
+        "tags": ["Linked List", "Recursion"]
+      },
+       {
+        "problemId": 6,
+        "courseId": "microsoft",
+        "title": "Search a 2D Matrix II",
+        "difficulty": "Medium",
+        "description": "Write an efficient algorithm that searches for a value target in an m x n integer matrix matrix. This matrix has the following properties:\nIntegers in each row are sorted in ascending from left to right.\nIntegers in each column are sorted in ascending from top to bottom.",
+        "examples": [
+          {
+            "input": "matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5\n",
+            "output": "true\n"
+          },
+          {
+            "input": "matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20\n",
+            "output": "false\n"
+          }
+        ],
+        "constraints": [
+          "m == matrix.length",
+          "n == matrix[i].length",
+          "1 <= n, m <= 300",
+          "-109 <= matrix[i][j] <= 109",
+          "All the integers in each row are sorted in ascending order.",
+          "All the integers in each column are sorted in ascending order.",
+          "-109 <= target <= 109"
+        ],
+        "testCases": [
+          {
+            "input": "matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 5\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "matrix = [[1,4,7,11,15],[2,5,8,12,19],[3,6,9,16,22],[10,13,14,17,24],[18,21,23,26,30]], target = 20\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "matrix = [[1,1]], target = 2\n",
+            "expectedOutput": "false\n",
+            "isHidden": true
+          },
+          {
+            "input": "matrix = [[5],[6]], target = 6\n",
+            "expectedOutput": "true\n",
+            "isHidden": true
+          },
+          {
+            "input": "matrix = [[-1,3]], target = 3\n",
+            "expectedOutput": "true\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Consider the properties of the matrix. Can you rule out portions of the matrix by comparing the target to certain values?",
+          "Start your search in the top-right corner of the matrix. As long as you haven't found the target, you can move left or down based on the value of the current cell."
+        ],
+        "tags": ["Array", "Binary Search", "Divide and Conquer", "Matrix"]
+      },
+       {
+        "problemId": 7,
+        "courseId": "microsoft",
+        "title": "Regular Expression Matching",
+        "difficulty": "Hard",
+        "description": "Given an input string s and a pattern p, implement regular expression matching with support for '.' and '' where:\n'.' Matches any single character.​​​​\n'' Matches zero or more of the preceding element.\nThe matching should cover the entire input string (not partial).",
+        "examples": [
+          {
+            "input": "s = \"aa\", p = \"a\"\n",
+            "output": "false\n",
+            "explanation": "\"a\" does not match the entire string \"aa\".\n"
+          },
+          {
+            "input": "s = \"aa\", p = \"a*\"\n",
+            "output": "true\n",
+            "explanation": "'*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes \"aa\".\n"
+          },
+          {
+            "input": "s = \"ab\", p = \".*\"\n",
+            "output": "true\n",
+            "explanation": "\".\" means \"zero or more () of any character (.)\".\n"
+          }
+        ],
+        "constraints": [
+          "1 <= s.length <= 20",
+          "1 <= p.length <= 20",
+          "s contains only lowercase English letters.",
+          "p contains only lowercase English letters, '.', and '*'.",
+          "It is guaranteed for each appearance of the character '*', there will be a previous valid character to match."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"aa\", p = \"a\"\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "s = \"aa\", p = \"a*\"\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "s = \"ab\", p = \".*\"\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "s = \"aab\", p = \"c*a*b\"\n",
+            "expectedOutput": "true\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"mississippi\", p = \"mis*is*p*.\"\n",
+            "expectedOutput": "false\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"\", p = \".*\"\n",
+            "expectedOutput": "true\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use dynamic programming or recursion to solve this problem.",
+          "Create a 2D table dp where dp[i][j] represents whether the first i characters of s match the first j characters of p.",
+          "Handle the base cases: dp[0][0] = true, dp[0][j] depends on p[j-1] being '*'.",
+          "For other cells, consider the cases when p[j-1] is '.' or a lowercase letter, and when p[j-1] is '*'.",
+          "When p[j-1] is '*', consider the cases when the preceding element matches zero or more times."
+        ],
+        "tags": ["String", "Dynamic Programming", "Recursion"]
+      },
+      {
+        "problemId": 8,
+        "courseId": "microsoft",
+        "title": "Search in Rotated Sorted Array",
+        "difficulty": "Medium",
+        "description": "There is an integer array nums sorted in ascending order (with distinct values).\nPrior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].\nGiven the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.\nYou must write an algorithm with O(log n) runtime complexity.",
+        "examples": [
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 0\n",
+            "output": "4\n"
+          },
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 3\n",
+            "output": "-1\n"
+          },
+          {
+            "input": "nums = [1], target = 0\n",
+            "output": "-1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= nums.length <= 5000",
+          "-104 <= nums[i] <= 104",
+          "All values of nums are unique.",
+          "nums is an ascending array that is possibly rotated.",
+          "-104 <= target <= 104"
+        ],
+        "testCases": [
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 0\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 3\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "nums = [1], target = 0\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "nums = [1,3], target = 3\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [3,1], target = 1\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use binary search to solve this problem.",
+          "Modify the binary search algorithm to handle the rotated array.",
+          "Check if the middle element is greater than or equal to the left element to determine which half of the array is sorted.",
+          "Adjust the left and right pointers based on the sorted half and the target value."
+        ],
+        "tags": ["Array", "Binary Search"]
+      },
+      {
+        "problemId": 9,
+        "courseId": "microsoft",
+        "title": "Serialize and Deserialize Binary Tree",
+        "difficulty": "Hard",
+        "description": "Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.\nDesign an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.\nClarification: The input/output format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.",
+        "examples": [
+          {
+            "input": "root = [1,2,3,null,null,4,5]\n",
+            "output": "[1,2,3,null,null,4,5]\n"
+          },
+          {
+            "input": "root = []\n",
+            "output": "[]\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in the tree is in the range [0, 104].",
+          "-1000 <= Node.val <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "root = [1,2,3,null,null,4,5]\n",
+            "expectedOutput": "[1,2,3,null,null,4,5]\n"
+          },
+          {
+            "input": "root = []\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "root = [1]\n",
+            "expectedOutput": "[1]\n",
+            "isHidden": true
+          },
+          {
+            "input": "root = [1,2]\n",
+            "expectedOutput": "[1,2]\n",
+            "isHidden": true
+          },
+          {
+            "input": "root = [1,null,2]\n",
+            "expectedOutput": "[1,null,2]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "You can use either Depth-First Search (DFS) or Breadth-First Search (BFS) for serialization and deserialization.",
+          "For DFS, you can use preorder, inorder, or postorder traversal. Remember to include null nodes in your serialized string to reconstruct the tree structure.",
+          "For BFS, you can use level order traversal. Again, include null nodes in your serialized string.",
+          "When deserializing, you can use a queue or a stack to keep track of the nodes to be processed."
+        ],
+        "tags": ["String", "Tree", "Depth-First Search", "Breadth-First Search", "Design", "Binary Tree"]
+      },
+      {
+        "problemId": 10,
+        "courseId": "microsoft",
+        "title": "Lowest Common Ancestor of a Binary Tree",
+        "difficulty": "Medium",
+        "description": "Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.\nAccording to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”.",
+        "examples": [
+          {
+            "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1\n",
+            "output": "3\n",
+            "explanation": "The LCA of nodes 5 and 1 is 3.\n"
+          },
+          {
+            "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4\n",
+            "output": "5\n",
+            "explanation": "The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.\n"
+          },
+          {
+            "input": "root = [1,2], p = 1, q = 2\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in the tree is in the range [2, 105].",
+          "-109 <= Node.val <= 109",
+          "All Node.val are unique.",
+          "p != q",
+          "p and q will exist in the tree."
+        ],
+        "testCases": [
+          {
+            "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "root = [1,2], p = 1, q = 2\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "root = [1,2,3], p = 2, q = 3\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "root = [1,2,3,4,5], p = 4, q = 5\n",
+            "expectedOutput": "2\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use a recursive approach to solve this problem.",
+          "For each node, check if it is equal to p or q.",
+          "Recursively call the function for the left and right subtrees.",
+          "If one of the recursive calls returns null, return the other call's result.",
+          "If both recursive calls return a non-null node, the current node is the LCA."
+        ],
+        "tags": ["Tree", "Depth-First Search", "Binary Tree"]
+      },
+      {
+        "problemId": 11,
+        "courseId": "microsoft",
+        "title": "Populating Next Right Pointers in Each Node",
+        "difficulty": "Medium",
+        "description": "You are given a perfect binary tree where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:\nstruct Node {\n  int val;\n  Node *left;\n  Node *right;\n  Node *next;\n}\nPopulate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.\nInitially, all next pointers are set to NULL.",
+        "examples": [
+          {
+            "input": "root = [1,2,3,4,5,6,7]\n",
+            "output": "[1,#,2,3,#,4,5,6,7,#]\n",
+            "explanation": "Given the above perfect binary tree (Figure A), your function should populate each next pointer to point to its next right node, just like in Figure B. The serialized output is in level order as connected by the next pointers, with '#' signifying the end of each level.\n"
+          },
+          {
+            "input": "root = []\n",
+            "output": "[]\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in the tree is in the range [0, 212 - 1].",
+          "-1000 <= Node.val <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "root = [1,2,3,4,5,6,7]\n",
+            "expectedOutput": "[1,#,2,3,#,4,5,6,7,#]\n"
+          },
+          {
+            "input": "root = []\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "root = [1]\n",
+            "expectedOutput": "[1,#]\n",
+            "isHidden": true
+          },
+          {
+            "input": "root = [1,2,3]\n",
+            "expectedOutput": "[1,#,2,3,#]\n",
+            "isHidden": true
+          },
+          {
+            "input": "root = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]\n",
+            "expectedOutput": "[1,#,2,3,#,4,5,6,7,#,8,9,10,11,12,13,14,15,#]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "You may only use constant extra space.",
+          "The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.",
+          "Use level order traversal (BFS) to traverse the tree.",
+          "For each level, connect the nodes using the next pointer.",
+          "Keep track of the previous node to connect it to the current node.",
+          "Handle the case when there is no next right node (i.e., the current node is the last node in the level)."
+        ],
+        "tags": ["Linked List", "Tree", "Depth-First Search", "Breadth-First Search", "Binary Tree"]
+      },
+      {
+        "problemId": 12,
+        "courseId": "microsoft",
+        "title": "Remove K Digits",
+        "difficulty": "Medium",
+        "description": "Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.",
+        "examples": [
+          {
+            "input": "num = \"1432219\", k = 3\n",
+            "output": "\"1219\"\n",
+            "explanation": "Remove the three digits 4, 3, and 2 to form the new number 1219 which is the smallest.\n"
+          },
+          {
+            "input": "num = \"10200\", k = 1\n",
+            "output": "\"200\"\n",
+            "explanation": "Remove the leading 1 and the number is 200. Note that the output must not contain leading zeroes.\n"
+          },
+          {
+            "input": "num = \"10\", k = 2\n",
+            "output": "\"0\"\n",
+            "explanation": "Remove all the digits from the number and it is left with nothing which is 0.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= k <= num.length <= 105",
+          "num consists of only digits.",
+          "num does not have any leading zeros except for the zero itself."
+        ],
+        "testCases": [
+          {
+            "input": "num = \"1432219\", k = 3\n",
+            "expectedOutput": "\"1219\"\n"
+          },
+          {
+            "input": "num = \"10200\", k = 1\n",
+            "expectedOutput": "\"200\"\n"
+          },
+          {
+            "input": "num = \"10\", k = 2\n",
+            "expectedOutput": "\"0\"\n"
+          },
+          {
+            "input": "num = \"112\", k = 1\n",
+            "expectedOutput": "\"11\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "num = \"1111111\", k = 3\n",
+            "expectedOutput": "\"1111\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "num = \"1234567890\", k = 9\n",
+            "expectedOutput": "\"0\"\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use a stack to keep track of the digits in the result.",
+          "Iterate through the digits of num and compare each digit with the top of the stack.",
+          "If the current digit is smaller than the top of the stack, pop the stack and decrement k.",
+          "Append the current digit to the stack.",
+          "After iterating through all the digits, pop the stack k times if k is still greater than 0.",
+          "Remove leading zeros from the result.",
+          "If the result is empty, return \"0\"."
+        ],
+        "tags": ["String", "Stack", "Greedy", "Monotonic Stack"]
+      },
+      {
+        "problemId": 13,
+        "courseId": "microsoft",
+        "title": "Reverse Words in a String III",
+        "difficulty": "Easy",
+        "description": "Given a string s, reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.",
+        "examples": [
+          {
+            "input": "s = \"Let's take LeetCode contest\"\n",
+            "output": "\"s'teL ekat edoCteeL tsetnoc\"\n"
+          },
+          {
+            "input": "s = \"Mr Ding\"\n",
+            "output": "\"rM gniD\"\n"
+          }
+        ],
+        "constraints": [
+          "1 <= s.length <= 5 * 104",
+          "s contains printable ASCII characters.",
+          "s does not contain any leading or trailing spaces.",
+          "There is at least one word in s.",
+          "All the words in s are separated by a single space."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"Let's take LeetCode contest\"\n",
+            "expectedOutput": "\"s'teL ekat edoCteeL tsetnoc\"\n"
+          },
+          {
+            "input": "s = \"Mr Ding\"\n",
+            "expectedOutput": "\"rM gniD\"\n"
+          },
+          {
+            "input": "s = \"Hello\"\n",
+            "expectedOutput": "\"olleH\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"Hello World\"\n",
+            "expectedOutput": "\"olleH dlroW\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"abc def ghi jkl\"\n",
+            "expectedOutput": "\"cba fed ihg lkj\"\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Split the string into words using the space character as a delimiter.",
+          "Reverse each word individually.",
+          "Join the reversed words back together with spaces."
+        ],
+        "tags": ["Two Pointers", "String"]
+      },
+      {
+        "problemId": 14,
+        "courseId": "microsoft",
+        "title": "Remove Comments",
+        "difficulty": "Medium",
+        "description": "Given a C++ program, remove comments from it. The program source is an array of strings source where source[i] is the ith line of the source code. This represents the result of splitting the original source code string by the newline character '\\n'.\nIn C++, there are two types of comments, line comments, and block comments.\nThe string \"//\" denotes a line comment, which represents that it and the rest of the characters to the right of it in the same line should be ignored.\nThe string \"/\" denotes a block comment, which represents that all characters until the next (non-overlapping) occurrence of \"/\" should be ignored. (Here, occurrences happen in reading order: line by line from left to right.) To be clear, the string \"//\" does not yet end the block comment, as the ending would be overlapping the beginning.\nThe first effective comment takes precedence over others.\nFor example, if the string \"//\" occurs in a block comment, it is ignored.\nSimilarly, if the string \"/\" occurs in a line or block comment, it is also ignored.\nIf a certain line of code is empty after removing comments, you must not output that line: each string in the answer list will be non-empty.\nThere will be no control characters, single quote, or double quote characters.\nFor example, source = \"string s = \"/* Not a comment. /\";\" will not be a test case.\nAlso, nothing else such as defines or macros will interfere with the comments.\nIt is guaranteed that every open block comment will eventually be closed, so \"/\" outside of a line or block comment always starts a new comment.\nFinally, implicit newline characters can be deleted by block comments. Please see the examples below for details.\nAfter removing the comments from the source code, return the source code in the same format.",
+        "examples": [
+          {
+            "input": "source = [\"/Test program */\", \"int main()\", \"{ \", \"  // variable declaration \", \"int a, b, c;\", \"/ This is a test\", \"   multiline  \", \"   comment for \", \"   testing */\", \"a = b + c;\", \"}\"]\n",
+            "output": "[\"int main()\",\"{ \",\"  \",\"int a, b, c;\",\"a = b + c;\",\"}\"]\n",
+            "explanation": "The line by line code is visualized as below:\n/Test program */\nint main()\n{ \n  // variable declaration \nint a, b, c;\n/ This is a test\n   multiline  \n   comment for \n   testing /\na = b + c;\n}\nThe string / denotes a block comment, including line 1 and lines 6-9. The string // denotes line 4 as comments.\nThe line by line output code is visualized as below:\nint main()\n{ \n  \nint a, b, c;\na = b + c;\n}\n"
+          },
+          {
+            "input": "source = [\"a/comment\", \"line\", \"more_comment/b\"]\n",
+            "output": "[\"ab\"]\n",
+            "explanation": "The original source string is \"a/comment\\nline\\nmore_comment/b\", where we have bolded the newline characters.  After deletion, the implicit newline characters are deleted, leaving the string \"ab\", which when delimited by newline characters becomes [\"ab\"].\n"
+          }
+        ],
+        "constraints": [
+          "1 <= source.length <= 100",
+          "0 <= source[i].length <= 80",
+          "source[i] consists of printable ASCII characters.",
+          "Every open block comment is eventually closed.",
+          "There are no single-quote or double-quote in the input."
+        ],
+        "testCases": [
+          {
+            "input": "source = [\"/Test program */\", \"int main()\", \"{ \", \"  // variable declaration \", \"int a, b, c;\", \"/ This is a test\", \"   multiline  \", \"   comment for \", \"   testing */\", \"a = b + c;\", \"}\"]\n",
+            "expectedOutput": "[\"int main()\",\"{ \",\"  \",\"int a, b, c;\",\"a = b + c;\",\"}\"]\n"
+          },
+          {
+            "input": "source = [\"a/comment\", \"line\", \"more_comment/b\"]\n",
+            "expectedOutput": "[\"ab\"]\n"
+          },
+          {
+            "input": "source = [\"//comment\", \"int main()\", \"{\", \"}\"]\n",
+            "expectedOutput": "[\"int main()\", \"{\", \"}\"]\n",
+            "isHidden": true
+          },
+          {
+            "input": "source = [\"a//b//c\"]\n",
+            "expectedOutput": "[\"ac\"]\n",
+            "isHidden": true
+          },
+          {
+            "input": "source = [\"/*/\"]\n",
+            "expectedOutput": "[]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Carefully parse each line according to the following rules:",
+          "If we start a block comment and we aren't in a block, then we will skip over the next two characters and change our state to be in a block.",
+          "If we end a block comment and we are in a block, then we will skip over the next two characters and change our state to be not in a block.",
+          "If we start a line comment and we aren't in a block, then we will ignore the rest of the line.",
+          "If we aren't in a block comment (and it wasn't the start of a comment), we will record the character we are at.",
+          "At the end of each line, if we aren't in a block, we will record the line."
+        ],
+        "tags": ["Array", "String"]
+      },
+      {
+        "problemId": 15,
+        "courseId": "microsoft",
+        "title": "Sort Colors",
+        "difficulty": "Medium",
+        "description": "Given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue.\nWe will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.\nYou must solve this problem without using the library's sort function.",
+        "examples": [
+          {
+            "input": "nums = [2,0,2,1,1,0]\n",
+            "output": "[0,0,1,1,2,2]\n"
+          },
+          {
+            "input": "nums = [2,0,1]\n",
+            "output": "[0,1,2]\n"
+          }
+        ],
+        "constraints": [
+          "n == nums.length",
+          "1 <= n <= 300",
+          "nums[i] is either 0, 1, or 2."
+        ],
+        "testCases": [
+          {
+            "input": "nums = [2,0,2,1,1,0]\n",
+            "expectedOutput": "[0,0,1,1,2,2]\n"
+          },
+          {
+            "input": "nums = [2,0,1]\n",
+            "expectedOutput": "[0,1,2]\n"
+          },
+          {
+            "input": "nums = [0]\n",
+            "expectedOutput": "[0]\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [1]\n",
+            "expectedOutput": "[1]\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [2,2,2,2,2]\n",
+            "expectedOutput": "[2,2,2,2,2]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "A rather straight forward solution is a two-pass algorithm using counting sort.",
+          "Iterate the array counting number of 0's, 1's, and 2's.",
+          "Overwrite array with the total number of 0's, then 1's and followed by 2's.",
+          "Could you come up with a one-pass algorithm using only constant extra space?"
+        ],
+        "tags": ["Array", "Two Pointers", "Sorting"]
+      },
+      {
+        "problemId": 16,
+        "courseId": "microsoft",
+        "title": "Swap Nodes in Pairs",
+        "difficulty": "Medium",
+        "description": "Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)",
+        "examples": [
+          {
+            "input": "head = [1,2,3,4]\n",
+            "output": "[2,1,4,3]\n",
+            "explanation": "\n"
+          },
+          {
+            "input": "head = []\n",
+            "output": "[]\n"
+          },
+          {
+            "input": "head = [1]\n",
+            "output": "[1]\n"
+          },
+          {
+            "input": "head = [1,2,3]\n",
+            "output": "[2,1,3]\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in the list is in the range [0, 100].",
+          "0 <= Node.val <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "head = [1,2,3,4]\n",
+            "expectedOutput": "[2,1,4,3]\n"
+          },
+          {
+            "input": "head = []\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "head = [1]\n",
+            "expectedOutput": "[1]\n"
+          },
+          {
+            "input": "head = [1,2,3]\n",
+            "expectedOutput": "[2,1,3]\n"
+          },
+          {
+            "input": "head = [1,2,3,4,5]\n",
+            "expectedOutput": "[2,1,4,3,5]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use recursion or iteration to solve this problem.",
+          "For recursion, swap the first two nodes and then recursively call the function for the remaining nodes.",
+          "For iteration, use a dummy node to keep track of the head of the swapped list.",
+          "Keep track of the previous, current, and next nodes while swapping.",
+          "Handle the case when there are an odd number of nodes in the list."
+        ],
+        "tags": ["Linked List", "Recursion"]
+      },
+      {
+        "problemId": 17,
+        "courseId": "microsoft",
+        "title": "Reverse Words in a String",
+        "difficulty": "Medium",
+        "description": "Given an input string s, reverse the order of the words.\nA word is defined as a sequence of non-space characters. The words in s will be separated by at least one space.\nReturn a string of the words in reverse order concatenated by a single space.\nNote that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.",
+        "examples": [
+          {
+            "input": "s = \"the sky is blue\"\n",
+            "output": "\"blue is sky the\"\n"
+          },
+          {
+            "input": "s = \"  hello world  \"\n",
+            "output": "\"world hello\"\n",
+            "explanation": "Your reversed string should not contain leading or trailing spaces.\n"
+          },
+          {
+            "input": "s = \"a good   example\"\n",
+            "output": "\"example good a\"\n",
+            "explanation": "You need to reduce multiple spaces between two words to a single space in the reversed string.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= s.length <= 104",
+          "s contains English letters (upper-case and lower-case), digits, and spaces ' '.",
+          "There is at least one word in s."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"the sky is blue\"\n",
+            "expectedOutput": "\"blue is sky the\"\n"
+          },
+          {
+            "input": "s = \"  hello world  \"\n",
+            "expectedOutput": "\"world hello\"\n"
+          },
+          {
+            "input": "s = \"a good   example\"\n",
+            "expectedOutput": "\"example good a\"\n"
+          },
+          {
+            "input": "s = \"  a  b  c  \"\n",
+            "expectedOutput": "\"c b a\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"   fly me   to   the moon  \"\n",
+            "expectedOutput": "\"moon the to me fly\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"hello\"\n",
+            "expectedOutput": "\"hello\"\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Split the string into words using spaces as delimiters.",
+          "Reverse the order of the words.",
+          "Join the reversed words with a single space.",
+          "Handle leading/trailing spaces and multiple spaces between words.",
+          "If the string data type is mutable in your language, can you solve it in-place with O(1) extra space?"
+        ],
+        "tags": ["Two Pointers", "String"]
+      },
+      {
+        "problemId": 18,
+        "courseId": "microsoft",
+        "title": "Encode and Decode TinyURL",
+        "difficulty": "Medium",
+        "description": "Note: This is a companion problem to the System Design problem: Design TinyURL.\nTinyURL is a URL shortening service where you enter a URL such as https://leetcode.com/problems/design-tinyurl and it returns a short URL such as http://tinyurl.com/4e9iAk. Design a class to encode a URL and decode a tiny URL.\nThere is no restriction on how your encode/decode algorithm should work. You just need to ensure that a URL can be encoded to a tiny URL and the tiny URL can be decoded to the original URL.\nImplement the Solution class:\nSolution() Initializes the object of the system.\nString encode(String longUrl) Returns a tiny URL for the given longUrl.\nString decode(String shortUrl) Returns the original long URL for the given shortUrl. It is guaranteed that the given shortUrl was encoded by the same object.",
+        "examples": [
+          {
+            "input": "url = \"https://leetcode.com/problems/design-tinyurl\"\n",
+            "output": "\"https://leetcode.com/problems/design-tinyurl\"\n",
+            "explanation": "Solution obj = new Solution();\nstring tiny = obj.encode(url); // returns the encoded tiny url.\nstring ans = obj.decode(tiny); // returns the original url after decoding it.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= url.length <= 104",
+          "url is guranteed to be a valid URL."
+        ],
+        "testCases": [
+          {
+            "input": "url = \"https://leetcode.com/problems/design-tinyurl\"\n",
+            "expectedOutput": "\"https://leetcode.com/problems/design-tinyurl\"\n"
+          },
+          {
+            "input": "url = \"https://www.google.com\"\n",
+            "expectedOutput": "\"https://www.google.com\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "url = \"https://www.amazon.com/gp/product/B08V83QJ93/ref=s9_acsd_simh_hd_r10_c2_x_a1_i1_w?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-10&pf_rd_r=138W0M94QG4Q3W888W0R&pf_rd_t=101&pf_rd_p=7e562140-5e36-5131-a02b-a5d517865c61&pf_rd_i=1388728011\"\n",
+            "expectedOutput": "\"https://www.amazon.com/gp/product/B08V83QJ93/ref=s9_acsd_simh_hd_r10_c2_x_a1_i1_w?pf_rd_m=ATVPDKIKX0DER&pf_rd_s=merchandised-search-10&pf_rd_r=138W0M94QG4Q3W888W0R&pf_rd_t=101&pf_rd_p=7e562140-5e36-5131-a02b-a5d517865c61&pf_rd_i=1388728011\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "url = \"https://www.youtube.com/watch?v=dQw4w9WgXcQ\"\n",
+            "expectedOutput": "\"https://www.youtube.com/watch?v=dQw4w9WgXcQ\"\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use a hash table to store the long URLs and their corresponding short URLs.",
+          "Generate a random short URL for each long URL.",
+          "When decoding, retrieve the long URL from the hash table using the short URL as the key."
+        ],
+        "tags": ["Hash Table", "String", "Design", "Hash Function"]
+      },
+      {
+        "problemId": 19,
+        "courseId": "microsoft",
+        "title": "Excel Sheet Column Title",
+        "difficulty": "Easy",
+        "description": "Given an integer columnNumber, return its corresponding column title as it appears in an Excel sheet.\nFor example:\nA -> 1\nB -> 2\nC -> 3\n...\nZ -> 26\nAA -> 27\nAB -> 28\n...",
+        "examples": [
+          {
+            "input": "columnNumber = 1\n",
+            "output": "\"A\"\n"
+          },
+          {
+            "input": "columnNumber = 28\n",
+            "output": "\"AB\"\n"
+          },
+          {
+            "input": "columnNumber = 701\n",
+            "output": "\"ZY\"\n"
+          }
+        ],
+        "constraints": [
+          "1 <= columnNumber <= 231 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "columnNumber = 1\n",
+            "expectedOutput": "\"A\"\n"
+          },
+          {
+            "input": "columnNumber = 28\n",
+            "expectedOutput": "\"AB\"\n"
+          },
+          {
+            "input": "columnNumber = 701\n",
+            "expectedOutput": "\"ZY\"\n"
+          },
+          {
+            "input": "columnNumber = 26\n",
+            "expectedOutput": "\"Z\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "columnNumber = 52\n",
+            "expectedOutput": "\"AZ\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "columnNumber = 702\n",
+            "expectedOutput": "\"ZZ\"\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Think of this problem as converting from base 10 to base 26.",
+          "However, instead of digits 0-25, we use letters A-Z.",
+          "Remember that the remainder when dividing by 26 gives you the last digit, and integer division gives you the remaining digits.",
+          "Be careful to handle the case where the remainder is 0, since there is no '0' in our base 26 system."
+        ],
+        "tags": ["Math", "String"]
+      },
+      {
+        "problemId": 20,
+        "courseId": "microsoft",
+        "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+        "difficulty": "Medium",
+        "description": "Given two integer arrays preorder and inorder where preorder is the preorder traversal of a binary tree and inorder is the inorder traversal of the same tree, construct and return the binary tree.",
+        "examples": [
+          {
+            "input": "preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]\n",
+            "output": "[3,9,20,null,null,15,7]\n"
+          },
+          {
+            "input": "preorder = [-1], inorder = [-1]\n",
+            "output": "[-1]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= preorder.length <= 3000",
+          "inorder.length == preorder.length",
+          "-3000 <= preorder[i], inorder[i] <= 3000",
+          "preorder and inorder consist of unique values.",
+          "Each value of inorder also appears in preorder.",
+          "preorder is guaranteed to be the preorder traversal of the tree.",
+          "inorder is guaranteed to be the inorder traversal of the tree."
+        ],
+        "testCases": [
+          {
+            "input": "preorder = [3,9,20,15,7], inorder = [9,3,15,20,7]\n",
+            "expectedOutput": "[3,9,20,null,null,15,7]\n"
+          },
+          {
+            "input": "preorder = [-1], inorder = [-1]\n",
+            "expectedOutput": "[-1]\n"
+          },
+          {
+            "input": "preorder = [1,2,3], inorder = [2,1,3]\n",
+            "expectedOutput": "[1,2,3]\n",
+            "isHidden": true
+          },
+          {
+            "input": "preorder = [1,2], inorder = [2,1]\n",
+            "expectedOutput": "[1,2]\n",
+            "isHidden": true
+          },
+          {
+            "input": "preorder = [1,2], inorder = [1,2]\n",
+            "expectedOutput": "[1,null,2]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use recursion to solve this problem.",
+          "The first element of the preorder array is the root of the tree.",
+          "Find the root in the inorder array. The left subtree consists of the elements to the left of the root, and the right subtree consists of the elements to the right of the root.",
+          "Recursively construct the left and right subtrees using the corresponding subarrays of preorder and inorder."
+        ],
+        "tags": ["Array", "Hash Table", "Divide and Conquer", "Tree", "Binary Tree"]
+      },
+       {
+        "problemId": 21,
+        "courseId": "microsoft",
+        "title": "Battleships in a Board",
+        "difficulty": "Medium",
+        "description": "Given an m x n matrix board where each cell is a battleship 'X' or empty '.', return the number of the battleships on board.\nBattleships can only be placed horizontally or vertically on board. In other words, they can only be made of the shape 1 x k (1 row, k columns) or k x 1 (k rows, 1 column), where k can be of any size. At least one horizontal or vertical cell separates between two battleships (i.e., there are no adjacent battleships).",
+        "examples": [
+          {
+            "input": "board = [[\"X\",\".\",\".\",\"X\"],[\".\",\".\",\".\",\"X\"],[\".\",\".\",\".\",\"X\"]]\n",
+            "output": "2\n"
+          },
+          {
+            "input": "board = [[\".\"]]\n",
+            "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "m == board.length",
+          "n == board[i].length",
+          "1 <= m, n <= 200",
+          "board[i][j] is either '.' or 'X'."
+        ],
+        "testCases": [
+          {
+            "input": "board = [[\"X\",\".\",\".\",\"X\"],[\".\",\".\",\".\",\"X\"],[\".\",\".\",\".\",\"X\"]]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "board = [[\".\"]]\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "board = [[\"X\",\"X\",\"X\"],[\".\",\".\",\".\"],[\"X\",\".\",\".\"]]\n",
+            "expectedOutput": "2\n",
+            "isHidden": true
+          },
+          {
+            "input": "board = [[\"X\"],[\"X\"],[\"X\"]]\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "board = [[\"X\",\"X\"],[\"X\",\"X\"]]\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Could you do it in one-pass, using only O(1) extra memory and without modifying the values board?",
+          "A battleship is formed by adjacent 'X's in the same row or column.",
+          "Count the number of 'X's that are the 'head' of a battleship.",
+          "A head is an 'X' that has no 'X' to its left or above it."
+        ],
+        "tags": ["Array", "Depth-First Search", "Matrix"]
+      },
+      {
+        "problemId": 22,
+        "courseId": "microsoft",
+        "title": "Rectangle Area",
+        "difficulty": "Medium",
+        "description": "Given the coordinates of two rectilinear rectangles in a 2D plane, return the total area covered by the two rectangles.\nThe first rectangle is defined by its bottom-left corner (ax1, ay1) and its top-right corner (ax2, ay2).\nThe second rectangle is defined by its bottom-left corner (bx1, by1) and its top-right corner (bx2, by2).",
+        "examples": [
+          {
+            "input": "ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2\n",
+            "output": "45\n"
+          },
+          {
+            "input": "ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = -2, by1 = -2, bx2 = 2, by2 = 2\n",
+            "output": "16\n"
+          }
+        ],
+        "constraints": [
+          "-104 <= ax1 <= ax2 <= 104",
+          "-104 <= ay1 <= ay2 <= 104",
+          "-104 <= bx1 <= bx2 <= 104",
+          "-104 <= by1 <= by2 <= 104"
+        ],
+        "testCases": [
+          {
+            "input": "ax1 = -3, ay1 = 0, ax2 = 3, ay2 = 4, bx1 = 0, by1 = -1, bx2 = 9, by2 = 2\n",
+            "expectedOutput": "45\n"
+          },
+          {
+            "input": "ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = -2, by1 = -2, bx2 = 2, by2 = 2\n",
+            "expectedOutput": "16\n"
+          },
+          {
+            "input": "ax1 = 0, ay1 = 0, ax2 = 2, ay2 = 2, bx1 = 1, by1 = 1, bx2 = 3, by2 = 3\n",
+            "expectedOutput": "7\n",
+            "isHidden": true
+          },
+          {
+            "input": "ax1 = 0, ay1 = 0, ax2 = 2, ay2 = 2, bx1 = 3, by1 = 3, bx2 = 4, by2 = 4\n",
+            "expectedOutput": "5\n",
+            "isHidden": true
+          },
+          {
+            "input": "ax1 = -2, ay1 = -2, ax2 = 2, ay2 = 2, bx1 = 3, by1 = 3, bx2 = 4, by2 = 4\n",
+            "expectedOutput": "17\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Calculate the area of each rectangle separately.",
+          "Find the area of the overlapping region, if any.",
+          "Subtract the overlapping area from the sum of the two rectangle areas to get the total area."
+        ],
+        "tags": ["Math", "Geometry"]
+      },
+      {
+        "problemId": 23,
+        "courseId": "microsoft",
+        "title": "Excel Sheet Column Number",
+        "difficulty": "Easy",
+        "description": "Given a string columnTitle that represents the column title as appears in an Excel sheet, return its corresponding column number.\nFor example:\nA -> 1\nB -> 2\nC -> 3\n...\nZ -> 26\nAA -> 27\nAB -> 28\n...",
+        "examples": [
+          {
+            "input": "columnTitle = \"A\"\n",
+            "output": "1\n"
+          },
+          {
+            "input": "columnTitle = \"AB\"\n",
+            "output": "28\n"
+          },
+          {
+            "input": "columnTitle = \"ZY\"\n",
+            "output": "701\n"
+          }
+        ],
+        "constraints": [
+          "1 <= columnTitle.length <= 7",
+          "columnTitle consists only of uppercase English letters.",
+          "columnTitle is in the range [\"A\", \"FXSHRXW\"]."
+        ],
+        "testCases": [
+          {
+            "input": "columnTitle = \"A\"\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "columnTitle = \"AB\"\n",
+            "expectedOutput": "28\n"
+          },
+          {
+            "input": "columnTitle = \"ZY\"\n",
+            "expectedOutput": "701\n"
+          },
+          {
+            "input": "columnTitle = \"Z\"\n",
+            "expectedOutput": "26\n",
+            "isHidden": true
+          },
+          {
+            "input": "columnTitle = \"AA\"\n",
+            "expectedOutput": "27\n",
+            "isHidden": true
+          },
+          {
+            "input": "columnTitle = \"FXSHRXW\"\n",
+            "expectedOutput": 2147483647,
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Think of this problem as converting from base 26 to base 10.",
+          "Each letter represents a digit in base 26.",
+          "The rightmost letter is the least significant digit, and the leftmost letter is the most significant digit.",
+          "Multiply each letter's value (A=1, B=2, ..., Z=26) by 26 raised to the power of its position (starting from 0 for the rightmost letter).",
+          "Sum up the results to get the column number."
+        ],
+        "tags": ["Math", "String"]
+      },
+      {
+        "problemId": 24,
+        "courseId": "microsoft",
+        "title": "Basic Calculator",
+        "difficulty": "Hard",
+        "description": "Given a string s representing a valid expression, implement a basic calculator to evaluate it, and return the result of the evaluation.\nNote: You are not allowed to use any built-in function which evaluates strings as mathematical expressions, such as eval().",
+        "examples": [
+          {
+            "input": "s = \"1 + 1\"\n",
+            "output": "2\n"
+          },
+          {
+            "input": "s = \" 2-1 + 2 \"\n",
+            "output": "3\n"
+          },
+          {
+            "input": "s = \"(1+(4+5+2)-3)+(6+8)\"\n",
+            "output": "23\n"
+          }
+        ],
+        "constraints": [
+          "1 <= s.length <= 3 * 105",
+          "s consists of digits, '+', '-', '(', ')', and ' '.",
+          "s represents a valid expression.",
+          "'+' is not used as a unary operation (i.e., \"+1\" and \"+(2 + 3)\" is invalid).",
+          "'-' could be used as a unary operation (i.e., \"-1\" and \"-(2 + 3)\" is valid).",
+          "There will be no two consecutive operators in the input.",
+          "Every number and running calculation will fit in a signed 32-bit integer."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"1 + 1\"\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "s = \" 2-1 + 2 \"\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "s = \"(1+(4+5+2)-3)+(6+8)\"\n",
+            "expectedOutput": "23\n"
+          },
+          {
+            "input": "s = \"-2+ 1\"\n",
+            "expectedOutput": "-1\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"-(1+2)\"\n",
+            "expectedOutput": "-3\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"- (3 - (2 + 1 ) )\"\n",
+            "expectedOutput": "0\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use a stack to keep track of the signs and intermediate results.",
+          "When encountering an opening parenthesis '(', push the current result and sign onto the stack.",
+          "When encountering a closing parenthesis ')', pop the sign and result from the stack and use them to calculate the current result.",
+          "Handle unary minus signs by keeping track of the current sign.",
+          "Ignore spaces."
+        ],
+        "tags": ["Math", "String", "Stack", "Recursion"]
+      },
+      {
+        "problemId": 25,
+        "courseId": "microsoft",
+        "title": "Maximum Length of a Concatenated String with Unique Characters",
+        "difficulty": "Medium",
+        "description": "You are given an array of strings arr. A string s is formed by the concatenation of a subsequence of arr that has unique characters.\nReturn the maximum possible length of s.\nA subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.",
+        "examples": [
+          {
+            "input": "arr = [\"un\",\"iq\",\"ue\"]\n",
+            "output": "4\n",
+            "explanation": "All the valid concatenations are:\n- \"\"\n- \"un\"\n- \"iq\"\n- \"ue\"\n- \"uniq\" (\"un\" + \"iq\")\n- \"ique\" (\"iq\" + \"ue\")\nMaximum length is 4.\n"
+          },
+          {
+            "input": "arr = [\"cha\",\"r\",\"act\",\"ers\"]\n",
+            "output": "6\n",
+            "explanation": "Possible longest valid concatenations are \"chaers\" (\"cha\" + \"ers\") and \"acters\" (\"act\" + \"ers\").\n"
+          },
+          {
+            "input": "arr = [\"abcdefghijklmnopqrstuvwxyz\"]\n",
+            "output": "26\n",
+            "explanation": "The only string in arr has all 26 characters.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= arr.length <= 16",
+          "1 <= arr[i].length <= 26",
+          "arr[i] contains only lowercase English letters."
+        ],
+        "testCases": [
+          {
+            "input": "arr = [\"un\",\"iq\",\"ue\"]\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "arr = [\"cha\",\"r\",\"act\",\"ers\"]\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "arr = [\"abcdefghijklmnopqrstuvwxyz\"]\n",
+            "expectedOutput": "26\n"
+          },
+          {
+            "input": "arr = [\"a\",\"b\",\"c\",\"d\",\"e\",\"f\"]\n",
+            "expectedOutput": "6\n",
+            "isHidden": true
+          },
+          {
+            "input": "arr = [\"aa\",\"bb\"]\n",
+            "expectedOutput": "0\n",
+            "isHidden": true
+          },
+          {
+            "input": "arr = [\"ab\",\"cd\",\"cde\",\"efg\"]\n",
+            "expectedOutput": "7\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "You can try all combinations and keep mask of characters you have.",
+          "You can use DP."
+        ],
+        "tags": ["Array", "String", "Backtracking", "Bit Manipulation"]
+      },
+      {
+        "problemId": 26,
+        "courseId": "microsoft",
+        "title": "Wildcard Matching",
+        "difficulty": "Hard",
+        "description": "Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '' where:\n'?' Matches any single character.\n'' Matches any sequence of characters (including the empty sequence).\nThe matching should cover the entire input string (not partial).",
+        "examples": [
+          {
+            "input": "s = \"aa\", p = \"a\"\n",
+            "output": "false\n",
+            "explanation": "\"a\" does not match the entire string \"aa\".\n"
+          },
+          {
+            "input": "s = \"aa\", p = \"*\"\n",
+            "output": "true\n",
+            "explanation": "'*' matches any sequence.\n"
+          },
+          {
+            "input": "s = \"cb\", p = \"?a\"\n",
+            "output": "false\n",
+            "explanation": "'?' matches 'c', but the second letter is 'a', which does not match 'b'.\n"
+          }
+        ],
+        "constraints": [
+          "0 <= s.length, p.length <= 2000",
+          "s contains only lowercase English letters.",
+          "p contains only lowercase English letters, '?' or '*'."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"aa\", p = \"a\"\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "s = \"aa\", p = \"*\"\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "s = \"cb\", p = \"?a\"\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "s = \"adceb\", p = \"*a*b\"\n",
+            "expectedOutput": "true\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"acdcb\", p = \"a*c?b\"\n",
+            "expectedOutput": "false\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"\", p = \"*\"\n",
+            "expectedOutput": "true\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use dynamic programming or recursion to solve this problem.",
+          "Create a 2D table dp where dp[i][j] represents whether the first i characters of s match the first j characters of p.",
+          "Handle the base cases: dp[0][0] = true, dp[i][0] = false, dp[0][j] depends on p[j-1] being '*'.",
+          "For other cells, consider the cases when p[j-1] is '?', a lowercase letter, or '*'.",
+          "When p[j-1] is '*', consider the cases when the preceding element matches zero or more times."
+        ],
+        "tags": ["String", "Dynamic Programming", "Greedy", "Recursion"]
+      },
+      {
+        "problemId": 27,
+        "courseId": "microsoft",
+        "title": "Valid Tic-Tac-Toe State",
+        "difficulty": "Medium",
+        "description": "Given a Tic-Tac-Toe board as a string array board, return true if and only if it is possible to reach this board position during the course of a valid tic-tac-toe game.\nThe board is a 3 x 3 array that consists of characters ' ', 'X', and 'O'. The ' ' character represents an empty square.\nHere are the rules of Tic-Tac-Toe:\nPlayers take turns placing characters into empty squares ' '.\nThe first player always places 'X' characters, while the second player always places 'O' characters.\n'X' and 'O' characters are always placed into empty squares, never filled ones.\nThe game ends when there are three of the same (non-empty) character filling any row, column, or diagonal.\nThe game also ends if all squares are non-empty.\nNo more moves can be played if the game is over.",
+        "examples": [
+          {
+            "input": "board = [\"O  \",\"   \",\"   \"]\n",
+            "output": "false\n",
+            "explanation": "The first player always plays \"X\".\n"
+          },
+          {
+            "input": "board = [\"XOX\",\" X \",\"   \"]\n",
+            "output": "false\n",
+            "explanation": "Players take turns making moves.\n"
+          },
+          {
+            "input": "board = [\"XOX\",\"O O\",\"XOX\"]\n",
+            "output": "true\n"
+          }
+        ],
+        "constraints": [
+          "board.length == 3",
+          "board[i].length == 3",
+          "board[i][j] is either 'X', 'O', or ' '."
+        ],
+        "testCases": [
+          {
+            "input": "board = [\"O  \",\"   \",\"   \"]\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "board = [\"XOX\",\" X \",\"   \"]\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "board = [\"XOX\",\"O O\",\"XOX\"]\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "board = [\"XXX\",\"OO \",\"   \"]\n",
+            "expectedOutput": "false\n",
+            "isHidden": true
+          },
+          {
+            "input": "board = [\"XXX\",\"XOO\",\"OO \"]\n",
+            "expectedOutput": "false\n",
+            "isHidden": true
+          },
+          {
+            "input": "board = [\"XOX\",\"OOX\",\"XXX\"]\n",
+            "expectedOutput": "true\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Count the number of 'X's and 'O's in the board.",
+          "Check if the number of 'O's is greater than the number of 'X's or if the number of 'X's is more than one greater than the number of 'O's.",
+          "Check if there is a winner. If there is, check if the winner is valid (e.g., if 'X' wins, the number of 'X's should be one greater than the number of 'O's).",
+          "Check if there are multiple winners. This is invalid.",
+          "Check if the game is over (all squares are non-empty) and there is no winner. This is valid."
+        ],
+        "tags": ["Array", "Matrix"]
+      },
+      {
+        "problemId": 28,
+        "courseId": "microsoft",
+        "title": "Gas Station",
+        "difficulty": "Medium",
+        "description": "There are n gas stations along a circular route, where the amount of gas at the ith station is gas[i].\nYou have a car with an unlimited gas tank and it costs cost[i] of gas to travel from the ith station to its next (i + 1)th station. You begin the journey with an empty tank at one of the gas stations.\nGiven two integer arrays gas and cost, return the starting gas station's index if you can travel around the circuit once in the clockwise direction, otherwise return -1. If there exists a solution, it is guaranteed to be unique.",
+        "examples": [
+          {
+            "input": "gas = [1,2,3,4,5], cost = [3,4,5,1,2]\n",
+            "output": "3\n",
+            "explanation": "Start at station 3 (index 3) and fill up with 4 unit of gas. Your tank = 0 + 4 = 4\nTravel to station 4. Your tank = 4 - 1 + 5 = 8\nTravel to station 0. Your tank = 8 - 2 + 1 = 7\nTravel to station 1. Your tank = 7 - 3 + 2 = 6\nTravel to station 2. Your tank = 6 - 4 + 3 = 5\nTravel to station 3. The cost is 5. Your gas is just enough to travel back to station 3.\nTherefore, return 3 as the starting index.\n"
+          },
+          {
+            "input": "gas = [2,3,4], cost = [3,4,3]\n",
+            "output": "-1\n",
+            "explanation": "You can't start at station 0 or 1, as there is not enough gas to travel to the next station.\nLet's start at station 2 and fill up with 4 unit of gas. Your tank = 0 + 4 = 4\nTravel to station 0. Your tank = 4 - 3 + 2 = 3\nTravel to station 1. Your tank = 3 - 3 + 3 = 3\nYou cannot travel back to station 2, as it requires 4 unit of gas but you only have 3.\nTherefore, you can't travel around the circuit once no matter where you start.\n"
+          }
+        ],
+        "constraints": [
+          "n == gas.length == cost.length",
+          "1 <= n <= 105",
+          "0 <= gas[i], cost[i] <= 104"
+        ],
+        "testCases": [
+          {
+            "input": "gas = [1,2,3,4,5], cost = [3,4,5,1,2]\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "gas = [2,3,4], cost = [3,4,3]\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "gas = [5,1,2,3,4], cost = [4,4,1,5,1]\n",
+            "expectedOutput": "4\n",
+            "isHidden": true
+          },
+          {
+            "input": "gas = [5,5,1,3,4], cost = [8,1,7,1,1]\n",
+            "expectedOutput": "3\n",
+            "isHidden": true
+          },
+          {
+            "input": "gas = [3,1,1], cost = [1,2,2]\n",
+            "expectedOutput": "0\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "If the total gas is less than the total cost, there is no solution.",
+          "If the total gas is greater than or equal to the total cost, there is a solution.",
+          "Keep track of the current gas and the starting index.",
+          "If the current gas becomes negative, reset the starting index and the current gas.",
+          "The starting index that makes the current gas non-negative throughout the journey is the solution."
+        ],
+        "tags": ["Array", "Greedy"]
+      },
+      {
+        "problemId": 29,
+        "courseId": "microsoft",
+        "title": "Set Matrix Zeroes",
+        "difficulty": "Medium",
+        "description": "Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.\nYou must do it in place.\n\nFollow up:\nA straightforward solution using O(mn) space is probably a bad idea.\nA simple improvement uses O(m + n) space, but still not the best solution.\nCould you devise a constant space solution?",
+        "examples": [
+          {
+            "input": "matrix = [[1,1,1],[1,0,1],[1,1,1]]\n",
+            "output": "[[1,0,1],[0,0,0],[1,0,1]]\n"
+          },
+          {
+            "input": "matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]\n",
+            "output": "[[0,0,0,0],[0,4,5,0],[0,3,1,0]]\n"
+          }
+        ],
+        "constraints": [
+          "m == matrix.length",
+          "n == matrix[0].length",
+          "1 <= m, n <= 200",
+          "-231 <= matrix[i][j] <= 231 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "matrix = [[1,1,1],[1,0,1],[1,1,1]]\n",
+            "expectedOutput": "[[1,0,1],[0,0,0],[1,0,1]]\n"
+          },
+          {
+            "input": "matrix = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]\n",
+            "expectedOutput": "[[0,0,0,0],[0,4,5,0],[0,3,1,0]]\n"
+          },
+          {
+            "input": "matrix = [[1]]\n",
+            "expectedOutput": "[[1]]\n",
+            "isHidden": true
+          },
+          {
+            "input": "matrix = [[0]]\n",
+            "expectedOutput": "[[0]]\n",
+            "isHidden": true
+          },
+          {
+            "input": "matrix = [[1,0]]\n",
+            "expectedOutput": "[[0,0]]\n",
+            "isHidden": true
+          },
+          {
+            "input": "matrix = [[0,0,0,5],[4,3,1,4],[0,1,1,4],[1,2,1,3],[0,0,1,1]]\n",
+            "expectedOutput": "[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "If any cell of the matrix has a zero we can record its row and column number using additional memory. But if you don't want to use extra memory then you can manipulate the array instead. i.e. simulating exactly what the question says.",
+          "Setting cell values to zero on the fly while iterating might lead to discrepancies. What if you use some other integer value as your marker? There is still a better approach for this problem with 0(1) space.",
+          "We could have used 2 sets to keep a record of rows/columns which need to be set to zero. But for an O(1) space solution, you can use one of the rows and and one of the columns to keep track of this information.",
+          "We can use the first cell of every row and column as a flag. This flag would determine whether a row or column has been set to zero."
+        ],
+        "tags": []
+      },
+      {
+        "problemId": 30,
+        "courseId": "microsoft",
+        "title": "String Compression",
+        "difficulty": "Medium",
+        "description": "Given an array of characters chars, compress it using the following algorithm:\nBegin with an empty string s. For each group of consecutive repeating characters in chars:\nIf the group's length is 1, append the character to s.\nOtherwise, append the character followed by the group's length.\nThe compressed string s should not be returned separately, but instead, be stored in the input character array chars. Note that group lengths that are 10 or longer will be split into multiple characters in chars.\nAfter you are done modifying the input array, return the new length of the array.\nYou must write an algorithm that uses only constant extra space.",
+        "examples": [
+          {
+            "input": "chars = [\"a\",\"a\",\"b\",\"b\",\"c\",\"c\",\"c\"]\n",
+            "output": "Return 6, and the first 6 characters of the input array should be: [\"a\",\"2\",\"b\",\"2\",\"c\",\"3\"]\n",
+            "explanation": "The groups are \"aa\", \"bb\", and \"ccc\". This compresses to \"a2b2c3\".\n"
+          },
+          {
+            "input": "chars = [\"a\"]\n",
+            "output": "Return 1, and the first character of the input array should be: [\"a\"]\n",
+            "explanation": "The only group is \"a\", which remains uncompressed since it's a single character.\n"
+          },
+          {
+            "input": "chars = [\"a\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\"]\n",
+            "output": "Return 4, and the first 4 characters of the input array should be: [\"a\",\"b\",\"1\",\"2\"].\n",
+            "explanation": "The groups are \"a\" and \"bbbbbbbbbbbb\". This compresses to \"ab12\".\n"
+          }
+        ],
+        "constraints": [
+          "1 <= chars.length <= 2000",
+          "chars[i] is a lowercase English letter, uppercase English letter, digit, or symbol."
+        ],
+        "testCases": [
+          {
+            "input": "chars = [\"a\",\"a\",\"b\",\"b\",\"c\",\"c\",\"c\"]\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "chars = [\"a\"]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "chars = [\"a\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\",\"b\"]\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "chars = [\"a\",\"b\",\"c\"]\n",
+            "expectedOutput": "3\n",
+            "isHidden": true
+          },
+          {
+            "input": "chars = [\"a\",\"a\",\"a\",\"a\",\"a\",\"b\",\"b\",\"b\",\"b\"]\n",
+            "expectedOutput": "3\n",
+            "isHidden": true
+          },
+          {
+            "input": "chars = [\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\",\"a\"]\n",
+            "expectedOutput": "3\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "How do you know if you are at the end of a consecutive group of characters?"
+        ],
+        "tags": ["Two Pointers", "String"]
+      }
+]

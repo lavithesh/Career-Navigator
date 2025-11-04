@@ -1,0 +1,1888 @@
+[
+     {
+        "problemId": 1,
+        "courseId": "basiccodingquestion",
+        "title": "Odd or Even",
+        "difficulty": "Easy",
+        "description": "Given an integer, determine if it is odd or even.",
+        "examples": [
+          {
+            "input": "4\n",
+            "output": "Even\n"
+          },
+          {
+            "input": "7\n",
+            "output": "Odd\n"
+          },
+          {
+            "input": "0\n",
+            "output": "Even\n"
+          }
+        ],
+        "constraints": [
+          "-10^9 <= integer <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "4\n",
+            "expectedOutput": "Even\n"
+          },
+          {
+            "input": "7\n",
+            "expectedOutput": "Odd\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "Even\n"
+          },
+          {
+            "input": "-4\n",
+            "expectedOutput": "Even\n"
+          },
+          {
+            "input": "-7\n",
+            "expectedOutput": "Odd\n"
+          },
+          {
+            "input":"1000000000\n",
+            "expectedOutput":"Even\n"
+          },
+          {
+            "input":"-1000000001\n",
+            "expectedOutput":"Odd\n"
+          }
+      
+        ],
+        "hints": [
+          "Use the modulo operator (%) to check if the number is divisible by 2.",
+          "If the remainder is 0, the number is even.",
+          "If the remainder is 1 (or -1), the number is odd."
+        ],
+        "tags": ["Odd or Even", "Modulo", "Basic Math"]
+      },
+      {
+        "problemId": 2,
+        "courseId": "basiccodingquestion",
+        "title": "Prime Number",
+        "difficulty": "Easy",
+        "description": "Given an integer, determine if it is a prime number.",
+        "examples": [
+          {
+            "input": "2\n",
+            "output": "true\n"
+          },
+          {
+            "input": "10\n",
+            "output": "false\n"
+          },
+          {
+            "input": "17\n",
+            "output": "true\n"
+          }
+        ],
+        "constraints": [
+          "1 <= integer <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "2\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "10\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "17\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "3\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "4\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "997\n",
+            "expectedOutput": "true\n"
+          }
+        ],
+        "hints": [
+          "A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.",
+          "Check if the number is less than or equal to 1. If it is, it is not prime.",
+          "Iterate from 2 to the square root of the number. If any number in this range divides the given number, it is not prime.",
+          "If no divisors are found, the number is prime."
+        ],
+        "tags": ["Prime Number", "Number Theory", "Basic Math"]
+      },
+       {
+        "problemId": 3,
+        "courseId": "basiccodingquestion",
+        "title": "Fibonacci Series",
+        "difficulty": "Easy",
+        "description": "Given a number range, print the Fibonacci series up to that range.",
+        "examples": [
+          {
+            "input": "10\n",
+            "output": "0 1 1 2 3 5 8\n"
+          },
+          {
+            "input": "1\n",
+            "output": "0 1 1\n"
+          },
+          {
+            "input": "0\n",
+            "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "0 <= range <= 10^6"
+        ],
+        "testCases": [
+          {
+            "input": "10\n",
+            "expectedOutput": "0 1 1 2 3 5 8\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "0 1 1\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "2\n",
+            "expectedOutput": "0 1 1 2\n"
+          },
+          {
+            "input": "5\n",
+            "expectedOutput": "0 1 1 2 3 5\n"
+          },
+          {
+            "input": "20\n",
+            "expectedOutput": "0 1 1 2 3 5 8 13\n"
+          },
+          {
+            "input": "100\n",
+            "expectedOutput": "0 1 1 2 3 5 8 13 21 34 55 89\n"
+          }
+        ],
+        "hints": [
+          "The Fibonacci sequence starts with 0 and 1.",
+          "Each subsequent number is the sum of the two preceding numbers.",
+          "Initialize the first two numbers as 0 and 1.",
+          "Use a loop to generate the Fibonacci series up to the given range.",
+          "Print each number in the series as you generate it.",
+          "Handle the edge case where the range is 0 or 1."
+        ],
+        "tags": ["Fibonacci Series", "Number Sequence", "Basic Math"]
+      },
+      {
+        "problemId": 4,
+        "courseId": "basiccodingquestion",
+        "title": "Swap Two Numbers",
+        "difficulty": "Easy",
+        "description": "Given two numbers, swap them without using a third variable.",
+        "examples": [
+          {
+            "input": "5 10\n",
+            "output": "10 5\n"
+          },
+          {
+            "input": "-1 1\n",
+            "output": "1 -1\n"
+          },
+          {
+            "input": "0 0\n",
+            "output": "0 0\n"
+          }
+        ],
+        "constraints": [
+          "-10^9 <= number1, number2 <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "5 10\n",
+            "expectedOutput": "10 5\n"
+          },
+          {
+            "input": "-1 1\n",
+            "expectedOutput": "1 -1\n"
+          },
+          {
+            "input": "0 0\n",
+            "expectedOutput": "0 0\n"
+          },
+          {
+            "input": "1 0\n",
+            "expectedOutput": "0 1\n"
+          },
+          {
+            "input": "100 200\n",
+            "expectedOutput": "200 100\n"
+          },
+          {
+            "input": "-100 -200\n",
+            "expectedOutput": "-200 -100\n"
+          },
+          {
+            "input":"100000 1\n",
+            "expectedOutput":"1 100000\n"
+          }
+        ],
+        "hints": [
+          "Use arithmetic operations (addition and subtraction) or bitwise XOR to swap the numbers.",
+          "For arithmetic operations: a = a + b; b = a - b; a = a - b;",
+          "For bitwise XOR: a = a ^ b; b = a ^ b; a = a ^ b;"
+        ],
+        "tags": ["Swap Numbers", "Arithmetic Operations", "Bitwise XOR", "Basic Math"]
+      },
+       {
+        "problemId": 5,
+        "courseId": "basiccodingquestion",
+        "title": "Reverse a Number",
+        "difficulty": "Easy",
+        "description": "Given an integer, reverse the digits of the number.",
+        "examples": [
+          {
+            "input": "123\n",
+            "output": "321\n"
+          },
+          {
+            "input": "-123\n",
+            "output": "-321\n"
+          },
+          {
+            "input": "120\n",
+            "output": "21\n"
+          }
+        ],
+        "constraints": [
+          "-2^31 <= number <= 2^31 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "123\n",
+            "expectedOutput": "321\n"
+          },
+          {
+            "input": "-123\n",
+            "expectedOutput": "-321\n"
+          },
+          {
+            "input": "120\n",
+            "expectedOutput": "21\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "-1\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "1000\n",
+            "expectedOutput": "1\n"
+          }
+        ],
+        "hints": [
+          "Handle the sign of the number separately.",
+          "Use a loop to extract the last digit of the number.",
+          "Append the extracted digit to the reversed number.",
+          "Remove the last digit from the original number.",
+          "Repeat the process until the original number becomes 0.",
+          "If the original number was negative, negate the reversed number."
+        ],
+        "tags": ["Reverse Number", "Integer Manipulation", "Basic Math"]
+      },
+       {
+        "problemId": 6,
+        "courseId": "basiccodingquestion",
+        "title": "Armstrong Number",
+        "difficulty": "Easy",
+        "description": "Given an integer, determine if it is an Armstrong number. An Armstrong number is a number such that the sum of its digits raised to the power of the number of digits is equal to the number itself.",
+        "examples": [
+          {
+            "input": "153\n",
+            "output": "true\n"
+          },
+          {
+            "input": "123\n",
+            "output": "false\n"
+          },
+          {
+            "input": "0\n",
+            "output": "true\n"
+          }
+        ],
+        "constraints": [
+          "0 <= integer <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "153\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "123\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "1634\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "1635\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "407\n",
+            "expectedOutput": "true\n"
+          }
+        ],
+        "hints": [
+          "Calculate the number of digits in the given number.",
+          "Initialize a sum to 0.",
+          "Extract each digit of the number and raise it to the power of the number of digits.",
+          "Add the result to the sum.",
+          "Compare the sum with the original number.",
+          "If they are equal, the number is an Armstrong number; otherwise, it is not.",
+          "Handle the edge case where the number is 0 or 1."
+        ],
+        "tags": ["Armstrong Number", "Number Theory", "Basic Math"]
+      },
+       {
+        "problemId": 7,
+        "courseId": "basiccodingquestion",
+        "title": "Number of Digits",
+        "difficulty": "Easy",
+        "description": "Given an integer, find the number of digits in it.",
+        "examples": [
+          {
+            "input": "123\n",
+            "output": "3\n"
+          },
+          {
+            "input": "0\n",
+            "output": "1\n"
+          },
+          {
+            "input": "-12345\n",
+            "output": "5\n"
+          }
+        ],
+        "constraints": [
+          "-2^31 <= integer <= 2^31 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "123\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "-12345\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "-1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "1000000000\n",
+            "expectedOutput": "10\n"
+          },
+          {
+            "input": "-1000000000\n",
+            "expectedOutput": "10\n"
+          }
+        ],
+        "hints": [
+          "Handle the sign of the number separately.",
+          "If the number is 0, the number of digits is 1.",
+          "Use a loop to repeatedly divide the number by 10 and count the number of divisions.",
+          "Alternatively, convert the number to a string and find the length of the string.",
+          "Handle edge cases like negative numbers."
+        ],
+        "tags": ["Number of Digits", "Integer Manipulation", "Basic Math"]
+      },
+      {
+        "problemId": 8,
+        "courseId": "basiccodingquestion",
+        "title": "Palindrome Number",
+        "difficulty": "Easy",
+        "description": "Given an integer, determine if it is a palindrome number. A palindrome number reads the same backward as forward.",
+        "examples": [
+          {
+            "input": "121\n",
+            "output": "true\n"
+          },
+          {
+            "input": "-121\n",
+            "output": "false\n"
+          },
+          {
+            "input": "10\n",
+            "output": "false\n"
+          }
+        ],
+        "constraints": [
+          "-2^31 <= integer <= 2^31 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "121\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "-121\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "10\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "12321\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "12345\n",
+            "expectedOutput": "false\n"
+          }
+        ],
+        "hints": [
+          "Handle negative numbers separately. Negative numbers are not palindromes.",
+          "Reverse the number and compare it with the original number.",
+          "Alternatively, compare the first half of the number with the reversed second half.",
+          "Handle edge cases like 0 and single-digit numbers.",
+          "Be careful to avoid integer overflow when reversing the number."
+        ],
+        "tags": ["Palindrome Number", "Number Theory", "Basic Math"]
+      },
+       {
+        "problemId": 9,
+        "courseId": "basiccodingquestion",
+        "title": "Sum of Digits",
+        "difficulty": "Easy",
+        "description": "Given an integer, calculate the sum of its digits.",
+        "examples": [
+          {
+            "input": "123\n",
+            "output": "6\n"
+          },
+          {
+            "input": "0\n",
+            "output": "0\n"
+          },
+          {
+            "input": "-123\n",
+            "output": "6\n"
+          }
+        ],
+        "constraints": [
+          "-2^31 <= integer <= 2^31 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "123\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "-123\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "-1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "1000000000\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "-1000000000\n",
+            "expectedOutput": "1\n"
+          }
+        ],
+        "hints": [
+          "Handle the sign of the number separately.",
+          "Use a loop to extract each digit of the number using the modulo operator (%).",
+          "Add each extracted digit to a running sum.",
+          "Divide the number by 10 to remove the last digit.",
+          "Repeat the process until the number becomes 0.",
+          "Return the final sum."
+        ],
+        "tags": ["Sum of Digits", "Integer Manipulation", "Basic Math"]
+      },
+      {
+        "problemId": 10,
+        "courseId": "basiccodingquestion",
+        "title": "Reverse a String",
+        "difficulty": "Easy",
+        "description": "Given a string, reverse the order of its characters.",
+        "examples": [
+          {
+            "input": "hello\n",
+            "output": "olleh\n"
+          },
+          {
+            "input": "world\n",
+            "output": "dlrow\n"
+          },
+          {
+            "input": "a\n",
+            "output": "a\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of string <= 10^5",
+          "String contains only printable ASCII characters."
+        ],
+        "testCases": [
+          {
+            "input": "hello\n",
+            "expectedOutput": "olleh\n"
+          },
+          {
+            "input": "world\n",
+            "expectedOutput": "dlrow\n"
+          },
+          {
+            "input": "a\n",
+            "expectedOutput": "a\n"
+          },
+          {
+            "input": "abcde\n",
+            "expectedOutput": "edcba\n"
+          },
+          {
+            "input": "12345\n",
+            "expectedOutput": "54321\n"
+          },
+          {
+            "input": "racecar\n",
+            "expectedOutput": "racecar\n"
+          },
+          {
+            "input": " \n",
+            "expectedOutput": " \n"
+          }
+        ],
+        "hints": [
+          "Use a loop to iterate through the string from the end to the beginning.",
+          "Append each character to a new string.",
+          "Alternatively, use two pointers, one at the beginning and one at the end, and swap characters until they meet in the middle.",
+          "Another approach is to use string slicing or array reversal, if available in your programming language."
+        ],
+        "tags": ["Reverse String", "String Manipulation", "Basic String"]
+      },
+       {
+        "problemId": 11,
+        "courseId": "basiccodingquestion",
+        "title": "Factorial of a Number",
+        "difficulty": "Easy",
+        "description": "Given a non-negative integer, calculate its factorial.",
+        "examples": [
+          {
+            "input": "5\n",
+            "output": "120\n"
+          },
+          {
+            "input": "0\n",
+            "output": "1\n"
+          },
+          {
+            "input": "1\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "0 <= number <= 12"
+        ],
+        "testCases": [
+          {
+            "input": "5\n",
+            "expectedOutput": "120\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "3\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "4\n",
+            "expectedOutput": "24\n"
+          },
+          {
+            "input": "12\n",
+            "expectedOutput": "479001600\n"
+          }
+        ],
+        "hints": [
+          "The factorial of a non-negative integer n is the product of all positive integers less than or equal to n.",
+          "The factorial of 0 is 1.",
+          "Use a loop to multiply all numbers from 1 to n.",
+          "Handle the edge case where the input is 0 or 1."
+        ],
+        "tags": ["Factorial", "Number Theory", "Basic Math"]
+      },
+       {
+        "problemId": 12,
+        "courseId": "basiccodingquestion",
+        "title": "Count Vowels and Consonants",
+        "difficulty": "Easy",
+        "description": "Given a string, count the number of vowels and consonants in it.",
+        "examples": [
+          {
+            "input": "hello\n",
+            "output": "Vowels: 2\nConsonants: 3\n"
+          },
+          {
+            "input": "world\n",
+            "output": "Vowels: 1\nConsonants: 4\n"
+          },
+          {
+            "input": "aeiou\n",
+            "output": "Vowels: 5\nConsonants: 0\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of string <= 10^5",
+          "String contains only lowercase English letters."
+        ],
+        "testCases": [
+          {
+            "input": "hello\n",
+            "expectedOutput": "Vowels: 2\nConsonants: 3\n"
+          },
+          {
+            "input": "world\n",
+            "expectedOutput": "Vowels: 1\nConsonants: 4\n"
+          },
+          {
+            "input": "aeiou\n",
+            "expectedOutput": "Vowels: 5\nConsonants: 0\n"
+          },
+          {
+            "input": "bcdfghjklmnpqrstvwxyz\n",
+            "expectedOutput": "Vowels: 0\nConsonants: 21\n"
+          },
+          {
+            "input": "a\n",
+            "expectedOutput": "Vowels: 1\nConsonants: 0\n"
+          },
+          {
+            "input": "z\n",
+            "expectedOutput": "Vowels: 0\nConsonants: 1\n"
+          },
+          {
+            "input": "programming\n",
+            "expectedOutput": "Vowels: 3\nConsonants: 8\n"
+          }
+        ],
+        "hints": [
+          "Initialize two counters, one for vowels and one for consonants.",
+          "Iterate through the string and check if each character is a vowel or a consonant.",
+          "Increment the vowel counter if the character is a vowel ('a', 'e', 'i', 'o', 'u').",
+          "Increment the consonant counter if the character is a consonant (any other lowercase letter).",
+          "Return the vowel and consonant counts."
+        ],
+        "tags": ["Count Vowels and Consonants", "String Manipulation", "Basic String"]
+      },
+       {
+        "problemId": 13,
+        "courseId": "basiccodingquestion",
+        "title": "Sort an Array",
+        "difficulty": "Easy",
+        "description": "Given an array of integers, sort it in ascending order.",
+        "examples": [
+          {
+            "input": "[5, 2, 8, 1, 9]\n",
+            "output": "[1, 2, 5, 8, 9]\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "output": "[1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "[5, 4, 3, 2, 1]\n",
+            "output": "[1, 2, 3, 4, 5]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^9 <= array elements <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "[5, 2, 8, 1, 9]\n",
+            "expectedOutput": "[1, 2, 5, 8, 9]\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "[5, 4, 3, 2, 1]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "[1]\n"
+          },
+          {
+            "input": "[]\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "[0, 0, 0, 0]\n",
+            "expectedOutput": "[0, 0, 0, 0]\n"
+          },
+          {
+            "input": "[-1, -5, 10, 0]\n",
+            "expectedOutput": "[-5, -1, 0, 10]\n"
+          }
+        ],
+        "hints": [
+          "Implement a sorting algorithm like bubble sort, insertion sort, selection sort, merge sort, or quicksort.",
+          "Bubble sort, insertion sort, and selection sort are simple but less efficient for large arrays.",
+          "Merge sort and quicksort are more efficient for large arrays but have higher implementation complexity.",
+          "Choose an algorithm based on the size of the array and the desired performance."
+        ],
+        "tags": ["Sort Array", "Sorting Algorithm", "Array Manipulation"]
+      },
+      {
+        "problemId": 14,
+        "courseId": "basiccodingquestion",
+        "title": "Merge Two Arrays",
+        "difficulty": "Easy",
+        "description": "Given two sorted arrays, merge them into a single sorted array.",
+        "examples": [
+          {
+            "input": "[1, 3, 5]\n[2, 4, 6]\n",
+            "output": "[1, 2, 3, 4, 5, 6]\n"
+          },
+          {
+            "input": "[1, 2, 3]\n[4, 5, 6]\n",
+            "output": "[1, 2, 3, 4, 5, 6]\n"
+          },
+          {
+            "input": "[4, 5, 6]\n[1, 2, 3]\n",
+            "output": "[1, 2, 3, 4, 5, 6]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of each array <= 10^5",
+          "-10^9 <= array elements <= 10^9",
+          "Both input arrays are sorted in ascending order."
+        ],
+        "testCases": [
+          {
+            "input": "[1, 3, 5]\n[2, 4, 6]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5, 6]\n"
+          },
+          {
+            "input": "[1, 2, 3]\n[4, 5, 6]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5, 6]\n"
+          },
+          {
+            "input": "[4, 5, 6]\n[1, 2, 3]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5, 6]\n"
+          },
+          {
+            "input": "[1]\n[2]\n",
+            "expectedOutput": "[1, 2]\n"
+          },
+          {
+            "input": "[]\n[1, 2, 3]\n",
+            "expectedOutput": "[1, 2, 3]\n"
+          },
+          {
+            "input": "[1, 2, 3]\n[]\n",
+            "expectedOutput": "[1, 2, 3]\n"
+          },
+           {
+            "input":"[-10,-5,0,5]\n[-2,0,4,6]\n",
+            "expectedOutput":"[-10,-5,-2,0,0,4,5,6]\n"
+          }
+        ],
+        "hints": [
+          "Use two pointers, one for each array.",
+          "Compare the elements at the pointers and add the smaller element to the merged array.",
+          "Increment the pointer of the array from which the smaller element was taken.",
+          "Repeat the process until one of the arrays is exhausted.",
+          "Append the remaining elements from the other array to the merged array.",
+          "Handle edge cases like empty arrays."
+        ],
+        "tags": ["Merge Arrays", "Array Manipulation", "Sorting"]
+      },
+      {
+        "problemId": 15,
+        "courseId": "basiccodingquestion",
+        "title": "Largest Element in Array",
+        "difficulty": "Easy",
+        "description": "Given an array of integers, find the largest element in it.",
+        "examples": [
+          {
+            "input": "[5, 2, 8, 1, 9]\n",
+            "output": "9\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "output": "5\n"
+          },
+          {
+            "input": "[-5, -2, -8, -1, -9]\n",
+            "output": "-1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^9 <= array elements <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "[5, 2, 8, 1, 9]\n",
+            "expectedOutput": "9\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "[-5, -2, -8, -1, -9]\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[-1]\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "[0, 0, 0]\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "[100, 50, 200, 150]\n",
+            "expectedOutput": "200\n"
+          }
+        ],
+        "hints": [
+          "Initialize a variable to store the largest element, initially set to the first element of the array.",
+          "Iterate through the array and compare each element with the current largest element.",
+          "If an element is larger than the current largest element, update the largest element variable.",
+          "After iterating through the entire array, return the largest element variable.",
+          "Handle the edge case where the array is empty (return null or throw an exception)."
+        ],
+        "tags": ["Largest Element", "Array Manipulation", "Basic Array"]
+      },
+       {
+        "problemId": 16,
+        "courseId": "basiccodingquestion",
+        "title": "Remove Duplicates from Array",
+        "difficulty": "Medium",
+        "description": "Given an array of integers, remove the duplicate elements and return a new array with unique elements in the original order.",
+        "examples": [
+          {
+            "input": "[1, 2, 2, 3, 4, 4, 5]\n",
+            "output": "[1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "[1, 1, 1, 1, 1]\n",
+            "output": "[1]\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "output": "[1, 2, 3, 4, 5]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^9 <= array elements <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 2, 3, 4, 4, 5]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "[1, 1, 1, 1, 1]\n",
+            "expectedOutput": "[1]\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "[]\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "[1,2,3,4,1,2,3,4]\n",
+            "expectedOutput": "[1, 2, 3, 4]\n"
+          },
+          {
+            "input":"[-1,-1,0,1,1,2]\n",
+            "expectedOutput":"[-1,0,1,2]\n"
+          },
+          {
+            "input":"[0,0,0,0,0]\n",
+            "expectedOutput":"[0]\n"
+          }
+        ],
+        "hints": [
+          "Use a set or a hash map to keep track of the unique elements encountered so far.",
+          "Iterate through the array and check if each element is already in the set or hash map.",
+          "If an element is not in the set or hash map, add it to the set or hash map and append it to a new array.",
+          "Return the new array with unique elements.",
+          "Maintain the original order of elements in the new array."
+        ],
+        "tags": ["Remove Duplicates", "Array Manipulation", "Hashing"]
+      },
+       {
+        "problemId": 17,
+        "courseId": "basiccodingquestion",
+        "title": "GCD of Two Numbers",
+        "difficulty": "Easy",
+        "description": "Given two integers, calculate their greatest common divisor (GCD).",
+        "examples": [
+          {
+            "input": "12 18\n",
+            "output": "6\n"
+          },
+          {
+            "input": "25 15\n",
+            "output": "5\n"
+          },
+          {
+            "input": "17 23\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number1, number2 <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "12 18\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "25 15\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "17 23\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "1 10\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "10 1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "100 50\n",
+            "expectedOutput": "50\n"
+          },
+          {
+            "input": "1000 1000\n",
+            "expectedOutput": "1000\n"
+          }
+        ],
+        "hints": [
+          "Use the Euclidean algorithm to find the GCD.",
+          "The Euclidean algorithm is based on the principle that the greatest common divisor of two numbers does not change if the larger number is replaced by its difference with the smaller number.",
+          "Repeat this process until one of the numbers becomes 0.",
+          "The other number is then the GCD.",
+          "Alternatively, use the modulo operator (%) instead of subtraction for a more efficient implementation."
+        ],
+        "tags": ["GCD", "Greatest Common Divisor", "Euclidean Algorithm", "Number Theory", "Basic Math"]
+      },
+      {
+        "problemId": 18,
+        "courseId": "basiccodingquestion",
+        "title": "Anagram Check",
+        "difficulty": "Easy",
+        "description": "Given two strings, determine if they are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of another word or phrase, using all the original letters exactly once.",
+        "examples": [
+          {
+            "input": "anagram nagaram\n",
+            "output": "true\n"
+          },
+          {
+            "input": "rat car\n",
+            "output": "false\n"
+          },
+          {
+            "input": "a a\n",
+            "output": "true\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of each string <= 10^5",
+          "Strings contain only lowercase English letters."
+        ],
+        "testCases": [
+          {
+            "input": "anagram nagaram\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "rat car\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "a a\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "abc cba\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "abc ab\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "abcd abce\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "silent listen\n",
+            "expectedOutput": "true\n"
+          }
+        ],
+        "hints": [
+          "If the lengths of the two strings are different, they cannot be anagrams.",
+          "Use a hash map (dictionary) to store the character counts for the first string.",
+          "Iterate through the second string and decrement the character counts in the hash map.",
+          "If any character count becomes negative or if a character is not found in the hash map, the strings are not anagrams.",
+          "If all character counts are zero after iterating through the second string, the strings are anagrams.",
+          "Alternatively, sort both strings and compare them. If they are equal, the strings are anagrams."
+        ],
+        "tags": ["Anagram", "String Manipulation", "Hashing", "Sorting"]
+      },
+      {
+        "problemId": 19,
+        "courseId": "basiccodingquestion",
+        "title": "Prime Numbers in Range",
+        "difficulty": "Medium",
+        "description": "Given a range (start and end), print all the prime numbers within that range (inclusive).",
+        "examples": [
+          {
+            "input": "2 10\n",
+            "output": "2 3 5 7\n"
+          },
+          {
+            "input": "10 20\n",
+            "output": "11 13 17 19\n"
+          },
+          {
+            "input": "1 1\n",
+            "output": "\n"
+          }
+        ],
+        "constraints": [
+          "1 <= start <= end <= 10^6"
+        ],
+        "testCases": [
+          {
+            "input": "2 10\n",
+            "expectedOutput": "2 3 5 7\n"
+          },
+          {
+            "input": "10 20\n",
+            "expectedOutput": "11 13 17 19\n"
+          },
+          {
+            "input": "1 1\n",
+            "expectedOutput": "\n"
+          },
+          {
+            "input": "1 2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "1 5\n",
+            "expectedOutput": "2 3 5\n"
+          },
+          {
+            "input": "90 100\n",
+            "expectedOutput": "97\n"
+          },
+          {
+            "input": "1 100\n",
+            "expectedOutput": "2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97\n"
+          }
+        ],
+        "hints": [
+          "Iterate through the range from start to end.",
+          "For each number, check if it is prime.",
+          "A number is prime if it is greater than 1 and has no positive divisors other than 1 and itself.",
+          "To check if a number is prime, iterate from 2 to the square root of the number. If any number in this range divides the given number, it is not prime.",
+          "If no divisors are found, the number is prime.",
+          "Print each prime number found in the range.",
+          "Handle edge cases like start being 1."
+        ],
+        "tags": ["Prime Numbers in Range", "Number Theory", "Basic Math"]
+      },
+      {
+        "problemId": 20,
+        "courseId": "basiccodingquestion",
+        "title": "Second Largest Element in Array",
+        "difficulty": "Medium",
+        "description": "Given an array of integers, find the second largest element in it.",
+        "examples": [
+          {
+            "input": "[5, 2, 8, 1, 9]\n",
+            "output": "8\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "output": "4\n"
+          },
+          {
+            "input": "[-5, -2, -8, -1, -9]\n",
+            "output": "-2\n"
+          }
+        ],
+        "constraints": [
+          "2 <= length of array <= 10^5",
+          "-10^9 <= array elements <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "[5, 2, 8, 1, 9]\n",
+            "expectedOutput": "8\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "[-5, -2, -8, -1, -9]\n",
+            "expectedOutput": "-2\n"
+          },
+          {
+            "input": "[1, 2]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[1, 1, 1, 1, 1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[10,5,10]\n",
+            "expectedOutput":"10\n"
+          },
+          {
+            "input": "[-10,-20,-5]\n",
+            "expectedOutput": "-10\n"
+          }
+        ],
+        "hints": [
+          "Initialize two variables, largest and secondLargest, to store the largest and second largest elements respectively.",
+          "Iterate through the array and compare each element with the current largest and secondLargest.",
+          "If an element is larger than the largest, update the largest and secondLargest accordingly.",
+          "If an element is larger than the secondLargest but smaller than the largest, update the secondLargest.",
+          "After iterating through the entire array, return the secondLargest.",
+          "Handle the edge case where the array has less than two unique elements."
+        ],
+        "tags": ["Second Largest Element", "Array Manipulation", "Basic Array"]
+      },
+       {
+        "problemId": 21,
+        "courseId": "basiccodingquestion",
+        "title": "Pascal's Triangle",
+        "difficulty": "Medium",
+        "description": "Given a positive integer n, print the first n rows of Pascal's triangle.",
+        "examples": [
+          {
+            "input": "5\n",
+            "output": "1\n1 1\n1 2 1\n1 3 3 1\n1 4 6 4 1\n"
+          },
+          {
+            "input": "1\n",
+            "output": "1\n"
+          },
+          {
+            "input": "3\n",
+            "output": "1\n1 1\n1 2 1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= n <= 30"
+        ],
+        "testCases": [
+          {
+            "input": "5\n",
+            "expectedOutput": "1\n1 1\n1 2 1\n1 3 3 1\n1 4 6 4 1\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "3\n",
+            "expectedOutput": "1\n1 1\n1 2 1\n"
+          },
+          {
+            "input": "2\n",
+            "expectedOutput": "1\n1 1\n"
+          },
+          {
+            "input": "4\n",
+            "expectedOutput": "1\n1 1\n1 2 1\n1 3 3 1\n"
+          },
+          {
+            "input": "6\n",
+            "expectedOutput": "1\n1 1\n1 2 1\n1 3 3 1\n1 4 6 4 1\n1 5 10 10 5 1\n"
+          },
+          {
+            "input":"10\n",
+            "expectedOutput":"1\n1 1\n1 2 1\n1 3 3 1\n1 4 6 4 1\n1 5 10 10 5 1\n1 6 15 20 15 6 1\n1 7 21 35 35 21 7 1\n1 8 28 56 70 56 28 8 1\n1 9 36 84 126 126 84 36 9 1\n"
+          }
+        ],
+        "hints": [
+          "The first and last element of each row is 1.",
+          "Each element inside the triangle is the sum of the two elements directly above it.",
+          "Use a 2D array or a list of lists to store the Pascal's triangle.",
+          "Initialize the first row as [1].",
+          "For each subsequent row, calculate the elements based on the previous row.",
+          "Print each row of the triangle as you generate it.",
+          "Handle the edge case where n is 1."
+        ],
+        "tags": ["Pascal's Triangle", "Array Manipulation", "Basic Math"]
+      },
+       {
+        "problemId": 22,
+        "courseId": "basiccodingquestion",
+        "title": "Missing Number in Array",
+        "difficulty": "Easy",
+        "description": "Given an array of n-1 integers in the range from 1 to n, find the missing number.",
+        "examples": [
+          {
+            "input": "[1, 2, 4, 6, 3, 7, 8]\n",
+            "output": "5\n"
+          },
+          {
+            "input": "[1, 2, 3, 5]\n",
+            "output": "4\n"
+          },
+          {
+            "input": "[2, 3, 4, 5, 6]\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "2 <= length of array <= 10^5",
+          "1 <= array elements <= length of array + 1",
+          "The array contains distinct integers."
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 4, 6, 3, 7, 8]\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "[1, 2, 3, 5]\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "[2, 3, 4, 5, 6]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[1, 3, 4, 5, 6]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[1,2]\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "[2,3]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[1,3,4,5]\n",
+            "expectedOutput": "2\n"
+          }
+        ],
+        "hints": [
+          "Calculate the sum of the first n natural numbers using the formula: n * (n + 1) / 2.",
+          "Calculate the sum of the elements in the given array.",
+          "The missing number is the difference between the two sums.",
+          "Alternatively, use a set to store the elements of the array and then iterate from 1 to n to find the missing number.",
+          "XOR of elements in the array and XOR of natural numbers from 1 to n will give you missing number."
+        ],
+        "tags": ["Missing Number", "Array Manipulation", "Basic Math"]
+      },
+      {
+        "problemId": 23,
+        "courseId": "basiccodingquestion",
+        "title": "Decimal to Binary",
+        "difficulty": "Easy",
+        "description": "Given a decimal number, convert it to its binary representation.",
+        "examples": [
+          {
+            "input": "10\n",
+            "output": "1010\n"
+          },
+          {
+            "input": "7\n",
+            "output": "111\n"
+          },
+          {
+            "input": "0\n",
+            "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "0 <= decimal number <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "10\n",
+            "expectedOutput": "1010\n"
+          },
+          {
+            "input": "7\n",
+            "expectedOutput": "111\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "2\n",
+            "expectedOutput": "10\n"
+          },
+          {
+            "input": "15\n",
+            "expectedOutput": "1111\n"
+          },
+          {
+            "input": "100\n",
+            "expectedOutput": "1100100\n"
+          }
+        ],
+        "hints": [
+          "Use the modulo operator (%) to get the remainder when dividing the decimal number by 2.",
+          "Append the remainder to the binary representation.",
+          "Divide the decimal number by 2 using integer division (// or /).",
+          "Repeat the process until the decimal number becomes 0.",
+          "Reverse the binary representation to get the correct order of bits.",
+          "Handle the edge case where the decimal number is 0."
+        ],
+        "tags": ["Decimal to Binary", "Number Conversion", "Basic Math"]
+      },
+       {
+        "problemId": 24,
+        "courseId": "basiccodingquestion",
+        "title": "Perfect Number",
+        "difficulty": "Easy",
+        "description": "Given a positive integer, determine if it is a perfect number. A perfect number is a positive integer that is equal to the sum of its proper positive divisors (excluding the number itself).",
+        "examples": [
+          {
+            "input": "6\n",
+            "output": "true\n"
+          },
+          {
+            "input": "28\n",
+            "output": "true\n"
+          },
+          {
+            "input": "12\n",
+            "output": "false\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number <= 10^8"
+        ],
+        "testCases": [
+          {
+            "input": "6\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "28\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "12\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "496\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "8128\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "10\n",
+            "expectedOutput": "false\n"
+          }
+        ],
+        "hints": [
+          "Iterate from 1 to the square root of the number.",
+          "For each divisor found, add it and its corresponding divisor (number / divisor) to the sum.",
+          "Handle the case where the square root is a divisor (add it only once).",
+          "Subtract the original number from the sum.",
+          "If the sum is equal to the original number, it is a perfect number.",
+          "Handle the edge case where the number is 1."
+        ],
+        "tags": ["Perfect Number", "Number Theory", "Basic Math"]
+      },
+      {
+        "problemId": 25,
+        "courseId": "basiccodingquestion",
+        "title": "Linear Search",
+        "difficulty": "Easy",
+        "description": "Given an array of integers and a target value, find the index of the target value in the array. If the target value is not found, return -1.",
+        "examples": [
+          {
+            "input": "[1, 2, 3, 4, 5]\n3\n",
+            "output": "2\n"
+          },
+          {
+            "input": "[5, 4, 3, 2, 1]\n1\n",
+            "output": "4\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n6\n",
+            "output": "-1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^9 <= array elements, target <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 3, 4, 5]\n3\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[5, 4, 3, 2, 1]\n1\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n6\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "[1]\n1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "[1]\n2\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "[1,1,1,1,1]\n1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "[-10, 0, 10]\n0\n",
+            "expectedOutput": "1\n"
+          }
+        ],
+        "hints": [
+          "Iterate through the array from the beginning to the end.",
+          "Compare each element with the target value.",
+          "If the current element is equal to the target value, return its index.",
+          "If the loop finishes without finding the target value, return -1."
+        ],
+        "tags": ["Linear Search", "Array Search", "Basic Array"]
+      },
+      {
+        "problemId": 26,
+        "courseId": "basiccodingquestion",
+        "title": "Binary Search",
+        "difficulty": "Medium",
+        "description": "Given a sorted array of integers and a target value, find the index of the target value in the array. If the target value is not found, return -1.",
+        "examples": [
+          {
+            "input": "[1, 2, 3, 4, 5]\n3\n",
+            "output": "2\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n6\n",
+            "output": "-1\n"
+          },
+          {
+            "input": "[-1, 0, 3, 5, 9, 12]\n9\n",
+            "output": "4\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^9 <= array elements, target <= 10^9",
+          "The array is sorted in ascending order."
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 3, 4, 5]\n3\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n6\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "[-1, 0, 3, 5, 9, 12]\n9\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "[1]\n1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "[1]\n2\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "[1, 1, 1, 1, 1]\n1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "[-10, -5, 0, 5, 10]\n0\n",
+            "expectedOutput": "2\n"
+          }
+        ],
+        "hints": [
+          "Initialize two pointers, left and right, to the start and end of the array.",
+          "While left is less than or equal to right, calculate the middle index.",
+          "Compare the middle element with the target value.",
+          "If the middle element is equal to the target value, return the middle index.",
+          "If the middle element is less than the target value, update left to middle + 1.",
+          "If the middle element is greater than the target value, update right to middle - 1.",
+          "If the loop finishes without finding the target value, return -1."
+        ],
+        "tags": ["Binary Search", "Array Search", "Basic Array"]
+      },
+       {
+        "problemId": 27,
+        "courseId": "basiccodingquestion",
+        "title": "Maximum Subarray Sum",
+        "difficulty": "Medium",
+        "description": "Given an array of integers, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
+        "examples": [
+          {
+            "input": "[-2, 1, -3, 4, -1, 2, 1, -5, 4]\n",
+            "output": "6\n"
+          },
+          {
+            "input": "[1]\n",
+            "output": "1\n"
+          },
+          {
+            "input": "[5, 4, -1, 7, 8]\n",
+            "output": "23\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^4 <= array elements <= 10^4"
+        ],
+        "testCases": [
+          {
+            "input": "[-2, 1, -3, 4, -1, 2, 1, -5, 4]\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[5, 4, -1, 7, 8]\n",
+            "expectedOutput": "23\n"
+          },
+          {
+            "input": "[-1]\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "[-2, -1]\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "[-2, 1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[-2, -3, 4, -1, -2, 1, 5, -3]\n",
+            "expectedOutput": "7\n"
+          }
+        ],
+        "hints": [
+          "Use Kadane's algorithm to solve this problem efficiently.",
+          "Initialize two variables, max_so_far and max_ending_here, to 0.",
+          "Iterate through the array and update max_ending_here by adding the current element.",
+          "If max_ending_here becomes negative, reset it to 0.",
+          "Update max_so_far with the maximum value between max_so_far and max_ending_here.",
+          "Return max_so_far after iterating through the entire array.",
+          "Handle the edge case where all elements are negative."
+        ],
+        "tags": ["Maximum Subarray Sum", "Kadane's Algorithm", "Array Manipulation"]
+      },
+       {
+        "problemId": 28,
+        "courseId": "basiccodingquestion",
+        "title": "Mean and Median of Unsorted Array",
+        "difficulty": "Medium",
+        "description": "Given an unsorted array of integers, calculate the mean (average) and median of the array.",
+        "examples": [
+          {
+            "input": "[1, 3, 5, 7]\n",
+            "output": "Mean: 4.00\nMedian: 4.00\n"
+          },
+          {
+            "input": "[1, 3, 5, 7, 9]\n",
+            "output": "Mean: 5.00\nMedian: 5.00\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5, 6]\n",
+            "output": "Mean: 3.50\nMedian: 3.50\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^9 <= array elements <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 3, 5, 7]\n",
+            "expectedOutput": "Mean: 4.00\nMedian: 4.00\n"
+          },
+          {
+            "input": "[1, 3, 5, 7, 9]\n",
+            "expectedOutput": "Mean: 5.00\nMedian: 5.00\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5, 6]\n",
+            "expectedOutput": "Mean: 3.50\nMedian: 3.50\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "Mean: 1.00\nMedian: 1.00\n"
+          },
+          {
+            "input": "[1, 2]\n",
+            "expectedOutput": "Mean: 1.50\nMedian: 1.50\n"
+          },
+          {
+            "input": "[-1, 0, 1]\n",
+            "expectedOutput": "Mean: 0.00\nMedian: 0.00\n"
+          },
+          {
+            "input":"[-1,-2,-3,-4]\n",
+            "expectedOutput":"Mean: -2.50\nMedian: -2.50\n"
+          }
+        ],
+        "hints": [
+          "To calculate the mean, sum all the elements in the array and divide by the number of elements.",
+          "To calculate the median, first sort the array in ascending order.",
+          "If the array has an odd number of elements, the median is the middle element.",
+          "If the array has an even number of elements, the median is the average of the two middle elements.",
+          "Handle edge case where array contains single or two elements"
+        ],
+        "tags": ["Mean", "Median", "Array Statistics", "Array Manipulation", "Sorting"]
+      },
+      {
+        "problemId": 29,
+        "courseId": "basiccodingquestion",
+        "title": "Frequency of Array Elements",
+        "difficulty": "Easy",
+        "description": "Given an array of integers, count the frequency of each element and print the elements along with their frequencies.",
+        "examples": [
+          {
+            "input": "[1, 2, 2, 3, 4, 4, 4]\n",
+            "output": "1: 1\n2: 2\n3: 1\n4: 3\n"
+          },
+          {
+            "input": "[1, 1, 1, 1, 1]\n",
+            "output": "1: 5\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "output": "1: 1\n2: 1\n3: 1\n4: 1\n5: 1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^9 <= array elements <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 2, 3, 4, 4, 4]\n",
+            "expectedOutput": "1: 1\n2: 2\n3: 1\n4: 3\n"
+          },
+          {
+            "input": "[1, 1, 1, 1, 1]\n",
+            "expectedOutput": "1: 5\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "1: asdf1\n2: 1\n3: 1\n4: 1\n5: 1\n"
+          },
+          {
+            "input": "[]\n",
+            "expectedOutput": ""
+          },
+          {
+            "input": "[0]\n",
+            "expectedOutput": "0: 1\n"
+          },
+          {
+            "input": "[-1, -1, 0, 1, 1, 1]\n",
+            "expectedOutput": "-1: 2\n0: 1\n1: 3\n"
+          },
+          {
+            "input":"[10,10,20,30,20,10]\n",
+            "expectedOutput":"10: 3\n20: 2\n30: 1\n"
+          }
+        ],
+        "hints": [
+          "Use a hash map (dictionary) to store the frequency of each element.",
+          "Iterate through the array and update the frequency of each element in the hash map.",
+          "Iterate through the hash map and print the elements along with their frequencies.",
+          "Handle the edge case where the array is empty."
+        ],
+        "tags": ["Frequency Count", "Array Manipulation", "Hashing"]
+      },
+       {
+        "problemId": 30,
+        "courseId": "basiccodingquestion",
+        "title": "Sort String of Characters",
+        "difficulty": "Easy",
+        "description": "Given a string of characters, sort the characters in ascending order.",
+        "examples": [
+          {
+            "input": "hello\n",
+            "output": "ehllo\n"
+          },
+          {
+            "input": "world\n",
+            "output": "dlorw\n"
+          },
+          {
+            "input": "banana\n",
+            "output": "aaabnn\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of string <= 10^5",
+          "String contains only lowercase English letters."
+        ],
+        "testCases": [
+          {
+            "input": "hello\n",
+            "expectedOutput": "ehllo\n"
+          },
+          {
+            "input": "world\n",
+            "expectedOutput": "dlorw\n"
+          },
+          {
+            "input": "banana\n",
+            "expectedOutput": "aaabnn\n"
+          },
+          {
+            "input": "a\n",
+            "expectedOutput": "a\n"
+          },
+          {
+            "input": "abc\n",
+            "expectedOutput": "abc\n"
+          },
+          {
+            "input": "cba\n",
+            "expectedOutput": "abc\n"
+          },
+          {
+            "input":"programming\n",
+            "expectedOutput":"aggimmnnoprr\n"
+          }
+        ],
+        "hints": [
+          "Convert the string to an array of characters.",
+          "Sort the array of characters using a sorting algorithm (e.g., bubble sort, insertion sort, merge sort, or quicksort).",
+          "Convert the sorted array of characters back to a string.",
+          "Alternatively, use built-in sorting functions available in your programming language."
+        ],
+        "tags": ["Sort String", "String Manipulation", "Sorting"]
+      }
+]

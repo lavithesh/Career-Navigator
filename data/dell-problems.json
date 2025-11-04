@@ -1,0 +1,1850 @@
+[
+{
+  "problemId": 1,
+  "courseId": "dell",
+  "title": "0/1 Knapsack Problem",
+  "difficulty": "Medium",
+  "description": "Given n items where each item has some weight and profit associated with it and also given a bag with capacity W, find the maximum profit that can be obtained by putting the items into the bag. Note: You can either put an item completely into the bag or cannot put it at all.",
+  "examples": [
+    {
+      "input": "W = 4, profit[] = [1, 2, 3], weight[] = [4, 5, 1]\n",
+      "output": "3\n"
+    },
+    {
+      "input": "W = 3, profit[] = [1, 2, 3], weight[] = [4, 5, 6]\n",
+      "output": "0\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 100",
+    "1 <= W <= 1000",
+    "1 <= profit[i] <= 1000",
+    "1 <= weight[i] <= 1000"
+  ],
+  "testCases": [
+    {
+      "input": "W = 4, profit[] = [1, 2, 3], weight[] = [4, 5, 1]\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "W = 3, profit[] = [1, 2, 3], weight[] = [4, 5, 6]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "W = 10, profit[] = [60, 100, 120], weight[] = [10, 20, 30]\n",
+      "expectedOutput": "220\n"
+    },
+    {
+      "input": "W = 5, profit[] = [10, 40, 30, 50], weight[] = [5, 4, 6, 3]\n",
+      "expectedOutput": "90\n"
+    },
+    {
+      "input": "W = 1, profit[] = [1, 2, 3], weight[] = [1, 2, 3]\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "W = 10, profit[] = [1, 1, 1, 1, 1], weight[] = [2, 2, 2, 2, 2]\n",
+      "expectedOutput": "5\n"
+    },
+    {
+       "input" : "W = 10, profit[] = [10,5,15,7,6,18,3], weight[] = [2,3,5,7,1,4,1]\n",
+       "expectedOutput" : "48\n"
+    }
+  ],
+  "hints": [
+    "Use dynamic programming to solve this problem.",
+    "Create a 2D array dp of size (n+1) x (W+1).",
+    "dp[i][w] represents the maximum profit that can be obtained with the first i items and a bag capacity of w.",
+    "For each item i, there are two choices: either include it in the bag or exclude it.",
+    "If the weight of the current item is less than or equal to the remaining capacity, choose the maximum profit between including it and excluding it.",
+    "If the weight of the current item is greater than the remaining capacity, exclude it.",
+    "The final result is dp[n][W]."
+  ],
+  "tags": ["0/1 Knapsack", "Dynamic Programming", "Optimization"]
+},
+{
+  "problemId": 2,
+  "courseId": "dell",
+  "title": "Sort an Array with 1 to n Values",
+  "difficulty": "Medium",
+  "description": "Given an array that contains numbers from 1 to n, sort this array in an efficient way without simply copying the numbers from 1 to n.",
+  "examples": [
+    {
+      "input": "[2, 1, 3]\n",
+      "output": "[1, 2, 3]\n"
+    },
+    {
+      "input": "[2, 1, 4, 3]\n",
+      "output": "[1, 2, 3, 4]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "The array contains numbers from 1 to n without any duplicates."
+  ],
+  "testCases": [
+    {
+      "input": "[2, 1, 3]\n",
+      "expectedOutput": "[1, 2, 3]\n"
+    },
+    {
+      "input": "[2, 1, 4, 3]\n",
+      "expectedOutput": "[1, 2, 3, 4]\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "expectedOutput": "[1, 2, 3, 4, 5]\n"
+    },
+    {
+      "input": "[5, 4, 3, 2, 1]\n",
+      "expectedOutput": "[1, 2, 3, 4, 5]\n"
+    },
+    {
+      "input": "[3, 1, 2]\n",
+      "expectedOutput": "[1, 2, 3]\n"
+    },
+    {
+      "input": "[4, 2, 1, 3]\n",
+      "expectedOutput": "[1, 2, 3, 4]\n"
+    },
+     {
+        "input":"[6,5,4,3,2,1]\n",
+        "expectedOutput":"[1,2,3,4,5,6]\n"
+     }
+  ],
+  "hints": [
+    "Since the array contains numbers from 1 to n, you can use the array indices as a hash map.",
+    "Iterate through the array and place each element at its correct position (i.e., element 'x' should be at index 'x-1').",
+    "If an element is already at its correct position, move to the next element.",
+    "If an element is not at its correct position, swap it with the element at its correct position.",
+    "Repeat the process until all elements are at their correct positions."
+  ],
+  "tags": ["Sorting", "Array Manipulation", "In-place Sorting"]
+},
+{
+  "problemId": 3,
+  "courseId": "dell",
+  "title": "Reverse a Linked List",
+  "difficulty": "Medium",
+  "description": "Given a linked list, reverse the linked list by changing the links between nodes.",
+  "examples": [
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> NULL\n",
+      "output": "4 -> 3 -> 2 -> 1 -> NULL\n"
+    },
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> 5 -> NULL\n",
+      "output": "5 -> 4 -> 3 -> 2 -> 1 -> NULL\n"
+    }
+  ],
+  "constraints": [
+    "0 <= number of nodes <= 10^5",
+    "Each node's value is an integer."
+  ],
+  "testCases": [
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> NULL\n",
+      "expectedOutput": "4 -> 3 -> 2 -> 1 -> NULL\n"
+    },
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> 5 -> NULL\n",
+      "expectedOutput": "5 -> 4 -> 3 -> 2 -> 1 -> NULL\n"
+    },
+    {
+      "input": "1 -> NULL\n",
+      "expectedOutput": "1 -> NULL\n"
+    },
+    {
+      "input": "NULL\n",
+      "expectedOutput": "NULL\n"
+    },
+    {
+      "input": "1 -> 2 -> NULL\n",
+      "expectedOutput": "2 -> 1 -> NULL\n"
+    },
+    {
+      "input": "1 -> 2 -> 3 -> NULL\n",
+      "expectedOutput": "3 -> 2 -> 1 -> NULL\n"
+    },
+    {
+      "input": "10 -> 20 -> 30 -> 40 -> 50 -> NULL\n",
+      "expectedOutput": "50 -> 40 -> 30 -> 20 -> 10 -> NULL\n"
+    }
+  ],
+  "hints": [
+    "Use three pointers: previous, current, and next.",
+    "Initialize previous to NULL and current to the head of the linked list.",
+    "Iterate through the linked list, and for each node:",
+    "  - Store the next node in the next pointer.",
+    "  - Reverse the current node's pointer to point to the previous node.",
+    "  - Move previous to the current node and current to the next node.",
+    "After the loop, the previous pointer will be pointing to the new head of the reversed linked list."
+  ],
+  "tags": ["Linked List", "Reverse Linked List", "Data Structures"]
+},
+{
+  "problemId": 4,
+  "courseId": "dell",
+  "title": "Vertical Traversal of a Binary Tree",
+  "difficulty": "Medium",
+  "description": "Given a Binary Tree, find its vertical traversal starting from the leftmost level to the rightmost level. If multiple nodes pass through a vertical line, they should be printed as they appear in the level order traversal of the tree.",
+  "examples": [
+    {
+      "input": "Binary Tree: [1, 2, 3, 4, 5, 6, null, null, null, 8, 7, 9]\n",
+      "output": "[[4], [2], [1, 5, 6], [3, 8], [7], [9]]\n"
+    }
+  ],
+  "constraints": [
+    "0 <= Number of nodes <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "Binary Tree: [1, 2, 3, 4, 5, 6, null, null, null, 8, 7, 9]\n",
+      "expectedOutput": "[[4], [2], [1, 5, 6], [3, 8], [7], [9]]\n"
+    },
+    {
+      "input": "Binary Tree: [1, 2, 3, 4, 5, 6, 7]\n",
+      "expectedOutput": "[[4], [2], [1, 5, 6], [3, 7]]\n"
+    },
+    {
+      "input": "Binary Tree: [1, 2, 3, null, 4, null, 5]\n",
+      "expectedOutput": "[[2], [1, 4], [3, 5]]\n"
+    },
+    {
+      "input": "Binary Tree: [1]\n",
+      "expectedOutput": "[[1]]\n"
+    },
+    {
+      "input": "Binary Tree: []\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "Binary Tree: [1,2,null,4,null,8,null]\n",
+      "expectedOutput": "[[4],[2],[1,8]]\n"
+    },
+    {
+      "input": "Binary Tree: [1,null,2,null,4,null,8]\n",
+      "expectedOutput": "[[1],[2],[4],[8]]\n"
+    }
+  ],
+  "hints": [
+    "Use a hash map (dictionary) to store the nodes at each vertical level.",
+    "Perform a level order traversal of the binary tree.",
+    "For each node, store its horizontal distance (hd) from the root.",
+    "If a node is encountered for the first time at a particular hd, add it to the hash map.",
+    "If a node is encountered at an already existing hd, append it to the list of nodes at that hd.",
+    "After the traversal, iterate through the hash map in sorted order of hd and print the nodes at each level."
+  ],
+  "tags": ["Binary Tree", "Vertical Traversal", "Tree Traversal", "Data Structures"]
+},
+{
+  "problemId": 5,
+  "courseId": "dell",
+  "title": "LCA in BST - Lowest Common Ancestor in Binary Search Tree",
+  "difficulty": "Medium",
+  "description": "Given two nodes n1 and n2 of a Binary Search Tree, find the Lowest Common Ancestor (LCA). You may assume that both values exist in the tree. The Lowest Common Ancestor between two nodes n1 and n2 is defined as the lowest node that has both n1 and n2 as descendants (where we allow a node to be a descendant of itself).",
+  "examples": [
+    {
+      "input": "BST: [8, 3, 10, 1, 6, null, 14, null, null, 4, 7, 13], n1: 10, n2: 14\n",
+      "output": "12\n"
+    },
+    {
+      "input": "BST: [8, 3, 10, 1, 6, null, 14, null, null, 4, 7, 13], n1: 8, n2: 14\n",
+      "output": "8\n"
+    }
+  ],
+  "constraints": [
+    "2 <= Number of nodes in BST <= 10^5",
+    "All node values are unique.",
+    "n1 and n2 are present in the BST."
+  ],
+  "testCases": [
+    {
+      "input": "BST: [8, 3, 10, 1, 6, null, 14, null, null, 4, 7, 13], n1: 10, n2: 14\n",
+      "expectedOutput": "12\n"
+    },
+    {
+      "input": "BST: [8, 3, 10, 1, 6, null, 14, null, null, 4, 7, 13], n1: 8, n2: 14\n",
+      "expectedOutput": "8\n"
+    },
+    {
+      "input": "BST: [6, 2, 8, 0, 4, 7, 9, null, null, 3, 5], n1: 2, n2: 8\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input": "BST: [6, 2, 8, 0, 4, 7, 9, null, null, 3, 5], n1: 2, n2: 4\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "BST: [2, 1], n1: 1, n2: 2\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "BST: [20,8,22,4,12,null,null,null,null,10,14], n1: 10, n2: 14\n",
+      "expectedOutput": "12\n"
+    },
+    {
+       "input" : "BST: [50,30,70,20,40,60,80], n1: 30, n2: 40\n",
+       "expectedOutput" : "30\n"
+    }
+  ],
+  "hints": [
+    "Start from the root of the BST.",
+    "If both n1 and n2 are smaller than the current node, the LCA is in the left subtree.",
+    "If both n1 and n2 are greater than the current node, the LCA is in the right subtree.",
+    "If one of n1 or n2 is smaller and the other is greater than the current node, or if the current node is equal to either n1 or n2, the current node is the LCA."
+  ],
+  "tags": ["Binary Search Tree", "Lowest Common Ancestor", "Tree Traversal", "Data Structures"]
+},
+{
+  "problemId": 6,
+  "courseId": "dell",
+  "title": "Number Pattern Palindrome",
+  "difficulty": "Medium",
+  "description": "Print a number pattern where the middle column contains only 1, right side columns contain a constant digit greater than 1, and left side columns contain a constant digit greater than 1. Every row should look like a Palindrome.",
+  "examples": [
+    {
+      "input": "3\n",
+      "output": "  1\n2 1 2\n  1\n"
+    },
+    {
+      "input": "5\n",
+      "output": "    1\n  2 1 2\n3 2 1 2 3\n  2 1 2\n    1\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 100",
+    "n is an odd number"
+  ],
+  "testCases": [
+    {
+      "input": "3\n",
+      "expectedOutput": "  1\n2 1 2\n  1\n"
+    },
+    {
+      "input": "5\n",
+      "expectedOutput": "    1\n  2 1 2\n3 2 1 2 3\n  2 1 2\n    1\n"
+    },
+    {
+      "input": "1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "7\n",
+      "expectedOutput": "      1\n    2 1 2\n  3 2 1 2 3\n4 3 2 1 2 3 4\n  3 2 1 2 3\n    2 1 2\n      1\n"
+    },
+    {
+      "input": "9\n",
+      "expectedOutput": "        1\n      2 1 2\n    3 2 1 2 3\n  4 3 2 1 2 3 4\n5 4 3 2 1 2 3 4 5\n  4 3 2 1 2 3 4\n    3 2 1 2 3\n      2 1 2\n        1\n"
+    },
+    {
+      "input":"11\n",
+      "expectedOutput":"          1\n        2 1 2\n      3 2 1 2 3\n    4 3 2 1 2 3 4\n  5 4 3 2 1 2 3 4 5\n6 5 4 3 2 1 2 3 4 5 6\n  5 4 3 2 1 2 3 4 5\n    4 3 2 1 2 3 4\n      3 2 1 2 3\n        2 1 2\n          1\n"
+    }
+  ],
+  "hints": [
+    "The number of rows and columns in the pattern is equal to the input number n.",
+    "The middle row and column contain the sequence 1.",
+    "The left and right sides of each row form a palindrome.",
+    "Use nested loops to iterate through the rows and columns of the pattern.",
+    "Calculate the value to be printed based on the row and column indices.",
+    "Handle the spacing to maintain the pattern's shape."
+  ],
+  "tags": ["Number Pattern", "Palindrome", "Nested Loops"]
+},
+{
+  "problemId": 7,
+  "courseId": "dell",
+  "title": "Transform One String to Another using Minimum Number of Given Operation",
+  "difficulty": "Hard",
+  "description": "Given two strings A and B, the task is to convert A to B if possible. The only operation allowed is to put any character from A and insert it at the front. Find if it’s possible to convert the string. If yes, then output the minimum number of operations required for the transformation.",
+  "examples": [
+    {
+      "input": "A = \"ABD\", B = \"BAD\"\n",
+      "output": "1\n"
+    },
+    {
+      "input": "A = \"EACBD\", B = \"EABCD\"\n",
+      "output": "3\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of A, B <= 10^5",
+    "A and B contain only uppercase English letters."
+  ],
+  "testCases": [
+    {
+      "input": "A = \"ABD\", B = \"BAD\"\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "A = \"EACBD\", B = \"EABCD\"\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "A = \"ABC\", B = \"ABC\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "A = \"ABC\", B = \"CBA\"\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "A = \"AABBCC\", B = \"ABCABC\"\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "A = \"AAB\", B = \"ABA\"\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "A = \"ABC\", B = \"CAB\"\n",
+      "expectedOutput": "2\n"
+    }
+  ],
+  "hints": [
+    "Check if the characters in A and B are the same, if not, it is impossible to transform A into B.",
+    "Use two pointers, i and j, to iterate through A and B from the end.",
+    "If A[i] == B[j], decrement both i and j.",
+    "If A[i] != B[j], decrement i and increment the operation count.",
+    "The final operation count will be the minimum number of operations required.",
+    "If j reaches the beginning of B before i reaches the beginning of A, it means it is impossible to transform A into B."
+  ],
+  "tags": ["String Transformation", "Two Pointers", "String Manipulation"]
+},
+{
+  "problemId": 8,
+  "courseId": "dell",
+  "title": "Pairwise Swap Elements of a Linked List",
+  "difficulty": "Medium",
+  "description": "Given a singly linked list, swap linked list elements pairwise.",
+  "examples": [
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL\n",
+      "output": "2 -> 1 -> 4 -> 3 -> 6 -> 5 -> NULL\n"
+    },
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> 5 -> NULL\n",
+      "output": "2 -> 1 -> 4 -> 3 -> 5 -> NULL\n"
+    }
+  ],
+  "constraints": [
+    "0 <= number of nodes <= 10^5",
+    "Each node's value is an integer."
+  ],
+  "testCases": [
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> 5 -> 6 -> NULL\n",
+      "expectedOutput": "2 -> 1 -> 4 -> 3 -> 6 -> 5 -> NULL\n"
+    },
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> 5 -> NULL\n",
+      "expectedOutput": "2 -> 1 -> 4 -> 3 -> 5 -> NULL\n"
+    },
+    {
+      "input": "1 -> NULL\n",
+      "expectedOutput": "1 -> NULL\n"
+    },
+    {
+      "input": "NULL\n",
+      "expectedOutput": "NULL\n"
+    },
+    {
+      "input": "1 -> 2 -> NULL\n",
+      "expectedOutput": "2 -> 1 -> NULL\n"
+    },
+    {
+      "input": "1 -> 2 -> 3 -> NULL\n",
+      "expectedOutput": "2 -> 1 -> 3 -> NULL\n"
+    },
+    {
+      "input": "10 -> 20 -> 30 -> 40 -> 50 -> 60 -> 70 -> NULL\n",
+      "expectedOutput": "20 -> 10 -> 40 -> 30 -> 60 -> 50 -> 70 -> NULL\n"
+    }
+  ],
+  "hints": [
+    "Initialize three pointers: previous, current, and next.",
+    "Iterate through the linked list while current and current->next are not NULL.",
+    "Swap the current node with the next node.",
+    "Update the previous pointer to point to the swapped nodes.",
+    "Move the current pointer to the next pair of nodes.",
+    "Handle the edge cases where the linked list is empty or has only one node."
+  ],
+  "tags": ["Linked List", "Pairwise Swap", "Data Structures"]
+},
+{
+  "problemId": 9,
+  "courseId": "dell",
+  "title": "Deletion in Linked List",
+  "difficulty": "Easy",
+  "description": "Implement functions to delete a node from a singly linked list. The deletion can be done in three ways: removing the first node, removing a node in the middle, or removing the last node.",
+  "examples": [
+    {
+      "input": "Linked List: 1 -> 2 -> 3 -> 4 -> NULL, Delete First Node\n",
+      "output": "2 -> 3 -> 4 -> NULL\n"
+    },
+    {
+      "input": "Linked List: 1 -> 2 -> 3 -> 4 -> NULL, Delete Middle Node (value 3)\n",
+      "output": "1 -> 2 -> 4 -> NULL\n"
+    },
+    {
+      "input": "Linked List: 1 -> 2 -> 3 -> 4 -> NULL, Delete Last Node\n",
+      "output": "1 -> 2 -> 3 -> NULL\n"
+    }
+  ],
+  "constraints": [
+    "0 <= number of nodes <= 10^5",
+    "Each node's value is an integer.",
+    "The node to be deleted exists in the linked list."
+  ],
+  "testCases": [
+    {
+      "input": "Linked List: 1 -> 2 -> 3 -> 4 -> NULL, Delete First Node\n",
+      "expectedOutput": "2 -> 3 -> 4 -> NULL\n"
+    },
+    {
+      "input": "Linked List: 1 -> 2 -> 3 -> 4 -> NULL, Delete Middle Node (value 3)\n",
+      "expectedOutput": "1 -> 2 -> 4 -> NULL\n"
+    },
+    {
+      "input": "Linked List: 1 -> 2 -> 3 -> 4 -> NULL, Delete Last Node\n",
+      "expectedOutput": "1 -> 2 -> 3 -> NULL\n"
+    },
+    {
+      "input": "Linked List: 1 -> NULL, Delete First Node\n",
+      "expectedOutput": "NULL\n"
+    },
+    {
+      "input": "Linked List: 1 -> 2 -> NULL, Delete Last Node\n",
+      "expectedOutput": "1 -> NULL\n"
+    },
+    {
+      "input": "Linked List: 1 -> 2 -> 3 -> 4 -> 5 -> NULL, Delete Middle Node (value 1)\n",
+      "expectedOutput": "2 -> 3 -> 4 -> 5 -> NULL\n"
+    },
+    {
+      "input": "Linked List: 10 -> 20 -> 30 -> 40 -> 50 -> NULL, Delete Middle Node (value 30)\n",
+      "expectedOutput": "10 -> 20 -> 40 -> 50 -> NULL\n"
+    }
+  ],
+  "hints": [
+    "Delete First Node:",
+    "  - Update the head of the linked list to point to the second node.",
+    "Delete Middle Node:",
+    "  - Find the node to be deleted and its previous node.",
+    "  - Update the previous node's next pointer to skip the node to be deleted.",
+    "Delete Last Node:",
+    "  - Find the second last node in the linked list.",
+    "  - Update the second last node's next pointer to NULL.",
+    "Handle edge cases like an empty linked list or deleting the only node."
+  ],
+  "tags": ["Linked List", "Deletion", "Data Structures"]
+},
+{
+  "problemId": 10,
+  "courseId": "dell",
+  "title": "Move all zeros to end of array",
+  "difficulty": "Easy",
+  "description": "Given an array of integers arr[], move all the zeros to the end of the array while maintaining the relative order of all non-zero elements.",
+  "examples": [
+    {
+      "input": "[1, 2, 0, 4, 3, 0, 5, 0]\n",
+      "output": "[1, 2, 4, 3, 5, 0, 0, 0]\n"
+    },
+    {
+      "input": "[10, 20, 30]\n",
+      "output": "[10, 20, 30]\n"
+    },
+    {
+      "input": "[0, 0]\n",
+      "output": "[0, 0]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of array <= 10^5",
+    "-10^9 <= array elements <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "[1, 2, 0, 4, 3, 0, 5, 0]\n",
+      "expectedOutput": "[1, 2, 4, 3, 5, 0, 0, 0]\n"
+    },
+    {
+      "input": "[10, 20, 30]\n",
+      "expectedOutput": "[10, 20, 30]\n"
+    },
+    {
+      "input": "[0, 0]\n",
+      "expectedOutput": "[0, 0]\n"
+    },
+    {
+      "input": "[0, 1, 2, 3, 4]\n",
+      "expectedOutput": "[1, 2, 3, 4, 0]\n"
+    },
+    {
+      "input": "[1, 0, 2, 0, 3, 0, 4]\n",
+      "expectedOutput": "[1, 2, 3, 4, 0, 0, 0]\n"
+    },
+    {
+      "input": "[0]\n",
+      "expectedOutput": "[0]\n"
+    },
+    {
+      "input":"[1,0,0,0,2]\n",
+      "expectedOutput":"[1,2,0,0,0]\n"
+    }
+  ],
+  "hints": [
+    "Use two pointers: one to track the position to insert non-zero elements and the other to iterate through the array.",
+    "Iterate through the array. If the current element is non-zero, insert it at the position indicated by the first pointer and increment the pointer.",
+    "After iterating through the array, fill the remaining positions with zeros."
+  ],
+  "tags": ["Array Manipulation", "Two Pointers", "In-place Array"]
+},
+{
+  "problemId": 11,
+  "courseId": "dell",
+  "title": "Valid Compressed String",
+  "difficulty": "Medium",
+  "description": "A special compression mechanism can arbitrarily delete 0 or more characters and replace them with the deleted character count. Given two strings, S and T where S is a normal string and T is a compressed string, determine if the compressed string T is valid for the plaintext string S.",
+  "examples": [
+    {
+      "input": "S = \"GEEKSFORGEEKS\", T = \"G7G3S\"\n",
+      "output": "1\n"
+    },
+    {
+      "input": "S = \"DFS\", T = \"D1D\"\n",
+      "output": "0\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of S, T <= 10^5",
+    "S and T contain only uppercase English letters and digits."
+  ],
+  "testCases": [
+    {
+      "input": "S = \"GEEKSFORGEEKS\", T = \"G7G3S\"\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "S = \"DFS\", T = \"D1D\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "S = \"ABC\", T = \"ABC\"\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "S = \"AAAAA\", T = \"A4A\"\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "S = \"ABBBCCC\", T = \"A3C2C\"\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "S = \"A\", T = \"1A\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input":"S = \"ABCDEFGH\", T = \"A7H\"\n",
+      "expectedOutput": "1\n"
+    }
+  ],
+  "hints": [
+    "Use two pointers, i for S and j for T.",
+    "If T[j] is a letter, it should match S[i].",
+    "If T[j] is a digit, it represents the number of characters skipped in S.",
+    "Handle the case where the digit is more than one digit long.",
+    "If the end of S is reached before the end of T, or vice versa, return 0.",
+    "Return 1 if both pointers reach the end of their respective strings."
+  ],
+  "tags": ["String Compression", "Two Pointers", "String Manipulation"]
+},
+{
+  "problemId": 12,
+  "courseId": "dell",
+  "title": "Count distinct occurrences as a subsequence",
+  "difficulty": "Hard",
+  "description": "Given two strings pat and txt, where pat is always shorter than txt, count the distinct occurrences of pat as a subsequence in txt.",
+  "examples": [
+    {
+      "input": "txt = abba, pat = aba\n",
+      "output": "2\n"
+    },
+    {
+      "input": "txt = banana, pat = ban\n",
+      "output": "3\n"
+    },
+    {
+      "input": "txt = geeks, pat = ge\n",
+      "output": "2\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of pat <= 100",
+    "1 <= length of txt <= 1000",
+    "pat and txt contain only lowercase English letters."
+  ],
+  "testCases": [
+    {
+      "input": "txt = abba, pat = aba\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "txt = banana, pat = ban\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "txt = geeks, pat = ge\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "txt = abcdef, pat = abc\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "txt = aaaaa, pat = aa\n",
+      "expectedOutput": "10\n"
+    },
+    {
+      "input": "txt = abcd, pat = xy\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "txt = aabbcc, pat = abc\n",
+      "expectedOutput": "8\n"
+    }
+  ],
+  "hints": [
+    "Use dynamic programming to solve this problem.",
+    "Create a 2D array dp of size (pat.length() + 1) x (txt.length() + 1).",
+    "dp[i][j] represents the number of distinct occurrences of pat[0...i-1] as a subsequence in txt[0...j-1].",
+    "Initialize dp[0][j] to 1 for all j, as an empty pattern is always a subsequence.",
+    "Initialize dp[i][0] to 0 for all i > 0, as a non-empty pattern cannot be a subsequence of an empty string.",
+    "If pat[i-1] == txt[j-1], dp[i][j] = dp[i-1][j-1] + dp[i][j-1].",
+    "If pat[i-1] != txt[j-1], dp[i][j] = dp[i][j-1].",
+    "The final result is dp[pat.length()][txt.length()]."
+  ],
+  "tags": ["Dynamic Programming", "String Subsequence", "String Matching"]
+},
+{
+  "problemId": 13,
+  "courseId": "dell",
+  "title": "Group Anagrams Together",
+  "difficulty": "Medium",
+  "description": "Given an array of words arr[], group the strings that are anagrams. An anagram is a word or phrase formed by rearranging the letters of another, using all the original letters exactly once.",
+  "examples": [
+    {
+      "input": "[\"act\", \"god\", \"cat\", \"dog\", \"tac\"]\n",
+      "output": "[[\"act\", \"cat\", \"tac\"], [\"god\", \"dog\"]]\n"
+    },
+    {
+      "input": "[\"listen\", \"silent\", \"enlist\", \"abc\", \"cab\", \"bac\", \"rat\", \"tar\", \"art\"]\n",
+      "output": "[[\"abc\", \"cab\", \"bac\"], [\"listen\", \"silent\", \"enlist\"], [\"rat\", \"tar\", \"art\"]]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of arr <= 10^5",
+    "1 <= length of arr[i] <= 100",
+    "arr[i] consists of lowercase English letters."
+  ],
+  "testCases": [
+    {
+      "input": "[\"act\", \"god\", \"cat\", \"dog\", \"tac\"]\n",
+      "expectedOutput": "[[\"act\", \"cat\", \"tac\"], [\"god\", \"dog\"]]\n"
+    },
+    {
+      "input": "[\"listen\", \"silent\", \"enlist\", \"abc\", \"cab\", \"bac\", \"rat\", \"tar\", \"art\"]\n",
+      "expectedOutput": "[[\"abc\", \"cab\", \"bac\"], [\"listen\", \"silent\", \"enlist\"], [\"rat\", \"tar\", \"art\"]]\n"
+    },
+    {
+      "input": "[\"eat\", \"tea\", \"tan\", \"ate\", \"nat\", \"bat\"]\n",
+      "expectedOutput": "[[\"eat\", \"tea\", \"ate\"], [\"tan\", \"nat\"], [\"bat\"]]\n"
+    },
+    {
+      "input": "[\"abc\"]\n",
+      "expectedOutput": "[[\"abc\"]]\n"
+    },
+    {
+      "input": "[]\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "[\"a\",\"b\",\"c\"]\n",
+      "expectedOutput": "[[\"a\"],[\"b\"],[\"c\"]]\n"
+    },
+    {
+       "input":"[\"ate\",\"tea\",\"eat\",\"nat\",\"tan\",\"ant\"]\n",
+       "expectedOutput":"[[\"ate\",\"tea\",\"eat\"],[\"nat\",\"tan\",\"ant\"]]\n"
+    }
+  ],
+  "hints": [
+    "Use a hash map (dictionary) to store the anagrams.",
+    "For each word in the array, sort the characters of the word.",
+    "Use the sorted word as the key in the hash map.",
+    "If the key already exists in the hash map, append the original word to the list of anagrams.",
+    "If the key does not exist, create a new entry in the hash map with the sorted word as the key and a list containing the original word as the value.",
+    "Finally, convert the values of the hash map into a list of lists."
+  ],
+  "tags": ["Anagrams", "Hashing", "String Manipulation"]
+},
+{
+  "problemId": 14,
+  "courseId": "dell",
+  "title": "3 Sum - Triplet Sum in Array",
+  "difficulty": "Medium",
+  "description": "Given an array arr[] of size n and an integer sum, check if there is a triplet in the array which sums up to the given target sum.",
+  "examples": [
+    {
+      "input": "arr[] = [1, 4, 45, 6, 10, 8], target = 13\n",
+      "output": "true\n"
+    },
+    {
+      "input": "arr[] = [1, 2, 4, 3, 6, 7], target = 10\n",
+      "output": "true\n"
+    },
+    {
+      "input": "arr[] = [40, 20, 10, 3, 6, 7], target = 24\n",
+      "output": "false\n"
+    }
+  ],
+  "constraints": [
+    "3 <= length of arr <= 10^5",
+    "-10^9 <= array elements, target <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "arr[] = [1, 4, 45, 6, 10, 8], target = 13\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "arr[] = [1, 2, 4, 3, 6, 7], target = 10\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "arr[] = [40, 20, 10, 3, 6, 7], target = 24\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "arr[] = [-1, 0, 1, 2, -4], target = -1\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "arr[] = [0, 0, 0], target = 0\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "arr[] = [1, 2, 3, 4, 5], target = 15\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input":"arr[] = [-2,-3,5,10,12], target = 15\n",
+      "expectedOutput": "true\n"
+    }
+  ],
+  "hints": [
+    "Sort the array in ascending order.",
+    "Iterate through the array from the beginning to the end.",
+    "For each element, use two pointers (left and right) to find the other two elements that sum up to the target.",
+    "Initialize left to the next element and right to the last element.",
+    "If the sum of the three elements is equal to the target, return true.",
+    "If the sum is less than the target, increment left.",
+    "If the sum is greater than the target, decrement right.",
+    "If no triplet is found, return false."
+  ],
+  "tags": ["3 Sum", "Triplet Sum", "Array Manipulation", "Two Pointers"]
+},
+{
+  "problemId": 15,
+  "courseId": "dell",
+  "title": "Longest Palindromic Substring",
+  "difficulty": "Medium",
+  "description": "Given a string s, find the longest substring which is a palindrome. If there are multiple answers, then return the first appearing substring.",
+  "examples": [
+    {
+      "input": "s = \"forgeeksskeegfor\"\n",
+      "output": "\"geeksskeeg\"\n"
+    },
+    {
+      "input": "s = \"Geeks\"\n",
+      "output": "\"ee\"\n"
+    },
+    {
+      "input": "s = \"abc\"\n",
+      "output": "\"a\"\n"
+    },
+    {
+      "input": "s = \"\"\n",
+      "output": "\"\"\n"
+    }
+  ],
+  "constraints": [
+    "0 <= length of s <= 1000",
+    "s consists of only lowercase and uppercase English letters."
+  ],
+  "testCases": [
+    {
+      "input": "s = \"forgeeksskeegfor\"\n",
+      "expectedOutput": "\"geeksskeeg\"\n"
+    },
+    {
+      "input": "s = \"Geeks\"\n",
+      "expectedOutput": "\"ee\"\n"
+    },
+    {
+      "input": "s = \"abc\"\n",
+      "expectedOutput": "\"a\"\n"
+    },
+    {
+      "input": "s = \"\"\n",
+      "expectedOutput": "\"\"\n"
+    },
+    {
+      "input": "s = \"babad\"\n",
+      "expectedOutput": "\"bab\"\n"
+    },
+    {
+      "input": "s = \"cbbd\"\n",
+      "expectedOutput": "\"bb\"\n"
+    },
+    {
+      "input": "s = \"aaaaa\"\n",
+      "expectedOutput": "\"aaaaa\"\n"
+    }
+  ],
+  "hints": [
+    "Use the expand around center approach.",
+    "Iterate through the string and treat each character as the center of a potential palindrome.",
+    "Expand outwards from the center, checking for palindromic substrings of odd and even lengths.",
+    "Keep track of the longest palindromic substring found so far.",
+    "Return the longest palindromic substring."
+  ],
+  "tags": ["Longest Palindromic Substring", "String Manipulation", "Palindrome"]
+},
+{
+  "problemId": 16,
+  "courseId": "dell",
+  "title": "Wildcard Pattern Matching",
+  "difficulty": "Hard",
+  "description": "Given a text txt and a wildcard pattern pat, implement a wildcard pattern matching algorithm that finds if the wildcard pattern is matched with the text. The matching should cover the entire text. The wildcard pattern can include the characters ‘?’ and ‘’ which denote: ‘?’ – matches any single character, ‘’ – Matches any sequence of characters (including the empty sequence).",
+  "examples": [
+    {
+      "input": "txt = “abcde”, pat = “a?c*”\n",
+      "output": "true\n"
+    },
+    {
+      "input": "txt = “baaabab”, pat = “a*ab”\n",
+      "output": "false\n"
+    },
+    {
+      "input": "txt = “abc”, pat = “*”\n",
+      "output": "true\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of txt, pat <= 1000",
+    "txt contains only lowercase English letters.",
+    "pat contains only lowercase English letters, ‘?’ and ‘*’."
+  ],
+  "testCases": [
+    {
+      "input": "txt = “abcde”, pat = “a?c*”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "txt = “baaabab”, pat = “a*ab”\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "txt = “abc”, pat = “*”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "txt = “”, pat = “*”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "txt = “abc”, pat = “abc”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "txt = “abc”, pat = “a?c”\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "txt = “acdcb”, pat = “a*c?b”\n",
+      "expectedOutput": "false\n"
+    }
+  ],
+  "hints": [
+    "Use dynamic programming to solve this problem.",
+    "Create a 2D boolean array dp of size (pat.length() + 1) x (txt.length() + 1).",
+    "dp[i][j] represents whether pat[0...i-1] matches txt[0...j-1].",
+    "Initialize dp[0][0] to true, as an empty pattern matches an empty string.",
+    "Initialize dp[i][0] to true for all i if pat[i-1] == '', as '' can match an empty string.",
+    "If pat[i-1] == txt[j-1] or pat[i-1] == '?', dp[i][j] = dp[i-1][j-1].",
+    "If pat[i-1] == '*', dp[i][j] = dp[i-1][j] || dp[i][j-1].",
+    "The final result is dp[pat.length()][txt.length()]."
+  ],
+  "tags": ["Wildcard Matching", "Dynamic Programming", "String Matching"]
+},
+{
+  "problemId": 17,
+  "courseId": "dell",
+  "title": "Nth node from the end of a Linked List",
+  "difficulty": "Easy",
+  "description": "Given a Linked List of M nodes and a number N, find the value at the Nth node from the end of the Linked List. If there is no Nth node from the end, print -1.",
+  "examples": [
+    {
+      "input": "1 -> 2 -> 3 -> 4, N = 3\n",
+      "output": "2\n"
+    },
+    {
+      "input": "35 -> 15 -> 4 -> 20, N = 4\n",
+      "output": "35\n"
+    }
+  ],
+  "constraints": [
+    "1 <= M <= 10^5",
+    "1 <= N <= M",
+    "Each node's value is an integer."
+  ],
+  "testCases": [
+    {
+      "input": "1 -> 2 -> 3 -> 4, N = 3\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "35 -> 15 -> 4 -> 20, N = 4\n",
+      "expectedOutput": "35\n"
+    },
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> 5, N = 1\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "1 -> 2 -> 3 -> 4 -> 5, N = 5\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "1, N = 1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "1 -> 2 -> 3, N = 2\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input":"10 -> 20 -> 30 -> 40 -> 50, N = 3\n",
+      "expectedOutput":"30\n"
+    }
+  ],
+  "hints": [
+    "Use two pointers, slow and fast.",
+    "Move the fast pointer N nodes from the head.",
+    "If fast becomes NULL, it means N is greater than the number of nodes, return -1.",
+    "Move both slow and fast pointers one node at a time until fast reaches the end of the linked list.",
+    "When fast reaches the end, slow will be pointing to the Nth node from the end.",
+    "Return the value of the slow pointer."
+  ],
+  "tags": ["Linked List", "Nth Node from End", "Data Structures"]
+},
+{
+  "problemId": 18,
+  "courseId": "dell",
+  "title": "Stock Buy and Sell - Multiple Transactions Allowed",
+  "difficulty": "Medium",
+  "description": "Given an array prices[] of size n denoting the cost of stock on each day, find the maximum total profit if we can buy and sell the stocks any number of times. Note: We can only sell a stock which we have bought earlier and we cannot hold multiple stocks on any day.",
+  "examples": [
+    {
+      "input": "prices[] = [100, 180, 260, 310, 40, 535, 695]\n",
+      "output": "865\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of prices <= 10^5",
+    "0 <= prices[i] <= 10^4"
+  ],
+  "testCases": [
+    {
+      "input": "prices[] = [100, 180, 260, 310, 40, 535, 695]\n",
+      "expectedOutput": "865\n"
+    },
+    {
+      "input": "prices[] = [7, 1, 5, 3, 6, 4]\n",
+      "expectedOutput": "7\n"
+    },
+    {
+      "input": "prices[] = [1, 2, 3, 4, 5]\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "prices[] = [5, 4, 3, 2, 1]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "prices[] = [1, 2]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "prices[] = [2, 1]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input":"prices[] = [2,5,1,3,8,9]\n",
+      "expectedOutput":"11\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the array and find the local minima and maxima.",
+    "Buy stock at the local minima and sell stock at the local maxima.",
+    "Add the profit from each transaction to the total profit.",
+    "Handle the edge cases where the array is empty or has only one element."
+  ],
+  "tags": ["Stock Buy Sell", "Greedy Algorithm", "Array Manipulation"]
+},
+{
+  "problemId": 19,
+  "courseId": "dell",
+  "title": "Permutations of given String",
+  "difficulty": "Medium",
+  "description": "Given a string s, return all permutations of a given string in lexicographically sorted order. Note: A permutation is the rearrangement of all the elements of a string. Duplicate arrangement can exist.",
+  "examples": [
+    {
+      "input": "s = “ABC”\n",
+      "output": "“ABC”, “ACB”, “BAC”, “BCA”, “CBA”, “CAB”\n"
+    },
+    {
+      "input": "s = “XY”\n",
+      "output": "“XY”, “YX”\n"
+    },
+    {
+      "input": "s = “AAA”\n",
+      "output": "“AAA”, “AAA”, “AAA”, “AAA”, “AAA”, “AAA”\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of s <= 10",
+    "s consists of uppercase English letters."
+  ],
+  "testCases": [
+    {
+      "input": "s = “ABC”\n",
+      "expectedOutput": "“ABC”, “ACB”, “BAC”, “BCA”, “CAB”, “CBA”\n"
+    },
+    {
+      "input": "s = “XY”\n",
+      "expectedOutput": "“XY”, “YX”\n"
+    },
+    {
+      "input": "s = “AAA”\n",
+      "expectedOutput": "“AAA”, “AAA”, “AAA”, “AAA”, “AAA”, “AAA”\n"
+    },
+    {
+      "input": "s = “A”\n",
+      "expectedOutput": "“A”\n"
+    },
+    {
+      "input": "s = “AB”\n",
+      "expectedOutput": "“AB”, “BA”\n"
+    },
+    {
+      "input": "s = “ABCD”\n",
+      "expectedOutput": "“ABCD”, “ABDC”, “ACBD”, “ACDB”, “ADBC”, “ADCB”, “BACD”, “BADC”, “BCAD”, “BCDA”, “BDAC”, “BDCA”, “CABD”, “CADB”, “CBAD”, “CBDA”, “CDAB”, “CDBA”, “DABC”, “DACB”, “DBAC”, “DBCA”, “DCAB”, “DCBA”\n"
+    },
+    {
+      "input":"s = \"ABBA\"\n",
+      "expectedOutput":"\"AABB\", \"ABAB\", \"ABBA\", \"BAAB\", \"BABA\", \"BBAA\"\n"
+    }
+  ],
+  "hints": [
+    "Use recursion to generate all permutations.",
+    "For each character in the string, swap it with the first character and recursively generate permutations for the remaining characters.",
+    "Use a set to store the permutations to avoid duplicates.",
+    "Sort the permutations in lexicographical order before returning."
+  ],
+  "tags": ["String Permutations", "Recursion", "String Manipulation"]
+},
+{
+  "problemId": 20,
+  "courseId": "dell",
+  "title": "Coin Change - Count Ways to Make Sum",
+  "difficulty": "Medium",
+  "description": "Given an integer array of coins[] of size n representing different types of denominations and an integer sum, count all combinations of coins to make a given value sum. Assume that you have an infinite supply of each type of coin.",
+  "examples": [
+    {
+      "input": "sum = 4, coins[] = [1, 2, 3]\n",
+      "output": "4\n"
+    },
+    {
+      "input": "sum = 10, coins[] = [2, 5, 3, 6]\n",
+      "output": "5\n"
+    },
+    {
+      "input": "sum = 10, coins[] = [10]\n",
+      "output": "1\n"
+    },
+    {
+      "input": "sum = 5, coins[] = [4]\n",
+      "output": "0\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 100",
+    "1 <= sum <= 1000",
+    "1 <= coins[i] <= 1000"
+  ],
+  "testCases": [
+    {
+      "input": "sum = 4, coins[] = [1, 2, 3]\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "sum = 10, coins[] = [2, 5, 3, 6]\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "sum = 10, coins[] = [10]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "sum = 5, coins[] = [4]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "sum = 3, coins[] = [2]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "sum = 5, coins[] = [1, 2, 3]\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input" : "sum = 10, coins[] = [1,2,3,4,5]\n",
+      "expectedOutput" : "30\n"
+    }
+  ],
+  "hints": [
+    "Use dynamic programming to solve this problem.",
+    "Create a 2D array dp of size (n + 1) x (sum + 1).",
+    "dp[i][j] represents the number of ways to make sum j using the first i coins.",
+    "Initialize dp[0][0] to 1, as there is one way to make sum 0 using no coins.",
+    "Initialize dp[i][0] to 1 for all i, as there is one way to make sum 0 using any number of coins.",
+    "For each coin i and sum j, if coins[i-1] <= j, dp[i][j] = dp[i-1][j] + dp[i][j-coins[i-1]].",
+    "Otherwise, dp[i][j] = dp[i-1][j].",
+    "The final result is dp[n][sum]."
+  ],
+  "tags": ["Coin Change", "Dynamic Programming", "Counting"]
+},
+{
+  "problemId": 21,
+  "courseId": "dell",
+  "title": "Print a given matrix in spiral form",
+  "difficulty": "Medium",
+  "description": "Given a matrix mat[][] of size m x n, print all elements of the matrix in spiral form.",
+  "examples": [
+    {
+      "input": "mat[][] = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]\n",
+      "output": "[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]\n"
+    },
+    {
+      "input": "mat[][] = [[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12], [13, 14, 15, 16, 17, 18]]\n",
+      "output": "[1, 2, 3, 4, 5, 6, 12, 18, 17, 16, 15, 14, 13, 7, 8, 9, 10, 11]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= m, n <= 100",
+    "-10^9 <= mat[i][j] <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "mat[][] = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]\n",
+      "expectedOutput": "[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]\n"
+    },
+    {
+      "input": "mat[][] = [[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12], [13, 14, 15, 16, 17, 18]]\n",
+      "expectedOutput": "[1, 2, 3, 4, 5, 6, 12, 18, 17, 16, 15, 14, 13, 7, 8, 9, 10, 11]\n"
+    },
+    {
+      "input": "mat[][] = [[1]]\n",
+      "expectedOutput": "[1]\n"
+    },
+    {
+      "input": "mat[][] = [[1, 2], [3, 4]]\n",
+      "expectedOutput": "[1, 2, 4, 3]\n"
+    },
+    {
+      "input": "mat[][] = [[1, 2, 3], [4, 5, 6]]\n",
+      "expectedOutput": "[1, 2, 3, 6, 5, 4]\n"
+    },
+    {
+      "input": "mat[][] = [[1], [2], [3], [4]]\n",
+      "expectedOutput": "[1, 2, 3, 4]\n"
+    },
+    {
+      "input" : "mat[][] = [[1,2,3],[8,9,4],[7,6,5]]\n",
+      "expectedOutput" : "[1,2,3,4,5,6,7,8,9]\n"
+    }
+  ],
+  "hints": [
+    "Use four pointers (top, bottom, left, right) to keep track of the boundaries of the matrix.",
+    "Iterate through the matrix in a spiral manner, updating the pointers as you go.",
+    "Print the elements in the following order: top row, right column, bottom row, left column.",
+    "Repeat the process until all elements are printed."
+  ],
+  "tags": ["Matrix Traversal", "Spiral Matrix", "Array Manipulation"]
+},
+{
+  "problemId": 22,
+  "courseId": "dell",
+  "title": "Find the maximum path sum between two leaves of a binary tree",
+  "difficulty": "Hard",
+  "description": "Given a binary tree in which each node element contains a number. Find the maximum possible sum from one leaf node to another.",
+  "examples": [
+    {
+      "input": "Binary Tree: [3, 4, 5, -10, 4, null, null]\n",
+      "output": "12\n"
+    },
+    {
+      "input": "Binary Tree: [3, 6, 9, 0, -1, 10, null]\n",
+      "output": "27\n"
+    }
+  ],
+  "constraints": [
+    "0 <= Number of nodes <= 10^5",
+    "-10^3 <= Node value <= 10^3"
+  ],
+  "testCases": [
+    {
+      "input": "Binary Tree: [3, 4, 5, -10, 4, null, null]\n",
+      "expectedOutput": "12\n"
+    },
+    {
+      "input": "Binary Tree: [3, 6, 9, 0, -1, 10, null]\n",
+      "expectedOutput": "27\n"
+    },
+    {
+      "input": "Binary Tree: [1, 2, 3]\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input": "Binary Tree: [-10, 9, 20, null, null, 15, 7]\n",
+      "expectedOutput": "42\n"
+    },
+    {
+      "input": "Binary Tree: [1]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "Binary Tree: []\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input":"Binary Tree: [-1, -2, -3]\n",
+      "expectedOutput":"-3\n"
+    }
+  ],
+  "hints": [
+    "Use a recursive approach to traverse the binary tree.",
+    "For each node, calculate the maximum path sum from its left and right subtrees.",
+    "Update the maximum path sum between two leaves if the current path sum is greater.",
+    "Handle the edge cases where the tree is empty or has only one node.",
+    "If a node is a leaf, return its value.",
+    "If a node is not a leaf, return the maximum path sum from its left or right subtree plus its own value."
+  ],
+  "tags": ["Binary Tree", "Maximum Path Sum", "Tree Traversal", "Recursion"]
+},
+{
+  "problemId": 23,
+  "courseId": "dell",
+  "title": "Find Median from Running Data Stream",
+  "difficulty": "Hard",
+  "description": "Given a data stream arr[] where integers are read sequentially, determine the median of the elements encountered so far after each new integer is read.",
+  "examples": [
+    {
+      "input": "arr[] = [5, 15, 1, 3, 2, 8]\n",
+      "output": "[5.00, 10.00, 5.00, 4.00, 3.00, 4.00]\n"
+    },
+    {
+      "input": "arr[] = [2, 2, 2, 2]\n",
+      "output": "[2.00, 2.00, 2.00, 2.00]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of arr <= 10^5",
+    "-10^5 <= arr[i] <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "arr[] = [5, 15, 1, 3, 2, 8]\n",
+      "expectedOutput": "[5.00, 10.00, 5.00, 4.00, 3.00, 4.00]\n"
+    },
+    {
+      "input": "arr[] = [2, 2, 2, 2]\n",
+      "expectedOutput": "[2.00, 2.00, 2.00, 2.00]\n"
+    },
+    {
+      "input": "arr[] = [1]\n",
+      "expectedOutput": "[1.00]\n"
+    },
+    {
+      "input": "arr[] = [1, 2]\n",
+      "expectedOutput": "[1.00, 1.50]\n"
+    },
+    {
+      "input": "arr[] = [1, 2, 3]\n",
+      "expectedOutput": "[1.00, 1.50, 2.00]\n"
+    },
+    {
+      "input": "arr[] = [1, 2, 3, 4]\n",
+      "expectedOutput": "[1.00, 1.50, 2.00, 2.50]\n"
+    },
+    {
+       "input" : "arr[] = [1,5,3,8,2,9,4,6]\n",
+       "expectedOutput" : "[1.00,3.00,3.00,4.00,3.00,4.00,4.00,4.50]\n"
+    }
+  ],
+  "hints": [
+    "Use two priority queues (heaps): a max-heap to store the smaller half of the elements and a min-heap to store the larger half.",
+    "For each new element in the stream:",
+    "  - Insert the element into the appropriate heap.",
+    "  - Balance the heaps so that the size difference between them is at most 1.",
+    "  - Calculate the median based on the sizes of the heaps.",
+    "If the heaps have the same size, the median is the average of the top elements of both heaps.",
+    "If the heaps have different sizes, the median is the top element of the larger heap."
+  ],
+  "tags": ["Median", "Data Stream", "Priority Queue", "Heaps"]
+},
+{
+  "problemId": 24,
+  "courseId": "dell",
+  "title": "Trapping Rain Water Problem",
+  "difficulty": "Hard",
+  "description": "Given an array of n non-negative integers arr[] representing an elevation map where the width of each bar is 1, compute how much water it can trap after rain.",
+  "examples": [
+    {
+      "input": "arr[] = [3, 0, 1, 0, 4, 0, 2]\n",
+      "output": "10\n"
+    },
+    {
+      "input": "arr[] = [3, 0, 2, 0, 4]\n",
+      "output": "7\n"
+    },
+    {
+      "input": "arr[] = [1, 2, 3, 4]\n",
+      "output": "0\n"
+    },
+    {
+      "input": "arr[] = [2, 1, 5, 3, 1, 0, 4]\n",
+      "output": "9\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of arr <= 10^5",
+    "0 <= arr[i] <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "arr[] = [3, 0, 1, 0, 4, 0, 2]\n",
+      "expectedOutput": "10\n"
+    },
+    {
+      "input": "arr[] = [3, 0, 2, 0, 4]\n",
+      "expectedOutput": "7\n"
+    },
+    {
+      "input": "arr[] = [1, 2, 3, 4]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "arr[] = [2, 1, 5, 3, 1, 0, 4]\n",
+      "expectedOutput": "9\n"
+    },
+    {
+      "input": "arr[] = [4, 2, 0, 3, 2, 5]\n",
+      "expectedOutput": "9\n"
+    },
+    {
+      "input": "arr[] = [0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input":"arr[] = [6,4,2,0,3,2,0,3,1,4,5,3,2,7,5,3,0,1,2,1]\n",
+      "expectedOutput":"53\n"
+    }
+  ],
+  "hints": [
+    "Use two arrays, left and right, to store the maximum height of the left and right bars for each position.",
+    "Calculate the left array by iterating from left to right and updating the maximum height.",
+    "Calculate the right array by iterating from right to left and updating the maximum height.",
+    "For each position, the amount of water trapped is the minimum of left and right minus the current height.",
+    "Sum up the water trapped at each position to get the total trapped water."
+  ],
+  "tags": ["Trapping Rain Water", "Array Manipulation", "Two Pointers"]
+},
+{
+  "problemId": 25,
+  "courseId": "dell",
+  "title": "Sort a Stack using Recursion",
+  "difficulty": "Medium",
+  "description": "Given a stack, sort it using recursion.",
+  "examples": [
+    {
+      "input": "Stack: -3 14 18 -5 30\n",
+      "output": "30 18 14 -3 -5\n"
+    },
+    {
+      "input": "Stack: 1 2 3\n",
+      "output": "3 2 1\n"
+    }
+  ],
+  "constraints": [
+    "1 <= size of stack <= 100",
+    "-10^3 <= stack elements <= 10^3"
+  ],
+  "testCases": [
+    {
+      "input": "Stack: -3 14 18 -5 30\n",
+      "expectedOutput": "30 18 14 -3 -5\n"
+    },
+    {
+      "input": "Stack: 1 2 3\n",
+      "expectedOutput": "3 2 1\n"
+    },
+    {
+      "input": "Stack: 5 4 3 2 1\n",
+      "expectedOutput": "5 4 3 2 1\n"
+    },
+    {
+      "input": "Stack: 1 1 1 1\n",
+      "expectedOutput": "1 1 1 1\n"
+    },
+    {
+      "input": "Stack: 1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "Stack: -1 -2 -3\n",
+      "expectedOutput": "-1 -2 -3\n"
+    },
+    {
+        "input":"Stack: 10 -2 5 8 3\n",
+        "expectedOutput":"10 8 5 3 -2\n"
+    }
+  ],
+  "hints": [
+    "Use a recursive function to sort the stack.",
+    "If the stack is empty, return.",
+    "Pop the top element from the stack.",
+    "Recursively sort the remaining stack.",
+    "Insert the popped element back into the sorted stack in the correct position.",
+    "Use a helper function to insert an element into the sorted stack while maintaining the sorted order."
+  ],
+  "tags": ["Stack Sorting", "Recursion", "Data Structures"]
+},
+{
+  "problemId": 26,
+  "courseId": "dell",
+  "title": "Sahil's TV Channel Surfing",
+  "difficulty": "Hard",
+  "description": "Given a range of channels, blocked channels, and a list of channels to view, determine the minimum number of clicks required to navigate through the view list using a remote with number buttons, up/down channel buttons, and a last-viewed button. Blocked channels are skipped when using up/down buttons. The number buttons allow direct channel entry. The up button moves to the next available channel, and the down button moves to the previous available channel. The up/down buttons wrap around the channel range. The last-viewed button returns to the previous channel.",
+  "examples": [
+    {
+      "input": "1\\n20\\n2\\n18\\n19\\n5\\n15\\n14\\n17\\n1\\n17\n",
+      "output": "7\n"
+    }
+  ],
+  "constraints": [
+    "1 <= lowest channel <= 10000",
+    "lowest channel <= highest channel <= 10000",
+    "0 <= number of blocked channels <= 40",
+    "1 <= number of channels to view <= 50",
+    "Blocked channels are within the channel range.",
+    "Channels to view are within the channel range and are not blocked."
+  ],
+  "testCases": [
+    {
+      "input": "1\\n20\\n2\\n18\\n19\\n5\\n15\\n14\\n17\\n1\\n17\n",
+      "expectedOutput": "7\n"
+    },
+    {
+      "input": "1\\n10\\n0\\n0\\n3\\n2\\n5\\n8\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "1\\n10\\n1\\n5\\n3\\n1\\n10\\n1\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "1\\n5\\n2\\n2\\n4\\n3\\n1\\n5\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "1\\n5\\n0\\n0\\n5\\n1\\n2\\n3\\n4\\n5\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "100\\n200\\n3\\n120\\n150\\n180\\n4\\n101\\n199\\n102\\n198\n",
+      "expectedOutput": "8\n"
+    },
+    {
+      "input": "1\\n10\\n9\\n2\\n3\\n4\\n5\\n6\\n7\\n8\\n9\\n10\\n1\\n5\\n1\\n5\n",
+      "expectedOutput": "1\n"
+    }
+  ],
+  "hints": [
+    "Represent the channels and blocked channels as sets or lists.",
+    "Implement functions for the remote's buttons (number input, up/down, last-viewed).",
+    "Calculate the minimum clicks for each channel in the view list from the current channel.",
+    "Consider all possible navigation options (number input, up/down, last-viewed) and choose the one with the minimum clicks.",
+    "Keep track of the last viewed channel to use the last-viewed button.",
+    "Handle the wrap-around behavior of the up/down buttons.",
+    "Use a dynamic programming approach or a greedy algorithm to find the optimal solution."
+  ],
+  "tags": ["Remote Control", "Channel Surfing", "Navigation", "Optimization"]
+},
+{
+  "problemId": 27,
+  "courseId": "dell",
+  "title": "Beetle's Honey Trail",
+  "difficulty": "Hard",
+  "description": "A beetle travels on the surface of a 10cm x 10cm x 10cm cube from a starting point to several honey spots in a clockwise direction. Given the Cartesian coordinates of the points, calculate the total distance traveled by the beetle, considering its movement on the same face as an arc of 60 degrees and the shortest path between different faces (excluding the bottom face).",
+  "examples": [
+    {
+      "input": "2\n1.00 1.00 1.00 9.00 9.00 9.00\n",
+      "output": "17.77\n"
+    },
+    {
+      "input": "3\n1.00 1.00 1.00 5.00 1.00 1.00 5.00 9.00 1.00\n",
+      "output": "8.38\n"
+    }
+  ],
+  "constraints": [
+    "2 <= N <= 10",
+    "Coordinates are non-negative numbers with two decimal places.",
+    "Points are not on the bottom face (z=0) or cube edges.",
+    "Cube dimensions are 10cm x 10cm x 10cm."
+  ],
+  "testCases": [
+    {
+      "input": "2\n1.00 1.00 1.00 9.00 9.00 9.00\n",
+      "expectedOutput": "17.77\n"
+    },
+    {
+      "input": "3\n1.00 1.00 1.00 5.00 1.00 1.00 5.00 9.00 1.00\n",
+      "expectedOutput": "8.38\n"
+    },
+    {
+      "input": "2\n1.00 1.00 1.00 1.00 9.00 1.00\n",
+      "expectedOutput": "8.00\n"
+    },
+    {
+      "input": "3\n1.00 1.00 1.00 9.00 1.00 1.00 9.00 9.00 1.00\n",
+      "expectedOutput": "16.00\n"
+    },
+    {
+      "input": "2\n1.00 1.00 1.00 1.00 1.00 9.00\n",
+      "expectedOutput": "8.00\n"
+    },
+    {
+      "input": "3\n1.00 1.00 1.00 5.00 1.00 1.00 5.00 1.00 9.00\n",
+      "expectedOutput": "8.00\n"
+    },
+    {
+      "input" : "4\n1.00 1.00 1.00 9.00 1.00 1.00 9.00 9.00 1.00 1.00 9.00 1.00\n",
+      "expectedOutput" : "24.00\n"
+    }
+  ],
+  "hints": [
+    "Calculate the distance between consecutive points.",
+    "If the points are on the same face, calculate the arc length of a 60-degree circle.",
+    "If the points are on different faces, find the shortest path on the cube's surface (excluding the bottom face).",
+    "Consider unfolding the cube's surface to find the shortest path.",
+    "Sum up the distances between all consecutive points.",
+    "Round the final distance to two decimal places."
+  ],
+  "tags": ["Geometry", "Cube Traversal", "Distance Calculation"]
+},
+{
+  "problemId": 28,
+  "courseId": "dell",
+  "title": "Homeless People and Houses",
+  "difficulty": "Medium",
+  "description": "Given an array of people's heights and an array of house capacities, assign houses to people based on priority (left to right) and capacity constraints. Find the number of homeless people.",
+  "examples": [
+    {
+      "input": "3\n4\n2\n7\n3\n5\n10\n",
+      "output": "0\n"
+    },
+    {
+      "input": "3\n3\n8\n5\n1\n9\n4\n",
+      "output": "2\n"
+    }
+  ],
+  "constraints": [
+    "1 <= N <= 10^3",
+    "1 <= people[i] <= 10^5",
+    "1 <= house[i] <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "3\n4\n2\n7\n3\n5\n10\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "3\n3\n8\n5\n1\n9\n4\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "1\n5\n10\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "2\n10\n10\n5\n5\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "2\n10\n10\n5\n4\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "4\n1\n2\n3\n4\n5\n6\n7\n8\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input" : "4\n5\n10\n15\n20\n4\n3\n2\n1\n",
+      "expectedOutput" : "4\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the people array from left to right.",
+    "For each person, iterate through the houses array from left to right.",
+    "If a house's capacity is greater than or equal to the person's height, assign the house to the person and mark the house as occupied.",
+    "Count the number of people who could not be assigned a house.",
+    "Return the count of homeless people."
+  ],
+  "tags": ["Array Manipulation", "Greedy Algorithm", "House Allocation"]
+},
+{
+  "problemId": 29,
+  "courseId": "dell",
+  "title": "Sahil's TV Channel Surfing (Repeated)",
+  "difficulty": "Hard",
+  "description": "Given a range of channels, blocked channels, and a list of channels to view, determine the minimum number of clicks required to navigate through the view list using a remote with number buttons, up/down channel buttons, and a last-viewed button. Blocked channels are skipped when using up/down buttons. The number buttons allow direct channel entry. The up button moves to the next available channel, and the down button moves to the previous available channel. The up/down buttons wrap around the channel range. The last-viewed button returns to the previous channel.",
+  "examples": [
+    {
+      "input": "1\n20\n2\n18\n19\n5\n15\n14\n17\n1\n17\n",
+      "output": "7\n"
+    }
+  ],
+  "constraints": [
+    "1 <= lowest channel <= 10000",
+    "lowest channel <= highest channel <= 10000",
+    "0 <= number of blocked channels <= 40",
+    "1 <= number of channels to view <= 50",
+    "Blocked channels are within the channel range.",
+    "Channels to view are within the channel range and are not blocked."
+  ],
+  "testCases": [
+    {
+      "input": "1\n20\n2\n18\n19\n5\n15\n14\n17\n1\n17\n",
+      "expectedOutput": "7\n"
+    },
+    {
+      "input": "1\n10\n0\n0\n3\n2\n5\n8\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "1\n10\n1\n5\n3\n1\n10\n1\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "1\n5\n2\n2\n4\n3\n1\n5\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "1\n5\n0\n0\n5\n1\n2\n3\n4\n5\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "100\n200\n3\n120\n150\n180\n4\n101\n199\n102\n198\n",
+      "expectedOutput": "8\n"
+    },
+    {
+      "input": "1\n10\n9\n2\n3\n4\n5\n6\n7\n8\n9\n10\n1\n5\n1\n5\n",
+      "expectedOutput": "1\n"
+    }
+  ],
+  "hints": [
+    "Represent the channels and blocked channels as sets or lists.",
+    "Implement functions for the remote's buttons (number input, up/down, last-viewed).",
+    "Calculate the minimum clicks for each channel in the view list from the current channel.",
+    "Consider all possible navigation options (number input, up/down, last-viewed) and choose the one with the minimum clicks.",
+    "Keep track of the last viewed channel to use the last-viewed button.",
+    "Handle the wrap-around behavior of the up/down buttons.",
+    "Use a dynamic programming approach or a greedy algorithm to find the optimal solution."
+  ],
+  "tags": ["Remote Control", "Channel Surfing", "Navigation", "Optimization"]
+},
+{
+  "problemId": 30,
+  "courseId": "dell",
+  "title": "Fountain Activation",
+  "difficulty": "Medium",
+  "description": "Given an array locations[] representing the coverage limit of fountains in a one-dimensional garden, determine the minimum number of fountains to activate to cover the entire garden.",
+  "examples": [
+    {
+      "input": "3\n0 2 1\n",
+      "output": "1\n"
+    },
+    {
+      "input": "3\n1 1 1\n",
+      "output": "1\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "0 <= locations[i] <= min(n, 100)"
+  ],
+  "testCases": [
+    {
+      "input": "3\n0 2 1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "3\n1 1 1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "4\n1 2 1 1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "4\n0 0 0 0\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "5\n2 1 2 0 1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "6\n1 2 0 1 2 1\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "6\n5 5 5 5 5 5\n",
+      "expectedOutput": "1\n"
+    }
+  ],
+  "hints": [
+    "Calculate the coverage range for each fountain.",
+    "Store the coverage ranges as intervals.",
+    "Sort the intervals by their start points.",
+    "Use a greedy approach to find the minimum number of fountains to activate.",
+    "Iterate through the sorted intervals and select the fountain that covers the maximum range.",
+    "Update the current coverage range and continue iterating until the entire garden is covered."
+  ],
+  "tags": ["Greedy Algorithm", "Interval Scheduling", "Garden Coverage"]
+}
+]

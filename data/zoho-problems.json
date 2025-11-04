@@ -1,0 +1,1721 @@
+[
+{
+    "problemId": 1,
+    "courseId": "zoho",
+    "title": "Reverse a String",
+    "difficulty": "Easy",
+    "description": "Given a string, write a function to reverse it.",
+    "examples": [
+      {
+        "input": "\"hello\"",
+        "output": "\"olleh\""
+      },
+      {
+        "input": "\"world\"",
+        "output": "\"dlrow\""
+      },
+      {
+        "input": "\"abcde\"",
+        "output": "\"edcba\""
+      }
+    ],
+    "constraints": [
+      "1 <= string.length <= 1000",
+      "The string contains ASCII characters."
+    ],
+    "testCases": [
+      {
+        "input": "\"hello\"",
+        "expectedOutput": "\"olleh\""
+      },
+      {
+        "input": "\"world\"",
+        "expectedOutput": "\"dlrow\""
+      },
+      {
+        "input": "\"abcde\"",
+        "expectedOutput": "\"edcba\""
+      },
+      {
+        "input": "\"a\"",
+        "expectedOutput": "\"a\""
+      },
+      {
+        "input": "\"\"",
+        "expectedOutput": "\"\""
+      },
+      {
+          "input": "\"racecar\"",
+          "expectedOutput": "\"racecar\""
+      }
+    ],
+    "hints": [
+      "You can use two pointers, one starting from the beginning and one from the end of the string.",
+      "Swap the characters at the two pointers and move the pointers towards the center of the string.",
+      "Alternatively, you can use string slicing or reverse iteration."
+    ],
+    "tags": ["String", "Two Pointers"]
+  },
+  {
+    "problemId": 2,
+    "courseId": "zoho",
+    "title": "String is a Palindrome",
+    "difficulty": "Easy",
+    "description": "Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.",
+    "examples": [
+      {
+        "input": "\"A man, a plan, a canal: Panama\"",
+        "output": "true"
+      },
+      {
+        "input": "\"race a car\"",
+        "output": "false"
+      },
+      {
+        "input": "\"\"",
+        "output": "true"
+      }
+    ],
+    "constraints": [
+      "1 <= string.length <= 1000",
+      "The string contains ASCII characters."
+    ],
+    "testCases": [
+      {
+        "input": "\"A man, a plan, a canal: Panama\"",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "\"race a car\"",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "\"\"",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "\"ababa\"",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "\"abbca\"",
+        "expectedOutput": "false"
+      },
+      {
+          "input": "\".,\"",
+          "expectedOutput": "true"
+      }
+    ],
+    "hints": [
+      "Use two pointers, one starting from the beginning and one from the end of the string.",
+      "Ignore non-alphanumeric characters and compare the characters at the two pointers, ignoring cases.",
+      "Move the pointers towards the center of the string until they meet or cross.",
+      "If all characters match, the string is a palindrome."
+    ],
+    "tags": ["String", "Two Pointers"]
+  },
+  {
+    "problemId": 3,
+    "courseId": "zoho",
+    "title": "Factorial of a Number using Recursion",
+    "difficulty": "Easy",
+    "description": "Given a non-negative integer n, write a recursive function to calculate its factorial.",
+    "examples": [
+      {
+        "input": "5",
+        "output": "120"
+      },
+      {
+        "input": "0",
+        "output": "1"
+      },
+      {
+        "input": "1",
+        "output": "1"
+      }
+    ],
+    "constraints": [
+      "0 <= n <= 12"
+    ],
+    "testCases": [
+      {
+        "input": "5",
+        "expectedOutput": "120"
+      },
+      {
+        "input": "0",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "3",
+        "expectedOutput": "6"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "3628800"
+      },
+      {
+          "input": "12",
+          "expectedOutput": "479001600"
+      }
+    ],
+    "hints": [
+      "The factorial of 0 is 1.",
+      "The factorial of n (n > 0) is n * factorial(n - 1)."
+    ],
+    "tags": ["Recursion", "Math"]
+  },
+   {
+    "problemId": 4,
+    "courseId": "zoho",
+    "title": "Generate a Fibonacci Sequence",
+    "difficulty": "Easy",
+    "description": "Given a positive integer n, generate a Fibonacci sequence of length n.",
+    "examples": [
+      {
+        "input": "5",
+        "output": "[0, 1, 1, 2, 3]"
+      },
+      {
+        "input": "1",
+        "output": "[0]"
+      },
+      {
+        "input": "2",
+        "output": "[0, 1]"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 30"
+    ],
+    "testCases": [
+      {
+        "input": "5",
+        "expectedOutput": "[0, 1, 1, 2, 3]"
+      },
+      {
+        "input": "1",
+        "expectedOutput": "[0]"
+      },
+      {
+        "input": "2",
+        "expectedOutput": "[0, 1]"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "[0, 1, 1, 2, 3, 5, 8, 13, 21, 34]"
+      },
+      {
+        "input": "7",
+        "expectedOutput": "[0, 1, 1, 2, 3, 5, 8]"
+      },
+      {
+          "input": "30",
+          "expectedOutput": "[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811, 514229]"
+      }
+    ],
+    "hints": [
+      "The first two numbers in the Fibonacci sequence are 0 and 1.",
+      "Each subsequent number is the sum of the previous two numbers.",
+      "You can use a loop to generate the sequence."
+    ],
+    "tags": ["Array", "Iteration"]
+  },
+  {
+    "problemId": 5,
+    "courseId": "zoho",
+    "title": "Check if a Number is an Armstrong Number",
+    "difficulty": "Easy",
+    "description": "Given a number, determine if it is an Armstrong number. An Armstrong number is a number such that the sum of its digits raised to the power of the number of digits is equal to the number itself.",
+    "examples": [
+      {
+        "input": "153",
+        "output": "true"
+      },
+      {
+        "input": "1634",
+        "output": "true"
+      },
+      {
+        "input": "123",
+        "output": "false"
+      }
+    ],
+    "constraints": [
+      "1 <= number <= 2147483647"
+    ],
+    "testCases": [
+      {
+        "input": "153",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1634",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "123",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "1",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "9",
+        "expectedOutput": "true"
+      }
+    ],
+    "hints": [
+      "Calculate the number of digits in the given number.",
+      "Iterate through the digits of the number and calculate the sum of each digit raised to the power of the number of digits.",
+      "Compare the sum with the original number to determine if it is an Armstrong number."
+    ],
+    "tags": ["Math", "Iteration"]
+  },
+  {
+    "problemId": 6,
+    "courseId": "zoho",
+    "title": "Linked List is a Palindrome",
+    "difficulty": "Easy",
+    "description": "Given a singly linked list, determine if it is a palindrome.",
+    "examples": [
+      {
+        "input": "[1, 2, 2, 1]",
+        "output": "true"
+      },
+      {
+        "input": "[1, 2]",
+        "output": "false"
+      },
+      {
+          "input": "[1]",
+          "output": "true"
+      },
+      {
+          "input": "[]",
+          "output": "true"
+      }
+    ],
+    "constraints": [
+      "0 <= list.length <= 10^5",
+      "0 <= node.val <= 10^9"
+    ],
+    "testCases": [
+      {
+        "input": "[1, 2, 2, 1]",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "[1, 2]",
+        "expectedOutput": "false"
+      },
+      {
+          "input": "[1]",
+          "expectedOutput": "true"
+      },
+      {
+          "input": "[]",
+          "expectedOutput": "true"
+      },
+      {
+          "input": "[1,2,3,2,1]",
+          "expectedOutput": "true"
+      },
+      {
+           "input": "[1,2,3,4,5]",
+           "expectedOutput": "false"
+      }
+  
+    ],
+    "hints": [
+      "You can convert the linked list to an array and then check if the array is a palindrome.",
+      "Alternatively, you can use two pointers and reverse the second half of the linked list.",
+      "Compare the first half and the reversed second half of the linked list."
+    ],
+    "tags": ["Linked List", "Two Pointers"]
+  },
+   {
+    "problemId": 7,
+    "courseId": "zoho",
+    "title": "Find the Longest Consecutive Sequence in an Unsorted Array",
+    "difficulty": "Medium",
+    "description": "Given an unsorted array of integers nums, return the length of the longest consecutive elements sequence.",
+    "examples": [
+      {
+        "input": "[100, 4, 200, 1, 3, 2]",
+        "output": "4",
+        "explanation": "The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4."
+      },
+      {
+        "input": "[0, 3, 7, 2, 5, 8, 4, 6, 0, 1]",
+        "output": "9",
+        "explanation": "The longest consecutive elements sequence is [0, 1, 2, 3, 4, 5, 6, 7, 8]. Therefore its length is 9."
+      },
+      {
+          "input": "[1,2,3,4,5]",
+          "output": "5"
+      },
+      {
+          "input": "[]",
+          "output": "0"
+      },
+      {
+          "input":"[1]",
+          "output":"1"
+      }
+    ],
+    "constraints": [
+      "0 <= nums.length <= 10^5",
+      "-10^9 <= nums[i] <= 10^9"
+    ],
+    "testCases": [
+      {
+        "input": "[100, 4, 200, 1, 3, 2]",
+        "expectedOutput": "4"
+      },
+      {
+        "input": "[0, 3, 7, 2, 5, 8, 4, 6, 0, 1]",
+        "expectedOutput": "9"
+      },
+      {
+          "input": "[1,2,3,4,5]",
+          "expectedOutput": "5"
+      },
+      {
+          "input": "[]",
+          "expectedOutput": "0"
+      },
+      {
+          "input":"[1]",
+          "expectedOutput":"1"
+      },
+      {
+          "input": "[9,1,4,7,3,-1,0,5,-2,2,8,-3,-4]",
+          "expectedOutput": "9"
+      }
+    ],
+    "hints": [
+      "Use a set to store all the numbers in the array.",
+      "Iterate through the array and for each number, check if it is the start of a consecutive sequence.",
+      "If it is the start of a consecutive sequence, keep incrementing the number and checking if it exists in the set.",
+      "Keep track of the maximum length of the consecutive sequence found so far."
+    ],
+    "tags": ["Array", "Hash Table"]
+  },
+  {
+    "problemId": 8,
+    "courseId": "zoho",
+    "title": "Implement a Queue using Two Stacks",
+    "difficulty": "Medium",
+    "description": "Implement a first in first out (FIFO) queue using only two stacks. The implemented queue should support all the functions of a normal queue (push, peek, pop, and empty).",
+    "examples": [
+      {
+        "input": "[\"MyQueue\", \"push\", \"push\", \"peek\", \"pop\", \"empty\"] [[], [1], [2], [], [], []]",
+        "output": "[null, null, null, 1, 1, false]"
+      }
+    ],
+    "constraints": [
+      "1 <= operations.length <= 100",
+      "1 <= element <= 1000",
+      "You must use only standard operations of a stack, which means only push to top, peek/pop from top, size, and is empty operations are valid."
+    ],
+    "testCases": [
+      {
+        "input": "[\"MyQueue\", \"push\", \"push\", \"peek\", \"pop\", \"empty\"] [[], [1], [2], [], [], []]",
+        "expectedOutput": "[null, null, null, 1, 1, false]"
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"push\", \"push\", \"pop\", \"pop\", \"peek\"] [[], [1], [2], [3], [], [], []]",
+        "expectedOutput": "[null, null, null, null, 1, 2, 3]"
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"pop\", \"empty\"] [[], [1], [], []]",
+        "expectedOutput": "[null, null, 1, true]"
+      },
+      {
+        "input": "[\"MyQueue\", \"empty\"] [[], []]",
+        "expectedOutput": "[null, true]"
+      },
+      {
+        "input": "[\"MyQueue\", \"push\", \"peek\", \"pop\", \"empty\"] [[], [1], [], [], []]",
+        "expectedOutput": "[null, null, 1, 1, true]"
+      },
+      {
+        "input":"[\"MyQueue\",\"push\",\"push\",\"pop\",\"peek\",\"empty\"]",
+        "expectedOutput": "[null,null,null,1,2,false]"
+      }
+    ],
+    "hints": [
+      "Use two stacks, one for enqueue operations and the other for dequeue operations.",
+      "When enqueueing, push the element onto the enqueue stack.",
+      "When dequeueing, if the dequeue stack is empty, transfer all elements from the enqueue stack to the dequeue stack in reverse order.",
+      "Then, pop the top element from the dequeue stack.",
+      "Peek and empty operations should also check the dequeue stack first and transfer elements if necessary."
+    ],
+    "tags": ["Stack", "Queue", "Data Structure"]
+  },
+  {
+    "problemId": 9,
+    "courseId": "zoho",
+    "title": "Check if a Given Binary Tree is Balanced",
+    "difficulty": "Easy",
+    "description": "Given a binary tree, determine if it is height-balanced.",
+    "examples": [
+      {
+        "input": "[3, 9, 20, null, null, 15, 7]",
+        "output": "true"
+      },
+      {
+        "input": "[1, 2, 2, 3, 3, null, null, 4, 4]",
+        "output": "false"
+      },
+      {
+          "input": "[]",
+          "output": "true"
+      },
+      {
+          "input":"[1]",
+          "output":"true"
+      }
+  
+    ],
+    "constraints": [
+      "The number of nodes in the tree is in the range [0, 5000].",
+      "-10^4 <= Node.val <= 10^4"
+    ],
+    "testCases": [
+      {
+        "input": "[3, 9, 20, null, null, 15, 7]",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "[1, 2, 2, 3, 3, null, null, 4, 4]",
+        "expectedOutput": "false"
+      },
+      {
+          "input": "[]",
+          "expectedOutput": "true"
+      },
+      {
+          "input":"[1]",
+          "expectedOutput":"true"
+      },
+      {
+          "input":"[1,2,3,4,5,6,null]",
+          "expectedOutput":"true"
+      },
+      {
+        "input":"[1,2,2,3,null,null,3,4,null,null,4]",
+        "expectedOutput":"false"
+      }
+    ],
+    "hints": [
+      "A height-balanced binary tree is a binary tree in which the depth of the two subtrees of every node never differs by more than one.",
+      "Use a recursive approach to calculate the height of each subtree.",
+      "If the absolute difference between the heights of the left and right subtrees is greater than 1, the tree is not balanced.",
+      "Return the height of the current node if the subtrees are balanced, or -1 if they are not."
+    ],
+    "tags": ["Tree", "Depth-First Search", "Binary Tree"]
+  },
+   {
+    "problemId": 10,
+    "courseId": "zoho",
+    "title": "LRU (Least Recently Used) Cache",
+    "difficulty": "Medium",
+    "description": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.\nImplement the LRUCache class:\nLRUCache(int capacity) Initialize the LRU cache with positive size capacity.\nint get(int key) Return the value of the key if the key exists, otherwise return -1.\nvoid put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.",
+    "examples": [
+      {
+        "input": "[\"LRUCache\", \"put\", \"put\", \"get\", \"put\", \"get\", \"put\", \"get\", \"get\", \"get\"] [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]",
+        "output": "[null, null, null, 1, null, -1, null, -1, 3, 4]",
+        "explanation": "LRUCache lRUCache = new LRUCache(2); lRUCache.put(1, 1); // cache is {1=1} lRUCache.put(2, 2); // cache is {1=1, 2=2} lRUCache.get(1);    // return 1 lRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3} lRUCache.get(2);    // returns -1 (not found) lRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3} lRUCache.get(1);    // return -1 (not found) lRUCache.get(3);    // return 3 lRUCache.get(4);    // return 4"
+      }
+    ],
+    "constraints": [
+      "1 <= capacity <= 3000",
+      "0 <= key <= 10^4",
+      "0 <= value <= 10^5",
+      "At most 10^5 calls will be made to get and put."
+    ],
+    "testCases": [
+      {
+        "input": "[\"LRUCache\", \"put\", \"put\", \"get\", \"put\", \"get\", \"put\", \"get\", \"get\", \"get\"] [[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]",
+        "expectedOutput": "[null, null, null, 1, null, -1, null, -1, 3, 4]"
+      },
+      {
+        "input": "[\"LRUCache\", \"put\", \"put\", \"get\", \"get\", \"put\", \"get\", \"get\", \"get\"] [[2], [2, 1], [1, 1], [2], [1], [3, 3], [2], [1], [3]]",
+        "expectedOutput": "[null, null, null, 1, 1, null, -1, 1, 3]"
+      },
+      {
+        "input": "[\"LRUCache\", \"put\", \"get\", \"put\", \"get\", \"get\"] [[1], [2, 1], [2], [3, 2], [2], [3]]",
+        "expectedOutput": "[null, null, 1, null, -1, 2]"
+      },
+      {
+        "input": "[\"LRUCache\", \"put\", \"put\", \"get\", \"get\", \"put\", \"get\", \"get\", \"get\"] [[2], [1, 0], [2, 2], [1], [2], [3, 3], [2], [1], [3]]",
+        "expectedOutput": "[null, null, null, 0, 2, null, 3, -1, 3]"
+      },
+      {
+        "input": "[\"LRUCache\", \"put\", \"put\", \"get\", \"put\", \"get\", \"put\", \"get\", \"get\", \"put\", \"put\", \"get\", \"get\", \"get\", \"get\", \"get\"] [[10], [10, 13], [3, 17], [6], [10], [9, 22], [8, 91], [9], [10], [5, 5], [1, 4], [8], [9], [10], [5], [1]]",
+        "expectedOutput": "[null, null, null, -1, 13, null, null, 22, 13, null, null, 91, 22, -1, 5, 4]"
+      }
+    ],
+    "hints": [
+      "Use a hash map to store the key-value pairs for O(1) get and put operations.",
+      "Use a doubly linked list to maintain the order of keys based on their recent usage.",
+      "The head of the linked list represents the least recently used key, and the tail represents the most recently used key.",
+      "When a key is accessed or updated, move it to the tail of the linked list.",
+      "When the cache is full and a new key is inserted, remove the key at the head of the linked list."
+    ],
+    "tags": ["Hash Table", "Linked List", "Design"]
+  },
+  {
+    "problemId": 11,
+    "courseId": "zoho",
+    "title": "Reverse a Linked List",
+    "difficulty": "Easy",
+    "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+    "examples": [
+      {
+        "input": "[1, 2, 3, 4, 5]",
+        "output": "[5, 4, 3, 2, 1]"
+      },
+      {
+        "input": "[1, 2]",
+        "output": "[2, 1]"
+      },
+      {
+        "input": "[]",
+        "output": "[]"
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the list is in the range [0, 5000].",
+      "-5000 <= Node.val <= 5000"
+    ],
+    "testCases": [
+      {
+        "input": "[1, 2, 3, 4, 5]",
+        "expectedOutput": "[5, 4, 3, 2, 1]"
+      },
+      {
+        "input": "[1, 2]",
+        "expectedOutput": "[2, 1]"
+      },
+      {
+        "input": "[]",
+        "expectedOutput": "[]"
+      },
+      {
+        "input": "[1]",
+        "expectedOutput": "[1]"
+      },
+      {
+        "input": "[1,2,3]",
+        "expectedOutput": "[3,2,1]"
+      },
+      {
+        "input": "[5,4,3,2,1]",
+        "expectedOutput": "[1,2,3,4,5]"
+      }
+    ],
+    "hints": [
+      "Iterate through the linked list.",
+      "For each node, change its next pointer to point to its previous node.",
+      "Use three pointers: prev, curr, and next.",
+      "Initialize prev to null, curr to head, and next to null.",
+      "In each iteration, update next to curr.next, curr.next to prev, prev to curr, and curr to next."
+    ],
+    "tags": ["Linked List"]
+  },
+   {
+    "problemId": 12,
+    "courseId": "zoho",
+    "title": "Check if a Binary Tree is a BST",
+    "difficulty": "Medium",
+    "description": "Given the root of a binary tree, determine if it is a valid binary search tree (BST).",
+    "examples": [
+      {
+        "input": "[2, 1, 3]",
+        "output": "true"
+      },
+      {
+        "input": "[5, 1, 4, null, null, 3, 6]",
+        "output": "false"
+      },
+      {
+        "input": "[]",
+        "output": "true"
+      },
+      {
+        "input": "[2,2,2]",
+        "output": "false"
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the tree is in the range [0, 10^4].",
+      "-2^31 <= Node.val <= 2^31 - 1"
+    ],
+    "testCases": [
+      {
+        "input": "[2, 1, 3]",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "[5, 1, 4, null, null, 3, 6]",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "[]",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "[2,2,2]",
+        "expectedOutput": "false"
+      },
+      {
+          "input":"[10,5,15,null,null,6,20]",
+          "expectedOutput":"false"
+      },
+      {
+          "input":"[10,5,15,null,null,12,20]",
+          "expectedOutput":"true"
+      }
+    ],
+    "hints": [
+      "Use a recursive approach to traverse the binary tree.",
+      "For each node, check if its value is within the valid range.",
+      "The valid range for the root node is (-infinity, infinity).",
+      "For the left child, the valid range is (-infinity, node.val).",
+      "For the right child, the valid range is (node.val, infinity).",
+      "Pass the valid range as parameters to the recursive function."
+    ],
+    "tags": ["Tree", "Depth-First Search", "Binary Tree"]
+  },
+   {
+    "problemId": 13,
+    "courseId": "zoho",
+    "title": "Implement a Stack using a Queue",
+    "difficulty": "Medium",
+    "description": "Implement a last-in-first-out (LIFO) stack using only one queue.",
+    "examples": [
+      {
+        "input": "[\"MyStack\", \"push\", \"push\", \"top\", \"pop\", \"empty\"] [[], [1], [2], [], [], []]",
+        "output": "[null, null, null, 2, 2, false]"
+      }
+    ],
+    "constraints": [
+      "1 <= operations.length <= 100",
+      "1 <= element <= 1000",
+      "You must use only standard operations of a queue, which means that only push to back, peek/pop from front, size, and is empty operations are valid."
+    ],
+    "testCases": [
+      {
+        "input": "[\"MyStack\", \"push\", \"push\", \"top\", \"pop\", \"empty\"] [[], [1], [2], [], [], []]",
+        "expectedOutput": "[null, null, null, 2, 2, false]"
+      },
+      {
+        "input": "[\"MyStack\", \"push\", \"push\", \"push\", \"pop\", \"pop\", \"top\"] [[], [1], [2], [3], [], [], []]",
+        "expectedOutput": "[null, null, null, null, 3, 2, 1]"
+      },
+      {
+        "input": "[\"MyStack\", \"push\", \"pop\", \"empty\"] [[], [1], [], []]",
+        "expectedOutput": "[null, null, 1, true]"
+      },
+      {
+        "input": "[\"MyStack\", \"empty\"] [[], []]",
+        "expectedOutput": "[null, true]"
+      },
+      {
+        "input": "[\"MyStack\", \"push\", \"top\", \"pop\", \"empty\"] [[], [1], [], [], []]",
+        "expectedOutput": "[null, null, 1, 1, true]"
+      },
+      {
+        "input":"[\"MyStack\",\"push\",\"push\",\"pop\",\"top\",\"empty\"] [[], [1], [2], [], [], []]",
+        "expectedOutput":"[null,null,null,2,1,false]"
+      }
+    ],
+    "hints": [
+      "Use a single queue to simulate a stack.",
+      "When pushing an element, enqueue it and then dequeue all other elements and enqueue them back to the queue.",
+      "This will make the newly added element the front of the queue, simulating the top of the stack.",
+      "When popping an element, simply dequeue it from the front of the queue.",
+      "Top and empty operations can be performed directly on the queue."
+    ],
+    "tags": ["Queue", "Stack", "Data Structure"]
+  },
+  {
+    "problemId": 14,
+    "courseId": "zoho",
+    "title": "Find the First Non-Repeating Character in a String",
+    "difficulty": "Easy",
+    "description": "Given a string, find the first non-repeating character in it and return its index. If it does not exist, return -1.",
+    "examples": [
+      {
+        "input": "\"leetcode\"",
+        "output": "0"
+      },
+      {
+        "input": "\"loveleetcode\"",
+        "output": "2"
+      },
+      {
+        "input": "\"aabb\"",
+        "output": "-1"
+      },
+      {
+          "input": "\"abc\"",
+          "output": "0"
+      },
+      {
+          "input": "\"\"",
+          "output": "-1"
+      }
+    ],
+    "constraints": [
+      "1 <= string.length <= 10^5",
+      "The string consists of lowercase English letters."
+    ],
+    "testCases": [
+      {
+        "input": "\"leetcode\"",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "\"loveleetcode\"",
+        "expectedOutput": "2"
+      },
+      {
+        "input": "\"aabb\"",
+        "expectedOutput": "-1"
+      },
+      {
+          "input": "\"abc\"",
+          "expectedOutput": "0"
+      },
+      {
+          "input": "\"\"",
+          "expectedOutput": "-1"
+      },
+      {
+          "input": "\"z\"",
+          "expectedOutput": "0"
+      }
+  
+    ],
+    "hints": [
+      "Use a hash map to store the frequency of each character in the string.",
+      "Iterate through the string and update the frequency of each character in the hash map.",
+      "Iterate through the string again and check if the frequency of each character is 1.",
+      "If the frequency is 1, return the index of the character.",
+      "If no non-repeating character is found, return -1."
+    ],
+    "tags": ["String", "Hash Table"]
+  },
+  {
+    "problemId": 15,
+    "courseId": "zoho",
+    "title": "Merge Two Sorted Linked Lists",
+    "difficulty": "Easy",
+    "description": "You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list.\nThe list should be made by splicing together the nodes of the first two lists.\nReturn the head of the merged linked list.",
+    "examples": [
+      {
+        "input": "list1 = [1, 2, 4], list2 = [1, 3, 4]",
+        "output": "[1, 1, 2, 3, 4, 4]"
+      },
+      {
+        "input": "list1 = [], list2 = []",
+        "output": "[]"
+      },
+      {
+        "input": "list1 = [], list2 = [0]",
+        "output": "[0]"
+      }
+    ],
+    "constraints": [
+      "The number of nodes in both lists is in the range [0, 50].",
+      "-100 <= Node.val <= 100",
+      "Both list1 and list2 are sorted in non-decreasing order."
+    ],
+    "testCases": [
+      {
+        "input": "list1 = [1, 2, 4], list2 = [1, 3, 4]",
+        "expectedOutput": "[1, 1, 2, 3, 4, 4]"
+      },
+      {
+        "input": "list1 = [], list2 = []",
+        "expectedOutput": "[]"
+      },
+      {
+        "input": "list1 = [], list2 = [0]",
+        "expectedOutput": "[0]"
+      },
+      {
+        "input": "list1 = [0], list2 = []",
+        "expectedOutput": "[0]"
+      },
+      {
+          "input": "list1 = [5], list2 = [1,2,3,4]",
+          "expectedOutput": "[1,2,3,4,5]"
+      },
+      {
+          "input": "list1 = [1,2,3,4], list2 = [5]",
+          "expectedOutput": "[1,2,3,4,5]"
+      }
+    ],
+    "hints": [
+      "Use a dummy node as the head of the merged list.",
+      "Iterate through both lists and compare the values of the current nodes.",
+      "Append the smaller node to the merged list and move the pointer to the next node.",
+      "If one list is exhausted, append the remaining nodes of the other list to the merged list."
+    ],
+    "tags": ["Linked List"]
+  },
+  {
+    "problemId": 16,
+    "courseId": "zoho",
+    "title": "Implement a Min Heap",
+    "difficulty": "Medium",
+    "description": "Implement a min heap data structure with the following operations:\n- insert(value): Inserts a value into the min heap.\n- getMin(): Returns the minimum value in the min heap.\n- extractMin(): Removes and returns the minimum value in the min heap.",
+    "examples": [
+      {
+        "input": "[\"MinHeap\", \"insert\", \"insert\", \"insert\", \"getMin\", \"extractMin\", \"getMin\"] [[], [3], [1], [2], [], [], []]",
+        "output": "[null, null, null, null, 1, 1, 2]"
+      }
+    ],
+    "constraints": [
+      "1 <= value <= 10^5",
+      "At most 10^4 calls will be made to insert, getMin, and extractMin."
+    ],
+    "testCases": [
+      {
+        "input": "[\"MinHeap\", \"insert\", \"insert\", \"insert\", \"getMin\", \"extractMin\", \"getMin\"] [[], [3], [1], [2], [], [], []]",
+        "expectedOutput": "[null, null, null, null, 1, 1, 2]"
+      },
+      {
+        "input": "[\"MinHeap\", \"insert\", \"insert\", \"insert\", \"extractMin\", \"extractMin\", \"extractMin\"] [[], [5], [2], [8], [], [], []]",
+        "expectedOutput": "[null, null, null, null, 2, 5, 8]"
+      },
+      {
+        "input": "[\"MinHeap\", \"insert\", \"getMin\", \"extractMin\", \"getMin\"] [[], [7], [], [], []]",
+        "expectedOutput": "[null, null, 7, 7, null]"
+      },
+      {
+        "input": "[\"MinHeap\", \"insert\", \"insert\", \"insert\", \"insert\", \"getMin\", \"extractMin\", \"getMin\", \"extractMin\", \"getMin\"] [[], [4], [2], [6], [1], [], [], [], [], []]",
+        "expectedOutput": "[null, null, null, null, null, 1, 1, 2, 2, 4]"
+      },
+      {
+        "input": "[\"MinHeap\", \"insert\", \"insert\", \"insert\", \"insert\", \"insert\", \"getMin\", \"extractMin\", \"getMin\", \"extractMin\", \"getMin\", \"extractMin\", \"getMin\"] [[], [10], [5], [15], [3], [8], [], [], [], [], [], [], []]",
+        "expectedOutput": "[null, null, null, null, null, null, 3, 3, 5, 5, 8, 8, 10]"
+      }
+    ],
+    "hints": [
+      "Use an array to represent the min heap.",
+      "When inserting a value, add it to the end of the array and then heapify up.",
+      "When getting the minimum value, return the first element of the array.",
+      "When extracting the minimum value, replace the first element with the last element, remove the last element, and then heapify down.",
+      "Heapify up and heapify down operations should maintain the min heap property."
+    ],
+    "tags": ["Heap", "Data Structure"]
+  },
+   {
+    "problemId": 17,
+    "courseId": "zoho",
+    "title": "Find the Missing Number in an Array of Size N-1",
+    "difficulty": "Easy",
+    "description": "Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.",
+    "examples": [
+      {
+        "input": "[3, 0, 1]",
+        "output": "2"
+      },
+      {
+        "input": "[9, 6, 4, 2, 3, 5, 7, 0, 1]",
+        "output": "8"
+      },
+      {
+        "input": "[0]",
+        "output": "1"
+      }
+    ],
+    "constraints": [
+      "n == nums.length + 1",
+      "1 <= n <= 10^4",
+      "0 <= nums[i] <= n",
+      "All the numbers of nums are unique."
+    ],
+    "testCases": [
+      {
+        "input": "[3, 0, 1]",
+        "expectedOutput": "2"
+      },
+      {
+        "input": "[9, 6, 4, 2, 3, 5, 7, 0, 1]",
+        "expectedOutput": "8"
+      },
+      {
+        "input": "[0]",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "[1]",
+        "expectedOutput": "0"
+      },
+      {
+        "input": "[0,1,2,3,4,5,6,7,8]",
+        "expectedOutput": "9"
+      },
+      {
+        "input": "[1,2]",
+        "expectedOutput": "0"
+      }
+    ],
+    "hints": [
+      "Calculate the sum of numbers from 0 to n using the formula n * (n + 1) / 2.",
+      "Calculate the sum of the numbers in the given array.",
+      "The difference between the two sums is the missing number.",
+      "Alternatively, you can use bit manipulation (XOR) to find the missing number."
+    ],
+    "tags": ["Array", "Math", "Bit Manipulation"]
+  },
+  {
+    "problemId": 18,
+    "courseId": "zoho",
+    "title": "Detect a Cycle in a Linked List using Floyd’s Cycle Detection Algorithm",
+    "difficulty": "Medium",
+    "description": "Given the head of a linked list, determine if the linked list has a cycle in it.\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Return true if there is a cycle in the linked list. Otherwise, return false.",
+    "examples": [
+      {
+        "input": "head = [3, 2, 0, -4], pos = 1",
+        "output": "true",
+        "explanation": "There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed)."
+      },
+      {
+        "input": "head = [1, 2], pos = 0",
+        "output": "true",
+        "explanation": "There is a cycle in the linked list, where the tail connects to the 0th node."
+      },
+      {
+        "input": "head = [1], pos = -1",
+        "output": "false",
+        "explanation": "There is no cycle in the linked list."
+      }
+    ],
+    "constraints": [
+      "The number of the nodes in the list is in the range [0, 10^4].",
+      "-10^5 <= Node.val <= 10^5",
+      "pos is -1 or a valid index in the linked-list."
+    ],
+    "testCases": [
+      {
+        "input": "head = [3, 2, 0, -4], pos = 1",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "head = [1, 2], pos = 0",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "head = [1], pos = -1",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "head = [], pos = -1",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "head = [1,2,3,4,5], pos = -1",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "head = [1,2,3,4,5], pos = 2",
+        "expectedOutput": "true"
+      }
+    ],
+    "hints": [
+      "Use Floyd's Cycle Detection Algorithm (also known as the tortoise and hare algorithm).",
+      "Use two pointers, a slow pointer and a fast pointer.",
+      "The slow pointer moves one step at a time, and the fast pointer moves two steps at a time.",
+      "If there is a cycle, the two pointers will eventually meet.",
+      "If there is no cycle, the fast pointer will reach the end of the list."
+    ],
+    "tags": ["Linked List", "Two Pointers"]
+  },
+  {
+    "problemId": 19,
+    "courseId": "zoho",
+    "title": "Find All Anagrams of a Word from a Given List of Words",
+    "difficulty": "Medium",
+    "description": "Given a target word and a list of words, find all anagrams of the target word from the list.",
+    "examples": [
+      {
+        "input": "target = \"listen\", words = [\"silent\", \"listen\", \"hello\", \"world\"]",
+        "output": "[\"silent\", \"listen\"]"
+      },
+      {
+        "input": "target = \"abc\", words = [\"cab\", \"bac\", \"def\", \"cba\"]",
+        "output": "[\"cab\", \"bac\", \"cba\"]"
+      },
+      {
+        "input": "target = \"xyz\", words = [\"abc\", \"def\", \"ghi\"]",
+        "output": "[]"
+      }
+    ],
+    "constraints": [
+      "1 <= target.length <= 100",
+      "1 <= words.length <= 100",
+      "1 <= words[i].length <= 100",
+      "All words contain only lowercase English letters."
+    ],
+    "testCases": [
+      {
+        "input": "target = \"listen\", words = [\"silent\", \"listen\", \"hello\", \"world\"]",
+        "expectedOutput": "[\"silent\", \"listen\"]"
+      },
+      {
+        "input": "target = \"abc\", words = [\"cab\", \"bac\", \"def\", \"cba\"]",
+        "expectedOutput": "[\"cab\", \"bac\", \"cba\"]"
+      },
+      {
+        "input": "target = \"xyz\", words = [\"abc\", \"def\", \"ghi\"]",
+        "expectedOutput": "[]"
+      },
+      {
+        "input": "target = \"a\", words = [\"a\", \"b\", \"c\"]",
+        "expectedOutput": "[\"a\"]"
+      },
+      {
+        "input": "target = \"\", words = [\"\", \"b\", \"c\"]",
+        "expectedOutput": "[\"\"]"
+      },
+      {
+        "input": "target = \"aabb\", words = [\"bbaa\", \"abcd\", \"aabb\", \"baab\"]",
+        "expectedOutput": "[\"bbaa\", \"aabb\", \"baab\"]"
+      }
+    ],
+    "hints": [
+      "Sort the characters of the target word and each word in the list.",
+      "Compare the sorted target word with the sorted words from the list.",
+      "If the sorted words are equal, they are anagrams.",
+      "Alternatively, use a hash map to count the frequency of each character in the target word and each word in the list.",
+      "Compare the hash maps to check if they are equal."
+    ],
+    "tags": ["String", "Hash Table", "Sorting"]
+  },
+   {
+    "problemId": 20,
+    "courseId": "zoho",
+    "title": "Merge Overlapping Intervals in a List",
+    "difficulty": "Medium",
+    "description": "Given a list of intervals, merge all overlapping intervals and return a list of the non-overlapping intervals.",
+    "examples": [
+      {
+        "input": "[[1, 3], [2, 6], [8, 10], [15, 18]]",
+        "output": "[[1, 6], [8, 10], [15, 18]]"
+      },
+      {
+        "input": "[[1, 4], [4, 5]]",
+        "output": "[[1, 5]]"
+      },
+      {
+        "input": "[[1, 3]]",
+        "output": "[[1, 3]]"
+      },
+      {
+        "input": "[]",
+        "output": "[]"
+      }
+    ],
+    "constraints": [
+      "0 <= intervals.length <= 10^4",
+      "intervals[i].length == 2",
+      "0 <= intervals[i][0] <= intervals[i][1] <= 10^4"
+    ],
+    "testCases": [
+      {
+        "input": "[[1, 3], [2, 6], [8, 10], [15, 18]]",
+        "expectedOutput": "[[1, 6], [8, 10], [15, 18]]"
+      },
+      {
+        "input": "[[1, 4], [4, 5]]",
+        "expectedOutput": "[[1, 5]]"
+      },
+      {
+        "input": "[[1, 3]]",
+        "expectedOutput": "[[1, 3]]"
+      },
+      {
+        "input": "[]",
+        "expectedOutput": "[]"
+      },
+      {
+        "input": "[[1, 4], [0, 4]]",
+        "expectedOutput": "[[0, 4]]"
+      },
+      {
+        "input": "[[1,4],[0,1]]",
+        "expectedOutput": "[[0,4]]"
+      }
+  
+    ],
+    "hints": [
+      "Sort the intervals by their start values.",
+      "Iterate through the sorted intervals and merge overlapping intervals.",
+      "Keep track of the merged intervals in a result list.",
+      "If the current interval overlaps with the last merged interval, merge them.",
+      "Otherwise, add the current interval to the result list."
+    ],
+    "tags": ["Array", "Sorting"]
+  },
+  {
+    "problemId": 21,
+    "courseId": "zoho",
+    "title": "Implement a Custom Memory-Efficient Data Structure",
+    "difficulty": "Hard",
+    "description": "Design a custom data structure that efficiently stores and retrieves a large number of key-value pairs while minimizing memory usage. Implement the following operations:\n- insert(key, value): Inserts a key-value pair into the data structure.\n- get(key): Retrieves the value associated with the given key. Returns null if the key does not exist.\n- delete(key): Deletes the key-value pair associated with the given key.\n\nConsider scenarios where keys and values can be large strings or complex objects. Optimize for memory usage.",
+    "examples": [
+      {
+        "input": "[\"CustomDataStructure\", \"insert\", \"insert\", \"get\", \"delete\", \"get\"] [[], [\"key1\", \"value1\"], [\"key2\", \"value2\"], [\"key1\"], [\"key1\"], [\"key1\"]]",
+        "output": "[null, null, null, \"value1\", null, null]"
+      }
+    ],
+    "constraints": [
+      "1 <= key.length, value.length <= 10^5",
+      "At most 10^5 calls will be made to insert, get, and delete.",
+      "The keys and values can be large strings or complex objects.",
+      "Optimize for memory usage."
+    ],
+    "testCases": [
+      {
+        "input": "[\"CustomDataStructure\", \"insert\", \"insert\", \"get\", \"delete\", \"get\"] [[], [\"key1\", \"value1\"], [\"key2\", \"value2\"], [\"key1\"], [\"key1\"], [\"key1\"]]",
+        "expectedOutput": "[null, null, null, \"value1\", null, null]"
+      },
+      {
+        "input": "[\"CustomDataStructure\", \"insert\", \"get\", \"delete\", \"get\"] [[], [\"longkey\", \"longvalue\"], [\"longkey\"], [\"longkey\"], [\"longkey\"]]",
+        "expectedOutput": "[null, null, \"longvalue\", null, null]"
+      },
+      {
+        "input": "[\"CustomDataStructure\", \"insert\", \"insert\", \"get\", \"get\", \"delete\", \"get\"] [[], [\"k1\", \"v1\"], [\"k2\", \"v2\"], [\"k1\"], [\"k2\"], [\"k2\"], [\"k2\"]]",
+        "expectedOutput": "[null, null, null, \"v1\", \"v2\", null, null]"
+      },
+      {
+        "input": "[\"CustomDataStructure\", \"insert\", \"insert\", \"insert\", \"get\", \"get\", \"get\"] [[], [\"a\", \"1\"], [\"b\", \"2\"], [\"c\", \"3\"], [\"a\"], [\"b\"], [\"c\"]]",
+        "expectedOutput": "[null, null, null, null, \"1\", \"2\", \"3\"]"
+      },
+      {
+        "input": "[\"CustomDataStructure\", \"delete\", \"get\", \"insert\", \"get\"] [[], [\"key\"], [\"key\"], [\"key\", \"val\"], [\"key\"]]",
+        "expectedOutput": "[null, null, null, null, \"val\"]"
+      },
+      {
+        "input": "[\"CustomDataStructure\", \"insert\", \"insert\", \"delete\", \"get\",\"get\"]",
+        "expectedOutput": "[null,null,null,null,null,null]"
+      }
+    ],
+    "hints": [
+      "Use a combination of a hash table and a trie to store the key-value pairs.",
+      "The hash table maps keys to trie nodes, allowing for efficient key lookup.",
+      "The trie stores the values, minimizing memory usage by sharing common prefixes.",
+      "Implement a custom memory allocation strategy to reduce memory fragmentation.",
+      "Consider using techniques like data compression or serialization to further reduce memory usage for large values."
+    ],
+    "tags": ["Hash Table", "Trie", "Memory Management", "Data Structure"]
+  },
+   {
+    "problemId": 22,
+    "courseId": "zoho",
+    "title": "Implement a Max Stack with O(1) Retrieval of the Maximum Element",
+    "difficulty": "Medium",
+    "description": "Design a max stack data structure that supports the stack operations push, pop, top, peekMax, and popMax.\n- push(x) -- Push element x onto stack.\n- pop() -- Remove the element on top of the stack and return it.\n- top() -- Get the element on the top stack.\n- peekMax() -- Retrieve the maximum element in the stack.\n- popMax() -- Retrieve the maximum element in the stack, and remove it. If there is more than one maximum element, only remove the top-most one.\nYou should be able to retrieve the maximum element in O(1) time.",
+    "examples": [
+      {
+        "input": "[\"MaxStack\", \"push\", \"push\", \"push\", \"top\", \"peekMax\", \"popMax\", \"top\", \"peekMax\", \"pop\", \"top\"] [[], [5], [1], [5], [], [], [], [], [], [], []]",
+        "output": "[null, null, null, null, 5, 5, 5, 1, 5, 1, 5]"
+      }
+    ],
+    "constraints": [
+      "-10^7 <= x <= 10^7",
+      "At most 10^4 calls will be made to push, pop, top, peekMax, or popMax.",
+      "At least one element will be in the stack when pop, top, peekMax, or popMax is called."
+    ],
+    "testCases": [
+      {
+        "input": "[\"MaxStack\", \"push\", \"push\", \"push\", \"top\", \"peekMax\", \"popMax\", \"top\", \"peekMax\", \"pop\", \"top\"] [[], [5], [1], [5], [], [], [], [], [], [], []]",
+        "expectedOutput": "[null, null, null, null, 5, 5, 5, 1, 5, 1, 5]"
+      },
+      {
+        "input": "[\"MaxStack\", \"push\", \"push\", \"peekMax\", \"popMax\", \"peekMax\"] [[], [5], [1], [], [], []]",
+        "expectedOutput": "[null, null, null, 5, 1]"
+      },
+      {
+        "input": "[\"MaxStack\", \"push\", \"push\", \"push\", \"popMax\", \"popMax\", \"popMax\"] [[], [1], [2], [3], [], [], []]",
+        "expectedOutput": "[null, null, null, null, 3, 2, 1]"
+      },
+      {
+        "input": "[\"MaxStack\", \"push\", \"push\", \"push\", \"push\", \"peekMax\", \"popMax\", \"peekMax\", \"popMax\", \"peekMax\"] [[], [1], [2], [3], [2], [], [], [], [], []]",
+        "expectedOutput": "[null, null, null, null, null, 3, 2, 2, 2, 1]"
+      },
+      {
+        "input": "[\"MaxStack\", \"push\", \"push\", \"push\", \"push\", \"peekMax\", \"popMax\", \"peekMax\", \"popMax\", \"peekMax\", \"popMax\", \"peekMax\"] [[], [1], [2], [3], [4], [], [], [], [], [], [], []]",
+        "expectedOutput": "[null, null, null, null, null, 4, 3, 3, 2, 2, 1]"
+      },
+      {
+        "input": "[\"MaxStack\", \"push\", \"push\", \"push\", \"push\", \"push\", \"peekMax\", \"popMax\", \"peekMax\", \"popMax\"]",
+        "expectedOutput": "[null, null, null, null, null, null, 5, 5, 5, 4]"
+      }
+    ],
+    "hints": [
+      "Use two stacks: one to store the elements and another to store the maximum elements.",
+      "When pushing an element, update the maximum stack accordingly.",
+      "When popping an element, update the maximum stack accordingly.",
+      "peekMax() and popMax() can be implemented using the maximum stack.",
+      "Use a doubly linked list to efficiently remove an element from the middle of the stack in popMax()."
+    ],
+    "tags": ["Stack", "Data Structure"]
+  },
+   {
+    "problemId": 23,
+    "courseId": "zoho",
+    "title": "Check if Two Strings are Anagrams of Each Other",
+    "difficulty": "Easy",
+    "description": "Given two strings s and t, determine if t is an anagram of s.",
+    "examples": [
+      {
+        "input": "s = \"anagram\", t = \"nagaram\"",
+        "output": "true"
+      },
+      {
+        "input": "s = \"rat\", t = \"car\"",
+        "output": "false"
+      },
+      {
+        "input": "s = \"\", t = \"\"",
+        "output": "true"
+      }
+    ],
+    "constraints": [
+      "1 <= s.length, t.length <= 5 * 10^4",
+      "s and t consist of lowercase English letters."
+    ],
+    "testCases": [
+      {
+        "input": "s = \"anagram\", t = \"nagaram\"",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "s = \"rat\", t = \"car\"",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "s = \"\", t = \"\"",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "s = \"a\", t = \"a\"",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "s = \"ab\", t = \"ba\"",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "s = \"abc\", t = \"def\"",
+        "expectedOutput": "false"
+      }
+    ],
+    "hints": [
+      "An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.",
+      "Use a hash map to count the frequency of each character in both strings.",
+      "Compare the hash maps to check if they are equal.",
+      "Alternatively, sort both strings and compare the sorted strings."
+    ],
+    "tags": ["String", "Hash Table", "Sorting"]
+  },
+   {
+    "problemId": 24,
+    "courseId": "zoho",
+    "title": "Implement a Custom Thread-Safe Singleton",
+    "difficulty": "Medium",
+    "description": "Implement a thread-safe Singleton design pattern. The Singleton pattern ensures that a class has only one instance and provides a global point of access to it. Ensure that the Singleton is thread-safe and lazy-loaded (i.e., the instance is created only when it is first needed).",
+    "examples": [
+      {
+        "input": "[\"Singleton\", \"getInstance\", \"getInstance\"]",
+        "output": "[null, <instance>, <instance>]"
+      }
+    ],
+    "constraints": [
+      "The Singleton class should be thread-safe.",
+      "The Singleton instance should be lazy-loaded.",
+      "The getInstance() method should return the same instance every time it is called."
+    ],
+    "testCases": [
+      {
+        "input": "[\"Singleton\", \"getInstance\", \"getInstance\"]",
+        "expectedOutput": "[null, <instance>, <instance>]"
+      },
+      {
+        "input": "[\"Singleton\", \"getInstance\"]",
+        "expectedOutput": "[null, <instance>]"
+      },
+      {
+        "input": "[\"Singleton\"]",
+        "expectedOutput": "[null]"
+      },
+      {
+        "input": "[\"Singleton\", \"getInstance\", \"getInstance\", \"getInstance\"]",
+        "expectedOutput": "[null, <instance>, <instance>, <instance>]"
+      },
+      {
+        "input": "[\"Singleton\",\"getInstance\",\"getInstance\",\"getInstance\",\"getInstance\"]",
+        "expectedOutput": "[null, <instance>, <instance>, <instance>, <instance>]"
+      }
+    ],
+    "hints": [
+      "Use a private static instance variable to store the Singleton instance.",
+      "Use a private constructor to prevent instantiation from outside the class.",
+      "Use a public static getInstance() method to provide a global point of access to the Singleton instance.",
+      "Use double-checked locking or a static inner class to ensure thread safety and lazy loading.",
+      "Double-checked locking involves checking if the instance is null before acquiring a lock, and then checking again inside the locked block.",
+      "A static inner class is initialized only when it is first accessed, ensuring lazy loading."
+    ],
+    "tags": ["Design Pattern", "Concurrency"]
+  },
+   {
+    "problemId": 25,
+    "courseId": "zoho",
+    "title": "Find the Longest Increasing Subsequence in an Array",
+    "difficulty": "Medium",
+    "description": "Given an integer array nums, return the length of the longest strictly increasing subsequence.",
+    "examples": [
+      {
+        "input": "[10, 9, 2, 5, 3, 7, 101, 18]",
+        "output": "4",
+        "explanation": "The longest increasing subsequence is [2, 3, 7, 101], therefore the length is 4."
+      },
+      {
+        "input": "[0, 1, 0, 3, 2, 3]",
+        "output": "4"
+      },
+      {
+        "input": "[7, 7, 7, 7, 7, 7, 7]",
+        "output": "1"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 2500",
+      "-10^4 <= nums[i] <= 10^4"
+    ],
+    "testCases": [
+      {
+        "input": "[10, 9, 2, 5, 3, 7, 101, 18]",
+        "expectedOutput": "4"
+      },
+      {
+        "input": "[0, 1, 0, 3, 2, 3]",
+        "expectedOutput": "4"
+      },
+      {
+        "input": "[7, 7, 7, 7, 7, 7, 7]",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "[1]",
+        "expectedOutput": "1"
+      },
+      {
+        "input": "[1,2,3,4,5]",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "[5,4,3,2,1]",
+        "expectedOutput": "1"
+      }
+    ],
+    "hints": [
+      "Use dynamic programming to solve this problem.",
+      "Create an array dp where dp[i] represents the length of the longest increasing subsequence ending at index i.",
+      "Initialize dp[i] to 1 for all i.",
+      "Iterate through the array and for each element nums[i], iterate through the elements before it.",
+      "If nums[i] is greater than nums[j], update dp[i] to max(dp[i], dp[j] + 1).",
+      "Return the maximum value in the dp array."
+    ],
+    "tags": ["Array", "Dynamic Programming", "Binary Search"]
+  },
+   {
+    "problemId": 26,
+    "courseId": "zoho",
+    "title": "Detect a Cycle in a Directed Graph using BFS",
+    "difficulty": "Medium",
+    "description": "Given a directed graph represented by an adjacency list, detect if the graph contains a cycle using Breadth-First Search (BFS).",
+    "examples": [
+      {
+        "input": "[[1, 2], [2], [0]]",
+        "output": "true",
+        "explanation": "The graph contains a cycle: 0 -> 1 -> 2 -> 0."
+      },
+      {
+        "input": "[[1, 2], [2], [3], []]",
+        "output": "false",
+        "explanation": "The graph does not contain a cycle."
+      },
+      {
+        "input": "[[]]",
+        "output": "false",
+        "explanation": "The graph does not contain a cycle."
+      }
+    ],
+    "constraints": [
+      "1 <= number of nodes <= 10^5",
+      "0 <= number of edges <= 10^5"
+    ],
+    "testCases": [
+      {
+        "input": "[[1, 2], [2], [0]]",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "[[1, 2], [2], [3], []]",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "[[]]",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "[[1],[2],[3],[0]]",
+        "expectedOutput": "true"
+      },
+      {
+        "input": "[[1,3],[2],[3],[]]",
+        "expectedOutput": "false"
+      },
+      {
+        "input": "[[1,2,3],[2,3],[3],[0]]",
+        "expectedOutput": "true"
+      }
+    ],
+    "hints": [
+      "Use Kahn's algorithm (topological sorting) to detect cycles.",
+      "Calculate the in-degree of each node.",
+      "Enqueue nodes with in-degree 0 into a queue.",
+      "While the queue is not empty, dequeue a node and decrement the in-degree of its neighbors.",
+      "If any neighbor's in-degree becomes 0, enqueue it.",
+      "If the number of visited nodes is not equal to the total number of nodes, there is a cycle.",
+      "If you want to use the BFS template, you need to track the path and visited nodes. If a visited node is encountered again in the current BFS path, then there is a cycle."
+    ],
+    "tags": ["Graph", "Breadth-First Search", "Topological Sort"]
+  },
+  {
+    "problemId": 27,
+    "courseId": "zoho",
+    "title": "Sum of Diagonal Elements in a 10x10 Matrix",
+    "difficulty": "Easy",
+    "description": "Write a program that calculates and prints the sum of the diagonal elements of a 10x10 matrix. The program will receive 100 integer numbers as input, organized into 10 lines with 10 numbers per line, separated by spaces.",
+    "examples": [
+      {
+        "input": "1 2 3 4 5 6 7 8 9 0\n0 1 2 3 4 5 6 7 8 0\n3 4 5 6 7 8 9 6 4 0\n2 3 4 5 6 7 8 9 3 2\n3 4 5 6 7 4 3 2 1 3\n3 4 5 6 2 4 4 2 4 6\n2 3 4 6 2 4 6 2 3 5\n2 3 5 6 2 4 6 2 3 5\n2 4 6 2 1 4 3 3 5 2\n3 3 5 2 4 6 2 1 4 6",
+        "output": "42"
+      },
+      {
+        "input": "1 22 33 44 55 66 77 88 99 100\n100 1 88 77 66 55 44 33 22 11\n88 88 1 66 55 44 33 22 11 100\n88 77 66 1 44 33 22 11 100 99\n77 66 55 44 1 22 11 88 99 100\n66 55 44 33 22 1 77 88 99 100\n44 33 22 11 100 99 1 77 66 55\n33 22 11 100 99 88 77 1 55 44\n22 11 100 99 88 77 66 55 1 33\n100 11 22 33 44 55 99 88 77 1",
+        "output": "10"
+      }
+    ],
+    "constraints": [
+      "Input will consist of exactly 10 lines of 10 space-separated integers.",
+      "Each integer will be within the valid range for Python integers."
+    ],
+    "testCases": [
+      {
+        "input": "1 2 3 4 5 6 7 8 9 0\n0 1 2 3 4 5 6 7 8 0\n3 4 5 6 7 8 9 6 4 0\n2 3 4 5 6 7 8 9 3 2\n3 4 5 6 7 4 3 2 1 3\n3 4 5 6 2 4 4 2 4 6\n2 3 4 6 2 4 6 2 3 5\n2 3 5 6 2 4 6 2 3 5\n2 4 6 2 1 4 3 3 5 2\n3 3 5 2 4 6 2 1 4 6",
+        "expectedOutput": "42"
+      },
+      {
+        "input": "1 22 33 44 55 66 77 88 99 100\n100 1 88 77 66 55 44 33 22 11\n88 88 1 66 55 44 33 22 11 100\n88 77 66 1 44 33 22 11 100 99\n77 66 55 44 1 22 11 88 99 100\n66 55 44 33 22 1 77 88 99 100\n44 33 22 11 100 99 1 77 66 55\n33 22 11 100 99 88 77 1 55 44\n22 11 100 99 88 77 66 55 1 33\n100 11 22 33 44 55 99 88 77 1",
+        "expectedOutput": "10"
+      }
+    ],
+    "hints": [
+      "Read the input line by line, splitting each line into a list of integers.",
+      "Store the input numbers in a 2D array (matrix).",
+      "Iterate through the matrix and sum the elements where the row index equals the column index (diagonal elements)."
+    ],
+    "tags": ["Array", "Matrix", "Summation", "Input/Output"]
+  },
+   {
+    "problemId": 28,
+    "courseId": "zoho",
+    "title": "Sort Texts by Word Occurrence",
+    "difficulty": "Medium",
+    "description": "Write a program that receives a word A and some texts as input. Output the texts (without modifying them) in the ascending order of the number of occurrences of the word A in the texts.",
+    "examples": [
+      {
+        "input": "2\nJava\nI hate java\nPython is a good programming language",
+        "output": "Python is a good programming language\nI hate java"
+      },
+      {
+        "input": "3\npython\nI like to code in python\npython is named after a show name monty python and not after the snake python\nI think python is good i think python is important than php",
+        "output": "I like to code in python\nI think python is good i think python is important than php\npython is named after a show name monty python and not after the snake python"
+      }
+    ],
+    "constraints": [
+      "1 <= M <= 100",
+      "1 <= length(word A) <= 100",
+      "1 <= length(text) <= 100",
+      "Texts and word A contain only lowercase Latin letters (a, b, c, ..., z) and blank spaces (\" \").",
+      "Every text has a different number of occurrences of the word A."
+    ],
+    "testCases": [
+      {
+        "input": "2\nJava\nI hate java\nPython is a good programming language",
+        "expectedOutput": "Python is a good programming language\nI hate java"
+      },
+      {
+        "input": "3\npython\nI like to code in python\npython is named after a show name monty python and not after the snake python\nI think python is good i think python is important than php",
+        "expectedOutput": "I like to code in python\nI think python is good i think python is important than php\npython is named after a show name monty python and not after the snake python"
+      },
+      {
+        "input": "1\ncode\nI love to code",
+        "expectedOutput": "I love to code"
+      },
+      {
+        "input": "4\ntest\ntest test test test\ntest test\nno test here\ntest",
+        "expectedOutput": "no test here\ntest\ntest test\ntest test test test"
+      },
+      {
+          "input" : "2\na\na a a\nb b b",
+          "expectedOutput": "b b b\na a a"
+      },
+      {
+          "input": "5\nword\nword\nword word\nno word\nword word word\nword word word word",
+          "expectedOutput": "no word\nword\nword word\nword word word\nword word word word"
+      }
+    ],
+    "hints": [
+      "Read the input, storing the word A and the texts.",
+      "For each text, count the number of occurrences of word A.",
+      "Store the texts and their corresponding occurrence counts in a list of tuples or a dictionary.",
+      "Sort the list or dictionary by the occurrence counts in ascending order.",
+      "Print the sorted texts, one per line."
+    ],
+    "tags": ["String", "Sorting", "Counting"]
+  },
+   {
+    "problemId": 29,
+    "courseId": "zoho",
+    "title": "Minimum Difference Pairs",
+    "difficulty": "Medium",
+    "description": "Write a program that takes an integer M and M integer array elements as input. The program needs to find the minimum difference between two elements in the integer array. The program then needs to print all those pairs of elements that have the minimum difference. If more than one pair has the minimum difference, then the program should print the output in the ascending order, if an element exists in two or more pairs, then it should be printed two times or more.",
+    "examples": [
+      {
+        "input": "4\n55 44 33 22",
+        "output": "22 33 33 44 44 55"
+      },
+      {
+        "input": "5\n1 99 22 44 1001",
+        "output": "1 22"
+      }
+    ],
+    "constraints": [
+      "2 <= M <= 100",
+      "1 <= array elements <= 10000"
+    ],
+    "testCases": [
+      {
+        "input": "4\n55 44 33 22",
+        "expectedOutput": "22 33 33 44 44 55"
+      },
+      {
+        "input": "5\n1 99 22 44 1001",
+        "expectedOutput": "1 22"
+      },
+      {
+        "input": "2\n10 20",
+        "expectedOutput": "10 20"
+      },
+      {
+        "input": "3\n1 2 3",
+        "expectedOutput": "1 2 2 3"
+      },
+      {
+          "input" : "6\n1 5 3 2 4 6",
+          "expectedOutput": "1 2 2 3 3 4 4 5 5 6"
+      },
+      {
+          "input": "7\n1 100 2 99 3 98 4",
+          "expectedOutput": "1 2 2 3 3 4"
+      }
+    ],
+    "hints": [
+      "Read the input array.",
+      "Sort the array in ascending order.",
+      "Calculate the minimum difference between adjacent elements.",
+      "Find all pairs of elements with the minimum difference.",
+      "Print the pairs in ascending order, including duplicates."
+    ],
+    "tags": ["Array", "Sorting", "Difference"]
+  },
+   {
+    "problemId": 30,
+    "courseId": "Zoho",
+    "title": "Sort Sentence by Embedded Numbers",
+    "difficulty": "Medium",
+    "description": "Given a sentence with numbers representing a word’s location in the sentence, embedded within each word, return the sorted sentence. Note: We are using a maximum of 0-9 numbers only for 1 sentence.",
+    "examples": [
+      {
+        "input": "is1 Thi0s T3est 2a",
+        "output": "This is a Test"
+      },
+      {
+        "input": "t2o j3oin 4WonderBiz I0 Technolog5ies wan1t",
+        "output": "I want to join WonderBiz Technologies"
+      }
+    ],
+    "constraints": [
+      "The sentence will contain a maximum of 9 words.",
+      "Each word will contain a single digit from 0 to 9 indicating its position.",
+      "Words will contain only lowercase and uppercase English letters.",
+      "Input string will contain only words and spaces."
+    ],
+    "testCases": [
+      {
+        "input": "is1 Thi0s T3est 2a",
+        "expectedOutput": "This is a Test"
+      },
+      {
+        "input": "t2o j3oin 4WonderBiz I0 Technolog5ies wan1t",
+        "expectedOutput": "I want to join WonderBiz Technologies"
+      },
+      {
+        "input": "hello1 world0",
+        "expectedOutput": "world hello"
+      },
+      {
+        "input": "a0",
+        "expectedOutput": "a"
+      },
+      {
+        "input": "w1ord1 w0ord0",
+        "expectedOutput": "w0ord0 w1ord1"
+      },
+       {
+        "input": "s0e1n2t3e4n5c6e7",
+        "expectedOutput": "s0e1n2t3e4n5c6e7"
+      }
+    ],
+    "hints": [
+      "Split the sentence into words.",
+      "Extract the digit from each word and use it as the index.",
+      "Store the words in a list or dictionary using the extracted digit as the key.",
+      "Sort the list or dictionary by the keys.",
+      "Concatenate the sorted words to form the sorted sentence."
+    ],
+    "tags": ["String", "Sorting", "Extraction"]
+  }
+]

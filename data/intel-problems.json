@@ -1,0 +1,1813 @@
+[
+{
+  "problemId": 1,
+  "courseId": "intel",
+  "title": "Two Sum",
+  "difficulty": "Easy",
+  "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution, and you may not use the same element twice. You can return the answer in any order.",
+  "examples": [
+    {
+      "input": "nums = [2,7,11,15], target = 9\n",
+      "output": "[0,1]\n",
+      "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1]."
+    },
+    {
+      "input": "nums = [3,2,4], target = 6\n",
+      "output": "[1,2]\n"
+    },
+    {
+      "input": "nums = [3,3], target = 6\n",
+      "output": "[0,1]\n"
+    }
+  ],
+  "constraints": [
+    "2 <= nums.length <= 10^4",
+    "-10^9 <= nums[i] <= 10^9",
+    "-10^9 <= target <= 10^9",
+    "Only one valid answer exists."
+  ],
+  "testCases": [
+    {
+      "input": "[2,7,11,15], 9\n",
+      "expectedOutput": "[0,1]\n"
+    },
+    {
+      "input": "[3,2,4], 6\n",
+      "expectedOutput": "[1,2]\n"
+    },
+    {
+      "input": "[3,3], 6\n",
+      "expectedOutput": "[0,1]\n"
+    },
+    {
+      "input": "[1,2,3,4,5], 9\n",
+      "expectedOutput": "[3,4]\n"
+    },
+    {
+      "input": "[-1,-2,-3,-4,-5], -8\n",
+      "expectedOutput": "[2,3]\n"
+    },
+    {
+      "input": "[0,4,3,0], 0\n",
+      "expectedOutput": "[0,3]\n"
+    }
+  ],
+  "hints": [
+    "Use a hash map to store the numbers and their indices.",
+    "Iterate through the array and check if the complement (target - nums[i]) exists in the hash map.",
+    "If the complement exists, return the indices of the current number and the complement.",
+    "If the complement does not exist, add the current number and its index to the hash map."
+  ],
+  "tags": ["Array", "Hash Table"]
+},
+{
+  "problemId": 2,
+  "courseId": "intel",
+  "title": "Reverse Linked List",
+  "difficulty": "Easy",
+  "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+  "examples": [
+    {
+      "input": "head = [1,2,3,4,5]\n",
+      "output": "[5,4,3,2,1]\n"
+    },
+    {
+      "input": "head = [1,2]\n",
+      "output": "[2,1]\n"
+    },
+    {
+      "input": "head = []\n",
+      "output": "[]\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the list is the range [0, 5000].",
+    "-5000 <= Node.val <= 5000"
+  ],
+  "testCases": [
+    {
+      "input": "[1,2,3,4,5]\n",
+      "expectedOutput": "[5,4,3,2,1]\n"
+    },
+    {
+      "input": "[1,2]\n",
+      "expectedOutput": "[2,1]\n"
+    },
+    {
+      "input": "[]\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "[1]\n",
+      "expectedOutput": "[1]\n"
+    },
+    {
+      "input": "[1,2,3]\n",
+      "expectedOutput": "[3,2,1]\n"
+    },
+    {
+      "input": "[5,4,3,2,1]\n",
+      "expectedOutput": "[1,2,3,4,5]\n"
+    },
+    {
+        "input": "[1,1,1,1]\n",
+        "expectedOutput": "[1,1,1,1]\n"
+    }
+  ],
+  "hints": [
+    "Iterative approach: Use three pointers (prev, curr, next) to reverse the list.",
+    "Recursive approach: Recursively reverse the rest of the list and then update the head's next pointer."
+  ],
+  "tags": ["Linked List", "Recursion"]
+},
+{
+  "problemId": 3,
+  "courseId": "intel",
+  "title": "Product of Array Except Self",
+  "difficulty": "Medium",
+  "description": "Given an integer array nums, return an array answer such that answer[i] is equal to the product of all the elements of nums except nums[i]. The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer. You must write an algorithm that runs in O(n) time and without using the division operation.",
+  "examples": [
+    {
+      "input": "nums = [1,2,3,4]\n",
+      "output": "[24,12,8,6]\n"
+    },
+    {
+      "input": "nums = [-1,1,0,-3,3]\n",
+      "output": "[0,0,9,0,0]\n"
+    }
+  ],
+  "constraints": [
+    "2 <= nums.length <= 10^5",
+    "-30 <= nums[i] <= 30",
+    "The input is generated such that answer[i] is guaranteed to fit in a 32-bit integer."
+  ],
+  "testCases": [
+    {
+      "input": "[1,2,3,4]\n",
+      "expectedOutput": "[24,12,8,6]\n"
+    },
+    {
+      "input": "[-1,1,0,-3,3]\n",
+      "expectedOutput": "[0,0,9,0,0]\n"
+    },
+    {
+      "input": "[1,0]\n",
+      "expectedOutput": "[0,1]\n"
+    },
+    {
+      "input": "[0,0]\n",
+      "expectedOutput": "[0,0]\n"
+    },
+    {
+      "input": "[1,1,1,1]\n",
+      "expectedOutput": "[1,1,1,1]\n"
+    },
+    {
+      "input": "[1,2]\n",
+      "expectedOutput": "[2,1]\n"
+    },
+    {
+      "input": "[-1,1]\n",
+      "expectedOutput": "[1,-1]\n"
+    }
+  ],
+  "hints": [
+    "Create two arrays, left and right, to store the product of elements to the left and right of each element, respectively.",
+    "Calculate the left array by iterating from left to right and multiplying the previous element's product.",
+    "Calculate the right array by iterating from right to left and multiplying the previous element's product.",
+    "Calculate the answer array by multiplying the left and right products for each element.",
+    "To solve in O(1) extra space, use the output array to store the left products and then calculate the right products in place."
+  ],
+  "tags": ["Array", "Prefix Sum"]
+},
+{
+  "problemId": 4,
+  "courseId": "intel",
+  "title": "Add Two Numbers",
+  "difficulty": "Medium",
+  "description": "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself.",
+  "examples": [
+    {
+      "input": "l1 = [2,4,3], l2 = [5,6,4]\n",
+      "output": "[7,0,8]\n",
+      "explanation": "342 + 465 = 807."
+    },
+    {
+      "input": "l1 = [0], l2 = [0]\n",
+      "output": "[0]\n"
+    },
+    {
+      "input": "l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]\n",
+      "output": "[8,9,9,9,0,0,0,1]\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in each linked list is in the range [1, 100].",
+    "0 <= Node.val <= 9",
+    "It is guaranteed that the list represents a number that does not have leading zeros."
+  ],
+  "testCases": [
+    {
+      "input": "[2,4,3], [5,6,4]\n",
+      "expectedOutput": "[7,0,8]\n"
+    },
+    {
+      "input": "[0], [0]\n",
+      "expectedOutput": "[0]\n"
+    },
+    {
+      "input": "[9,9,9,9,9,9,9], [9,9,9,9]\n",
+      "expectedOutput": "[8,9,9,9,0,0,0,1]\n"
+    },
+    {
+      "input": "[1,2,3], [4,5,6]\n",
+      "expectedOutput": "[5,7,9]\n"
+    },
+    {
+      "input": "[1,2,3,4], [5,6,7]\n",
+      "expectedOutput": "[6,8,0,5]\n"
+    },
+    {
+      "input": "[5], [5]\n",
+      "expectedOutput": "[0,1]\n"
+    },
+    {
+      "input": "[1], [9,9]\n",
+      "expectedOutput": "[0,0,1]\n"
+    }
+  ],
+  "hints": [
+    "Iterate through both linked lists simultaneously.",
+    "Add the corresponding digits and handle the carry.",
+    "Create a new linked list to store the sum.",
+    "If one list is shorter than the other, continue adding the remaining digits of the longer list with the carry."
+  ],
+  "tags": ["Linked List", "Math", "Recursion"]
+},
+{
+  "problemId": 5,
+  "courseId": "intel",
+  "title": "Count Primes",
+  "difficulty": "Medium",
+  "description": "Given an integer n, return the number of prime numbers that are strictly less than n.",
+  "examples": [
+    {
+      "input": "n = 10\n",
+      "output": "4\n",
+      "explanation": "There are 4 prime numbers less than 10, they are 2, 3, 5, 7."
+    },
+    {
+      "input": "n = 0\n",
+      "output": "0\n"
+    },
+    {
+      "input": "n = 1\n",
+      "output": "0\n"
+    }
+  ],
+  "constraints": [
+    "0 <= n <= 5 * 10^6"
+  ],
+  "testCases": [
+    {
+      "input": "10\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "0\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "1\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "2\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "3\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "4\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "5000000\n",
+      "expectedOutput": "348513\n"
+    }
+  ],
+  "hints": [
+    "Use the Sieve of Eratosthenes algorithm to efficiently find prime numbers.",
+    "Create a boolean array isPrime of size n, initialized to true.",
+    "Iterate from 2 to the square root of n.",
+    "If isPrime[i] is true, mark all multiples of i as false in the isPrime array.",
+    "Count the number of true values in the isPrime array (excluding 0 and 1).",
+    "Return the count."
+  ],
+  "tags": ["Array", "Math", "Enumeration", "Number Theory"]
+},
+{
+  "problemId": 6,
+  "courseId": "intel",
+  "title": "Maximum Subarray",
+  "difficulty": "Medium",
+  "description": "Given an integer array nums, find the subarray with the largest sum, and return its sum.",
+  "examples": [
+    {
+      "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]\n",
+      "output": "6\n",
+      "explanation": "The subarray [4,-1,2,1] has the largest sum 6."
+    },
+    {
+      "input": "nums = [1]\n",
+      "output": "1\n",
+      "explanation": "The subarray [1] has the largest sum 1."
+    },
+    {
+      "input": "nums = [5,4,-1,7,8]\n",
+      "output": "23\n",
+      "explanation": "The subarray [5,4,-1,7,8] has the largest sum 23."
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 10^5",
+    "-10^4 <= nums[i] <= 10^4"
+  ],
+  "testCases": [
+    {
+      "input": "[-2,1,-3,4,-1,2,1,-5,4]\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input": "[1]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[5,4,-1,7,8]\n",
+      "expectedOutput": "23\n"
+    },
+    {
+      "input": "[-1]\n",
+      "expectedOutput": "-1\n"
+    },
+    {
+      "input": "[-2,-1]\n",
+      "expectedOutput": "-1\n"
+    },
+    {
+      "input": "[-2,1]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[0]\n",
+      "expectedOutput": "0\n"
+    }
+  ],
+  "hints": [
+    "Use Kadane's algorithm to solve this problem in O(n) time.",
+    "Initialize two variables, max_so_far and current_max, to the first element of the array.",
+    "Iterate through the array starting from the second element.",
+    "Update current_max to be the maximum of the current element and the sum of current_max and the current element.",
+    "Update max_so_far to be the maximum of max_so_far and current_max.",
+    "Return max_so_far."
+  ],
+  "tags": ["Array", "Divide and Conquer", "Dynamic Programming"]
+},
+{
+  "problemId": 7,
+  "courseId": "intel",
+  "title": "Best Time to Buy and Sell Stock",
+  "difficulty": "Easy",
+  "description": "You are given an array prices where prices[i] is the price of a given stock on the ith day. You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock. Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.",
+  "examples": [
+    {
+      "input": "prices = [7,1,5,3,6,4]\n",
+      "output": "5\n",
+      "explanation": "Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5. Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell."
+    },
+    {
+      "input": "prices = [7,6,4,3,1]\n",
+      "output": "0\n",
+      "explanation": "In this case, no transactions are done and the max profit = 0."
+    }
+  ],
+  "constraints": [
+    "1 <= prices.length <= 10^5",
+    "0 <= prices[i] <= 10^4"
+  ],
+  "testCases": [
+    {
+      "input": "[7,1,5,3,6,4]\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "[7,6,4,3,1]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[2,4,1]\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "[2,1,2,1,0,1,2]\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "[3,3]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[1]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[1,2,3,4,5,6,7,8,9]\n",
+      "expectedOutput": "8\n"
+    }
+  ],
+  "hints": [
+    "Use two pointers, one for the buy price and one for the sell price.",
+    "Initialize the buy price to the first element of the array and the maximum profit to 0.",
+    "Iterate through the array and update the buy price if a lower price is found.",
+    "Calculate the profit for each sell price and update the maximum profit if a higher profit is found.",
+    "Return the maximum profit."
+  ],
+  "tags": ["Array", "Dynamic Programming"]
+},
+{
+  "problemId": 8,
+  "courseId": "intel",
+  "title": "Palindrome Linked List",
+  "difficulty": "Easy",
+  "description": "Given the head of a singly linked list, return true if it is a palindrome or false otherwise.",
+  "examples": [
+    {
+      "input": "head = [1,2,2,1]\n",
+      "output": "true\n"
+    },
+    {
+      "input": "head = [1,2]\n",
+      "output": "false\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the list is in the range [1, 10^5].",
+    "0 <= Node.val <= 9"
+  ],
+  "testCases": [
+    {
+      "input": "[1,2,2,1]\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "[1,2]\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "[1]\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "[1,2,3,2,1]\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "[1,2,3,4,5]\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "[1,1,1,1]\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "[1,2,3,4,3,2,1]\n",
+      "expectedOutput": "true\n"
+    }
+  ],
+  "hints": [
+    "Find the middle of the linked list.",
+    "Reverse the second half of the linked list.",
+    "Compare the first half and the reversed second half.",
+    "If they are the same, the linked list is a palindrome.",
+    "To do it in O(1) space, reverse the second half in place."
+  ],
+  "tags": ["Linked List", "Two Pointers", "Stack", "Recursion"]
+},
+{
+  "problemId": 9,
+  "courseId": "intel",
+  "title": "Valid Parentheses",
+  "difficulty": "Easy",
+  "description": "Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of brackets. Open brackets must be closed in the correct order. Every close bracket has a corresponding open bracket of the same type.",
+  "examples": [
+    {
+      "input": "s = \"()\"\n",
+      "output": "true\n"
+    },
+    {
+      "input": "s = \"()[]{}\"\n",
+      "output": "true\n"
+    },
+    {
+      "input": "s = \"(]\"\n",
+      "output": "false\n"
+    },
+    {
+      "input": "s = \"([])\"\n",
+      "output": "true\n"
+    }
+  ],
+  "constraints": [
+    "1 <= s.length <= 10^4",
+    "s consists of parentheses only '()[]{}'."
+  ],
+  "testCases": [
+    {
+      "input": "\"()\"\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "\"()[]{}\"\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "\"(]\"\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "\"([])\"\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "\"([)]\"\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "\"{[]}\"\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "\"{\"\n",
+      "expectedOutput": "false\n"
+    }
+  ],
+  "hints": [
+    "Use a stack to keep track of opening brackets.",
+    "When you encounter an opening bracket, push it onto the stack.",
+    "When you encounter a closing bracket, check if the top of the stack is the corresponding opening bracket.",
+    "If it is, pop the opening bracket from the stack.",
+    "If it is not, or the stack is empty, the string is invalid.",
+    "After processing the entire string, the stack should be empty if the string is valid."
+  ],
+  "tags": ["String", "Stack"]
+},
+{
+  "problemId": 10,
+  "courseId": "intel",
+  "title": "Merge Two Sorted Lists",
+  "difficulty": "Easy",
+  "description": "You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists. Return the head of the merged linked list.",
+  "examples": [
+    {
+      "input": "list1 = [1,2,4], list2 = [1,3,4]\n",
+      "output": "[1,1,2,3,4,4]\n"
+    },
+    {
+      "input": "list1 = [], list2 = []\n",
+      "output": "[]\n"
+    },
+    {
+      "input": "list1 = [], list2 = [0]\n",
+      "output": "[0]\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in both lists is in the range [0, 50].",
+    "-100 <= Node.val <= 100",
+    "Both list1 and list2 are sorted in non-decreasing order."
+  ],
+  "testCases": [
+    {
+      "input": "[1,2,4], [1,3,4]\n",
+      "expectedOutput": "[1,1,2,3,4,4]\n"
+    },
+    {
+      "input": "[], []\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "[], [0]\n",
+      "expectedOutput": "[0]\n"
+    },
+    {
+      "input": "[0], []\n",
+      "expectedOutput": "[0]\n"
+    },
+    {
+      "input": "[1,2,3], [4,5,6]\n",
+      "expectedOutput": "[1,2,3,4,5,6]\n"
+    },
+    {
+      "input": "[4,5,6], [1,2,3]\n",
+      "expectedOutput": "[1,2,3,4,5,6]\n"
+    },
+    {
+      "input": "[-10, -5, 0, 5, 10], [-15, -8, 2, 8, 12]\n",
+      "expectedOutput": "[-15, -10, -8, -5, 0, 2, 5, 8, 10, 12]\n"
+    }
+  ],
+  "hints": [
+    "Use a dummy head to simplify the merging process.",
+    "Iterate through both lists and compare the current nodes.",
+    "Append the smaller node to the merged list and move the corresponding pointer.",
+    "If one list is exhausted, append the remaining nodes of the other list.",
+    "Return the next node of the dummy head."
+  ],
+  "tags": ["Linked List", "Recursion"]
+},
+{
+  "problemId": 11,
+  "courseId": "intel",
+  "title": "Diameter of Binary Tree",
+  "difficulty": "Easy",
+  "description": "Given the root of a binary tree, return the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root. The length of a path between two nodes is represented by the number of edges between them.",
+  "examples": [
+    {
+      "input": "root = [1,2,3,4,5]\n",
+      "output": "3\n",
+      "explanation": "3 is the length of the path [4,2,1,3] or [5,2,1,3]."
+    },
+    {
+      "input": "root = [1,2]\n",
+      "output": "1\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the tree is in the range [1, 10^4].",
+    "-100 <= Node.val <= 100"
+  ],
+  "testCases": [
+    {
+      "input": "[1,2,3,4,5]\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "[1,2]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[1]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[1,2,3,4,5,6,7]\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "[1,2,3,null,null,4,5]\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "[4,-7,-3,null,null,-9,-3,9,-7,-4,null,6,null,-6,-6,null,null,0,6,5,null,9,null,null,-1,-4,null,null,null,-2]\n",
+      "expectedOutput": "8\n"
+    },
+    {
+      "input": "[1,2,null,3,null,4,null,5]\n",
+      "expectedOutput": "4\n"
+    }
+  ],
+  "hints": [
+    "Use a recursive depth-first search (DFS) approach.",
+    "For each node, calculate the height of its left and right subtrees.",
+    "The diameter passing through the current node is the sum of the left and right subtree heights.",
+    "Keep track of the maximum diameter found so far.",
+    "Return the maximum diameter."
+  ],
+  "tags": ["Tree", "Depth-First Search", "Binary Tree"]
+},
+{
+  "problemId": 12,
+  "courseId": "intel",
+  "title": "Susan's Terminal Lines",
+  "difficulty": "Easy",
+  "description": "Given a paragraph, determine the number of lines needed to be written in Susan's terminal, where each line can only contain a maximum of two words.",
+  "examples": [
+    {
+      "input": "How long do you have to sit dear ?\n",
+      "output": "4\n",
+      "explanation": "The writing will be:\nHow long\nDo you\nHave to\nSit dear ?"
+    }
+  ],
+  "constraints": [
+    "Number of words <= 10^7"
+  ],
+  "testCases": [
+    {
+      "input": "How long do you have to sit dear ?\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "This is a test.\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "One two three four five six seven eight nine ten.\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "Hello world.\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "SingleWord\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "a b c d e f g h i j k l m n o p q r s t u v w x y z\n",
+      "expectedOutput": "13\n"
+    },
+    {
+      "input": "A very long sentence with many words.\n",
+      "expectedOutput": "4\n"
+    }
+  ],
+  "hints": [
+    "Split the input string into an array of words.",
+    "Count the number of words in the array.",
+    "Divide the number of words by 2 and round up to the nearest integer.",
+    "Return the result."
+  ],
+  "tags": ["String", "Math"]
+},
+{
+  "problemId": 13,
+  "courseId": "intel",
+  "title": "Devil Groups",
+  "difficulty": "Easy",
+  "description": "Given a string representing people and devils, determine the number of groups that can be formed by splitting the string at devil characters ('@' and '$').",
+  "examples": [
+    {
+      "input": "PPPPPP@PPP@PP$PP\n",
+      "output": "4\n",
+      "explanation": "Four groups can be formed: PPPPPP@, PPP@, PP$, PP."
+    }
+  ],
+  "constraints": [
+    "2 <= Length of string <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "PPPPPP@PPP@PP$PP\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "P@P$P@P$P\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "PPPPPP\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "@PPPPPP\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "PPPPPP@\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "$PPPPPP\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "PPPPPP$\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "PPPPPP@PPPPPP$PPPPPP\n",
+      "expectedOutput": "3\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the string and split it into groups at each '@' or '$' character.",
+    "Count the number of groups formed.",
+    "Return the count."
+  ],
+  "tags": ["String", "Array"]
+},
+{
+  "problemId": 14,
+  "courseId": "intel",
+  "title": "Airport Luggage Charges",
+  "difficulty": "Easy",
+  "description": "Given the number of luggage, their weights, and a threshold weight, calculate the total amount to be paid by the passengers. Luggage exceeding the threshold weight pays double the base amount, while others pay the base amount.",
+  "examples": [
+    {
+      "input": "4\n1\n2\n3\n4\n3\n",
+      "output": "5\n",
+      "explanation": "Luggage with weights 1, 2, and 3 pay $1 each, and luggage with weight 4 pays $2. Total amount = 1 + 1 + 1 + 2 = 5."
+    }
+  ],
+  "constraints": [
+    "1 <= N <= 10^5",
+    "1 <= weights[i] <= 10^5",
+    "1 <= T <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "4\n1\n2\n3\n4\n3\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "3\n10\n20\n30\n15\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "5\n1\n1\n1\n1\n1\n10\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "2\n100\n200\n100\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "1\n100\n10\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "6\n1\n2\n3\n4\n5\n6\n3\n",
+      "expectedOutput": "9\n"
+    },
+    {
+      "input": "7\n10\n10\n10\n10\n10\n10\n10\n10\n",
+      "expectedOutput": "7\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the weights array.",
+    "For each weight, check if it is greater than the threshold weight.",
+    "If it is greater, add 2 to the total amount.",
+    "Otherwise, add 1 to the total amount.",
+    "Return the total amount."
+  ],
+  "tags": ["Array", "Math"]
+},
+{
+  "problemId": 15,
+  "courseId": "intel",
+  "title": "Minimum Swaps to Sort",
+  "difficulty": "Medium",
+  "description": "Given an array of integers, find the minimum number of swaps required to sort the array in ascending order.",
+  "examples": [
+    {
+      "input": "4\n4 3 1 2\n",
+      "output": "2\n",
+      "explanation": "Swap index 0 with 3 and 1 with 2 to form the sorted array {1, 2, 3, 4}."
+    },
+    {
+      "input": "5\n1 5 4 3 2\n",
+      "output": "2\n"
+    }
+  ],
+  "constraints": [
+    "1 <= T <= 100",
+    "1 <= N <= 100",
+    "1 <= A[i] <= 1000"
+  ],
+  "testCases": [
+    {
+      "input": "4\n4 3 1 2\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "5\n1 5 4 3 2\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "1\n1\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "3\n1 2 3\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "3\n3 2 1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "6\n1 2 5 3 4 6\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "7\n7 1 2 3 4 5 6\n",
+      "expectedOutput": "1\n"
+    }
+  ],
+  "hints": [
+    "Create a sorted copy of the input array.",
+    "Iterate through the input array and compare each element with the corresponding element in the sorted array.",
+    "If the elements are different, find the correct position of the current element in the input array.",
+    "Swap the current element with the element at the correct position.",
+    "Increment the swap count.",
+    "Return the swap count."
+  ],
+  "tags": ["Array", "Sorting"]
+},
+{
+  "problemId": 16,
+  "courseId": "intel",
+  "title": "Count Set Bits",
+  "difficulty": "Easy",
+  "description": "Given an integer N, convert it to its binary representation and count the number of set bits (1s).",
+  "examples": [
+    {
+      "input": "8\n",
+      "output": "1\n",
+      "explanation": "8 in binary is 1000."
+    }
+  ],
+  "constraints": [
+    "1 <= N <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "8\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "2\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "3\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "7\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "15\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "10\n",
+      "expectedOutput": "2\n"
+    }
+  ],
+  "hints": [
+    "Convert the integer to its binary representation.",
+    "Iterate through the binary representation and count the number of 1s.",
+    "Return the count."
+  ],
+  "tags": ["Bit Manipulation", "Math"]
+},
+{
+  "problemId": 17,
+  "courseId": "intel",
+  "title": "Abhijeet's Book Expenses",
+  "difficulty": "Medium",
+  "description": "Abhijeet needs to buy N books. Given his earnings and the cost of each book, find the minimum amount of money he needs to borrow from his parents to buy all the books. He can buy the books in any order.",
+  "examples": [
+    {
+      "input": "3\n3\n4\n2\n5\n3\n4\n",
+      "output": "3\n",
+      "explanation": "He can buy the books in the order [3, 1, 2]. He earns [2, 3, 4] and the costs are [4, 5, 3].\nBuy book 2 (cost 3, earn 4) -> saves 1\nBuy book 1 (cost 5, earn 3) -> needs 2, uses 1 saved, needs 1 from parents\nBuy book 3 (cost 4, earn 2) -> needs 2, needs 2 from parents. Total from parents: 3"
+    }
+  ],
+  "constraints": [
+    "1 <= N <= 10^3",
+    "1 <= EarnArray[i] <= 10^3",
+    "1 <= CostArray[i] <= 10^3"
+  ],
+  "testCases": [
+    {
+      "input": "3\n3\n4\n2\n5\n3\n4\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "2\n1\n2\n3\n4\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "1\n10\n5\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "4\n1\n2\n3\n4\n4\n3\n2\n1\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "4\n4\n3\n2\n1\n1\n2\n3\n4\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "5\n10\n5\n12\n8\n15\n12\n10\n15\n6\n18\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input": "6\n1\n2\n3\n4\n5\n6\n6\n5\n4\n3\n2\n1\n",
+      "expectedOutput": "5\n"
+    }
+  ],
+  "hints": [
+    "Try all possible permutations of buying the books.",
+    "For each permutation, calculate the amount of money Abhijeet needs to borrow from his parents.",
+    "Keep track of the minimum amount of money borrowed.",
+    "Return the minimum amount."
+  ],
+  "tags": ["Array", "Backtracking", "Permutations"]
+},
+{
+  "problemId": 18,
+  "courseId": "intel",
+  "title": "Min and Max Sum",
+  "difficulty": "Medium",
+  "description": "Given a positive integer m and a non-negative integer s, find the smallest and the largest of the numbers that have length m and sum of digits s. The required numbers should be non-negative integers written in the decimal base without leading zeroes.",
+  "examples": [
+    {
+      "input": "2 15\n",
+      "output": "69 96\n"
+    },
+    {
+      "input": "3 0\n",
+      "output": "-1 -1\n"
+    }
+  ],
+  "constraints": [
+    "1 <= m <= 100",
+    "0 <= s <= 900"
+  ],
+  "testCases": [
+    {
+      "input": "2 15\n",
+      "expectedOutput": "69 96\n"
+    },
+    {
+      "input": "3 0\n",
+      "expectedOutput": "-1 -1\n"
+    },
+    {
+      "input": "1 0\n",
+      "expectedOutput": "0 0\n"
+    },
+    {
+      "input": "1 9\n",
+      "expectedOutput": "9 9\n"
+    },
+    {
+      "input": "2 1\n",
+      "expectedOutput": "10 10\n"
+    },
+    {
+      "input": "3 27\n",
+      "expectedOutput": "999 999\n"
+    },
+    {
+      "input": "4 1\n",
+      "expectedOutput": "1000 1000\n"
+    },
+    {
+      "input": "10 81\n",
+      "expectedOutput": "9999999990 9999999990\n"
+    },
+    {
+      "input": "2 18\n",
+      "expectedOutput": "99 99\n"
+    },
+    {
+      "input": "2 19\n",
+      "expectedOutput": "-1 -1\n"
+    }
+  ],
+  "hints": [
+    "To find the largest number, fill the digits from left to right with 9 as much as possible.",
+    "To find the smallest number, fill the digits from right to left with 9 as much as possible, then handle the first digit separately.",
+    "If s is 0 and m is greater than 1, or s is greater than 9 * m, no solution exists.",
+    "Handle the edge case where s is 0 and m is 1."
+  ],
+  "tags": ["Greedy", "String"]
+},
+{
+  "problemId": 19,
+  "courseId": "intel",
+  "title": "Count Elements in Range",
+  "difficulty": "Easy",
+  "description": "Given an unsorted array and two ranges (i, j), determine the number of elements within each range (inclusive).",
+  "examples": [
+    {
+      "input": "Array: [1, 3, 3, 9, 10, 4]\nRange 1: i = 1, j = 4\nRange 2: i = 9, j = 12\n",
+      "output": "For Range 1: 4\nFor Range 2: 2\n",
+      "explanation": "In the first query, the numbers within the range 1 to 4 are 1, 3, 3, and 4. In the second query, the numbers within the range 9 to 12 are 9 and 10."
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "-10^9 <= array[i] <= 10^9",
+    "-10^9 <= i <= 10^9",
+    "-10^9 <= j <= 10^9"
+  ],
+  "testCases": [
+    {
+      "input": "[1, 3, 3, 9, 10, 4]\n1 4\n9 12\n",
+      "expectedOutput": "4\n2\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n1 5\n6 10\n",
+      "expectedOutput": "5\n0\n"
+    },
+    {
+      "input": "[10, 20, 30, 40, 50]\n25 45\n10 10\n",
+      "expectedOutput": "2\n1\n"
+    },
+    {
+      "input": "[-1, -2, -3, -4, -5]\n-5 -1\n-10 -6\n",
+      "expectedOutput": "5\n0\n"
+    },
+    {
+      "input": "[0, 0, 0, 0, 0]\n0 0\n1 1\n",
+      "expectedOutput": "5\n0\n"
+    },
+    {
+      "input": "[100]\n100 100\n1 99\n",
+      "expectedOutput": "1\n0\n"
+    },
+    {
+      "input": "[10, 5, 20, 15, 25, 30]\n10 20\n25 35\n",
+      "expectedOutput": "3\n2\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the array.",
+    "For each element, check if it falls within the given range (inclusive).",
+    "Count the number of elements that satisfy the condition.",
+    "Return the count."
+  ],
+  "tags": ["Array", "Counting"]
+},
+{
+  "problemId": 20,
+  "courseId": "intel",
+  "title": "Homeless People and Houses",
+  "difficulty": "Medium",
+  "description": "Given the height of N homeless people and the capacity of N houses, allocate houses to people based on priority and capacity, and find the number of homeless people.",
+  "examples": [
+    {
+      "input": "3\n4\n2\n7\n3\n5\n10\n",
+      "output": "0\n",
+      "explanation": "People [4, 2, 7] can be allocated to houses [5, 3, 10] respectively. No homeless people."
+    },
+    {
+      "input": "3\n3\n8\n5\n1\n9\n4\n",
+      "output": "2\n",
+      "explanation": "People [3, 8, 5] can be allocated to houses [9, 1, 4]. People [8, 5] remain homeless."
+    }
+  ],
+  "constraints": [
+    "1 <= N <= 10^3",
+    "1 <= people[i] <= 10^5",
+    "1 <= house[i] <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "3\n4\n2\n7\n3\n5\n10\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "3\n3\n8\n5\n1\n9\n4\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "1\n10\n10\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "2\n1\n2\n3\n4\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "2\n3\n4\n1\n2\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "4\n1\n2\n3\n4\n4\n3\n2\n1\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "4\n4\n3\n2\n1\n1\n2\n3\n4\n",
+      "expectedOutput": "0\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the people array from left to right.",
+    "For each person, iterate through the houses array from left to right.",
+    "If a house is found with capacity greater than or equal to the person's height, allocate the house to the person.",
+    "Mark the allocated house as unavailable.",
+    "Count the number of people who could not be allocated a house.",
+    "Return the count."
+  ],
+  "tags": ["Array", "Greedy"]
+},
+{
+  "problemId": 21,
+  "courseId": "intel",
+  "title": "Fountain Activation",
+  "difficulty": "Medium",
+  "description": "Given an array of fountain coverage limits, determine the minimum number of fountains that need to be activated to cover the entire garden.",
+  "examples": [
+    {
+      "input": "3\n1\n1\n1\n",
+      "output": "1\n",
+      "explanation": "Activating the fountain at position 2 covers the entire garden."
+    },
+    {
+      "input": "3\n0\n2\n1\n",
+      "output": "1\n",
+      "explanation": "Activating the fountain at position 2 covers the entire garden."
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "0 <= locations[i] <= min(n, 100)"
+  ],
+  "testCases": [
+    {
+      "input": "3\n1\n1\n1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "3\n0\n2\n1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "4\n1\n2\n0\n1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "4\n0\n0\n0\n0\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "5\n1\n0\n1\n0\n1\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "6\n2\n1\n0\n0\n1\n2\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "7\n1\n2\n3\n0\n1\n2\n3\n",
+      "expectedOutput": "1\n"
+    }
+  ],
+  "hints": [
+    "Calculate the range of each fountain's coverage.",
+    "Sort the ranges based on their starting positions.",
+    "Use a greedy approach to select the minimum number of fountains that cover the garden.",
+    "Keep track of the current coverage and select the next fountain that extends the coverage the most.",
+    "Return the number of selected fountains."
+  ],
+  "tags": ["Array", "Greedy"]
+},
+{
+  "problemId": 22,
+  "courseId": "intel",
+  "title": "Reverse Words in a String",
+  "difficulty": "Easy",
+  "description": "Given a string S containing a set of words, transform it such that the words appear in the reverse order. One or more spaces separate words in S.",
+  "examples": [
+    {
+      "input": "the sky is blue\n",
+      "output": "blue is sky the\n"
+    },
+    {
+      "input": "  hello world  \n",
+      "output": "world hello\n"
+    },
+    {
+      "input": "a good   example\n",
+      "output": "example good a\n"
+    }
+  ],
+  "constraints": [
+    "1 <= S.length <= 10^4",
+    "S contains English letters (upper-case and lower-case), digits, and spaces ' '.",
+    "There is at least one word in S."
+  ],
+  "testCases": [
+    {
+      "input": "the sky is blue\n",
+      "expectedOutput": "blue is sky the\n"
+    },
+    {
+      "input": "  hello world  \n",
+      "expectedOutput": "world hello\n"
+    },
+    {
+      "input": "a good   example\n",
+      "expectedOutput": "example good a\n"
+    },
+    {
+      "input": "one\n",
+      "expectedOutput": "one\n"
+    },
+    {
+      "input": "one two\n",
+      "expectedOutput": "two one\n"
+    },
+    {
+      "input": "   one   two   three    \n",
+      "expectedOutput": "three two one\n"
+    },
+    {
+      "input": "a b c d e\n",
+      "expectedOutput": "e d c b a\n"
+    }
+  ],
+  "hints": [
+    "Split the string into an array of words using spaces as delimiters.",
+    "Reverse the array of words.",
+    "Join the reversed array of words using spaces as separators.",
+    "Handle leading and trailing spaces, as well as multiple spaces between words."
+  ],
+  "tags": ["String", "Array"]
+},
+{
+  "problemId": 23,
+  "courseId": "intel",
+  "title": "Find Two Missing Numbers",
+  "difficulty": "Medium",
+  "description": "Given an unsorted set of numbers from 1 to N with exactly two missing numbers, find those two missing numbers.",
+  "examples": [
+    {
+      "input": "4\n1 2 4\n",
+      "output": "3 5\n"
+    },
+    {
+      "input": "6\n1 2 3 6\n",
+      "output": "4 5\n"
+    }
+  ],
+  "constraints": [
+    "3 <= N <= 10^5",
+    "The input array contains numbers from 1 to N, with exactly two missing numbers.",
+    "The input array may be unsorted."
+  ],
+  "testCases": [
+    {
+      "input": "4\n1 2 4\n",
+      "expectedOutput": "3 5\n"
+    },
+    {
+      "input": "6\n1 2 3 6\n",
+      "expectedOutput": "4 5\n"
+    },
+    {
+      "input": "5\n2 3 4\n",
+      "expectedOutput": "1 5\n"
+    },
+    {
+      "input": "7\n1 3 4 5 7\n",
+      "expectedOutput": "2 6\n"
+    },
+    {
+      "input": "8\n1 2 3 4 5 8\n",
+      "expectedOutput": "6 7\n"
+    },
+    {
+      "input": "9\n1 2 4 5 6 7 8 9\n",
+      "expectedOutput": "3 10\n"
+    },
+    {
+      "input": "10\n1 2 3 4 5 6 7 8 10\n",
+      "expectedOutput": "9 11\n"
+    }
+  ],
+  "hints": [
+    "Calculate the sum of numbers from 1 to N and the sum of the numbers in the given array.",
+    "Calculate the difference between these two sums. This difference is the sum of the two missing numbers.",
+    "Calculate the sum of squares of numbers from 1 to N and the sum of squares of the numbers in the given array.",
+    "Calculate the difference between these two sums of squares. This difference, combined with the sum of missing numbers, can be used to find the missing numbers.",
+    "Solve the system of equations to find the two missing numbers.",
+    "Alternatively, you can use a boolean array to mark the presence of each number and then find the two missing numbers."
+  ],
+  "tags": ["Array", "Math"]
+},
+{
+  "problemId": 24,
+  "courseId": "intel",
+  "title": "Next Permutation",
+  "difficulty": "Medium",
+  "description": "Given a sequence, return its next lexicographically greater permutation. If such a permutation does not exist, then return it in ascending order.",
+  "examples": [
+    {
+      "input": "1 2 3\n",
+      "output": "1 3 2\n"
+    },
+    {
+      "input": "3 2 1\n",
+      "output": "1 2 3\n"
+    },
+    {
+      "input": "1 1 5\n",
+      "output": "1 5 1\n"
+    }
+  ],
+  "constraints": [
+    "1 <= sequence.length <= 100",
+    "1 <= sequence[i] <= 100"
+  ],
+  "testCases": [
+    {
+      "input": "1 2 3\n",
+      "expectedOutput": "1 3 2\n"
+    },
+    {
+      "input": "3 2 1\n",
+      "expectedOutput": "1 2 3\n"
+    },
+    {
+      "input": "1 1 5\n",
+      "expectedOutput": "1 5 1\n"
+    },
+    {
+      "input": "1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "2 1\n",
+      "expectedOutput": "1 2\n"
+    },
+    {
+      "input": "1 3 2\n",
+      "expectedOutput": "2 1 3\n"
+    },
+    {
+      "input": "2 3 1\n",
+      "expectedOutput": "3 1 2\n"
+    }
+  ],
+  "hints": [
+    "Find the largest index k such that sequence[k] < sequence[k + 1]. If no such index exists, the permutation is the last permutation.",
+    "Find the largest index l greater than k such that sequence[k] < sequence[l].",
+    "Swap the value of sequence[k] with sequence[l].",
+    "Reverse the sequence from sequence[k + 1] up to and including the final element sequence[sequence.length - 1]."
+  ],
+  "tags": ["Array", "Permutations"]
+},
+{
+  "problemId": 25,
+  "courseId": "intel",
+  "title": "Reverse Graph Edges",
+  "difficulty": "Medium",
+  "description": "Given a directed graph, build a new graph with the same number of nodes but with every edge reversed (transposed).",
+  "examples": [
+    {
+      "input": "4\n1 2\n1 3\n2 4\n3 4\n",
+      "output": "4\n2 1\n3 1\n4 2\n4 3\n"
+    },
+    {
+      "input": "3\n1 2\n2 3\n",
+      "output": "3\n2 1\n3 2\n"
+    }
+  ],
+  "constraints": [
+    "1 <= number of nodes <= 100",
+    "1 <= number of edges <= 1000"
+  ],
+  "testCases": [
+    {
+      "input": "4\n1 2\n1 3\n2 4\n3 4\n",
+      "expectedOutput": "4\n2 1\n3 1\n4 2\n4 3\n"
+    },
+    {
+      "input": "3\n1 2\n2 3\n",
+      "expectedOutput": "3\n2 1\n3 2\n"
+    },
+    {
+      "input": "1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "2\n1 2\n2 1\n",
+      "expectedOutput": "2\n2 1\n1 2\n"
+    },
+    {
+      "input": "5\n1 2\n2 3\n3 4\n4 5\n",
+      "expectedOutput": "5\n2 1\n3 2\n4 3\n5 4\n"
+    },
+    {
+      "input": "5\n1 5\n2 4\n3 1\n4 2\n5 3\n",
+      "expectedOutput": "5\n5 1\n4 2\n1 3\n2 4\n3 5\n"
+    },
+    {
+      "input": "6\n1 2\n1 3\n2 4\n3 5\n4 6\n5 6\n",
+      "expectedOutput": "6\n2 1\n3 1\n4 2\n5 3\n6 4\n6 5\n"
+    }
+  ],
+  "hints": [
+    "Represent the graph using an adjacency list or adjacency matrix.",
+    "Create a new graph with the same number of nodes.",
+    "Iterate through the edges of the original graph.",
+    "For each edge (u, v), add an edge (v, u) to the new graph.",
+    "Return the new graph."
+  ],
+  "tags": ["Graph"]
+},
+{
+  "problemId": 26,
+  "courseId": "intel",
+  "title": "Binary Tree Iterator",
+  "difficulty": "Medium",
+  "description": "Implement an iterator over a binary tree with integer values. Your iterator will be initialized with the root node. next() method must return the next number in the in-order traversal of the tree. hasNext() method must return whether the next element exists.",
+  "examples": [
+    {
+      "input": "root = [7,3,15,null,null,9,20]\nnext()\nnext()\nhasNext()\nnext()\nhasNext()\nnext()\nhasNext()\nnext()\nhasNext()\n",
+      "output": "3\n7\ntrue\n9\ntrue\n15\ntrue\n20\nfalse\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the tree is in the range [0, 10^5].",
+    "-10^5 <= Node.val <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "[7,3,15,null,null,9,20]\nnext()\nnext()\nhasNext()\nnext()\nhasNext()\nnext()\nhasNext()\nnext()\nhasNext()\n",
+      "expectedOutput": "3\n7\ntrue\n9\ntrue\n15\ntrue\n20\nfalse\n"
+    },
+    {
+      "input": "[1]\nnext()\nhasNext()\n",
+      "expectedOutput": "1\nfalse\n"
+    },
+    {
+      "input": "[]\nhasNext()\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "[1,2]\nnext()\nnext()\nhasNext()\n",
+      "expectedOutput": "2\n1\nfalse\n"
+    },
+    {
+      "input": "[1,null,2]\nnext()\nnext()\nhasNext()\n",
+      "expectedOutput": "1\n2\nfalse\n"
+    },
+    {
+      "input": "[4,2,6,1,3,5,7]\nnext()\nnext()\nnext()\nnext()\nnext()\nnext()\nnext()\nhasNext()\n",
+      "expectedOutput": "1\n2\n3\n4\n5\n6\n7\nfalse\n"
+    },
+    {
+      "input": "[5,3,6,2,4,null,8,1,null,null,null,7,9]\nnext()\nnext()\nnext()\nnext()\nnext()\nnext()\nnext()\nnext()\nnext()\nhasNext()\n",
+      "expectedOutput": "1\n2\n3\n4\n5\n6\n7\n8\n9\nfalse\n"
+    }
+  ],
+  "hints": [
+    "Use a stack to keep track of the nodes in the in-order traversal.",
+    "Initialize the stack with the leftmost nodes of the tree.",
+    "When next() is called, pop a node from the stack and push its right subtree's leftmost nodes onto the stack.",
+    "hasNext() returns true if the stack is not empty."
+  ],
+  "tags": ["Tree", "Stack", "Design"]
+},
+{
+  "problemId": 27,
+  "courseId": "intel",
+  "title": "Magic Triplets",
+  "difficulty": "Medium",
+  "description": "Given an integer array arr of size n, find all magic triplets in it. A Magic triplet is a group of three numbers whose sum is zero.",
+  "examples": [
+    {
+      "input": "5\n0 -1 2 -3 1\n",
+      "output": "-1 2 -1\n-3 1 2\n0 -1 1\n"
+    },
+    {
+      "input": "3\n0 0 0\n",
+      "output": "0 0 0\n"
+    },
+    {
+      "input": "4\n1 -1 0 0\n",
+      "output": "1 -1 0\n"
+    }
+  ],
+  "constraints": [
+    "3 <= n <= 1000",
+    "-1000 <= arr[i] <= 1000"
+  ],
+  "testCases": [
+    {
+      "input": "5\n0 -1 2 -3 1\n",
+      "expectedOutput": "-1 2 -1\n-3 1 2\n0 -1 1\n"
+    },
+    {
+      "input": "3\n0 0 0\n",
+      "expectedOutput": "0 0 0\n"
+    },
+    {
+      "input": "4\n1 -1 0 0\n",
+      "expectedOutput": "1 -1 0\n"
+    },
+    {
+      "input": "6\n-2 0 1 1 2 -1\n",
+      "expectedOutput": "-2 0 2\n-2 1 1\n-1 0 1\n"
+    },
+    {
+      "input": "6\n1 2 -2 -1 0 3\n",
+      "expectedOutput": "1 -2 1\n2 -2 0\n"
+    },
+    {
+      "input": "6\n-1 -1 2 0 1 -2\n",
+      "expectedOutput": "-2 0 2\n-2 1 1\n-1 -1 2\n-1 0 1\n"
+    },
+    {
+      "input": "7\n-1 0 1 2 -2 -3 3\n",
+      "expectedOutput": "-3 0 3\n-3 1 2\n-2 0 2\n-2 -1 3\n-1 0 1\n"
+    }
+  ],
+  "hints": [
+    "Iterate through the array using three nested loops.",
+    "For each triplet, check if their sum is zero.",
+    "If the sum is zero, add the triplet to the result.",
+    "Ensure that the triplets are unique.",
+    "Sort the triplets to avoid duplicates if order doesn't matter.",
+    "Consider optimizing the solution if the input array is large."
+  ],
+  "tags": ["Array", "Two Pointers"]
+},
+{
+  "problemId": 28,
+  "courseId": "intel",
+  "title": "Mirror Binary Tree",
+  "difficulty": "Easy",
+  "description": "Given a binary tree T, write a code to generate the mirror image of the tree.",
+  "examples": [
+    {
+      "input": "4 2 7 1 3 6 9\n",
+      "output": "4 7 2 9 6 3 1\n"
+    },
+    {
+      "input": "1 2 3\n",
+      "output": "1 3 2\n"
+    },
+    {
+      "input": "1\n",
+      "output": "1\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the tree is in the range [0, 1000].",
+    "-1000 <= Node.val <= 1000"
+  ],
+  "testCases": [
+    {
+      "input": "4 2 7 1 3 6 9\n",
+      "expectedOutput": "4 7 2 9 6 3 1\n"
+    },
+    {
+      "input": "1 2 3\n",
+      "expectedOutput": "1 3 2\n"
+    },
+    {
+      "input": "1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "5 3 6 2 4 7 8\n",
+      "expectedOutput": "5 6 3 8 7 4 2\n"
+    },
+    {
+      "input": "10 5 15 3 7 12 18 1 4 6 8 11 14 17 19\n",
+      "expectedOutput": "10 15 5 19 17 14 11 8 6 4 1 18 12 7 3\n"
+    },
+    {
+      "input": "2 1 3\n",
+      "expectedOutput": "2 3 1\n"
+    },
+    {
+      "input": "7 3 9 1 5 8 10 0 2 4 6\n",
+      "expectedOutput": "7 9 3 10 8 5 1 6 4 2 0\n"
+    }
+  ],
+  "hints": [
+    "Use a recursive approach to traverse the tree.",
+    "For each node, swap its left and right children.",
+    "Recursively call the function for the left and right subtrees.",
+    "The base case is when the node is null."
+  ],
+  "tags": ["Tree", "Recursion"]
+},
+{
+  "problemId": 29,
+  "courseId": "intel",
+  "title": "Coin Change Minimum",
+  "difficulty": "Medium",
+  "description": "Given a variety of coin types defining a currency system, find the minimum number of coins required to express a given amount of money. Assume an infinite supply of coins of every type.",
+  "examples": [
+    {
+      "input": "coins = [1, 2, 5]\namount = 11\n",
+      "output": "3\n",
+      "explanation": "11 = 5 + 5 + 1"
+    },
+    {
+      "input": "coins = [2]\namount = 3\n",
+      "output": "-1\n",
+      "explanation": "Cannot make 3 from only 2"
+    },
+    {
+      "input": "coins = [1]\namount = 0\n",
+      "output": "0\n"
+    }
+  ],
+  "constraints": [
+    "1 <= coins.length <= 12",
+    "1 <= coins[i] <= 2^31 - 1",
+    "0 <= amount <= 10^4"
+  ],
+  "testCases": [
+    {
+      "input": "[1, 2, 5]\n11\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "[2]\n3\n",
+      "expectedOutput": "-1\n"
+    },
+    {
+      "input": "[1]\n0\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "[1]\n1\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "[1, 2, 5, 10, 25]\n49\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "[1, 5, 10, 25]\n100\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "[2, 5, 10, 1]\n27\n",
+      "expectedOutput": "4\n"
+    }
+  ],
+  "hints": [
+    "Use dynamic programming to solve this problem.",
+    "Create an array dp of size amount + 1, where dp[i] represents the minimum number of coins needed to make amount i.",
+    "Initialize dp[0] to 0 and all other elements to a large value (e.g., amount + 1).",
+    "Iterate through the coins array and update the dp array using the formula: dp[i] = min(dp[i], dp[i - coin] + 1).",
+    "If dp[amount] is still a large value, return -1; otherwise, return dp[amount]."
+  ],
+  "tags": ["Dynamic Programming", "Greedy"]
+},
+{
+  "problemId": 30,
+  "courseId": "intel",
+  "title": "Sudoku Solver",
+  "difficulty": "Hard",
+  "description": "Given a partially filled two-dimensional integer array (Sudoku board), fill all the empty cells such that each row, each column, and each 3 x 3 subgrid has every digit from 1 to 9 exactly once.",
+  "examples": [
+    {
+      "input": "5 3 . . 7 . . . .\n6 . . 1 9 5 . . .\n. 9 8 . . . . 6 .\n8 . . . 6 . . . 3\n4 . . 8 . 3 . . 1\n7 . . . 2 . . . 6\n. 6 . . . . . 2 8 .\n. . . 4 1 9 . . 5\n. . . . 8 . . 7 9\n",
+      "output": "5 3 4 6 7 8 9 1 2\n6 7 2 1 9 5 3 4 8\n1 9 8 3 4 2 5 6 7\n8 5 9 7 6 1 4 2 3\n4 2 6 8 5 3 7 9 1\n7 1 3 9 2 4 8 5 6\n9 6 1 5 3 7 2 8 4\n2 8 7 4 1 9 6 3 5\n3 4 5 2 8 6 1 7 9\n"
+    }
+  ],
+  "constraints": [
+    "The input Sudoku board is a 9x9 grid.",
+    "Empty cells are represented by '.' characters.",
+    "The input board is guaranteed to have a unique solution."
+  ],
+  "testCases": [
+    {
+      "input": "5 3 . . 7 . . . .\n6 . . 1 9 5 . . .\n. 9 8 . . . . 6 .\n8 . . . 6 . . . 3\n4 . . 8 . 3 . . 1\n7 . . . 2 . . . 6\n. 6 . . . . . 2 8 .\n. . . 4 1 9 . . 5\n. . . . 8 . . 7 9\n",
+      "expectedOutput": "5 3 4 6 7 8 9 1 2\n6 7 2 1 9 5 3 4 8\n1 9 8 3 4 2 5 6 7\n8 5 9 7 6 1 4 2 3\n4 2 6 8 5 3 7 9 1\n7 1 3 9 2 4 8 5 6\n9 6 1 5 3 7 2 8 4\n2 8 7 4 1 9 6 3 5\n3 4 5 2 8 6 1 7 9\n"
+    },
+    {
+      "input": ". . 9 7 4 8 . . .\n7 . . . . . . . 9\n. 4 . 2 . . . . 5\n. . . . . . 5 . . 2\n. . . 6 . 3 . . .\n8 . . 9 . . . . .\n3 . . . . 5 . 1 8\n. . . . . . . . 4\n. . . 1 7 9 5 . .\n",
+      "expectedOutput": "2 1 9 7 4 8 3 6 5\n7 6 8 3 1 5 2 4 9\n3 4 5 2 6 9 7 8 1\n1 9 6 4 8 7 5 3 2\n5 2 4 6 9 3 1 7 8\n8 7 3 9 5 1 4 2 6\n3 7 2 8 2 5 6 1 8\n9 5 1 6 3 7 8 2 4\n6 8 7 1 7 9 5 9 3\n"
+    },
+    {
+      "input": ". . . . . . . . .\n. . . . . . . . .\n. . . . . . . . .\n. . . . . . . . .\n. . . . . . . . .\n. . . . . . . . .\n. . . . . . . . .\n. . . . . . . . .\n. . . . . . . . .\n",
+      "expectedOutput": "1 2 3 4 5 6 7 8 9\n4 5 6 7 8 9 1 2 3\n7 8 9 1 2 3 4 5 6\n2 3 4 5 6 7 8 9 1\n5 6 7 8 9 1 2 3 4\n8 9 1 2 3 4 5 6 7\n3 4 5 6 7 8 9 1 2\n6 7 8 9 1 2 3 4 5\n9 1 2 3 4 5 6 7 8\n"
+    }
+  ],
+  "hints": [
+    "Use backtracking to solve the Sudoku problem.",
+    "Iterate through the grid and find empty cells.",
+    "For each empty cell, try placing numbers from 1 to 9.",
+    "Check if the number is valid (not present in the same row, column, or 3x3 subgrid).",
+    "If the number is valid, recursively solve the Sudoku board.",
+    "If the recursive call returns true, the solution is found.",
+    "If no valid number is found, backtrack and try a different number."
+  ],
+  "tags": ["Array", "Backtracking"]
+}
+]

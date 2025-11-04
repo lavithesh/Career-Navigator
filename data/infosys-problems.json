@@ -1,0 +1,1773 @@
+[
+    {
+        "problemId": 1,
+        "courseId": "infosys",
+        "title": "RPG Game Monster Defeat",
+        "difficulty": "Hard",
+        "description": "While playing an RPG game, you were assigned to complete one of the hardest quests in this game. There are n monsters you’ll need to defeat in this quest. Each monster i is described with two integer numbers – poweri and bonusi. To defeat this monster, you’ll need at least poweri experience points. If you try fighting this monster without having enough experience points, you lose immediately. You will also gain bonusi experience points if you defeat this monster. You can defeat monsters in any order. The quest turned out to be very hard – you try to defeat the monsters but keep losing repeatedly. Your friend told you that this quest is impossible to complete. Knowing that, you’re interested, what is the maximum possible number of monsters you can defeat? (Question difficulty level: Hardest)",
+        "examples": [
+          {
+            "input": "2\n123\n78\n10\n100\n30\n",
+            "output": "2\n"
+          },
+          {
+            "input": "3\n100\n101\n100\n152\n4\n1\n10\n",
+            "output": "2\n"
+          }
+        ],
+        "constraints": [
+          "1 <= n <= 10^5",
+          "0 <= e <= 10^9",
+          "1 <= poweri <= 10^9",
+          "0 <= bonusi <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "2\n123\n78\n10\n100\n30\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "3\n100\n101\n100\n152\n4\n1\n10\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "1\n50\n60\n10\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "4\n10\n10\n1\n10\n1\n10\n1\n10\n1\n",
+            "expectedOutput": "4\n"
+          },
+          {
+              "input" : "4\n10\n10\n1\n11\n0\n12\n0\n13\n0\n",
+              "expectedOutput": "1\n"
+          },
+          {
+              "input": "3\n100\n99\n50\n100\n50\n1\n",
+              "expectedOutput":"3\n"
+          }
+        ],
+        "hints": [
+          "Represent each monster as a tuple (power, bonus).",
+          "Sort the monsters based on a greedy strategy.",
+          "Try different sorting strategies and choose the one that maximizes the number of defeated monsters.",
+          "Simulate the monster fights based on the sorted order.",
+          "Count the number of monsters that can be defeated.",
+          "Handle the edge cases where the initial experience is not enough to defeat any monsters."
+        ],
+        "tags": ["RPG", "Greedy", "Sorting"]
+      },
+       {
+        "problemId": 2,
+        "courseId": "infosys",
+        "title": "Birthday Array Count",
+        "difficulty": "Medium",
+        "description": "Your birthday is coming soon and one of your friends, Alex, is thinking about a gift for you. He knows that you really like integer arrays with interesting properties. He selected two numbers, N and K and decided to write down on paper all integer arrays of length K (in form a[1], a[2], …, a[K]), where every number a[i] is in range from 1 to N, and, moreover, a[i+1] is divisible by a[i] (where 1 <= i < K), and give you this paper as a birthday present. Alex is very patient, so he managed to do this. Now you’re wondering, how many different arrays are written down on this paper? Since the answer can be really large, print it modulo 10000.",
+        "examples": [
+          {
+            "input": "2\n1\n",
+            "output": "2\n"
+          },
+          {
+            "input": "2\n2\n",
+            "output": "3\n"
+          },
+          {
+            "input": "3\n2\n",
+            "output": "5\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 100",
+          "1 <= K <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "2\n1\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "2\n2\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "3\n2\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "4\n3\n",
+            "expectedOutput": "10\n"
+          },
+          {
+              "input": "5\n4\n",
+              "expectedOutput": "20\n"
+          },
+          {
+            "input": "10\n5\n",
+            "expectedOutput": "81\n"
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve this problem.",
+          "Create a 2D array dp where dp[i][j] stores the number of arrays of length i ending with j.",
+          "Initialize dp[1][j] = 1 for all j from 1 to N.",
+          "Iterate from i = 2 to K and j = 1 to N.",
+          "For each j, iterate through all divisors of j and update dp[i][j].",
+          "Calculate the sum of dp[K][j] for all j from 1 to N and return the result modulo 10000."
+        ],
+        "tags": ["Dynamic Programming", "Divisibility", "Array Count"]
+      },
+       {
+        "problemId": 3,
+        "courseId": "infosys",
+        "title": "Longest Increasing Subsequence with Bitwise Condition",
+        "difficulty": "Hard",
+        "description": "You have an array A of N integers A1 A2 .. An. Find the longest increasing subsequence Ai1 Ai2 .. Ak (1 <= k <= N) that satisfies the following condition: For every adjacent pair of numbers of the chosen subsequence Ai[x] and Ai[x+1] (1 <= x < k), the expression (Ai[x] & Ai[x+1]) * 2 <= (Ai[x] | Ai[x+1]) is true. Note: ‘&’ is the bitwise AND operation, ‘|’ is the bit-wise OR operation.",
+        "examples": [
+          {
+            "input": "5\n15\n6\n5\n12\n1\n",
+            "output": "2\n"
+          },
+          {
+            "input": "6\n9\n17\n2\n15\n5\n2\n",
+            "output": "2\n"
+          },
+          {
+            "input": "8\n17\n16\n12\n2\n8\n17\n17\n",
+            "output": "3\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 1000",
+          "1 <= Ai <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "5\n15\n6\n5\n12\n1\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "6\n9\n17\n2\n15\n5\n2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "8\n17\n16\n12\n2\n8\n17\n17\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "4\n1\n2\n4\n8\n",
+            "expectedOutput": "4\n"
+          },
+          {
+              "input": "3\n1\n10\n100\n",
+              "expectedOutput": "3\n"
+          },
+          {
+              "input": "7\n1\n3\n7\n15\n31\n63\n127\n",
+              "expectedOutput": "7\n"
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve this problem.",
+          "Create an array dp where dp[i] stores the length of the longest increasing subsequence ending at index i.",
+          "Initialize dp[i] = 1 for all i.",
+          "Iterate through the array from i = 1 to N-1.",
+          "For each i, iterate through the array from j = 0 to i-1.",
+          "If A[i] > A[j] and (A[j] & A[i]) * 2 <= (A[j] | A[i]), update dp[i] = max(dp[i], dp[j] + 1).",
+          "Return the maximum value in the dp array."
+        ],
+        "tags": ["Longest Increasing Subsequence", "Bitwise Operations", "Dynamic Programming"]
+      },
+       {
+        "problemId": 4,
+        "courseId": "infosys",
+        "title": "Minimize Binary String Ugliness",
+        "difficulty": "Hard",
+        "description": "You have been given a string S of length N. The given string is a binary string which consists of only 0’s and ‘1’s. Ugliness of a string is defined as the decimal number that this binary string represents. There are two types of operations that can be performed on the given string. Swap any two characters by paying a cost of A coins. Flip any character by paying a cost of B coins. Initially, you have been given coins equal to the value defined in CASH. Your task is to minimize the ugliness of the string by performing the above mentioned operations on it. Since the answer can be very large, return the answer modulo 10^9+7. Note: You can perform an operation only if you have enough number of coins to perform it. After every operation the number of coins get deducted by the cost for that operation.",
+        "examples": [
+          {
+            "input": "4\n1111\n7\n1\n2\n",
+            "output": "1\n"
+          },
+          {
+            "input": "6\n111011\n7\n1\n3\n",
+            "output": "7\n"
+          },
+          {
+            "input": "6\n111011\n7\n3\n2\n",
+            "output": "3\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 10^5",
+          "1 <= len(S) <= 10^5",
+          "1 <= CASH <= 10^5",
+          "1 <= A <= 10^5",
+          "1 <= B <= 10^5"
+        ],
+        "testCases": [
+          {
+            "input": "4\n1111\n7\n1\n2\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "6\n111011\n7\n1\n3\n",
+            "expectedOutput": "7\n"
+          },
+          {
+            "input": "6\n111011\n7\n3\n2\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "5\n10101\n10\n1\n1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+              "input": "5\n00000\n10\n1\n1\n",
+              "expectedOutput": "0\n"
+          },
+          {
+              "input": "10\n1111111111\n100\n1\n5\n",
+              "expectedOutput": "31\n"
+          }
+        ],
+        "hints": [
+          "Calculate the initial ugliness of the string.",
+          "Try different combinations of swap and flip operations.",
+          "Prioritize flips over swaps when possible, as flips directly reduce ugliness.",
+          "If swaps are needed, swap 1's from the most significant bits to the least significant bits.",
+          "Keep track of the remaining CASH and ensure it's sufficient for each operation.",
+          "Calculate the final ugliness after performing the operations.",
+          "Return the final ugliness modulo 10^9 + 7."
+        ],
+        "tags": ["Binary String", "Ugliness", "Swap", "Flip"]
+      },
+       {
+        "problemId": 5,
+        "courseId": "infosys",
+        "title": "Khaled's Maximum XOR Subset",
+        "difficulty": "Hard",
+        "description": "Khaled has an array A of N elements. It is guaranteed that N is even. He wants to choose at most N/2 elements from array A. It is not necessary to choose consecutive elements. Khaled is interested in XOR of all the elements he chooses. Here, XOR denotes the bitwise XOR operation. For example: If A=[2,4,6,8], then khaled can choose the subset [2,4,8] to achieve XOR=(2 XOR 4 XOR 8)=14. Khaled wants to maximize the XOR of all the elements he chooses. Your task is to help khaled to find the max XOR of a subset that he can achieve by choosing at most N/2 elements. Input format: The first line contains an integer, N, denoting the number of elements in A. Each line i of the N subsequent lines(where 0<=i<N) contains an integer describing Ai. Constraints: 1 <= N <= 120, 1 <= A[i] <= 10^6.",
+        "examples": [
+          {
+            "input": "2\n1\n2\n",
+            "output": "2\n"
+          },
+          {
+            "input": "4\n1\n2\n4\n7\n",
+            "output": "7\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 120",
+          "1 <= A[i] <= 10^6",
+          "N is even"
+        ],
+        "testCases": [
+          {
+            "input": "2\n1\n2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "4\n1\n2\n4\n7\n",
+            "expectedOutput": "7\n"
+          },
+          {
+            "input": "6\n1\n2\n3\n4\n5\n6\n",
+            "expectedOutput": "7\n"
+          },
+          {
+            "input": "8\n10\n11\n12\n13\n14\n15\n16\n17\n",
+            "expectedOutput": "31\n"
+          },
+          {
+              "input": "4\n100\n200\n300\n400\n",
+              "expectedOutput": "500\n"
+          },
+          {
+              "input": "6\n1\n3\n5\n7\n9\n11\n",
+              "expectedOutput": "15\n"
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve this problem.",
+          "Create a 2D array dp where dp[i][j] stores the maximum XOR value that can be achieved by choosing at most j elements from the first i elements of the array.",
+          "Initialize dp[0][0] = 0 and all other elements of dp to -1.",
+          "Iterate through the array from i = 1 to N.",
+          "For each i, iterate through the number of elements chosen from j = 0 to N/2.",
+          "Update dp[i][j] by taking the maximum of dp[i-1][j] (not including the current element) and dp[i-1][j-1] XOR A[i-1] (including the current element).",
+          "Return the maximum value in the last row of the dp array."
+        ],
+        "tags": ["Maximum XOR", "Dynamic Programming", "Subset"]
+      },
+       {
+        "problemId": 6,
+        "courseId": "infosys",
+        "title": "Wael and Kaito's XOR Sum",
+        "difficulty": "Hard",
+        "description": "Wael is well-known for how much he loves the bitwise XOR operation, while kaito is well known for how much he loves to sum numbers, so their friend Resli decided to make up a problem that would enjoy both of them. Resil wrote down an array A of length N, an integer K and he defined a new function called Xor-sum as follows Xor-sum(x)=(x XOR A[1])+(x XOR A[2])+(x XOR A[3]) + ... + (x XOR A[N]). Can you find the integer x in the range [0,K] with the maximum Xor-sum(x) value? Print only the value.",
+        "examples": [
+          {
+            "input": "1\n0\n989898\n",
+            "output": "989898\n"
+          },
+          {
+            "input": "3\n7\n1\n6\n3\n",
+            "output": "14\n"
+          },
+          {
+            "input": "4\n9\n7\n4\n0\n3\n",
+            "output": "46\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 10^5",
+          "0 <= K <= 10^9",
+          "0 <= A[i] <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "1\n0\n989898\n",
+            "expectedOutput": "989898\n"
+          },
+          {
+            "input": "3\n7\n1\n6\n3\n",
+            "expectedOutput": "14\n"
+          },
+          {
+            "input": "4\n9\n7\n4\n0\n3\n",
+            "expectedOutput": "46\n"
+          },
+          {
+            "input": "2\n10\n5\n8\n",
+            "expectedOutput": "23\n"
+          },
+          {
+              "input": "5\n15\n1\n2\n3\n4\n5\n",
+              "expectedOutput": "35\n"
+          },
+          {
+              "input": "10\n100\n10\n20\n30\n40\n50\n60\n70\n80\n90\n100\n",
+              "expectedOutput": "1000\n"
+          }
+        ],
+        "hints": [
+          "Iterate through all possible values of x in the range [0, K].",
+          "For each x, calculate the Xor-sum(x) using the given formula.",
+          "Keep track of the maximum Xor-sum(x) value found so far.",
+          "Return the maximum Xor-sum(x) value.",
+          "Optimize the solution if needed for larger input sizes."
+        ],
+        "tags": ["XOR Sum", "Bitwise Operations", "Maximum Value"]
+      },
+       {
+        "problemId": 7,
+        "courseId": "infosys",
+        "title": "Minimum Base with Same Digits",
+        "difficulty": "Hard",
+        "description": "One of the first lessons IT students learn is the representation of natural numbers in the binary number system (base 2). This system uses only two digits, 0 and 1. In everyday life we use for convenience the decimal system (base 10) which uses ten digits, from 0 to 9. In general, we could use any numbering system. Computer scientists often use systems based on 8 or 16. The numbering system based on K uses K digits with a value from 0 to K-1. Suppose a natural number M is given, written in the decimal system. To convert it to the corresponding writing in the system based on K, we successively divide M by K until we reach a quotient that is less than K. The representation of M in the system based on K is formed by the final quotient (as first digit) and is followed by the remainder of the previous divisions. For example: If M=122 and K=8, 122 in base 10 = 172 in base 8. This means that the number 172 in base 8 = 1*8^2 + 7*8 + 2 = 122. You made the following observation in applying the above rule of converting natural numbers to another numbering system. In some cases in the new representation all the digits of the number are the same. For example 63 in base 10 = 333 in base 4. Given a number M in its decimal representation, your task is find the minimum base B such that in the representation of M at base B all digits are the same.",
+        "examples": [
+          {
+            "input": "41\n",
+            "output": "40\n"
+          },
+          {
+            "input": "34430\n",
+            "output": "312\n"
+          }
+        ],
+        "constraints": [
+          "1 <= M <= 10^12"
+        ],
+        "testCases": [
+          {
+            "input": "41\n",
+            "expectedOutput": "40\n"
+          },
+          {
+            "input": "34430\n",
+            "expectedOutput": "312\n"
+          },
+          {
+            "input": "63\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "1\n",
+            "output": "2\n"
+          },
+          {
+              "input": "2\n",
+              "output": "3\n"
+          },
+          {
+              "input": "122\n",
+              "output": "121\n"
+          }
+        ],
+        "hints": [
+          "Iterate through possible bases B, starting from 2.",
+          "For each base B, convert the given number M to base B.",
+          "Check if all digits in the base B representation are the same.",
+          "If all digits are the same, return the current base B.",
+          "Optimize the search for the base B to improve efficiency.",
+          "Consider the possible range of bases to avoid unnecessary iterations."
+        ],
+        "tags": ["Base Conversion", "Number Representation", "Minimum Base"]
+      },
+       {
+        "problemId": 8,
+        "courseId": "infosys",
+        "title": "Andy's Vacation",
+        "difficulty": "Hard",
+        "description": "Andy wants to go on a vacation to de-stress himself. Therefore he decides to take a trip to an island. It is given that he has as many consecutive days as possible to rest, but he can only make one trip to the island. Suppose that the days are numbered from 1 to N. Andy has M obligations in his schedule, which he has already undertaken and which correspond to some specific days. This means that ith obligation is scheduled for day Di. Andy is willing to cancel at most k of his obligations in order to take more holidays. Your task is to find out the maximum days of vacation Andy can take by canceling at most K of his obligations.",
+        "examples": [
+          {
+            "input": "10\n5\n2\n6\n9\n3\n2\n7\n",
+            "output": "5\n"
+          },
+          {
+            "input": "7\n2\n0\n3\n4\n",
+            "output": "3\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 10^6",
+          "1 <= M <= 2 * 10^6",
+          "1 <= K <= 2 * 10^6",
+          "1 <= D[i] <= 10^6"
+        ],
+        "testCases": [
+          {
+            "input": "10\n5\n2\n6\n9\n3\n2\n7\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "7\n2\n0\n3\n4\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "15\n6\n1\n2\n5\n8\n10\n12\n14\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "10\n3\n2\n1\n5\n10\n",
+            "expectedOutput": "4\n"
+          },
+          {
+              "input": "20\n7\n3\n5\n7\n9\n11\n13\n15\n17\n",
+              "expectedOutput": "4\n"
+          },
+          {
+              "input": "100\n10\n5\n10\n20\n30\n40\n50\n60\n70\n80\n90\n100\n",
+              "expectedOutput": "10\n"
+          }
+        ],
+        "hints": [
+          "Sort the obligations (Di) in ascending order.",
+          "Iterate through all possible vacation start days.",
+          "For each start day, calculate the maximum vacation length by cancelling at most K obligations.",
+          "Keep track of the maximum vacation length found so far.",
+          "Optimize the solution using binary search or a sliding window approach to reduce time complexity.",
+          "Handle the edge cases where K is 0 or all obligations can be cancelled."
+        ],
+        "tags": ["Vacation", "Obligations", "Maximum Length"]
+      },
+       {
+        "problemId": 9,
+        "courseId": "infosys",
+        "title": "Rugged Terrain Road",
+        "difficulty": "Hard",
+        "description": "You need to build a road in a rugged terrain. You know the sea level of each segment of the rugged terrain, i.e., the i-th segment is Li meters from sea level. You need to transform the terrain into a strictly downward sloping terrain for the road, i.e., for each i-th segment where 2 <= i <= N, resultant Li-1 > Li. To do so, you employ a powerful digging team to help you dig and reduce the sea level of the segments. On day D, the team can reduce the sea level for each segment that you scheduled that day by 2^(D-1) meters each. You are allowed to assign the team to dig on multiple segments and/or dig on the same segments for multiple days. Your task is to find the minimum number of days needed to transform the terrain as per your requirements.",
+        "examples": [
+          {
+            "input": "2\n3\n3\n",
+            "output": "1\n"
+          },
+          {
+            "input": "2\n5\n-3\n",
+            "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 10^5",
+          "-10^9 <= L[i] <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "2\n3\n3\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "2\n5\n-3\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "3\n10\n5\n2\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "4\n1\n2\n3\n4\n",
+            "expectedOutput": "3\n"
+          },
+          {
+              "input": "5\n10\n9\n8\n7\n6\n",
+              "expectedOutput": "0\n"
+          },
+          {
+              "input": "6\n10\n10\n10\n10\n10\n10\n",
+              "expectedOutput": "5\n"
+          }
+        ],
+        "hints": [
+          "Iterate through the terrain segments from right to left.",
+          "For each segment, check if the sea level satisfies the downward sloping condition.",
+          "If the condition is not satisfied, calculate the difference between the current and previous segments.",
+          "Determine the minimum number of days needed to reduce the current segment's sea level.",
+          "Update the previous segment's sea level if needed.",
+          "Keep track of the maximum number of days needed.",
+          "Return the maximum number of days."
+        ],
+        "tags": ["Rugged Terrain", "Digging Team", "Minimum Days"]
+      },
+      {
+        "problemId": 10,
+        "courseId": "infosys",
+        "title": "Mountain Array Transformation",
+        "difficulty": "Hard",
+        "description": "You are given an array of size N. You need to change this array into a mountain. By mountain we mean, the either ends of the array should have equal elements. Then as we move towards the middle from both ends, the next element is just one more than the previous one. So, it would have a peak in the middle and decrease if you go towards either end, just like a mountain. Examples of mountains are [1, 2, 3, 2, 1] or [6, 7, 8, 8, 7, 6]. But the array [1, 2, 4, 2, 1] is not a mountain because from 2 to 4 the difference is 2. The array [1, 2, 3, 1] is also not a mountain because the elements 2 and 3 are not equal from both ends. You need to find the minimum number of elements that should be changed to make the array a mountain. You can make the elements negative or zero as well.",
+        "examples": [
+          {
+            "input": "5\n1\n2\n3\n4\n5\n",
+            "output": "2\n"
+          },
+          {
+            "input": "9\n1\n1\n1\n2\n3\n2\n1\n1\n1\n",
+            "output": "4\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 10^5",
+          "1 <= array[i] <= 10^6"
+        ],
+        "testCases": [
+          {
+            "input": "5\n1\n2\n3\n4\n5\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "9\n1\n1\n1\n2\n3\n2\n1\n1\n1\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "7\n1\n2\n3\n4\n3\n2\n1\n",
+            "output": "0\n"
+          },
+          {
+            "input": "6\n1\n2\n4\n2\n1\n1\n",
+            "output": "1\n"
+          },
+          {
+              "input": "3\n1\n2\n1\n",
+              "output": "0\n"
+          },
+          {
+              "input": "4\n1\n2\n3\n4\n",
+              "output": "2\n"
+          }
+        ],
+        "hints": [
+          "Iterate through all possible peak positions in the array.",
+          "For each peak position, calculate the number of changes required to make the array a mountain with that peak.",
+          "Keep track of the minimum number of changes required.",
+          "To calculate the number of changes, compare the array elements with the expected mountain elements.",
+          "Handle the edge cases where the peak is at the beginning or end of the array.",
+          "Return the minimum number of changes."
+        ],
+        "tags": ["Mountain Array", "Array Transformation", "Minimum Changes"]
+      },
+       {
+        "problemId": 11,
+        "courseId": "infosys",
+        "title": "Maximum Equal Pieces",
+        "difficulty": "Hard",
+        "description": "You have an interesting string S of length N. It is interesting because you can rearrange the characters of this string in any order. You want to cut this string into some contiguous pieces such that after cutting, all the pieces are equal to one another. You can’t rearrange the characters in the cut pieces or join the pieces together. You want to make the number of pieces as large as possible. Note: You can observe that you may not want to cut the string at all, therefore the number of pieces is 1. Hence, the answer always exists.",
+        "examples": [
+          {
+            "input": "zzzzz\n",
+            "output": "5\n"
+          },
+          {
+            "input": "ababcc\n",
+            "output": "2\n"
+          },
+          {
+            "input": "abccdcabacda\n",
+            "output": "2\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length(S) <= 2 * 10^5"
+        ],
+        "testCases": [
+          {
+            "input": "zzzzz\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "ababcc\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "abccdcabacda\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "abcdef\n",
+            "output": "1\n"
+          },
+          {
+              "input": "aaaaabbbbbccccc\n",
+              "expectedOutput": "3\n"
+          },
+          {
+              "input": "abcabcabcabc\n",
+              "expectedOutput": "4\n"
+          }
+        ],
+        "hints": [
+          "Count the frequency of each character in the string.",
+          "Find the greatest common divisor (GCD) of the character frequencies.",
+          "The maximum number of pieces is equal to the GCD of the character frequencies.",
+          "If the string has only one unique character, the maximum number of pieces is the length of the string.",
+          "If the string has no repeating characters, the maximum number of pieces is 1.",
+          "Handle the edge cases where the string is empty or contains only one character."
+        ],
+        "tags": ["Maximum Pieces", "String Partition", "GCD"]
+      },
+       {
+        "problemId": 12,
+        "courseId": "infosys",
+        "title": "Gym Exercises",
+        "difficulty": "Hard",
+        "description": "Today you decided to go to the gym. You currently have energy equal to E units. There are N exercises in the gym. Each of these exercises drains Ai amount of energy from your body. You feel tired if your energy reaches 0 or below. Calculate the minimum number of exercises you have to perform such that you become tired. Every unique exercise can only be performed at most 2 times as others also have to use the machines. If performing all the exercises does not make you feel tired, return -1.",
+        "examples": [
+          {
+            "input": "6\n2\n1\n2\n",
+            "output": "4\n"
+          },
+          {
+            "input": "10\n2\n1\n2\n",
+            "output": "-1\n"
+          },
+          {
+            "input": "2\n3\n1\n5\n2\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= E <= 10^5",
+          "1 <= N <= 10^5",
+          "1 <= A[i] <= 10^5"
+        ],
+        "testCases": [
+          {
+            "input": "6\n2\n1\n2\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "10\n2\n1\n2\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "2\n3\n1\n5\n2\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "15\n4\n2\n3\n4\n5\n",
+            "output": "6\n"
+          },
+          {
+              "input": "100\n5\n10\n20\n30\n40\n50\n",
+              "expectedOutput": "-1\n"
+          },
+          {
+              "input": "5\n3\n3\n2\n1\n",
+              "expectedOutput": "2\n"
+          }
+        ],
+        "hints": [
+          "Create a list of exercises with their energy drain values.",
+          "Sort the list of exercises in ascending order of energy drain.",
+          "Iterate through the sorted list and perform each exercise up to 2 times.",
+          "Keep track of the total energy drained and the number of exercises performed.",
+          "If the total energy drained exceeds the initial energy, return the number of exercises performed.",
+          "If all exercises are performed and the total energy drained is less than or equal to the initial energy, return -1.",
+          "Handle the edge cases where the initial energy is 0 or there are no exercises."
+        ],
+        "tags": ["Gym Exercises", "Energy Drain", "Minimum Exercises"]
+      },
+       {
+        "problemId": 13,
+        "courseId": "infosys",
+        "title": "Heroes vs Villains",
+        "difficulty": "Hard",
+        "description": "There is a battle between heroes and villains going on. You have M heroes, all of them have the same health H. There are N villains, health of the i-th villain is Vi. When a hero, with health H battles a villain with health Vi, one of the three scenarios can happen: if H > Vi: The villain is defeated, and the health of the hero is decreased by Vi. if H < Vi: The villain wins, his health is not affected, and the hero is no longer able to fight. if H = Vi: Both are considered defeated, and neither can fight. The heroes start fighting villains one by one in the same order, first villain 1 then villain 2 and so on. It might be possible that before defeating all the villains, all the heroes are defeated. Therefore, to ensure the victory of the heroes, you want to remove some villains from the front. Your task is to find the minimum number of villains you need to remove from the front such that the victory of the heroes is guaranteed. Note: If in the last battle, both the hero and villain are defeated and no more heroes or villains remain, it would still be considered a victory since all the villains are defeated.",
+        "examples": [
+          {
+            "input": "4\n4\n3\n3\n1\n3\n3\n",
+            "output": "0\n"
+          },
+          {
+            "input": "5\n3\n3\n1\n2\n3\n1\n1\n",
+            "output": "0\n"
+          },
+          {
+            "input": "5\n1\n4\n1\n2\n3\n1\n3\n",
+            "output": "3\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 2 * 10^5",
+          "1 <= M <= 2 * 10^5",
+          "1 <= H <= 10^9",
+          "1 <= array[i] <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "4\n4\n3\n3\n1\n3\n3\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "5\n3\n3\n1\n2\n3\n1\n1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "5\n1\n4\n1\n2\n3\n1\n3\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "3\n2\n5\n6\n7\n8\n",
+            "expectedOutput": "2\n"
+          },
+          {
+              "input": "6\n1\n10\n1\n2\n3\n4\n5\n6\n",
+              "expectedOutput": "5\n"
+          },
+          {
+              "input": "10\n10\n100\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n",
+              "expectedOutput": "0\n"
+          }
+        ],
+        "hints": [
+          "Iterate through all possible starting positions of the villains.",
+          "For each starting position, simulate the battles between heroes and villains.",
+          "Keep track of the number of heroes remaining and the current health of each hero.",
+          "If all villains are defeated, update the minimum number of villains to remove.",
+          "Handle the edge cases where there are no heroes or no villains.",
+          "Return the minimum number of villains to remove."
+        ],
+        "tags": ["Heroes vs Villains", "Battle Simulation", "Minimum Removal"]
+      },
+       {
+        "problemId": 14,
+        "courseId": "infosys",
+        "title": "Matrix Multiplication",
+        "difficulty": "Medium",
+        "description": "Write a program to multiply two matrices and store the result in a new matrix. Given two matrices A and B, calculate their product and display the resulting matrix.",
+        "examples": [
+          {
+            "input": "A = [[1, 2], [3, 4]]\nB = [[5, 6], [7, 8]]\n",
+            "output": "[[19, 22], [43, 50]]\n"
+          }
+        ],
+        "constraints": [
+          "Matrices A and B will have compatible dimensions for multiplication.",
+          "The elements of the matrices will be integers."
+        ],
+        "testCases": [
+          {
+            "input": "A = [[1, 2], [3, 4]]\nB = [[5, 6], [7, 8]]\n",
+            "expectedOutput": "[[19, 22], [43, 50]]\n"
+          },
+          {
+            "input": "A = [[1, 2, 3]]\nB = [[4], [5], [6]]\n",
+            "expectedOutput": "[[32]]\n"
+          },
+          {
+            "input": "A = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]\nB = [[9, 8, 7], [6, 5, 4], [3, 2, 1]]\n",
+            "expectedOutput": "[[9, 8, 7], [6, 5, 4], [3, 2, 1]]\n"
+          },
+          {
+            "input":"A = [[2,3],[4,5]]\nB = [[1,0],[0,1]]\n",
+            "expectedOutput":"[[2, 3], [4, 5]]\n"
+          },
+          {
+            "input":"A = [[1,2,3],[4,5,6]]\nB = [[7,8],[9,10],[11,12]]\n",
+            "expectedOutput": "[[58, 64], [139, 154]]\n"
+          },
+          {
+            "input": "A = [[1]]\nB = [[10]]\n",
+            "expectedOutput": "[[10]]\n"
+          }
+        ],
+        "hints": [
+          "Ensure that the number of columns in matrix A is equal to the number of rows in matrix B.",
+          "Create a new matrix C to store the result, with dimensions: rows of A and columns of B.",
+          "For each element C[i][j], calculate the dot product of the i-th row of A and the j-th column of B.",
+          "Store the result in C[i][j].",
+          "Return the resulting matrix C."
+        ],
+        "tags": ["Matrix Multiplication", "Arrays", "Mathematics"]
+      },
+       {
+        "problemId": 15,
+        "courseId": "infosys",
+        "title": "Decimal to Binary Conversion",
+        "difficulty": "Easy",
+        "description": "Write a program to convert a decimal number to its binary representation.",
+        "examples": [
+          {
+            "input": "29\n",
+            "output": "11101\n"
+          }
+        ],
+        "constraints": [
+          "The input decimal number will be a non-negative integer."
+        ],
+        "testCases": [
+          {
+            "input": "29\n",
+            "expectedOutput": "11101\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "10\n",
+            "expectedOutput": "1010\n"
+          },
+          {
+            "input": "100\n",
+            "expectedOutput": "1100100\n"
+          },
+          {
+            "input": "128\n",
+            "expectedOutput": "10000000\n"
+          }
+        ],
+        "hints": [
+          "Repeatedly divide the decimal number by 2.",
+          "Store the remainders of each division.",
+          "The binary representation is the sequence of remainders in reverse order.",
+          "Handle the special case when the input is 0."
+        ],
+        "tags": ["Decimal to Binary", "Number Conversion", "Bitwise Operations"]
+      },
+       {
+        "problemId": 16,
+        "courseId": "infosys",
+        "title": "Matrix Subtraction",
+        "difficulty": "Easy",
+        "description": "Write a program to subtract two matrices and display the result.",
+        "examples": [
+          {
+            "input": "a = [[1, 2], [3, 4]]\nb = [[4, 3], [2, 1]]\n",
+            "output": "[[-3, -1], [1, 3]]\n"
+          }
+        ],
+        "constraints": [
+          "The input matrices will have the same dimensions.",
+          "The elements of the matrices will be integers."
+        ],
+        "testCases": [
+          {
+            "input": "a = [[1, 2], [3, 4]]\nb = [[4, 3], [2, 1]]\n",
+            "expectedOutput": "[[-3, -1], [1, 3]]\n"
+          },
+          {
+            "input": "a = [[5, 6], [7, 8]]\nb = [[1, 2], [3, 4]]\n",
+            "expectedOutput": "[[4, 4], [4, 4]]\n"
+          },
+          {
+            "input": "a = [[1, 1, 1], [2, 2, 2]]\nb = [[1, 1, 1], [2, 2, 2]]\n",
+            "expectedOutput": "[[0, 0, 0], [0, 0, 0]]\n"
+          },
+          {
+            "input":"a = [[10, 20], [30, 40]]\nb = [[1, 2], [3, 4]]\n",
+            "expectedOutput": "[[9, 18], [27, 36]]\n"
+          },
+          {
+            "input":"a = [[-1, -2], [-3, -4]]\nb = [[1, 2], [3, 4]]\n",
+            "expectedOutput": "[[-2, -4], [-6, -8]]\n"
+          },
+          {
+            "input":"a = [[0, 0], [0, 0]]\nb = [[1, 1], [1, 1]]\n",
+            "expectedOutput":"[[-1, -1], [-1, -1]]\n"
+          }
+        ],
+        "hints": [
+          "Ensure that both matrices have the same number of rows and columns.",
+          "Create a new matrix to store the result, with the same dimensions as the input matrices.",
+          "For each element in the result matrix, subtract the corresponding element from matrix b from the element in matrix a.",
+          "Return the resulting matrix."
+        ],
+        "tags": ["Matrix Subtraction", "Arrays", "Mathematics"]
+      },
+       {
+        "problemId": 17,
+        "courseId": "infosys",
+        "title": "Unique Characters in String",
+        "difficulty": "Easy",
+        "description": "Write a program to find the number of unique characters in a given string.",
+        "examples": [
+          {
+            "input": "Hello, World!\n",
+            "output": "10\n"
+          }
+        ],
+        "constraints": [
+          "The input string may contain any ASCII characters."
+        ],
+        "testCases": [
+          {
+            "input": "Hello, World!\n",
+            "expectedOutput": "10\n"
+          },
+          {
+            "input": "abcdefg\n",
+            "expectedOutput": "7\n"
+          },
+          {
+            "input": "aaaaa\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "1234567890\n",
+            "expectedOutput": "10\n"
+          },
+          {
+            "input": "abcABC123\n",
+            "expectedOutput": "9\n"
+          },
+          {
+            "input": "\n",
+            "expectedOutput": "0\n"
+          }
+        ],
+        "hints": [
+          "Create a set to store unique characters.",
+          "Iterate through the string and add each character to the set.",
+          "The size of the set will be the number of unique characters.",
+          "Handle empty string input."
+        ],
+        "tags": ["Unique Characters", "String Processing", "Sets"]
+      },
+       {
+        "problemId": 18,
+        "courseId": "infosys",
+        "title": "Missing Pangram Characters",
+        "difficulty": "Medium",
+        "description": "Write a program to find the missing characters required to make a given string a pangram. A pangram is a sentence containing every letter of the English alphabet.",
+        "examples": [
+          {
+            "input": "A quick movement of the enemy will jeopardize six gunboats\n",
+            "output": "Missing characters: flr\n"
+          }
+        ],
+        "constraints": [
+          "The input string may contain any ASCII characters.",
+          "The comparison is case-insensitive."
+        ],
+        "testCases": [
+          {
+            "input": "A quick movement of the enemy will jeopardize six gunboats\n",
+            "expectedOutput": "Missing characters: flr\n"
+          },
+          {
+            "input": "abcdefghijklmnopqrstuvwxyz\n",
+            "expectedOutput": "Missing characters: \n"
+          },
+          {
+            "input": "The quick brown fox jumps over the lazy dog\n",
+            "expectedOutput": "Missing characters: \n"
+          },
+          {
+            "input": "AbCdEfGhIjKlMnOpQrStUvWxYz\n",
+            "expectedOutput": "Missing characters: \n"
+          },
+          {
+            "input": "Pack my box with five dozen liquor jugs\n",
+            "expectedOutput": "Missing characters: \n"
+          },
+          {
+            "input": "Sphinx of black quartz, judge my vow\n",
+            "expectedOutput": "Missing characters: \n"
+          },
+          {
+            "input": "Hello World\n",
+            "expectedOutput": "Missing characters: abcdefgijkmnpqrstuvxyz\n"
+          }
+        ],
+        "hints": [
+          "Create a set of all lowercase English alphabet characters.",
+          "Iterate through the input string, converting each character to lowercase.",
+          "Remove each character from the set if it is an alphabet character.",
+          "The remaining characters in the set are the missing characters.",
+          "Handle empty string input.",
+          "Return the missing characters in sorted order."
+        ],
+        "tags": ["Pangram", "Missing Characters", "String Processing", "Sets"]
+      },
+       {
+        "problemId": 19,
+        "courseId": "infosys",
+        "title": "Rotate Matrix 90 Degrees",
+        "difficulty": "Medium",
+        "description": "Write a program to rotate a given square matrix by 90 degrees clockwise.",
+        "examples": [
+          {
+            "input": "[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n",
+            "output": "[[7, 4, 1], [8, 5, 2], [9, 6, 3]]\n"
+          }
+        ],
+        "constraints": [
+          "The input matrix will be a square matrix (N x N).",
+          "The elements of the matrix will be integers."
+        ],
+        "testCases": [
+          {
+            "input": "[[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n",
+            "expectedOutput": "[[7, 4, 1], [8, 5, 2], [9, 6, 3]]\n"
+          },
+          {
+            "input": "[[1, 2], [3, 4]]\n",
+            "expectedOutput": "[[3, 1], [4, 2]]\n"
+          },
+          {
+            "input": "[[1]]\n",
+            "expectedOutput": "[[1]]\n"
+          },
+          {
+            "input": "[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]\n",
+            "expectedOutput": "[[13, 9, 5, 1], [14, 10, 6, 2], [15, 11, 7, 3], [16, 12, 8, 4]]\n"
+          },
+          {
+            "input": "[[-1, -2], [-3, -4]]\n",
+            "expectedOutput": "[[-3, -1], [-4, -2]]\n"
+          },
+          {
+            "input": "[[0,1],[1,0]]\n",
+            "expectedOutput": "[[1, 0],[0, 1]]\n"
+          }
+        ],
+        "hints": [
+          "Transpose the matrix (swap rows and columns).",
+          "Reverse each row of the transposed matrix.",
+          "The result is the rotated matrix.",
+          "Handle the edge case where the matrix is 1x1."
+        ],
+        "tags": ["Matrix Rotation", "Arrays", "Matrix Manipulation"]
+      },
+       {
+        "problemId": 20,
+        "courseId": "infosys",
+        "title": "Smallest and Largest Number in Array",
+        "difficulty": "Easy",
+        "description": "Write a program to find the smallest and largest numbers in a given array.",
+        "examples": [
+          {
+            "input": "[3, 1, 56, 34, 12, 9, 98, 23, 4]\n",
+            "output": "Smallest Number: 1\nLargest Number: 98\n"
+          }
+        ],
+        "constraints": [
+          "The input array will contain integers.",
+          "The input array will have at least one element."
+        ],
+        "testCases": [
+          {
+            "input": "[3, 1, 56, 34, 12, 9, 98, 23, 4]\n",
+            "expectedOutput": "Smallest Number: 1\nLargest Number: 98\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "Smallest Number: 1\nLargest Number: 5\n"
+          },
+          {
+            "input": "[5, 4, 3, 2, 1]\n",
+            "expectedOutput": "Smallest Number: 1\nLargest Number: 5\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "Smallest Number: 1\nLargest Number: 1\n"
+          },
+          {
+            "input": "[-1, -2, -3, -4, -5]\n",
+            "expectedOutput": "Smallest Number: -5\nLargest Number: -1\n"
+          },
+          {
+            "input": "[10, 20, 30, 40, 50, 60, 70, 80, 90, 100]\n",
+            "expectedOutput": "Smallest Number: 10\nLargest Number: 100\n"
+          }
+        ],
+        "hints": [
+          "Initialize two variables, smallest and largest, with the first element of the array.",
+          "Iterate through the array, comparing each element with the current smallest and largest values.",
+          "Update the smallest and largest variables if a smaller or larger element is found.",
+          "Return the smallest and largest values."
+        ],
+        "tags": ["Smallest Number", "Largest Number", "Array Processing"]
+      },
+       {
+        "problemId": 21,
+        "courseId": "infosys",
+        "title": "Detect Cycle in Linked List",
+        "difficulty": "Medium",
+        "description": "Write a program to detect if a given linked list contains a cycle. A cycle exists if a node can be reached again by traversing next pointers.",
+        "examples": [
+          {
+            "input": "1 -> 2 -> 3 -> 4 -> 5 -> 3 (cycle at node 3)\n",
+            "output": "Cycle Detected\n"
+          },
+          {
+            "input": "1 -> 2 -> 3 -> 4 -> 5\n",
+            "output": "No Cycle Detected\n"
+          }
+        ],
+        "constraints": [
+          "The linked list may contain any integer values.",
+          "The linked list may or may not contain a cycle."
+        ],
+        "testCases": [
+          {
+            "input": "1 -> 2 -> 3 -> 4 -> 5 -> 3 (cycle at node 3)\n",
+            "expectedOutput": "Cycle Detected\n"
+          },
+          {
+            "input": "1 -> 2 -> 3 -> 4 -> 5\n",
+            "expectedOutput": "No Cycle Detected\n"
+          },
+          {
+            "input": "1 -> 1 (cycle at node 1)\n",
+            "expectedOutput": "Cycle Detected\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "No Cycle Detected\n"
+          },
+          {
+            "input": "1 -> 2 -> 3 -> 1 (cycle at node 1)\n",
+            "expectedOutput": "Cycle Detected\n"
+          },
+          {
+            "input": "1 -> 2 -> 3 -> 4 -> 5 -> 2 (cycle at node 2)\n",
+            "expectedOutput": "Cycle Detected\n"
+          }
+        ],
+        "hints": [
+          "Use the Floyd's cycle-finding algorithm (tortoise and hare algorithm).",
+          "Maintain two pointers, slow and fast, initialized to the head of the linked list.",
+          "Move the slow pointer one step at a time, and the fast pointer two steps at a time.",
+          "If the two pointers meet at any point, a cycle exists.",
+          "If the fast pointer reaches the end of the list (null), no cycle exists.",
+          "Handle the edge cases where the list is empty or contains only one node."
+        ],
+        "tags": ["Linked List", "Cycle Detection", "Floyd's Algorithm"]
+      },
+       {
+        "problemId": 22,
+        "courseId": "infosys",
+        "title": "Parenthesis Balancing",
+        "difficulty": "Easy",
+        "description": "Write a program to determine if a given string of parentheses is balanced. A string of parentheses is balanced if each opening parenthesis has a corresponding closing parenthesis in the correct order.",
+        "examples": [
+          {
+            "input": "()\n",
+            "output": "Balanced\n"
+          },
+          {
+            "input": "()[]{}\n",
+            "output": "Balanced\n"
+          },
+          {
+            "input": "(]\n",
+            "output": "Not Balanced\n"
+          },
+          {
+            "input": "([)]\n",
+            "output": "Not Balanced\n"
+          },
+          {
+            "input": "{[]}\n",
+            "output": "Balanced\n"
+          }
+        ],
+        "constraints": [
+          "The input string will only contain the characters '(', ')', '[', ']', '{', and '}'."
+        ],
+        "testCases": [
+          {
+            "input": "()\n",
+            "expectedOutput": "Balanced\n"
+          },
+          {
+            "input": "()[]{}\n",
+            "expectedOutput": "Balanced\n"
+          },
+          {
+            "input": "(]\n",
+            "expectedOutput": "Not Balanced\n"
+          },
+          {
+            "input": "([)]\n",
+            "expectedOutput": "Not Balanced\n"
+          },
+          {
+            "input": "{[]}\n",
+            "expectedOutput": "Balanced\n"
+          },
+          {
+            "input": "(((((((((())))))))))",
+            "expectedOutput": "Balanced\n"
+          },
+          {
+            "input": "(((((((((()))))))))))]",
+            "expectedOutput": "Not Balanced\n"
+          },
+          {
+            "input": "",
+            "expectedOutput": "Balanced\n"
+          }
+        ],
+        "hints": [
+          "Use a stack to keep track of opening parentheses.",
+          "Iterate through the string, pushing opening parentheses onto the stack.",
+          "When a closing parenthesis is encountered, check if it matches the top of the stack.",
+          "If it matches, pop the opening parenthesis from the stack.",
+          "If it doesn't match or the stack is empty, the string is not balanced.",
+          "After iterating through the string, the stack should be empty if the string is balanced."
+        ],
+        "tags": ["Parenthesis Balancing", "Stack", "String Processing"]
+      },
+       {
+        "problemId": 23,
+        "courseId": "infosys",
+        "title": "Lexicographically Next Permutation",
+        "difficulty": "Medium",
+        "description": "Given a string, find the lexicographically next greater permutation of the string. If such a permutation does not exist, return the string in its original order.",
+        "examples": [
+          {
+            "input": "gfg\n",
+            "output": "ggf\n"
+          },
+          {
+            "input": "acb\n",
+            "output": "bac\n"
+          },
+          {
+            "input": "aaa\n",
+            "output": "aaa\n"
+          },
+          {
+            "input": "edcba\n",
+            "output": "edcba\n"
+          }
+        ],
+        "constraints": [
+          "The input string will contain only lowercase English letters.",
+          "The length of the input string will be between 1 and 100 characters."
+        ],
+        "testCases": [
+          {
+            "input": "gfg\n",
+            "expectedOutput": "ggf\n"
+          },
+          {
+            "input": "acb\n",
+            "expectedOutput": "bac\n"
+          },
+          {
+            "input": "aaa\n",
+            "expectedOutput": "aaa\n"
+          },
+          {
+            "input": "edcba\n",
+            "expectedOutput": "edcba\n"
+          },
+          {
+            "input": "abcd\n",
+            "expectedOutput": "abdc\n"
+          },
+          {
+            "input": "abdc\n",
+            "expectedOutput": "acbd\n"
+          },
+          {
+            "input": "cba\n",
+            "expectedOutput": "abc\n"
+          }
+        ],
+        "hints": [
+          "Find the largest index i such that s[i] < s[i+1]. If no such index exists, the permutation is the last permutation.",
+          "Find the largest index j such that s[i] < s[j].",
+          "Swap s[i] and s[j].",
+          "Reverse the suffix s[i+1:].",
+          "If no such i exists, reverse the entire string.",
+          "Return the modified string."
+        ],
+        "tags": ["Lexicographical Permutation", "String Manipulation", "Algorithm"]
+      },
+       {
+        "problemId": 24,
+        "courseId": "infosys",
+        "title": "Smallest Unrepresentable Sum",
+        "difficulty": "Medium",
+        "description": "Given an array of positive numbers, find the smallest positive integer value that cannot be represented as the sum of elements of any subset of a given set. The expected time complexity is O(nlogn).",
+        "examples": [
+          {
+            "input": "[1, 10, 3, 11, 6, 15]\n",
+            "output": "2\n"
+          },
+          {
+            "input": "[1, 1, 1, 1]\n",
+            "output": "5\n"
+          },
+          {
+            "input": "[1, 1, 3, 4]\n",
+            "output": "10\n"
+          },
+          {
+            "input": "[1, 2, 5, 10, 20, 40]\n",
+            "output": "4\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5, 6]\n",
+            "output": "22\n"
+          }
+        ],
+        "constraints": [
+          "The input array will contain only positive integers.",
+          "The length of the array will be between 1 and 10^5.",
+          "The elements of the array will be between 1 and 10^9."
+        ],
+        "testCases": [
+          {
+            "input": "[1, 10, 3, 11, 6, 15]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[1, 1, 1, 1]\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "[1, 1, 3, 4]\n",
+            "expectedOutput": "10\n"
+          },
+          {
+            "input": "[1, 2, 5, 10, 20, 40]\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5, 6]\n",
+            "expectedOutput": "22\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[2]\n",
+            "expectedOutput": "1\n"
+          }
+        ],
+        "hints": [
+          "Sort the array in ascending order.",
+          "Initialize a variable 'res' to 1.",
+          "Iterate through the sorted array.",
+          "If the current element is less than or equal to 'res', add it to 'res'.",
+          "Otherwise, return 'res'.",
+          "If the loop finishes without returning, return 'res'."
+        ],
+        "tags": ["Smallest Unrepresentable Sum", "Subset Sum", "Greedy Algorithm"]
+      },
+       {
+        "problemId": 25,
+        "courseId": "infosys",
+        "title": "Palindromic Partitions",
+        "difficulty": "Hard",
+        "description": "Given a string, find all possible palindromic partitions of the given string using backtracking.",
+        "examples": [
+          {
+            "input": "nitin\n",
+            "output": "n i t i n\nn iti n\nnitin\n"
+          },
+          {
+            "input": "geeks\n",
+            "output": "g e e k s\ng ee k s\n"
+          }
+        ],
+        "constraints": [
+          "The input string will contain only lowercase English letters.",
+          "The length of the input string will be between 1 and 16 characters."
+        ],
+        "testCases": [
+          {
+            "input": "nitin\n",
+            "expectedOutput": "n i t i n\nn iti n\nnitin\n"
+          },
+          {
+            "input": "geeks\n",
+            "expectedOutput": "g e e k s\ng ee k s\n"
+          },
+          {
+            "input": "aab\n",
+            "expectedOutput": "a a b\na ab\n"
+          },
+          {
+            "input": "aabb\n",
+            "expectedOutput": "a a b b\na a bb\naabb\na ab b\n"
+          },
+          {
+            "input": "a\n",
+            "expectedOutput": "a\n"
+          },
+          {
+            "input": "aa\n",
+            "expectedOutput": "a a\naa\n"
+          },
+          {
+            "input": "abc\n",
+            "expectedOutput": "a b c\n"
+          }
+        ],
+        "hints": [
+          "Use backtracking to explore all possible partitions of the string.",
+          "For each partition, check if the substring is a palindrome.",
+          "If the substring is a palindrome, add it to the current partition and recursively explore the remaining string.",
+          "If the remaining string is empty, print the current partition.",
+          "Backtrack by removing the last palindrome from the current partition.",
+          "Create a helper function to check if a string is a palindrome."
+        ],
+        "tags": ["Palindromic Partitions", "Backtracking", "String Processing"]
+      },
+       {
+        "problemId": 26,
+        "courseId": "infosys",
+        "title": "Job Scheduling with Deadlines",
+        "difficulty": "Medium",
+        "description": "Given two arrays: deadline[] and profit[], where the index of deadline[] represents a job ID, and deadline[i] denotes the deadline for that job and profit[i] represents profit of doing ith job. Each job takes exactly one unit of time to complete, and only one job can be scheduled at a time. A job earns its corresponding profit only if it is completed within its deadline. The objective is to determine: The maximum profit that can be obtained by scheduling the jobs optimally. The total number of jobs completed to achieve this maximum profit.",
+        "examples": [
+          {
+            "input": "deadline = [4, 1, 1, 1]\nprofit = [20, 10, 40, 30]\n",
+            "output": "2 60\n"
+          },
+          {
+            "input": "deadline = [2, 1, 2, 1, 1]\nprofit = [100, 19, 27, 25, 15]\n",
+            "output": "2 127\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 10^5",
+          "1 <= deadline[i] <= N",
+          "1 <= profit[i] <= 10^4"
+        ],
+        "testCases": [
+          {
+            "input": "deadline = [4, 1, 1, 1]\nprofit = [20, 10, 40, 30]\n",
+            "expectedOutput": "2 60\n"
+          },
+          {
+            "input": "deadline = [2, 1, 2, 1, 1]\nprofit = [100, 19, 27, 25, 15]\n",
+            "expectedOutput": "2 127\n"
+          },
+          {
+            "input": "deadline = [1, 2, 3, 3]\nprofit = [25, 20, 15, 10]\n",
+            "expectedOutput": "3 60\n"
+          },
+          {
+            "input": "deadline = [1, 1, 1]\nprofit = [10, 20, 30]\n",
+            "expectedOutput": "1 30\n"
+          },
+          {
+            "input": "deadline = [1, 2, 3, 4, 5]\nprofit = [5, 4, 3, 2, 1]\n",
+            "expectedOutput": "5 15\n"
+          },
+          {
+            "input": "deadline = [1, 1, 2, 2, 3]\nprofit = [50, 10, 20, 30, 40]\n",
+            "expectedOutput": "3 120\n"
+          }
+        ],
+        "hints": [
+          "Sort the jobs in descending order of their profits.",
+          "Create a boolean array 'slot' to keep track of available slots.",
+          "Iterate through the sorted jobs.",
+          "For each job, find the latest available slot before its deadline.",
+          "If a slot is found, schedule the job and update the profit and job count.",
+          "Return the total number of jobs completed and the maximum profit."
+        ],
+        "tags": ["Job Scheduling", "Greedy Algorithm", "Maximum Profit"]
+      },
+       {
+        "problemId": 27,
+        "courseId": "infosys",
+        "title": "Longest Well-Performing Interval",
+        "difficulty": "Medium",
+        "description": "We are given hours, a list of the number of hours worked per day for a given employee. A day is considered to be a tiring day if and only if the number of hours worked is (strictly) greater than 8. A well-performing interval is an interval of days for which the number of tiring days is strictly larger than the number of non-tiring days. Return the length of the longest well-performing interval.",
+        "examples": [
+          {
+            "input": "[9,9,6,0,6,6,9]\n",
+            "output": "3\n"
+          },
+          {
+            "input": "[6,6,6]\n",
+            "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "1 <= hours.length <= 10^4",
+          "0 <= hours[i] <= 16"
+        ],
+        "testCases": [
+          {
+            "input": "[9,9,6,0,6,6,9]\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "[6,6,6]\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "[9,9,9,9,9]\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "[6,9,6,9,6]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[9,6,9,6,9,6,9]\n",
+            "expectedOutput": "7\n"
+          },
+          {
+            "input": "[9,8,9,8,9,8,9]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[9,9,9,6,6,6,9,9,9]\n",
+            "expectedOutput": "3\n"
+          }
+        ],
+        "hints": [
+          "Create a new array A where A[i] = 1 if hours[i] > 8, and A[i] = -1 otherwise.",
+          "Calculate the prefix sum of array A.",
+          "Use a stack or a hash map to store the prefix sums and their indices.",
+          "Iterate through the prefix sums and find the longest interval with a positive sum.",
+          "If prefixSum[j] > prefixSum[i], then the interval [i+1, j] is a well-performing interval.",
+          "Keep track of the maximum length of such intervals.",
+          "If the prefix sum is negative, it indicates that the number of non-tiring days are greater than the tiring days."
+        ],
+        "tags": ["Array", "Hash Table", "Stack", "Monotonic Stack", "Prefix Sum"]
+      },
+      {
+        "problemId": 28,
+        "courseId": "infosys",
+        "title": "Can Convert String in K Moves",
+        "difficulty": "Medium",
+        "description": "Given two strings s and t, your goal is to convert s into t in k moves or less. During the ith (1 <= i <= k) move you can: Choose any index j (1-indexed) from s, such that 1 <= j <= s.length and j has not been chosen in any previous move, and shift the character at that index i times. Do nothing. Shifting a character means replacing it by the next letter in the alphabet (wrapping around so that 'z' becomes 'a'). Shifting a character by i means applying the shift operations i times. Remember that any index j can be picked at most once. Return true if it's possible to convert s into t in no more than k moves, otherwise return false.",
+        "examples": [
+          {
+            "input": "s = \"input\", t = \"ouput\", k = 9\n",
+            "output": "true\n"
+          },
+          {
+            "input": "s = \"abc\", t = \"bcd\", k = 10\n",
+            "output": "false\n"
+          },
+          {
+            "input": "s = \"aab\", t = \"bbb\", k = 27\n",
+            "output": "true\n"
+          }
+        ],
+        "constraints": [
+          "1 <= s.length, t.length <= 10^5",
+          "0 <= k <= 10^9",
+          "s, t contain only lowercase English letters."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"input\", t = \"ouput\", k = 9\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "s = \"abc\", t = \"bcd\", k = 10\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "s = \"aab\", t = \"bbb\", k = 27\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "s = \"leetcode\", t = \"codeleet\", k = 10\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "s = \"atcoder\", t = \"azclddr\", k = 100\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "s = \"ab\", t = \"ba\", k = 1\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "s = \"ab\", t = \"ba\", k = 27\n",
+            "expectedOutput": "false\n"
+          }
+        ],
+        "hints": [
+          "If the lengths of s and t are different, return false.",
+          "Calculate the shifts required for each character in s to match the corresponding character in t.",
+          "If the shift is negative, add 26 to make it positive.",
+          "Count the frequency of each shift value.",
+          "For each shift value, check if the required moves are within the given k.",
+          "The required moves for a shift value 'x' is x + 26 * (frequency[x] - 1).",
+          "If any required move exceeds k, return false."
+        ],
+        "tags": ["Hash Table", "String"]
+      },
+       {
+        "problemId": 29,
+        "courseId": "infosys",
+        "title": "Door Status",
+        "difficulty": "Medium",
+        "description": "Given n doors and n persons. The doors are numbered 1 to n and persons are given ids numbered 1 to n. Each door can have only 2 status open and closed. Initially all the doors have status closed. Find the final status of all the doors if a person changes the current status of all the doors, i.e. if status open then change to status closed and vice versa, for which he is authorized. A person with id ‘i’ is authorized to change the status of door numbered ‘j’ if ‘j’ is a multiple of ‘i’. Note: Initially all the doors have status closed. A person has to change the current status of all the doors for which he is authorized exactly once. There can be a situation that before a person changes the status of the door, another person who is also authorized for the same door changes the status of the door.",
+        "examples": [
+          {
+            "input": "3\n",
+            "output": "open closed closed\n"
+          },
+          {
+            "input": "4\n",
+            "output": "open closed closed open\n"
+          }
+        ],
+        "constraints": [
+          "1 <= n <= 10^5"
+        ],
+        "testCases": [
+          {
+            "input": "3\n",
+            "expectedOutput": "open closed closed\n"
+          },
+          {
+            "input": "4\n",
+            "expectedOutput": "open closed closed open\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "open\n"
+          },
+          {
+            "input": "5\n",
+            "expectedOutput": "open closed closed open closed\n"
+          },
+          {
+            "input": "6\n",
+            "expectedOutput": "open closed closed open closed closed\n"
+          },
+          {
+            "input": "7\n",
+            "expectedOutput": "open closed closed open closed closed closed\n"
+          },
+          {
+            "input": "8\n",
+            "expectedOutput": "open closed closed open closed closed closed open\n"
+          }
+        ],
+        "hints": [
+          "Create a boolean array to represent the status of the doors (true for open, false for closed).",
+          "Initialize all doors to closed (false).",
+          "Iterate through the persons from 1 to n.",
+          "For each person, iterate through the doors from 1 to n.",
+          "If the door number is a multiple of the person's id, toggle the door's status.",
+          "After all persons have processed the doors, convert the boolean array to the required output string.",
+          "The final state of each door depends on the number of its divisors."
+        ],
+        "tags": ["Door Status", "Array Manipulation", "Simulation"]
+      },
+       {
+        "problemId": 30,
+        "courseId": "infosys",
+        "title": "Power of a Number",
+        "difficulty": "Easy",
+        "description": "Given two positive numbers x and y, check if y is a power of x or not.",
+        "examples": [
+          {
+            "input": "x = 10, y = 1\n",
+            "output": "True\n"
+          },
+          {
+            "input": "x = 10, y = 1000\n",
+            "output": "True\n"
+          },
+          {
+            "input": "x = 10, y = 1001\n",
+            "output": "False\n"
+          }
+        ],
+        "constraints": [
+          "1 <= x, y <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "x = 10, y = 1\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "x = 10, y = 1000\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "x = 10, y = 1001\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "x = 2, y = 8\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "x = 3, y = 9\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "x = 2, y = 9\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "x = 5, y = 125\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "x = 1, y = 1\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "x = 1, y = 2\n",
+            "expectedOutput": "False\n"
+          }
+        ],
+        "hints": [
+          "If y is 1, return true (x^0 = 1).",
+          "If x is 1 and y is not 1, return false.",
+          "Repeatedly divide y by x until y becomes 1 or y is not divisible by x.",
+          "If y becomes 1, return true. Otherwise, return false.",
+          "Handle edge case when x == 1."
+        ],
+        "tags": ["Power of a Number", "Mathematics", "Iteration"]
+      }
+]

@@ -1,0 +1,1712 @@
+[
+    {
+        "problemId": 1,
+        "courseId": "cisco",
+        "title": "Reverse Linked List",
+        "difficulty": "Easy",
+        "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+        "examples": [
+          {
+            "input": "head = [1,2,3,4,5]\n",
+            "output": "[5,4,3,2,1]\n"
+          },
+          {
+            "input": "head = [1,2]\n",
+            "output": "[2,1]\n"
+          },
+          {
+            "input": "head = []\n",
+            "output": "[]\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in the list is the range [0, 5000].",
+          "-5000 <= Node.val <= 5000"
+        ],
+        "testCases": [
+          {
+            "input": "head = [1,2,3,4,5]\n",
+            "expectedOutput": "[5,4,3,2,1]\n"
+          },
+          {
+            "input": "head = [1,2]\n",
+            "expectedOutput": "[2,1]\n"
+          },
+          {
+            "input": "head = []\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "head = [1]\n",
+            "expectedOutput": "[1]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [-1,-2,-3]\n",
+            "expectedOutput": "[-3,-2,-1]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "A linked list can be reversed either iteratively or recursively. Could you implement both?",
+          "Iterative approach: Use three pointers to keep track of the current node, the previous node, and the next node.",
+          "Recursive approach: Recursively reverse the rest of the list and then reverse the current node."
+        ],
+        "tags": ["Linked List", "Recursion"]
+      },
+      {
+        "problemId": 2,
+        "courseId": "cisco",
+        "title": "Two Sum",
+        "difficulty": "Easy",
+        "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.",
+        "examples": [
+          {
+            "input": "nums = [2,7,11,15], target = 9\n",
+            "output": "[0,1]\n",
+            "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1].\n"
+          },
+          {
+            "input": "nums = [3,2,4], target = 6\n",
+            "output": "[1,2]\n"
+          },
+          {
+            "input": "nums = [3,3], target = 6\n",
+            "output": "[0,1]\n"
+          }
+        ],
+        "constraints": [
+          "2 <= nums.length <= 104",
+          "-109 <= nums[i] <= 109",
+          "-109 <= target <= 109",
+          "Only one valid answer exists."
+        ],
+        "testCases": [
+          {
+            "input": "nums = [2,7,11,15], target = 9\n",
+            "expectedOutput": "[0,1]\n"
+          },
+          {
+            "input": "nums = [3,2,4], target = 6\n",
+            "expectedOutput": "[1,2]\n"
+          },
+          {
+            "input": "nums = [3,3], target = 6\n",
+            "expectedOutput": "[0,1]\n"
+          },
+          {
+            "input": "nums = [-1,-2,-3,-4,-5], target = -8\n",
+            "expectedOutput": "[2,4]\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [0,4,3,0], target = 0\n",
+            "expectedOutput": "[0,3]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "A really brute force way would be to search for all possible pairs of numbers but that would be too slow. Again, it's best to try out brute force solutions for just for completeness. It is from these brute force solutions that you can come up with optimizations.",
+          "So, if we fix one of the numbers, say x, we have to scan the entire array to find the next number y which is value - x where value is the input parameter. Can we change our array somehow so that this search becomes faster?",
+          "The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?"
+        ],
+        "tags": ["Array", "Hash Table"]
+      },
+      {
+        "problemId": 3,
+        "courseId": "cisco",
+        "title": "Maximum Profit in Job Scheduling",
+        "difficulty": "Hard",
+        "description": "We have n jobs, where every job is scheduled to be done from startTime[i] to endTime[i], obtaining a profit of profit[i].\nYou're given the startTime, endTime and profit arrays, return the maximum profit you can take such that there are no two jobs in the subset with overlapping time range.\nIf you choose a job that ends at time X you will be able to start another job that starts at time X.",
+        "examples": [
+          {
+            "input": "startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]\n",
+            "output": "120\n",
+            "explanation": "The subset chosen is the first and fourth job. \nTime range [1-3]+[3-6] , we get profit of 120 = 50 + 70.\n"
+          },
+          {
+            "input": "startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]\n",
+            "output": "150\n",
+            "explanation": "The subset chosen is the first, fourth and fifth job. \nProfit obtained 150 = 20 + 70 + 60.\n"
+          },
+          {
+            "input": "startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]\n",
+            "output": "6\n",
+            "explanation": "The maximum profit is 6.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= startTime.length == endTime.length == profit.length <= 5 * 104",
+          "1 <= startTime[i] < endTime[i] <= 109",
+          "1 <= profit[i] <= 104"
+        ],
+        "testCases": [
+          {
+            "input": "startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]\n",
+            "expectedOutput": "120\n"
+          },
+          {
+            "input": "startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]\n",
+            "expectedOutput": "150\n"
+          },
+          {
+            "input": "startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "startTime = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], endTime = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2], profit = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "startTime = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50], endTime = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51], profit = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]\n",
+            "expectedOutput": "50\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Think on DP.",
+          "Sort the elements by starting time, then define the dp[i] as the maximum profit taking elements from the suffix starting at i.",
+          "Use binarySearch (lower_bound/upper_bound on C++) to get the next index for the DP transition."
+        ],
+        "tags": ["Array", "Binary Search", "Dynamic Programming", "Sorting"]
+      },
+      {
+        "problemId": 4,
+        "courseId": "cisco",
+        "title": "Merge Intervals",
+        "difficulty": "Medium",
+        "description": "Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.",
+        "examples": [
+          {
+            "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]\n",
+            "output": "[[1,6],[8,10],[15,18]]\n",
+            "explanation": "Since intervals [1,3] and [2,6] overlap, merge them into [1,6].\n"
+          },
+          {
+            "input": "intervals = [[1,4],[4,5]]\n",
+            "output": "[[1,5]]\n",
+            "explanation": "Intervals [1,4] and [4,5] are considered overlapping.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= intervals.length <= 104",
+          "intervals[i].length == 2",
+          "0 <= starti <= endi <= 104"
+        ],
+        "testCases": [
+          {
+            "input": "intervals = [[1,3],[2,6],[8,10],[15,18]]\n",
+            "expectedOutput": "[[1,6],[8,10],[15,18]]\n"
+          },
+          {
+            "input": "intervals = [[1,4],[4,5]]\n",
+            "expectedOutput": "[[1,5]]\n"
+          },
+          {
+            "input": "intervals = [[1,4],[0,4]]\n",
+            "expectedOutput": "[[0,4]]\n",
+            "isHidden": true
+          },
+          {
+            "input": "intervals = [[1,4],[0,1]]\n",
+            "expectedOutput": "[[0,4]]\n",
+            "isHidden": true
+          },
+          {
+            "input": "intervals = [[1,4],[2,3]]\n",
+            "expectedOutput": "[[1,4]]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Sort the intervals by their start values.",
+          "Iterate through the sorted intervals and merge overlapping intervals.",
+          "Keep track of the current merged interval and update it as needed."
+        ],
+        "tags": ["Array", "Sorting"]
+      },
+      {
+        "problemId": 5,
+        "courseId": "cisco",
+        "title": "LRU Cache",
+        "difficulty": "Medium",
+        "description": "Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.\nImplement the LRUCache class:\nLRUCache(int capacity) Initialize the LRU cache with positive size capacity.\nint get(int key) Return the value of the key if the key exists, otherwise return -1.\nvoid put(int key, int value) Update the value of the key if the key exists. Otherwise, add the key-value pair to the cache. If the number of keys exceeds the capacity from this operation, evict the least recently used key.\nThe functions get and put must each run in O(1) average time complexity.",
+        "examples": [
+          {
+            "input": "[\"LRUCache\", \"put\", \"put\", \"get\", \"put\", \"get\", \"put\", \"get\", \"get\", \"get\"]\n[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]\n",
+            "output": "[null, null, null, 1, null, -1, null, -1, 3, 4]\n",
+            "explanation": "LRUCache lRUCache = new LRUCache(2);\nlRUCache.put(1, 1); // cache is {1=1}\nlRUCache.put(2, 2); // cache is {1=1, 2=2}\nlRUCache.get(1);    // return 1\nlRUCache.put(3, 3); // LRU key was 2, evicts key 2, cache is {1=1, 3=3}\nlRUCache.get(2);    // returns -1 (not found)\nlRUCache.put(4, 4); // LRU key was 1, evicts key 1, cache is {4=4, 3=3}\nlRUCache.get(1);    // return -1 (not found)\nlRUCache.get(3);    // return 3\nlRUCache.get(4);    // return 4\n"
+          }
+        ],
+        "constraints": [
+          "1 <= capacity <= 3000",
+          "0 <= key <= 104",
+          "0 <= value <= 105",
+          "At most 2 * 105 calls will be made to get and put."
+        ],
+        "testCases": [
+          {
+            "input": "[\"LRUCache\", \"put\", \"put\", \"get\", \"put\", \"get\", \"put\", \"get\", \"get\", \"get\"]\n[[2], [1, 1], [2, 2], [1], [3, 3], [2], [4, 4], [1], [3], [4]]\n",
+            "expectedOutput": "[null, null, null, 1, null, -1, null, -1, 3, 4]\n"
+          },
+          {
+            "input": "[\"LRUCache\", \"put\", \"put\", \"get\", \"get\", \"put\", \"get\", \"get\", \"put\", \"put\", \"get\", \"get\", \"get\", \"get\", \"get\"]\n[[2], [2, 1], [1, 1], [2], [1], [2, 3], [1], [2], [3, 4], [4, 5], [1], [3], [4], [2], [5]]\n",
+            "expectedOutput": "[null, null, null, 1, 1, null, 1, 3, null, null, -1, 4, 5, 3, -1]\n",
+            "isHidden": true
+          },
+          {
+            "input": "[\"LRUCache\", \"put\", \"put\", \"put\", \"put\", \"get\", \"get\", \"get\", \"get\", \"put\", \"get\", \"get\", \"get\", \"get\", \"get\"]\n[[2], [2, 1], [1, 1], [2, 3], [4, 1], [1], [2], [3], [4], [1, 4], [2], [3], [4], [1], [5]]\n",
+            "expectedOutput": "[null, null, null, null, 1, 3, -1, 1, null, 3, -1, 4, 4, -1]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use a hash map to store the key-value pairs for O(1) get and put operations.",
+          "Use a doubly linked list to keep track of the least recently used keys. The head of the list should be the least recently used key, and the tail should be the most recently used key.",
+          "When a key is accessed or added, move it to the tail of the linked list.",
+          "When the capacity is reached, remove the head of the linked list."
+        ],
+        "tags": ["Hash Table", "Linked List", "Design", "Doubly-Linked List"]
+      },
+      {
+        "problemId": 6,
+        "courseId": "cisco",
+        "title": "Convert Binary Number in a Linked List to Integer",
+        "difficulty": "Easy",
+        "description": "Given head which is a reference node to a singly-linked list. The value of each node in the linked list is either 0 or 1. The linked list holds the binary representation of a number.\nReturn the decimal value of the number in the linked list.\nThe most significant bit is at the head of the linked list.",
+        "examples": [
+          {
+            "input": "head = [1,0,1]\n",
+            "output": "5\n",
+            "explanation": "(101) in base 2 = (5) in base 10\n"
+          },
+          {
+            "input": "head = [0]\n",
+            "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "The Linked List is not empty.",
+          "Number of nodes will not exceed 30.",
+          "Each node's value is either 0 or 1."
+        ],
+        "testCases": [
+          {
+            "input": "head = [1,0,1]\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "head = [0]\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "head = [1]\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,1,1,1,1]\n",
+            "expectedOutput": "31\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [0,0,1,0,0,1,0,0,1,0,0,0,0,0,0]\n",
+            "expectedOutput": "6656\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Traverse the linked list and store all values in a string or array. convert the values obtained to decimal value.",
+          "You can solve the problem in O(1) memory using bits operation. use shift left operation ( << ) and or operation ( | ) to get the decimal value in one operation."
+        ],
+        "tags": ["Linked List", "Math"]
+      },
+      {
+        "problemId": 7,
+        "courseId": "cisco",
+        "title": "Longest Substring Without Repeating Characters",
+        "difficulty": "Medium",
+        "description": "Given a string s, find the length of the longest substring without duplicate characters.",
+        "examples": [
+          {
+            "input": "s = \"abcabcbb\"\n",
+            "output": "3\n",
+            "explanation": "The answer is \"abc\", with the length of 3.\n"
+          },
+          {
+            "input": "s = \"bbbbb\"\n",
+            "output": "1\n",
+            "explanation": "The answer is \"b\", with the length of 1.\n"
+          },
+          {
+            "input": "s = \"pwwkew\"\n",
+            "output": "3\n",
+            "explanation": "The answer is \"wke\", with the length of 3.\nNotice that the answer must be a substring, \"pwke\" is a subsequence and not a substring.\n"
+          }
+        ],
+        "constraints": [
+          "0 <= s.length <= 5 * 104",
+          "s consists of English letters, digits, symbols and spaces."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"abcabcbb\"\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "s = \"bbbbb\"\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "s = \"pwwkew\"\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "s = \" \"\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"dvdf\"\n",
+            "expectedOutput": "3\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Generate all possible substrings & check for each substring if it's valid and keep updating maxLen accordingly."
+        ],
+        "tags": ["Hash Table", "String", "Sliding Window"]
+      },
+      {
+        "problemId": 8,
+        "courseId": "cisco",
+        "title": "Snakes and Ladders",
+        "difficulty": "Medium",
+        "description": "You are given an n x n integer matrix board where the cells are labeled from 1 to n2 in a Boustrophedon style starting from the bottom left of the board (i.e. board[n - 1][0]) and alternating direction each row.\nYou start on square 1 of the board. In each move, starting from square curr, do the following:\nChoose a destination square next with a label in the range [curr + 1, min(curr + 6, n2)].This choice simulates the result of a standard 6-sided die roll: i.e., there are always at most 6 destinations, regardless of the size of the board.\nIf next has a snake or ladder, you must move to the destination of that snake or ladder. Otherwise, you move to next.\nThe game ends when you reach the square n2.\nA board square on row r and column c has a snake or ladder if board[r][c] != -1. The destination of that snake or ladder is board[r][c]. Squares 1 and n2 are not the starting points of any snake or ladder.\nNote that you only take a snake or ladder at most once per dice roll. If the destination to a snake or ladder is the start of another snake or ladder, you do not follow the subsequent snake or ladder.\nFor example, suppose the board is [[-1,4],[-1,3]], and on the first move, your destination square is 2. You follow the ladder to square 3, but do not follow the subsequent ladder to 4.\nReturn the least number of dice rolls required to reach the square n2. If it is not possible to reach the square, return -1.",
+        "examples": [
+          {
+            "input": "board = [[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]]\n",
+            "output": "4\n",
+            "explanation": "In the beginning, you start at square 1 (at row 5, column 0).\nYou decide to move to square 2 and must take the ladder to square 15.\nYou then decide to move to square 17 and must take the snake to square 13.\nYou then decide to move to square 14 and must take the ladder to square 35.\nYou then decide to move to square 36, ending the game.\nThis is the lowest possible number of moves to reach the last square, so return 4.\n"
+          },
+          {
+            "input": "board = [[-1,-1],[-1,3]]\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "n == board.length == board[i].length",
+          "2 <= n <= 20",
+          "board[i][j] is either -1 or in the range [1, n2].",
+          "The squares labeled 1 and n2 are not the starting points of any snake or ladder."
+        ],
+        "testCases": [
+          {
+            "input": "board = [[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,35,-1,-1,13,-1],[-1,-1,-1,-1,-1,-1],[-1,15,-1,-1,-1,-1]]\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "board = [[-1,-1],[-1,3]]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "board = [[-1,-1,-1],[-1,-1,-1],[-1,-1,-1]]\n",
+            "expectedOutput": "2\n",
+            "isHidden": true
+          },
+          {
+            "input": "board = [[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1],[-1,-1,-1,-1,-1,-1]]\n",
+            "expectedOutput": "6\n",
+            "isHidden": true
+          },
+          {
+            "input": "board = [[-1,4],[-1,3]]\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use breadth-first search (BFS) to explore the possible moves.",
+          "Keep track of the minimum number of moves required to reach each square.",
+          "Use a queue to store the squares to be visited.",
+          "Convert the 2D board coordinates to 1D square labels and vice versa."
+        ],
+        "tags": ["Array", "Breadth-First Search", "Matrix"]
+      },
+      {
+        "problemId": 9,
+        "courseId": "cisco",
+        "title": "Rotate Image",
+        "difficulty": "Medium",
+        "description": "You are given an n x n 2D matrix representing an image, rotate the image by 90 degrees (clockwise).\nYou have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.",
+        "examples": [
+          {
+            "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]\n",
+            "output": "[[7,4,1],[8,5,2],[9,6,3]]\n"
+          },
+          {
+            "input": "matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]\n",
+            "output": "[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]\n"
+          }
+        ],
+        "constraints": [
+          "n == matrix.length == matrix[i].length",
+          "1 <= n <= 20",
+          "-1000 <= matrix[i][j] <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]\n",
+            "expectedOutput": "[[7,4,1],[8,5,2],[9,6,3]]\n"
+          },
+          {
+            "input": "matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]\n",
+            "expectedOutput": "[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]\n"
+          },
+          {
+            "input": "matrix = [[1]]\n",
+            "expectedOutput": "[[1]]\n",
+            "isHidden": true
+          },
+          {
+            "input": "matrix = [[1,2],[3,4]]\n",
+            "expectedOutput": "[[3,1],[4,2]]\n",
+            "isHidden": true
+          },
+          {
+            "input": "matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]\n",
+            "expectedOutput": "[[13,9,5,1],[14,10,6,2],[15,11,7,3],[16,12,8,4]]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "One approach is to rotate the image in layers. For each square of n/2 x n/2, rotate the elements in the square clockwise.",
+          "Another approach is to transpose the matrix and then reverse each row."
+        ],
+        "tags": ["Array", "Math", "Matrix"]
+      },
+      {
+        "problemId": 10,
+        "courseId": "cisco",
+        "title": "Reverse String",
+        "difficulty": "Easy",
+        "description": "Write a function that reverses a string. The input string is given as an array of characters s.\nYou must do this by modifying the input array in-place with O(1) extra memory.",
+        "examples": [
+          {
+            "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]\n",
+            "output": "[\"o\",\"l\",\"l\",\"e\",\"h\"]\n"
+          },
+          {
+            "input": "s = [\"H\",\"a\",\"n\",\"n\",\"a\",\"h\"]\n",
+            "output": "[\"h\",\"a\",\"n\",\"n\",\"a\",\"H\"]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= s.length <= 105",
+          "s[i] is a printable ascii character."
+        ],
+        "testCases": [
+          {
+            "input": "s = [\"h\",\"e\",\"l\",\"l\",\"o\"]\n",
+            "expectedOutput": "[\"o\",\"l\",\"l\",\"e\",\"h\"]\n"
+          },
+          {
+            "input": "s = [\"H\",\"a\",\"n\",\"n\",\"a\",\"h\"]\n",
+            "expectedOutput": "[\"h\",\"a\",\"n\",\"n\",\"a\",\"H\"]\n"
+          },
+          {
+            "input": "s = [\"a\"]\n",
+            "expectedOutput": "[\"a\"]\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = [\"a\",\"b\"]\n",
+            "expectedOutput": "[\"b\",\"a\"]\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = [\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\"]\n",
+            "expectedOutput": "[\"7\",\"6\",\"5\",\"4\",\"3\",\"2\",\"1\"]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "The entire logic for reversing a string is based on using the opposite directional two-pointer approach!"
+        ],
+        "tags": ["Two Pointers", "String"]
+      },
+      {
+        "problemId": 11,
+        "courseId": "cisco",
+        "title": "Validate IP Address",
+        "difficulty": "Medium",
+        "description": "Given a string queryIP, return \"IPv4\" if IP is a valid IPv4 address, \"IPv6\" if IP is a valid IPv6 address or \"Neither\" if IP is not a correct IP of any type.\nA valid IPv4 address is an IP in the form \"x1.x2.x3.x4\" where 0 <= xi <= 255 and xi cannot contain leading zeros. For example, \"192.168.1.1\" and \"192.168.1.0\" are valid IPv4 addresses while \"192.168.01.1\", \"192.168.1.00\", and \"192.168@1.1\" are invalid IPv4 addresses.\nA valid IPv6 address is an IP in the form \"x1:x2:x3:x4:x5:x6:x7:x8\" where:\n1 <= xi.length <= 4\nxi is a hexadecimal string which may contain digits, lowercase English letter ('a' to 'f') and upper-case English letters ('A' to 'F').\nLeading zeros are allowed in xi.\nFor example, \"2001:0db8:85a3:0000:0000:8a2e:0370:7334\" and \"2001:db8:85a3:0:0:8A2E:0370:7334\" are valid IPv6 addresses, while \"2001:0db8:85a3::8A2E:037j:7334\" and \"02001:0db8:85a3:0000:0000:8a2e:0370:7334\" are invalid IPv6 addresses.",
+        "examples": [
+          {
+            "input": "queryIP = \"172.16.254.1\"\n",
+            "output": "\"IPv4\"\n",
+            "explanation": "This is a valid IPv4 address, return \"IPv4\".\n"
+          },
+          {
+            "input": "queryIP = \"2001:0db8:85a3:0:0:8A2E:0370:7334\"\n",
+            "output": "\"IPv6\"\n",
+            "explanation": "This is a valid IPv6 address, return \"IPv6\".\n"
+          },
+          {
+            "input": "queryIP = \"256.256.256.256\"\n",
+            "output": "\"Neither\"\n",
+            "explanation": "This is neither a IPv4 address nor a IPv6 address.\n"
+          }
+        ],
+        "constraints": [
+          "queryIP consists only of English letters, digits and the characters '.' and ':'."
+        ],
+        "testCases": [
+          {
+            "input": "queryIP = \"172.16.254.1\"\n",
+            "expectedOutput": "\"IPv4\"\n"
+          },
+          {
+            "input": "queryIP = \"2001:0db8:85a3:0:0:8A2E:0370:7334\"\n",
+            "expectedOutput": "\"IPv6\"\n"
+          },
+          {
+            "input": "queryIP = \"256.256.256.256\"\n",
+            "expectedOutput": "\"Neither\"\n"
+          },
+          {
+            "input": "queryIP = \"2001:0db8:85a3::8A2E:037j:7334\"\n",
+            "expectedOutput": "\"Neither\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "queryIP = \"192.00.1.1\"\n",
+            "expectedOutput": "\"Neither\"\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Split the input string by '.' and ':'.",
+          "Check if the length of the split array is 4 for IPv4 and 8 for IPv6.",
+          "For IPv4, check if each segment is an integer between 0 and 255 and does not have leading zeros.",
+          "For IPv6, check if each segment is a hexadecimal string of length between 1 and 4."
+        ],
+        "tags": [
+          "String"
+        ]
+      },
+      {
+        "problemId": 12,
+        "courseId": "cisco",
+        "title": "Decode String",
+        "difficulty": "Medium",
+        "description": "Given an encoded string, return its decoded string.\nThe encoding rule is: k[encoded_string], where the encoded_string inside the square brackets is being repeated exactly k times. Note that k is guaranteed to be a positive integer.\nYou may assume that the input string is always valid; there are no extra white spaces, square brackets are well-formed, etc. Furthermore, you may assume that the original data does not contain any digits and that digits are only for those repeat numbers, k. For example, there will not be input like 3a or 2[4].\nThe test cases are generated so that the length of the output will never exceed 105.",
+        "examples": [
+          {
+            "input": "s = \"3[a]2[bc]\"\n",
+            "output": "\"aaabcbc\"\n"
+          },
+          {
+            "input": "s = \"3[a2[c]]\"\n",
+            "output": "\"accaccacc\"\n"
+          },
+          {
+            "input": "s = \"2[abc]3[cd]ef\"\n",
+            "output": "\"abcabccdcdcdef\"\n"
+          }
+        ],
+        "constraints": [
+          "1 <= s.length <= 30",
+          "s consists of lowercase English letters, digits, and square brackets '[]'.",
+          "s is guaranteed to be a valid input.",
+          "All the integers in s are in the range [1, 300]."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"3[a]2[bc]\"\n",
+            "expectedOutput": "\"aaabcbc\"\n"
+          },
+          {
+            "input": "s = \"3[a2[c]]\"\n",
+            "expectedOutput": "\"accaccacc\"\n"
+          },
+          {
+            "input": "s = \"2[abc]3[cd]ef\"\n",
+            "expectedOutput": "\"abcabccdcdcdef\"\n"
+          },
+          {
+            "input": "s = \"10[a]\"\n",
+            "expectedOutput": "\"aaaaaaaaaa\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"2[a3[b]]\"\n",
+            "expectedOutput": "\"abbbabbb\"\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use a stack to keep track of the current string and the repeat count.",
+          "When encountering a digit, parse the number and push it onto the stack.",
+          "When encountering an opening bracket '[', push the current string onto the stack and reset the current string.",
+          "When encountering a closing bracket ']', pop the repeat count and the previous string from the stack, and append the current string repeated repeat count times to the previous string.",
+          "When encountering a letter, append it to the current string."
+        ],
+        "tags": ["String", "Stack", "Recursion"]
+      },
+      {
+        "problemId": 13,
+        "courseId": "cisco",
+        "title": "Lowest Common Ancestor of a Binary Search Tree",
+        "difficulty": "Medium",
+        "description": "Given a binary search tree (BST), find the lowest common ancestor (LCA) node of two given nodes in the BST.\nAccording to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”.",
+        "examples": [
+          {
+            "input": "root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8\n",
+            "output": "6\n",
+            "explanation": "The LCA of nodes 2 and 8 is 6.\n"
+          },
+          {
+            "input": "root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4\n",
+            "output": "2\n",
+            "explanation": "The LCA of nodes 2 and 4 is 2, since a node can be a descendant of itself according to the LCA definition.\n"
+          },
+          {
+            "input": "root = [2,1], p = 2, q = 1\n",
+            "output": "2\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in the tree is in the range [2, 105].",
+          "-109 <= Node.val <= 109",
+          "All Node.val are unique.",
+          "p != q",
+          "p and q will exist in the BST."
+        ],
+        "testCases": [
+          {
+            "input": "root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "root = [2,1], p = 2, q = 1\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "root = [3,1,4,null,2], p = 1, q = 2\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "root = [3,1,5,0,2,4,6], p = 2, q = 4\n",
+            "expectedOutput": "3\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use the properties of a binary search tree to find the LCA.",
+          "If the current node's value is greater than both p and q, then the LCA is in the left subtree.",
+          "If the current node's value is less than both p and q, then the LCA is in the right subtree.",
+          "Otherwise, the current node is the LCA."
+        ],
+        "tags": ["Tree", "Depth-First Search", "Binary Search Tree", "Binary Tree"]
+      },
+      {
+        "problemId": 14,
+        "courseId": "cisco",
+        "title": "Number of 1 Bits",
+        "difficulty": "Easy",
+        "description": "Given a positive integer n, write a function that returns the number of set bits in its binary representation (also known as the Hamming weight).",
+        "examples": [
+          {
+            "input": "n = 11\n",
+            "output": "3\n",
+            "explanation": "The input binary string 1011 has a total of three set bits.\n"
+          },
+          {
+            "input": "n = 128\n",
+            "output": "1\n",
+            "explanation": "The input binary string 10000000 has a total of one set bit.\n"
+          },
+          {
+            "input": "n = 2147483645\n",
+            "output": "30\n",
+            "explanation": "The input binary string 1111111111111111111111111111101 has a total of thirty set bits.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= n <= 231 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "n = 11\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "n = 128\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "n = 2147483645\n",
+            "expectedOutput": "30\n"
+          },
+          {
+            "input": "n = 1\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "n = 0\n",
+            "expectedOutput": "0\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "You can use bit manipulation to solve this problem.",
+          "Specifically, you can use the bitwise AND operator (&) to check if the least significant bit is set.",
+          "Then, you can use the right shift operator (>>) to shift the bits to the right.",
+          "Repeat this process until n becomes 0."
+        ],
+        "tags": ["Divide and Conquer", "Bit Manipulation"]
+      },
+      {
+        "problemId": 15,
+        "courseId": "cisco",
+        "title": "Decode Ways",
+        "difficulty": "Medium",
+        "description": "You have intercepted a secret message encoded as a string of numbers. The message is decoded via the following mapping:\n\"1\" -> 'A'\n\"2\" -> 'B'\n...\n\"25\" -> 'Y'\n\"26\" -> 'Z'\nHowever, while decoding the message, you realize that there are many different ways you can decode the message because some codes are contained in other codes (\"2\" and \"5\" vs \"25\").\nFor example, \"11106\" can be decoded into:\n\"AAJF\" with the grouping (1, 1, 10, 6)\n\"KJF\" with the grouping (11, 10, 6)\nThe grouping (1, 11, 06) is invalid because \"06\" is not a valid code (only \"6\" is valid).\nNote: there may be strings that are impossible to decode.\nGiven a string s containing only digits, return the number of ways to decode it. If the entire string cannot be decoded in any valid way, return 0.\nThe test cases are generated so that the answer fits in a 32-bit integer.",
+        "examples": [
+          {
+            "input": "s = \"12\"\n",
+            "output": "2\n",
+            "explanation": "\"12\" could be decoded as \"AB\" (1 2) or \"L\" (12).\n"
+          },
+          {
+            "input": "s = \"226\"\n",
+            "output": "3\n",
+            "explanation": "\"226\" could be decoded as \"BZ\" (2 26), \"VF\" (22 6), or \"BBF\" (2 2 6).\n"
+          },
+          {
+            "input": "s = \"06\"\n",
+            "output": "0\n",
+            "explanation": "\"06\" cannot be mapped to \"F\" because of the leading zero (\"6\" is different from \"06\"). In this case, the string is not a valid encoding, so return 0.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= s.length <= 100",
+          "s contains only digits and may contain leading zero(s)."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"12\"\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "s = \"226\"\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "s = \"06\"\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "s = \"10\"\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"27\"\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve this problem.",
+          "Create an array dp of the same size as s, where dp[i] represents the number of ways to decode the substring s[0:i].",
+          "The recurrence relation is dp[i] = dp[i-1] + dp[i-2] if s[i-1:i+1] is a valid code (10-26), dp[i] = dp[i-1] if s[i-1] is a valid code (1-9), and dp[i] = 0 otherwise.",
+          "Handle the base cases dp[0] and dp[1] carefully."
+        ],
+        "tags": ["String", "Dynamic Programming"]
+      },
+       {
+        "problemId": 16,
+        "courseId": "cisco",
+        "title": "House Robber",
+        "difficulty": "Medium",
+        "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.\nGiven an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
+        "examples": [
+          {
+            "input": "nums = [1,2,3,1]\n",
+            "output": "4\n",
+            "explanation": "Rob house 1 (money = 1) and then rob house 3 (money = 3).\nTotal amount you can rob = 1 + 3 = 4.\n"
+          },
+          {
+            "input": "nums = [2,7,9,3,1]\n",
+            "output": "12\n",
+            "explanation": "Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).\nTotal amount you can rob = 2 + 9 + 1 = 12.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= nums.length <= 100",
+          "0 <= nums[i] <= 400"
+        ],
+        "testCases": [
+          {
+            "input": "nums = [1,2,3,1]\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "nums = [2,7,9,3,1]\n",
+            "expectedOutput": "12\n"
+          },
+          {
+            "input": "nums = [2,1]\n",
+            "expectedOutput": "2\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [1,2]\n",
+            "expectedOutput": "2\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [1,2,3]\n",
+            "expectedOutput": "4\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve this problem.",
+          "Create an array dp of the same size as nums, where dp[i] represents the maximum amount of money you can rob up to house i.",
+          "The recurrence relation is dp[i] = max(dp[i-1], dp[i-2] + nums[i]).",
+          "Handle the base cases dp[0] and dp[1] carefully."
+        ],
+        "tags": ["Array", "Dynamic Programming"]
+      },
+      {
+        "problemId": 17,
+        "courseId": "cisco",
+        "title": "Reverse Nodes in k-Group",
+        "difficulty": "Hard",
+        "description": "Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list.\nk is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is.\nYou may not alter the values in the list's nodes, only nodes themselves may be changed.",
+        "examples": [
+          {
+            "input": "head = [1,2,3,4,5], k = 2\n",
+            "output": "[2,1,4,3,5]\n"
+          },
+          {
+            "input": "head = [1,2,3,4,5], k = 3\n",
+            "output": "[3,2,1,4,5]\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in the list is n.",
+          "1 <= k <= n <= 5000",
+          "0 <= Node.val <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "head = [1,2,3,4,5], k = 2\n",
+            "expectedOutput": "[2,1,4,3,5]\n"
+          },
+          {
+            "input": "head = [1,2,3,4,5], k = 3\n",
+            "expectedOutput": "[3,2,1,4,5]\n"
+          },
+          {
+            "input": "head = [1,2], k = 2\n",
+            "expectedOutput": "[2,1]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,2,3], k = 1\n",
+            "expectedOutput": "[1,2,3]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,2,3,4,5,6,7,8], k = 4\n",
+            "expectedOutput": "[4,3,2,1,8,7,6,5]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use recursion or iteration to solve this problem.",
+          "For recursion, reverse the first k nodes and then recursively call the function for the remaining nodes.",
+          "For iteration, use a dummy node to keep track of the head of the reversed list.",
+          "Keep track of the previous and next nodes while reversing the list.",
+          "Check if there are at least k nodes remaining before reversing."
+        ],
+        "tags": ["Linked List", "Recursion"]
+      },
+      {
+        "problemId": 18,
+        "courseId": "cisco",
+        "title": "Maximum Subarray",
+        "difficulty": "Medium",
+        "description": "Given an integer array nums, find the subarray with the largest sum, and return its sum.",
+        "examples": [
+          {
+            "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]\n",
+            "output": "6\n",
+            "explanation": "The subarray [4,-1,2,1] has the largest sum 6.\n"
+          },
+          {
+            "input": "nums = [1]\n",
+            "output": "1\n",
+            "explanation": "The subarray [1] has the largest sum 1.\n"
+          },
+          {
+            "input": "nums = [5,4,-1,7,8]\n",
+            "output": "23\n",
+            "explanation": "The subarray [5,4,-1,7,8] has the largest sum 23.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= nums.length <= 105",
+          "-104 <= nums[i] <= 104"
+        ],
+        "testCases": [
+          {
+            "input": "nums = [-2,1,-3,4,-1,2,1,-5,4]\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "nums = [1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "nums = [5,4,-1,7,8]\n",
+            "expectedOutput": "23\n"
+          },
+          {
+            "input": "nums = [-1]\n",
+            "expectedOutput": "-1\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [-2,-1]\n",
+            "expectedOutput": "-1\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.",
+          "Use Kadane's algorithm to solve this problem in O(n) time.",
+          "Keep track of the current maximum subarray sum and the current maximum sum ending at the current position.",
+          "Update the current maximum sum ending at the current position by adding the current element to it.",
+          "If the current maximum sum ending at the current position becomes negative, reset it to 0.",
+          "Update the overall maximum subarray sum with the current maximum sum ending at the current position."
+        ],
+        "tags": ["Array", "Divide and Conquer", "Dynamic Programming"]
+      },
+       {
+        "problemId": 19,
+        "courseId": "cisco",
+        "title": "Number of Islands",
+        "difficulty": "Medium",
+        "description": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.\nAn island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.",
+        "examples": [
+          {
+            "input": "grid = [\n  [\"1\",\"1\",\"1\",\"1\",\"0\"],\n  [\"1\",\"1\",\"0\",\"1\",\"0\"],\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"0\",\"0\",\"0\",\"0\",\"0\"]\n]\n",
+            "output": "1\n"
+          },
+          {
+            "input": "grid = [\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"0\",\"0\",\"1\",\"0\",\"0\"],\n  [\"0\",\"0\",\"0\",\"1\",\"1\"]\n]\n",
+            "output": "3\n"
+          }
+        ],
+        "constraints": [
+          "m == grid.length",
+          "n == grid[i].length",
+          "1 <= m, n <= 300",
+          "grid[i][j] is '0' or '1'."
+        ],
+        "testCases": [
+          {
+            "input": "grid = [\n  [\"1\",\"1\",\"1\",\"1\",\"0\"],\n  [\"1\",\"1\",\"0\",\"1\",\"0\"],\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"0\",\"0\",\"0\",\"0\",\"0\"]\n]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "grid = [\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"0\",\"0\",\"1\",\"0\",\"0\"],\n  [\"0\",\"0\",\"0\",\"1\",\"1\"]\n]\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "grid = [\n  [\"1\"]\n]\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "grid = [\n  [\"0\"]\n]\n",
+            "expectedOutput": "0\n",
+            "isHidden": true
+          },
+          {
+            "input": "grid = [\n  [\"1\",\"0\",\"1\"],\n  [\"0\",\"1\",\"0\"],\n  [\"1\",\"0\",\"1\"]\n]\n",
+            "expectedOutput": "5\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use Depth-First Search (DFS) or Breadth-First Search (BFS) to traverse the grid.",
+          "When you find a '1' (land), increment the island count and then use DFS or BFS to mark all adjacent '1's as visited.",
+          "Make sure to handle boundary conditions and avoid revisiting already visited cells."
+        ],
+        "tags": ["Array", "Depth-First Search", "Breadth-First Search", "Union Find", "Matrix"]
+      },
+       {
+        "problemId": 20,
+        "courseId": "cisco",
+        "title": "Linked List Cycle",
+        "difficulty": "Easy",
+        "description": "Given head, the head of a linked list, determine if the linked list has a cycle in it.\nThere is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.\nReturn true if there is a cycle in the linked list. Otherwise, return false.",
+        "examples": [
+          {
+            "input": "head = [3,2,0,-4], pos = 1\n",
+            "output": "true\n",
+            "explanation": "There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).\n"
+          },
+          {
+            "input": "head = [1,2], pos = 0\n",
+            "output": "true\n",
+            "explanation": "There is a cycle in the linked list, where the tail connects to the 0th node.\n"
+          },
+          {
+            "input": "head = [1], pos = -1\n",
+            "output": "false\n",
+            "explanation": "There is no cycle in the linked list.\n"
+          }
+        ],
+        "constraints": [
+          "The number of the nodes in the list is in the range [0, 104].",
+          "-105 <= Node.val <= 105",
+          "pos is -1 or a valid index in the linked-list."
+        ],
+        "testCases": [
+          {
+            "input": "head = [3,2,0,-4], pos = 1\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "head = [1,2], pos = 0\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "head = [1], pos = -1\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "head = [], pos = -1\n",
+            "expectedOutput": "false\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,2,3], pos = -1\n",
+            "expectedOutput": "false\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Can you solve it using O(1) (i.e. constant) memory?",
+          "Use the Floyd's cycle detection algorithm (also known as the tortoise and hare algorithm).",
+          "Use two pointers, slow and fast, to traverse the linked list. The slow pointer moves one step at a time, while the fast pointer moves two steps at a time.",
+          "If there is a cycle, the fast pointer will eventually catch up to the slow pointer.",
+          "If there is no cycle, the fast pointer will reach the end of the list (null)."
+        ],
+        "tags": ["Hash Table", "Linked List", "Two Pointers"]
+      },
+      {
+        "problemId": 21,
+        "courseId": "cisco",
+        "title": "Sort Array By Parity",
+        "difficulty": "Easy",
+        "description": "Given an integer array nums, move all the even integers at the beginning of the array followed by all the odd integers.\nReturn any array that satisfies this condition.",
+        "examples": [
+          {
+            "input": "nums = [3,1,2,4]\n",
+            "output": "[2,4,3,1]\n",
+            "explanation": "The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.\n"
+          },
+          {
+            "input": "nums = [0]\n",
+            "output": "[0]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= nums.length <= 5000",
+          "0 <= nums[i] <= 5000"
+        ],
+        "testCases": [
+          {
+            "input": "nums = [3,1,2,4]\n",
+            "expectedOutput": "[2,4,3,1]\n"
+          },
+          {
+            "input": "nums = [0]\n",
+            "expectedOutput": "[0]\n"
+          },
+          {
+            "input": "nums = [1,3,5]\n",
+            "expectedOutput": "[1,3,5]\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [2,4,6]\n",
+            "expectedOutput": "[2,4,6]\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [1,2,3,4,5,6,7,8]\n",
+            "expectedOutput": "[2,4,6,8,1,3,5,7]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use two pointers, one starting from the beginning and one from the end.",
+          "Move the left pointer to the right until you find an odd number.",
+          "Move the right pointer to the left until you find an even number.",
+          "Swap the two numbers and repeat until the pointers cross."
+        ],
+        "tags": ["Array", "Two Pointers", "Sorting"]
+      },
+      {
+        "problemId": 22,
+        "courseId": "cisco",
+        "title": "Reorder List",
+        "difficulty": "Medium",
+        "description": "You are given the head of a singly linked-list. The list can be represented as:\nL0 → L1 → … → Ln - 1 → Ln\nReorder the list to be on the following form:\nL0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …\nYou may not modify the values in the list's nodes. Only nodes themselves may be changed.",
+        "examples": [
+          {
+            "input": "head = [1,2,3,4]\n",
+            "output": "[1,4,2,3]\n"
+          },
+          {
+            "input": "head = [1,2,3,4,5]\n",
+            "output": "[1,5,2,4,3]\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in the list is in the range [1, 5 * 104].",
+          "1 <= Node.val <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "head = [1,2,3,4]\n",
+            "expectedOutput": "[1,4,2,3]\n"
+          },
+          {
+            "input": "head = [1,2,3,4,5]\n",
+            "expectedOutput": "[1,5,2,4,3]\n"
+          },
+          {
+            "input": "head = [1]\n",
+            "expectedOutput": "[1]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,2]\n",
+            "expectedOutput": "[1,2]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,2,3]\n",
+            "expectedOutput": "[1,3,2]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "You can solve this problem in three steps:",
+          "1. Find the middle of the linked list.",
+          "2. Reverse the second half of the linked list.",
+          "3. Merge the two halves of the linked list.",
+          "Use two pointers (slow and fast) to find the middle of the linked list.",
+          "Use three pointers (prev, curr, next) to reverse the second half of the linked list.",
+          "Use two pointers (first and second) to merge the two halves of the linked list."
+        ],
+        "tags": ["Linked List", "Two Pointers", "Stack", "Recursion"]
+      },
+      {
+        "problemId": 23,
+        "courseId": "cisco",
+        "title": "Delete Node in a Linked List",
+        "difficulty": "Medium",
+        "description": "There is a singly-linked list head and we want to delete a node node in it.\nYou are given the node to be deleted node. You will not be given access to the first node of head.\nAll the values of the linked list are unique, and it is guaranteed that the given node node is not the last node in the linked list.\nDelete the given node. Note that by deleting the node, we do not mean removing it from memory. We mean:\nThe value of the given node should not exist in the linked list.\nThe number of nodes in the linked list should decrease by one.\nAll the values before node should be in the same order.\nAll the values after node should be in the same order.\nCustom testing:\nFor the input, you should provide the entire linked list head and the node to be given node. node should not be the last node of the list and should be an actual node in the list.\nWe will build the linked list and pass the node to your function.\nThe output will be the entire list after calling your function.",
+        "examples": [
+          {
+            "input": "head = [4,5,1,9], node = 5\n",
+            "output": "[4,1,9]\n",
+            "explanation": "You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.\n"
+          },
+          {
+            "input": "head = [4,5,1,9], node = 1\n",
+            "output": "[4,5,9]\n",
+            "explanation": "You are given the third node with value 1, the linked list should become 4 -> 5 -> 9 after calling your function.\n"
+          }
+        ],
+        "constraints": [
+          "The number of the nodes in the given list is in the range [2, 1000].",
+          "-1000 <= Node.val <= 1000",
+          "The value of each node in the list is unique.",
+          "The node to be deleted is in the list and is not a tail node."
+        ],
+        "testCases": [
+          {
+            "input": "head = [4,5,1,9], node = 5\n",
+            "expectedOutput": "[4,1,9]\n"
+          },
+          {
+            "input": "head = [4,5,1,9], node = 1\n",
+            "expectedOutput": "[4,5,9]\n"
+          },
+          {
+            "input": "head = [1,2], node = 1\n",
+            "expectedOutput": "[2]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,2,3], node = 2\n",
+            "expectedOutput": "[1,3]\n",
+            "isHidden": true
+          },
+          {
+            "input": "head = [1,2,3,4], node = 3\n",
+            "expectedOutput": "[1,2,4]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Since you do not have access to the head of the list, you cannot traverse the list to find the previous node.",
+          "Instead, you can copy the value of the next node into the current node and then delete the next node.",
+          "This effectively deletes the current node by overwriting its value and removing the next node from the list."
+        ],
+        "tags": ["Linked List"]
+      },
+      {
+        "problemId": 24,
+        "courseId": "cisco",
+        "title": "Intersection of Two Linked Lists",
+        "difficulty": "Easy",
+        "description": "Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.\nFor example, the following two linked lists begin to intersect at node c1:\nThe test cases are generated such that there are no cycles anywhere in the entire linked structure.\nNote that the linked lists must retain their original structure after the function returns.\nCustom Judge:\nThe inputs to the judge are given as follows (your program is not given these inputs):\nintersectVal - The value of the node where the intersection occurs. This is 0 if there is no intersected node.\nlistA - The first linked list.\nlistB - The second linked list.\nskipA - The number of nodes to skip ahead in listA (starting from the head) to get to the intersected node.\nskipB - The number of nodes to skip ahead in listB (starting from the head) to get to the intersected node.\nThe judge will then create the linked structure based on these inputs and pass the two heads, headA and headB to your program. If you correctly return the intersected node, then your solution will be accepted.",
+        "examples": [
+          {
+            "input": "intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3\n",
+            "output": "Intersected at '8'\n",
+            "explanation": "The intersected node's value is 8 (note that this must not be 0 if the two lists intersect).\nFrom the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,6,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.\n- Note that the intersected node's value is not 1 because the nodes with value 1 in A and B (2nd node in A and 3rd node in B) are different node references. In other words, they point to two different locations in memory, while the nodes with value 8 in A and B (3rd node in A and 4th node in B) point to the same location in memory.\n"
+          },
+          {
+            "input": "intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1\n",
+            "output": "Intersected at '2'\n",
+            "explanation": "The intersected node's value is 2 (note that this must not be 0 if the two lists intersect).\nFrom the head of A, it reads as [1,9,1,2,4]. From the head of B, it reads as [3,2,4]. There are 3 nodes before the intersected node in A; There are 1 node before the intersected node in B.\n"
+          },
+          {
+            "input": "intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2\n",
+            "output": "No intersection\n",
+            "explanation": "From the head of A, it reads as [2,6,4]. From the head of B, it reads as [1,5]. Since the two lists do not intersect, intersectVal must be 0, while skipA and skipB can be arbitrary values.\nExplanation: The two lists do not intersect, so return null.\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes of listA is in the m.",
+          "The number of nodes of listB is in the n.",
+          "1 <= m, n <= 3 * 104",
+          "1 <= Node.val <= 105",
+          "0 <= skipA <= m",
+          "0 <= skipB <= n",
+          "intersectVal is 0 if listA and listB do not intersect.",
+          "intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect."
+        ],
+        "testCases": [
+          {
+            "input": "intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3\n",
+            "expectedOutput": "Intersected at '8'\n"
+          },
+          {
+            "input": "intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1\n",
+            "expectedOutput": "Intersected at '2'\n"
+          },
+          {
+            "input": "intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2\n",
+            "expectedOutput": "No intersection\n"
+          },
+          {
+            "input": "intersectVal = 1, listA = [1], listB = [1], skipA = 0, skipB = 0\n",
+            "expectedOutput": "Intersected at '1'\n",
+            "isHidden": true
+          },
+          {
+            "input": "intersectVal = 0, listA = [1], listB = [], skipA = 1, skipB = 0\n",
+            "expectedOutput": "No intersection\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Could you write a solution that runs in O(m + n) time and use only O(1) memory?",
+          "Use two pointers to traverse both lists simultaneously.",
+          "If one pointer reaches the end of its list, move it to the head of the other list.",
+          "If the two pointers meet, they are at the intersection node.",
+          "If the pointers reach the end of both lists without meeting, there is no intersection."
+        ],
+        "tags": ["Hash Table", "Linked List", "Two Pointers"]
+      },
+      {
+        "problemId": 25,
+        "courseId": "cisco",
+        "title": "Spiral Matrix",
+        "difficulty": "Medium",
+        "description": "Given an m x n matrix, return all elements of the matrix in spiral order.",
+        "examples": [
+          {
+            "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]\n",
+            "output": "[1,2,3,6,9,8,7,4,5]\n"
+          },
+          {
+            "input": "matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]\n",
+            "output": "[1,2,3,4,8,12,11,10,9,5,6,7]\n"
+          }
+        ],
+        "constraints": [
+          "m == matrix.length",
+          "n == matrix[i].length",
+          "1 <= m, n <= 10",
+          "-100 <= matrix[i][j] <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]\n",
+            "expectedOutput": "[1,2,3,6,9,8,7,4,5]\n"
+          },
+          {
+            "input": "matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]\n",
+            "expectedOutput": "[1,2,3,4,8,12,11,10,9,5,6,7]\n"
+          },
+          {
+            "input": "matrix = [[1]]\n",
+            "expectedOutput": "[1]\n",
+            "isHidden": true
+          },
+          {
+            "input": "matrix = [[1,2]]\n",
+            "expectedOutput": "[1,2]\n",
+            "isHidden": true
+          },
+          {
+            "input": "matrix = [[1],[2],[3]]\n",
+            "expectedOutput": "[1,2,3]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Well for some problems, the best way really is to come up with some algorithms for simulation. Basically, you need to simulate what the problem asks us to do.",
+          "We go boundary by boundary and move inwards. That is the essential operation. First row, last column, last row, first column, and then we move inwards by 1 and repeat. That's all. That is all the simulation that we need.",
+          "Think about when you want to switch the progress on one of the indexes. If you progress on i out of [i, j], you'll shift in the same column. Similarly, by changing values for j, you'd be shifting in the same row. Also, keep track of the end of a boundary so that you can move inwards and then keep repeating. It's always best to simulate edge cases like a single column or a single row to see if anything breaks or not."
+        ],
+        "tags": ["Array", "Matrix", "Simulation"]
+      },
+      {
+        "problemId": 26,
+        "courseId": "cisco",
+        "title": "Longest Common Prefix",
+        "difficulty": "Easy",
+        "description": "Write a function to find the longest common prefix string amongst an array of strings.\nIf there is no common prefix, return an empty string \"\".",
+        "examples": [
+          {
+            "input": "strs = [\"flower\",\"flow\",\"flight\"]\n",
+            "output": "\"fl\"\n"
+          },
+          {
+            "input": "strs = [\"dog\",\"racecar\",\"car\"]\n",
+            "output": "\"\"\n",
+            "explanation": "There is no common prefix among the input strings.\n"
+          }
+        ],
+        "constraints": [
+          "1 <= strs.length <= 200",
+          "0 <= strs[i].length <= 200",
+          "strs[i] consists of only lowercase English letters if it is non-empty."
+        ],
+        "testCases": [
+          {
+            "input": "strs = [\"flower\",\"flow\",\"flight\"]\n",
+            "expectedOutput": "\"fl\"\n"
+          },
+          {
+            "input": "strs = [\"dog\",\"racecar\",\"car\"]\n",
+            "expectedOutput": "\"\"\n"
+          },
+          {
+            "input": "strs = [\"a\"]\n",
+            "expectedOutput": "\"a\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "strs = [\"ab\",\"a\"]\n",
+            "expectedOutput": "\"a\"\n",
+            "isHidden": true
+          },
+          {
+            "input": "strs = [\"c\",\"c\"]\n",
+            "expectedOutput": "\"c\"\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "One way to solve this problem is to iterate through the characters of the first string and compare them with the corresponding characters of the other strings.",
+          "If all the characters match, append the character to the result.",
+          "If any of the characters do not match, or if the end of any of the strings is reached, return the result."
+        ],
+        "tags": ["String", "Trie"]
+      },
+      {
+        "problemId": 27,
+        "courseId": "cisco",
+        "title": "Search in Rotated Sorted Array",
+        "difficulty": "Medium",
+        "description": "There is an integer array nums sorted in ascending order (with distinct values).\nPrior to being passed to your function, nums is possibly rotated at an unknown pivot index k (1 <= k < nums.length) such that the resulting array is [nums[k], nums[k+1], ..., nums[n-1], nums[0], nums[1], ..., nums[k-1]] (0-indexed). For example, [0,1,2,4,5,6,7] might be rotated at pivot index 3 and become [4,5,6,7,0,1,2].\nGiven the array nums after the possible rotation and an integer target, return the index of target if it is in nums, or -1 if it is not in nums.\nYou must write an algorithm with O(log n) runtime complexity.",
+        "examples": [
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 0\n",
+            "output": "4\n"
+          },
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 3\n",
+            "output": "-1\n"
+          },
+          {
+            "input": "nums = [1], target = 0\n",
+            "output": "-1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= nums.length <= 5000",
+          "-104 <= nums[i] <= 104",
+          "All values of nums are unique.",
+          "nums is an ascending array that is possibly rotated.",
+          "-104 <= target <= 104"
+        ],
+        "testCases": [
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 0\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "nums = [4,5,6,7,0,1,2], target = 3\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "nums = [1], target = 0\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "nums = [1,3], target = 3\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [3,1], target = 1\n",
+            "expectedOutput": "1\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Use binary search to solve this problem.",
+          "Modify the binary search algorithm to handle the rotated array.",
+          "Check if the middle element is greater than or equal to the left element to determine which half of the array is sorted.",
+          "Adjust the left and right pointers based on the sorted half and the target value."
+        ],
+        "tags": ["Array", "Binary Search"]
+      },
+      {
+        "problemId": 28,
+        "courseId": "cisco",
+        "title": "Add Two Numbers II",
+        "difficulty": "Medium",
+        "description": "You are given two non-empty linked lists representing two non-negative integers. The most significant digit comes first and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.",
+        "examples": [
+          {
+            "input": "l1 = [7,2,4,3], l2 = [5,6,4]\n",
+            "output": "[7,8,0,7]\n"
+          },
+          {
+            "input": "l1 = [2,4,3], l2 = [5,6,4]\n",
+            "output": "[8,0,7]\n"
+          },
+          {
+            "input": "l1 = [0], l2 = [0]\n",
+            "output": "[0]\n"
+          }
+        ],
+        "constraints": [
+          "The number of nodes in each linked list is in the range [1, 100].",
+          "0 <= Node.val <= 9",
+          "It is guaranteed that the list represents a number that does not have leading zeros."
+        ],
+        "testCases": [
+          {
+            "input": "l1 = [7,2,4,3], l2 = [5,6,4]\n",
+            "expectedOutput": "[7,8,0,7]\n"
+          },
+          {
+            "input": "l1 = [2,4,3], l2 = [5,6,4]\n",
+            "expectedOutput": "[8,0,7]\n"
+          },
+          {
+            "input": "l1 = [0], l2 = [0]\n",
+            "expectedOutput": "[0]\n"
+          },
+          {
+            "input": "l1 = [5], l2 = [5]\n",
+            "expectedOutput": "[1,0]\n",
+            "isHidden": true
+          },
+          {
+            "input": "l1 = [1,0], l2 = [9,9]\n",
+            "expectedOutput": "[1,0,9]\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Could you solve it without reversing the input lists?",
+          "Use stacks to store the digits of the linked lists.",
+          "Pop the digits from the stacks and add them together, keeping track of the carry.",
+          "Create a new linked list from the sum, starting with the least significant digit.",
+          "If there is a carry left after adding all the digits, create a new node for it and add it to the beginning of the linked list."
+        ],
+        "tags": ["Linked List", "Math", "Stack"]
+      },
+      {
+        "problemId": 29,
+        "courseId": "cisco",
+        "title": "Remove Duplicates from Sorted Array",
+        "difficulty": "Easy",
+        "description": "Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same. Then return the number of unique elements in nums.\nConsider the number of unique elements of nums to be k, to get accepted, you need to do the following things:\nChange the array nums such that the first k elements of nums contain the unique elements in the order they were present in nums initially. The remaining elements of nums are not important as well as the size of nums.\nReturn k.\nCustom Judge:\nThe judge will test your solution with the following code:\nint[] nums = [...]; // Input array\nint[] expectedNums = [...]; // The expected answer with correct length\n\nint k = removeDuplicates(nums); // Calls your implementation\n\nassert k == expectedNums.length;\nfor (int i = 0; i < k; i++) {\n    assert nums[i] == expectedNums[i];\n}\nIf all assertions pass, then your solution will be accepted.",
+        "examples": [
+          {
+            "input": "nums = [1,1,2]\n",
+            "output": "2, nums = [1,2,_]\n",
+            "explanation": "Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.\nIt does not matter what you leave beyond the returned k (hence they are underscores).\n"
+          },
+          {
+            "input": "nums = [0,0,1,1,1,2,2,3,3,4]\n",
+            "output": "5, nums = [0,1,2,3,4,,,,,_]\n",
+            "explanation": "Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4 respectively.\nIt does not matter what you leave beyond the returned k (hence they are underscores).\n"
+          }
+        ],
+        "constraints": [
+          "1 <= nums.length <= 3 * 104",
+          "-100 <= nums[i] <= 100",
+          "nums is sorted in non-decreasing order."
+        ],
+        "testCases": [
+          {
+            "input": "nums = [1,1,2]\n",
+            "expectedOutput": "2, nums = [1,2,_]\n"
+          },
+          {
+            "input": "nums = [0,0,1,1,1,2,2,3,3,4]\n",
+            "expectedOutput": "5, nums = [0,1,2,3,4,,,,,_]\n"
+          },
+          {
+            "input": "nums = [1,2,3,4,5]\n",
+            "expectedOutput": "5, nums = [1,2,3,4,5]\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = [1,1,1,1,1]\n",
+            "expectedOutput": "1, nums = [1,,,,]\n",
+            "isHidden": true
+          },
+          {
+            "input": "nums = []\n",
+            "expectedOutput": "0, nums = []\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "In this problem, the key point to focus on is the input array being sorted. As far as duplicate elements are concerned, what is their positioning in the array when the given array is sorted? Look at the image below for the answer. If we know the position of one of the elements, do we also know the positioning of all the duplicate elements?",
+          "We need to modify the array in-place and the size of the final array would potentially be smaller than the size of the input array. So, we ought to use a two-pointer approach here. One, that would keep track of the current element in the original array and another one for just the unique elements.",
+          "Essentially, once an element is encountered, you simply need to bypass its duplicates and move on to the next unique element."
+        ],
+        "tags": ["Array", "Two Pointers"]
+      },
+      {
+        "problemId": 30,
+        "courseId": "cisco",
+        "title": "String to Integer (atoi)",
+        "difficulty": "Medium",
+        "description": "Implement the myAtoi(string s) function, which converts a string to a 32-bit signed integer.\nThe algorithm for myAtoi(string s) is as follows:\nWhitespace: Ignore any leading whitespace (\" \").\nSignedness: Determine the sign by checking if the next character is '-' or '+', assuming positivity if neither present.\nConversion: Read the integer by skipping leading zeros until a non-digit character is encountered or the end of the string is reached. If no digits were read, then the result is 0.\nRounding: If the integer is out of the 32-bit signed integer range [-231, 231 - 1], then round the integer to remain in the range. Specifically, integers less than -231 should be rounded to -231, and integers greater than 231 - 1 should be rounded to 231 - 1.\nReturn the integer as the final result.",
+        "examples": [
+          {
+            "input": "s = \"42\"\n",
+            "output": "42\n",
+            "explanation": "The underlined characters are what is read in and the caret is the current reader position.\nStep 1: \"42\" (no characters read because there is no leading whitespace)\n         ^\nStep 2: \"42\" (no characters read because there is neither a '-' nor '+')\n         ^\nStep 3: \"42\" (\"42\" is read in)\n           ^\n"
+          },
+          {
+            "input": "s = \" -042\"\n",
+            "output": "-42\n",
+            "explanation": "Step 1: \"   -042\" (leading whitespace is read and ignored)\n            ^\nStep 2: \"   -042\" ('-' is read, so the result should be negative)\n             ^\nStep 3: \"   -042\" (\"042\" is read in, leading zeros ignored in the result)\n               ^\n"
+          },
+          {
+            "input": "s = \"1337c0d3\"\n",
+            "output": "1337\n",
+            "explanation": "Step 1: \"1337c0d3\" (no characters read because there is no leading whitespace)\n         ^\nStep 2: \"1337c0d3\" (no characters read because there is neither a '-' nor '+')\n         ^\nStep 3: \"1337c0d3\" (\"1337\" is read in; reading stops because the next character is a non-digit)\n             ^\n"
+          },
+          {
+            "input": "s = \"0-1\"\n",
+            "output": "0\n",
+            "explanation": "Step 1: \"0-1\" (no characters read because there is no leading whitespace)\n         ^\nStep 2: \"0-1\" (no characters read because there is neither a '-' nor '+')\n         ^\nStep 3: \"0-1\" (\"0\" is read in; reading stops because the next character is a non-digit)\n          ^\n"
+          },
+          {
+            "input": "s = \"words and 987\"\n",
+            "output": "0\n",
+            "explanation": "Reading stops at the first non-digit character 'w'.\n"
+          }
+        ],
+        "constraints": [
+          "0 <= s.length <= 200",
+          "s consists of English letters (lower-case and upper-case), digits (0-9), ' ', '+', '-', and '.'."
+        ],
+        "testCases": [
+          {
+            "input": "s = \"42\"\n",
+            "expectedOutput": "42\n"
+          },
+          {
+            "input": "s = \" -042\"\n",
+            "expectedOutput": "-42\n"
+          },
+          {
+            "input": "s = \"1337c0d3\"\n",
+            "expectedOutput": "1337\n"
+          },
+          {
+            "input": "s = \"0-1\"\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "s = \"words and 987\"\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "s = \"2147483648\"\n",
+            "expectedOutput": "2147483647\n",
+            "isHidden": true
+          },
+          {
+            "input": "s = \"-2147483649\"\n",
+            "expectedOutput": "-2147483648\n",
+            "isHidden": true
+          }
+        ],
+        "hints": [
+          "Handle leading whitespace.",
+          "Determine the sign of the number.",
+          "Read in the digits and convert them to an integer.",
+          "Handle integer overflow and underflow.",
+          "Stop reading when a non-digit character is encountered."
+        ],
+        "tags": ["String"]
+      }
+]

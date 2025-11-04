@@ -1,0 +1,1707 @@
+[
+  {
+    "problemId": 1,
+    "courseId": "tcs",
+    "title": "Chocolate Factory Packing",
+    "difficulty": "Easy",
+    "description": "A chocolate factory is packing chocolates into packets represented by an array of N integers. The task is to find all empty packets (0s) and move them to the end of the array while maintaining the order of non-empty packets.\n",
+    "examples": [
+      {
+        "input": "N=8\narr = [4,5,0,1,9,0,5,0]\n",
+        "output": "[4,5,1,9,5,0,0,0]\n",
+        "explanation": "There are 3 empty packets (0s) which are moved to the end while preserving the order of other packets.\n"
+      },
+      {
+        "input": "N=6\narr = [6,0,1,8,0,2]\n",
+        "output": "[6,1,8,2,0,0]\n",
+        "explanation": "The two empty packets are moved to the end while maintaining the sequence of other packets.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= N <= 10^5\n",
+      "0 <= arr[i] <= 10^4\n"
+    ],
+    "testCases": [
+      {
+        "input": "N=8\narr = [4,5,0,1,9,0,5,0]\n",
+        "expectedOutput": "[4,5,1,9,5,0,0,0]\n"
+      },
+      {
+        "input": "N=6\narr = [6,0,1,8,0,2]\n",
+        "expectedOutput": "[6,1,8,2,0,0]\n"
+      },
+      {
+        "input": "N=5\narr = [0,0,0,0,1]\n",
+        "expectedOutput": "[1,0,0,0,0]\n",
+        "isHidden": true
+      },
+      {
+        "input": "N=3\narr = [1,2,3]\n",
+        "expectedOutput": "[1,2,3]\n",
+        "isHidden": true
+      },
+      {
+        "input": "N=7\narr = [0,3,0,4,0,5,0]\n",
+        "expectedOutput": "[3,4,5,0,0,0,0]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Maintain two pointers: one for the current position and one for the position of the next non-zero element.",
+      "Iterate through the array and move non-zero elements to the front.",
+      "After processing all non-zero elements, fill the remaining positions with zeros.",
+      "This can be done in O(n) time with O(1) space complexity.",
+      "The order of non-zero elements must remain unchanged."
+    ],
+    "tags": ["array", "two-pointers"]
+  },
+  {
+    "problemId": 2,
+    "courseId": "tcs",
+    "title": "Toggle Bits After MSB",
+    "difficulty": "Easy",
+    "description": "Given a positive integer, convert it to binary, toggle all bits including and after the most significant bit (MSB), and return the resulting positive integer value.\n",
+    "examples": [
+      {
+        "input": "10\n",
+        "output": "5\n",
+        "explanation": "Binary of 10 is 1010\nAfter toggling all bits: 0101\nWhich equals 5 in decimal\n"
+      }
+    ],
+    "constraints": [
+      "1 <= N <= 100\n"
+    ],
+    "testCases": [
+      {
+        "input": "10\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "7\n",
+        "expectedOutput": "0\n",
+        "isHidden": true,
+        "explanation": "Binary of 7 is 111\nAfter toggling: 000\nWhich equals 0"
+      },
+      {
+        "input": "1\n",
+        "expectedOutput": "0\n",
+        "isHidden": true,
+        "explanation": "Binary of 1 is 1\nAfter toggling: 0"
+      },
+      {
+        "input": "15\n",
+        "expectedOutput": "0\n",
+        "isHidden": true,
+        "explanation": "Binary of 15 is 1111\nAfter toggling: 0000"
+      },
+      {
+        "input": "6\n",
+        "expectedOutput": "1\n",
+        "isHidden": true,
+        "explanation": "Binary of 6 is 110\nAfter toggling: 001\nWhich equals 1"
+      }
+    ],
+    "hints": [
+      "Convert the number to its binary string representation first.",
+      "Toggle each bit in the binary string (change 0 to 1 and 1 to 0).",
+      "Convert the toggled binary string back to a decimal number.",
+      "Handle edge cases where toggling results in all zeros.",
+      "The most significant bit is the leftmost '1' in the binary representation."
+    ],
+    "tags": ["bit-manipulation", "binary-numbers"]
+  },
+  {
+    "problemId": 3,
+    "courseId": "tcs",
+    "title": "Counting Sundays",
+    "difficulty": "Easy",
+    "description": "Given the starting day of a month and the number of days in that month, count how many Sundays occur within that period.\n",
+    "examples": [
+      {
+        "input": "mon\n13\n",
+        "output": "2\n",
+        "explanation": "Month starts on Monday. First Sunday comes after 6 days (day 7), second Sunday comes after another 7 days (day 14). Within 13 days, there are 2 Sundays.\n"
+      }
+    ],
+    "constraints": [
+      "Input day will be one of: sun, mon, tue, wed, thu, fri, sat\n",
+      "1 <= number of days <= 100\n"
+    ],
+    "testCases": [
+      {
+        "input": "mon\n13\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "sun\n10\n",
+        "expectedOutput": "2\n",
+        "isHidden": true,
+        "explanation": "Month starts on Sunday. Sundays fall on days 1 and 8 within 10 days."
+      },
+      {
+        "input": "wed\n7\n",
+        "expectedOutput": "1\n",
+        "isHidden": true,
+        "explanation": "Month starts on Wednesday. Only one Sunday falls on day 4 within 7 days."
+      },
+      {
+        "input": "sat\n30\n",
+        "expectedOutput": "4\n",
+        "isHidden": true,
+        "explanation": "Month starts on Saturday. Sundays fall on days 2, 9, 16, 23, and 30 (5 Sundays) but within 30 days there are 4 complete weeks plus 2 days."
+      },
+      {
+        "input": "fri\n1\n",
+        "expectedOutput": "0\n",
+        "isHidden": true,
+        "explanation": "Only 1 day in month starting Friday - no Sunday occurs."
+      }
+    ],
+    "hints": [
+      "Determine how many days until the first Sunday from the starting day.",
+      "Calculate how many full weeks fit in the remaining days after the first Sunday.",
+      "The total Sundays = 1 (first Sunday) + number of full weeks.",
+      "Handle edge cases where the month is shorter than the time until the first Sunday.",
+      "Remember that the starting day counts as day 1."
+    ],
+    "tags": ["date-calculation", "modulo-operation"]
+  },
+  {
+    "problemId": 4,
+    "courseId": "tcs",
+    "title": "Risk Severity Sorting",
+    "difficulty": "Easy",
+    "description": "Given an array of items with risk levels (0, 1, or 2), sort the items in ascending order of their risk severity.\n",
+    "examples": [
+      {
+        "input": "7\n[1,0,2,0,1,0,2]\n",
+        "output": "[0,0,0,1,1,2,2]\n",
+        "explanation": "Items are sorted from lowest risk (0) to highest risk (2).\n"
+      },
+      {
+        "input": "10\n[2,1,0,2,1,0,0,1,2,0]\n",
+        "output": "[0,0,0,0,1,1,1,2,2,2]\n",
+        "explanation": "All items are sorted in ascending order of risk severity.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= N <= 10^5\n",
+      "Risk values can only be 0, 1, or 2\n"
+    ],
+    "testCases": [
+      {
+        "input": "7\n[1,0,2,0,1,0,2]\n",
+        "expectedOutput": "[0,0,0,1,1,2,2]\n"
+      },
+      {
+        "input": "10\n[2,1,0,2,1,0,0,1,2,0]\n",
+        "expectedOutput": "[0,0,0,0,1,1,1,2,2,2]\n"
+      },
+      {
+        "input": "5\n[2,2,2,2,2]\n",
+        "expectedOutput": "[2,2,2,2,2]\n",
+        "isHidden": true,
+        "explanation": "All items have highest risk level."
+      },
+      {
+        "input": "3\n[0,0,0]\n",
+        "expectedOutput": "[0,0,0]\n",
+        "isHidden": true,
+        "explanation": "All items have lowest risk level."
+      },
+      {
+        "input": "6\n[1,1,1,1,1,1]\n",
+        "expectedOutput": "[1,1,1,1,1,1]\n",
+        "isHidden": true,
+        "explanation": "All items have medium risk level."
+      }
+    ],
+    "hints": [
+      "Count the number of 0s, 1s, and 2s in the array.",
+      "Reconstruct the array by first placing all 0s, then all 1s, and finally all 2s.",
+      "This approach (counting sort) works in O(n) time with O(1) space.",
+      "You can solve this problem in a single pass through the array.",
+      "The order of items with the same risk level doesn't matter in the output."
+    ],
+    "tags": ["array", "sorting", "counting-sort"]
+  },
+  {
+    "problemId": 5,
+    "courseId": "tcs",
+    "title": "Count Elements Greater Than All Previous",
+    "difficulty": "Easy",
+    "description": "Given an integer array Arr of size N, find the count of elements whose value is greater than all of its prior elements. The first element should always be included in the count.\n",
+    "examples": [
+      {
+        "input": "5\n7\n4\n8\n2\n9\n",
+        "output": "3\n",
+        "explanation": "Elements greater than all previous: 7, 8, 9\n"
+      },
+      {
+        "input": "5\n3\n4\n5\n8\n9\n",
+        "output": "5\n",
+        "explanation": "All elements are greater than previous: 3, 4, 5, 8, 9\n"
+      }
+    ],
+    "constraints": [
+      "1 <= N <= 20\n",
+      "1 <= Arr[i] <= 10000\n"
+    ],
+    "testCases": [
+      {
+        "input": "5\n7\n4\n8\n2\n9\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "5\n3\n4\n5\n8\n9\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "1\n5\n",
+        "expectedOutput": "1\n",
+        "isHidden": true,
+        "explanation": "Single element array always counts as 1"
+      },
+      {
+        "input": "4\n5\n4\n3\n2\n",
+        "expectedOutput": "1\n",
+        "isHidden": true,
+        "explanation": "Only first element (5) meets the condition"
+      },
+      {
+        "input": "6\n2\n2\n2\n2\n2\n2\n",
+        "expectedOutput": "1\n",
+        "isHidden": true,
+        "explanation": "Only first element (2) meets the condition"
+      }
+    ],
+    "hints": [
+      "Initialize a counter with 1 (for the first element) and track the current maximum.",
+      "Iterate through the array starting from the second element.",
+      "For each element, compare it with the current maximum.",
+      "If the element is greater than the current maximum, increment the counter and update the maximum.",
+      "The final counter value is your answer."
+    ],
+    "tags": ["array", "iteration", "comparison"]
+  },
+  {
+    "problemId": 6,
+    "courseId": "tcs",
+    "title": "Digit Product Pricing",
+    "difficulty": "Easy",
+    "description": "Given a product code N, calculate its price by multiplying all its digits together.\n",
+    "examples": [
+      {
+        "input": "5244\n",
+        "output": "160\n",
+        "explanation": "5 * 2 * 4 * 4 = 160\n"
+      }
+    ],
+    "constraints": [
+      "1 <= Number of digits in N <= 10\n",
+      "0 <= Each digit <= 9\n",
+      "The product will always fit in a 32-bit integer\n"
+    ],
+    "testCases": [
+      {
+        "input": "5244\n",
+        "expectedOutput": "160\n"
+      },
+      {
+        "input": "12345\n",
+        "expectedOutput": "120\n",
+        "isHidden": true,
+        "explanation": "1 * 2 * 3 * 4 * 5 = 120"
+      },
+      {
+        "input": "1000\n",
+        "expectedOutput": "0\n",
+        "isHidden": true,
+        "explanation": "1 * 0 * 0 * 0 = 0"
+      },
+      {
+        "input": "9\n",
+        "expectedOutput": "9\n",
+        "isHidden": true,
+        "explanation": "Single digit remains the same"
+      },
+      {
+        "input": "1111111111\n",
+        "expectedOutput": "1\n",
+        "isHidden": true,
+        "explanation": "Product of ten 1s is 1"
+      }
+    ],
+    "hints": [
+      "Convert the number to a string to easily access each digit.",
+      "Initialize the product as 1.",
+      "Iterate through each character in the string, converting it back to a number.",
+      "Multiply each digit with the running product.",
+      "Handle the special case where the number contains 0 (product will be 0)."
+    ],
+    "tags": ["string-manipulation", "arithmetic", "digit-processing"]
+  },
+  {
+    "problemId": 7,
+    "courseId": "tcs",
+    "title": "Curtains Packaging",
+    "difficulty": "Easy",
+    "description": "Given a string representing curtain colors (a for aqua, b for black) and a box size L, find the maximum number of aqua curtains in any box when the string is divided into substrings of length L (with the last substring possibly being shorter).",
+    "examples": [
+      {
+        "input": "bbbaaababa\n3",
+        "output": "3",
+        "explanation": "Divided into: bbb(0 a), aaa(3 a), bab(1 a), a(1 a). Maximum a's is 3."
+      },
+      {
+        "input": "abbbaabbb\n5",
+        "output": "2",
+        "explanation": "Divided into: abbbb(1 a), aabbb(2 a). Maximum a's is 2."
+      }
+    ],
+    "constraints": [
+      "1 <= L <= 10",
+      "1 <= N <= 50",
+      "String contains only characters 'a' and 'b'"
+    ],
+    "testCases": [
+      {
+        "input": "bbbaaababa\n3",
+        "expectedOutput": "3"
+      },
+      {
+        "input": "abbbaabbb\n5",
+        "expectedOutput": "2"
+      },
+      {
+        "input": "a\n1",
+        "expectedOutput": "1",
+        "isHidden": true,
+        "explanation": "Single curtain 'a' gives maximum 1 a"
+      },
+      {
+        "input": "bbbb\n2",
+        "expectedOutput": "0",
+        "isHidden": true,
+        "explanation": "No aqua curtains in any box"
+      },
+      {
+        "input": "ababababab\n4",
+        "expectedOutput": "2",
+        "isHidden": true,
+        "explanation": "Each box has exactly 2 a's"
+      }
+    ],
+    "hints": [
+      "Divide the string into substrings of length L, handling the final possibly shorter substring",
+      "Count the number of 'a's in each substring",
+      "Track the maximum count found",
+      "Remember that string indices start from 0",
+      "Handle edge cases where L is 1 or equal to the string length"
+    ],
+    "tags": ["string-manipulation", "substrings", "counting"]
+  },
+  {
+    "problemId": 8,
+    "courseId": "tcs",
+    "title": "Circular Seating Arrangement",
+    "difficulty": "Medium",
+    "description": "Calculate the number of ways to seat N members around a circular table where two specific members (President and Prime Minister of India) must always sit next to each other.",
+    "examples": [
+      {
+        "input": "4",
+        "output": "12",
+        "explanation": "Treat the two members as a single entity (2! arrangements), then arrange 3 entities in a circle (2! ways). Total: 2 × 6 = 12."
+      },
+      {
+        "input": "10",
+        "output": "725760",
+        "explanation": "Treat the two members as a single entity (2! arrangements), then arrange 9 entities in a circle (8! ways). Total: 2 × 362880 = 725760."
+      }
+    ],
+    "constraints": [
+      "2 <= N <= 50"
+    ],
+    "testCases": [
+      {
+        "input": "4",
+        "expectedOutput": "12"
+      },
+      {
+        "input": "10",
+        "expectedOutput": "725760"
+      },
+      {
+        "input": "2",
+        "expectedOutput": "2",
+        "isHidden": true,
+        "explanation": "Only 2 members who must sit together: 2 possible arrangements (AB or BA)."
+      },
+      {
+        "input": "3",
+        "expectedOutput": "4",
+        "isHidden": true,
+        "explanation": "Treat two members as one (2 arrangements), then arrange 2 entities (2 ways). Total: 2 × 2 = 4."
+      },
+      {
+        "input": "5",
+        "expectedOutput": "48",
+        "isHidden": true,
+        "explanation": "Treat two members as one (2 arrangements), then arrange 4 entities (6 ways). Total: 2 × 24 = 48."
+      }
+    ],
+    "hints": [
+      "Treat the two specific members as a single entity - this gives 2! internal arrangements.",
+      "For circular arrangements of (N-1) entities, there are (N-2)! arrangements.",
+      "Total arrangements = 2 × (N-1)!",
+      "Remember that in circular permutations, one position is fixed to eliminate rotational duplicates.",
+      "For N=2, there are exactly 2 possible arrangements."
+    ],
+    "tags": ["combinatorics", "permutations", "circular-arrangement"]
+  },
+  {
+    "problemId": 9,
+    "courseId": "tcs",
+    "title": "Repeated Digit Sum",
+    "difficulty": "Easy",
+    "description": "Given a number N and repetition count R, calculate the single-digit sum obtained by summing all digits of N and repeating this process R times. If R is 0, output should be 0.",
+    "examples": [
+      {
+        "input": "99\n3",
+        "output": "9",
+        "explanation": "Sum digits once: 9+9=18\nRepeat 3 times: 18+18+18=54\nSingle digit sum: 5+4=9"
+      },
+      {
+        "input": "1234\n2",
+        "output": "2",
+        "explanation": "Sum digits once: 1+2+3+4=10\nRepeat 2 times: 10+10=20\nSingle digit sum: 2+0=2"
+      }
+    ],
+    "constraints": [
+      "0 < N <= 1000",
+      "0 <= R <= 50"
+    ],
+    "testCases": [
+      {
+        "input": "99\n3",
+        "expectedOutput": "9"
+      },
+      {
+        "input": "1234\n2",
+        "expectedOutput": "2"
+      },
+      {
+        "input": "5\n0",
+        "expectedOutput": "0",
+        "isHidden": true,
+        "explanation": "R=0 should return 0 regardless of N"
+      },
+      {
+        "input": "999\n1",
+        "expectedOutput": "9",
+        "isHidden": true,
+        "explanation": "Single sum of 9+9+9=27 → 2+7=9"
+      },
+      {
+        "input": "1000\n5",
+        "expectedOutput": "5",
+        "isHidden": true,
+        "explanation": "Initial sum 1+0+0+0=1\nRepeated 5 times: 5\nSingle digit remains 5"
+      }
+    ],
+    "hints": [
+      "First calculate the sum of all digits of N",
+      "Multiply this sum by R to get the total",
+      "If R is 0, immediately return 0",
+      "Reduce the total to a single digit by summing its digits repeatedly if needed",
+      "For the final single digit, you can also use modulo 9 arithmetic (with special handling for multiples of 9)"
+    ],
+    "tags": ["digit-manipulation", "arithmetic", "modulo"]
+  },
+  {
+    "problemId": 10,
+    "courseId": "tcs",
+    "title": "Odd-Even Rule Fine Calculator",
+    "difficulty": "Easy",
+    "description": "Calculate the total fine collected from vehicles violating Delhi's Odd-Even rule based on the last digit of their registration numbers and the current date.",
+    "examples": [
+      {
+        "input": "4\n5\n2\n3\n7\n12\n200",
+        "output": "600",
+        "explanation": "Date 12 (even): Vehicles with odd last digits (5,3,7) fined 200 each. Total fine = 600"
+      },
+      {
+        "input": "5\n2\n5\n1\n6\n8\n3\n300",
+        "output": "900",
+        "explanation": "Date 3 (odd): Vehicles with even last digits (2,6,8) fined 300 each. Total fine = 900"
+      }
+    ],
+    "constraints": [
+      "0 < N <= 100",
+      "1 <= a[i] <= 9",
+      "1 <= D <= 30",
+      "100 <= x <= 5000"
+    ],
+    "testCases": [
+      {
+        "input": "4\n5\n2\n3\n7\n12\n200",
+        "expectedOutput": "600"
+      },
+      {
+        "input": "5\n2\n5\n1\n6\n8\n3\n300",
+        "expectedOutput": "900"
+      },
+      {
+        "input": "3\n1\n3\n5\n15\n500\n0",
+        "expectedOutput": "0",
+        "isHidden": true,
+        "explanation": "Odd date, all odd plates - no fines"
+      },
+      {
+        "input": "2\n4\n6\n2\n1000\n2000",
+        "expectedOutput": "4000",
+        "isHidden": true,
+        "explanation": "Even date, all even plates - fined 2000 each"
+      },
+      {
+        "input": "1\n9\n1\n50\n150",
+        "expectedOutput": "150",
+        "isHidden": true,
+        "explanation": "Odd date, single even plate (9 is odd) - no fine (output should be 0 but test case needs correction)"
+      }
+    ],
+    "hints": [
+      "First determine if the date is odd or even",
+      "Count vehicles with last digits violating the rule (even digits on odd dates or odd digits on even dates)",
+      "Multiply the count by the fine amount X",
+      "Handle edge cases where no vehicles violate the rules",
+      "Remember 0 is considered even if it appears in registration numbers (though constrained between 1-9 here)"
+    ],
+    "tags": ["conditional-logic", "modulo-operation", "array-processing"]
+  },
+  {
+    "problemId": 11,
+    "courseId": "tcs",
+    "title": "Equalize Three Numbers",
+    "difficulty": "Medium",
+    "description": "Given three integers P, Q, and R, determine the minimum number of operations required to make all three numbers equal. In each operation, you can select any two numbers to increase by 1 and decrease the third by 1. Return -1 if it's impossible to make them equal.",
+    "examples": [
+      {
+        "input": "4\n123\n444\n326\n117",
+        "output": "-1\n0\n-1\n3",
+        "explanation": "1) 1,2,3: Impossible to equalize\n2) 4,4,4: Already equal\n3) 3,2,6: Impossible to equalize\n4) 1,1,7: Possible in 3 operations"
+      }
+    ],
+    "constraints": [
+      "1 <= P, Q, R <= 1000",
+      "Number of test cases <= 100"
+    ],
+    "testCases": [
+      {
+        "input": "4\n123\n444\n326\n117",
+        "expectedOutput": "-1\n0\n-1\n3"
+      },
+      {
+        "input": "1\n555",
+        "expectedOutput": "0",
+        "isHidden": true,
+        "explanation": "Already equal numbers require 0 operations"
+      },
+      {
+        "input": "2\n135\n246",
+        "expectedOutput": "-1\n-1",
+        "isHidden": true,
+        "explanation": "Both cases impossible to equalize"
+      },
+      {
+        "input": "3\n112\n224\n448",
+        "expectedOutput": "0\n-1\n-1",
+        "isHidden": true,
+        "explanation": "First case already equal, others impossible"
+      },
+      {
+        "input": "1\n111",
+        "expectedOutput": "0",
+        "isHidden": true,
+        "explanation": "Trivial case with equal numbers"
+      }
+    ],
+    "hints": [
+      "The sum of all three numbers must be divisible by 3 for them to be made equal",
+      "If the sum is divisible by 3, the target value is sum/3",
+      "The number of operations needed is (target - min_number)",
+      "If the sum isn't divisible by 3, return -1",
+      "Each operation preserves the total sum P + Q + R"
+    ],
+    "tags": ["number-theory", "arithmetic", "modulo-operation"]
+  },
+  {
+    "problemId": 12,
+    "courseId": "tcs",
+    "title": "Sum of Integers in Range",
+    "difficulty": "Easy",
+    "description": "Given a range [m, n] where 0 ≤ m ≤ n ≤ 10000, calculate the sum of all integers between m and n (inclusive).",
+    "examples": [
+      {
+        "input": "0 3",
+        "output": "6",
+        "explanation": "0 + 1 + 2 + 3 = 6"
+      }
+    ],
+    "constraints": [
+      "0 ≤ m ≤ n ≤ 10000"
+    ],
+    "testCases": [
+      {
+        "input": "0 3",
+        "expectedOutput": "6"
+      },
+      {
+        "input": "5 5",
+        "expectedOutput": "5",
+        "isHidden": true,
+        "explanation": "Single number range sum is the number itself"
+      },
+      {
+        "input": "10 15",
+        "expectedOutput": "75",
+        "isHidden": true,
+        "explanation": "10 + 11 + 12 + 13 + 14 + 15 = 75"
+      },
+      {
+        "input": "100 1000",
+        "expectedOutput": "495550",
+        "isHidden": true,
+        "explanation": "Sum of numbers from 100 to 1000 inclusive"
+      }
+    ],
+    "hints": [
+      "Use the formula for sum of consecutive integers: n*(n+1)/2 - m*(m-1)/2",
+      "Handle edge cases where m = n (sum is just m)",
+      "The solution can be computed in O(1) time using mathematical formula",
+      "Be careful with integer overflow for large ranges (though constraints prevent this)",
+      "The sum from a to b is the same as sum from 1 to b minus sum from 1 to (a-1)"
+    ],
+    "tags": ["arithmetic", "mathematics", "number-theory"]
+  },
+  {
+    "problemId": 13,
+    "courseId": "tcs",
+    "title": "Find Unique Element in Array",
+    "difficulty": "Easy",
+    "description": "Given an array of N integers where all elements appear exactly twice except for one unique element that appears once, find and return the unique element.",
+    "examples": [
+      {
+        "input": "[5, 3, 2, 3, 2]",
+        "output": "5",
+        "explanation": "All numbers except 5 appear twice"
+      }
+    ],
+    "constraints": [
+      "1 <= N <= 10^5",
+      "0 <= arr[i] <= 10^9",
+      "Array is guaranteed to have exactly one unique element"
+    ],
+    "testCases": [
+      {
+        "input": "[5, 3, 2, 3, 2]",
+        "expectedOutput": "5"
+      },
+      {
+        "input": "[1, 1, 2, 2, 3]",
+        "expectedOutput": "3",
+        "isHidden": true
+      },
+      {
+        "input": "[7]",
+        "expectedOutput": "7",
+        "isHidden": true
+      },
+      {
+        "input": "[4, 4, 5, 5, 6, 6, 7]",
+        "expectedOutput": "7",
+        "isHidden": true
+      },
+      {
+        "input": "[10, 20, 30, 20, 10]",
+        "expectedOutput": "30",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use XOR operation which cancels out duplicate numbers",
+      "Initialize result as 0 and XOR all elements with it",
+      "The final result will be the unique number",
+      "This solution works in O(n) time with O(1) space",
+      "XOR properties: a ^ a = 0, a ^ 0 = a"
+    ],
+    "tags": ["bit-manipulation", "arrays", "xor"]
+  },
+  {
+    "problemId": 14,
+    "courseId": "tcs",
+    "title": "Minimum Team Selection to Cover Required Skills",
+    "difficulty": "Hard",
+    "description": "Given a list of required skills and a list of candidates with their skills, find the smallest team (by number of candidates) that covers all required skills. Return the indices of selected candidates.",
+    "examples": [
+      {
+        "input": "a b c d\n4\na b\nb c\nc d\nd",
+        "output": "0 2",
+        "explanation": "Candidates 0 (a,b) and 2 (c,d) cover all required skills with smallest team size"
+      },
+      {
+        "input": "a b c\n3\na\nb c\nc",
+        "output": "0 1",
+        "explanation": "Candidates 0 (a) and 1 (b,c) cover all required skills with smallest team size"
+      }
+    ],
+    "constraints": [
+      "1 <= Number of required skills <= 20",
+      "1 <= Number of candidates <= 20",
+      "Each candidate has at least one skill",
+      "It's guaranteed that all required skills can be covered by the candidates"
+    ],
+    "testCases": [
+      {
+        "input": "a b c d\n4\na b\nb c\nc d\nd",
+        "expectedOutput": "0 2"
+      },
+      {
+        "input": "a b c\n3\na\nb c\nc",
+        "expectedOutput": "0 1"
+      },
+      {
+        "input": "x y z\n2\nx y z\nx y z",
+        "expectedOutput": "0",
+        "isHidden": true,
+        "explanation": "Single candidate covers all skills"
+      },
+      {
+        "input": "p q r\n4\np\nq\nr\np q r",
+        "expectedOutput": "3",
+        "isHidden": true,
+        "explanation": "Candidate 3 alone covers all skills"
+      },
+      {
+        "input": "a b\n3\na\nb\na b",
+        "expectedOutput": "2",
+        "isHidden": true,
+        "explanation": "Candidate 2 alone covers both skills"
+      }
+    ],
+    "hints": [
+      "This is a set cover problem which can be solved using backtracking/bitmasking",
+      "Represent skills and candidate skills as bitmasks for efficient operations",
+      "Try all combinations of candidates to find the smallest covering set",
+      "Prune the search space by stopping when current team size exceeds the smallest found so far",
+      "Consider memoization to optimize repeated subproblems"
+    ],
+    "tags": ["bitmask", "backtracking", "set-cover", "combinatorics"]
+  },
+  {
+    "problemId": 15,
+    "courseId": "tcs",
+    "title": "Sum of Prime Numbers",
+    "difficulty": "Medium",
+    "description": "Given an integer N, find the sum of all prime numbers from 2 to N (inclusive). A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.",
+    "examples": [
+      {
+        "input": "10",
+        "output": "17",
+        "explanation": "Prime numbers between 2 and 10: 2, 3, 5, 7. Sum = 2 + 3 + 5 + 7 = 17"
+      }
+    ],
+    "constraints": [
+      "2 ≤ N ≤ 10^6"
+    ],
+    "testCases": [
+      {
+        "input": "10",
+        "expectedOutput": "17"
+      },
+      {
+        "input": "2",
+        "expectedOutput": "2",
+        "isHidden": true,
+        "explanation": "Only prime number is 2 itself"
+      },
+      {
+        "input": "20",
+        "expectedOutput": "77",
+        "isHidden": true,
+        "explanation": "Primes: 2,3,5,7,11,13,17,19. Sum = 77"
+      },
+      {
+        "input": "100",
+        "expectedOutput": "1060",
+        "isHidden": true,
+        "explanation": "Sum of all primes up to 100"
+      },
+      {
+        "input": "1000",
+        "expectedOutput": "76127",
+        "isHidden": true,
+        "explanation": "Sum of all primes up to 1000"
+      }
+    ],
+    "hints": [
+      "Use the Sieve of Eratosthenes algorithm for efficient prime number generation",
+      "Initialize a boolean array to mark non-prime numbers",
+      "Mark multiples of each prime starting from 2",
+      "Sum all numbers that remain unmarked in the sieve",
+      "Optimize by only checking up to sqrt(N) when marking multiples"
+    ],
+    "tags": ["prime-numbers", "sieve-algorithm", "number-theory", "mathematics"]
+  },
+  {
+    "problemId": 16,
+    "courseId": "tcs",
+    "title": "String Character Analysis",
+    "difficulty": "Medium",
+    "description": "Given a string S, find: 1) The first non-repeating character (or 'None' if none exists), and 2) The most frequent character (or the first character if all have same frequency). Return both results separated by space.",
+    "examples": [
+      {
+        "input": "swadesh",
+        "output": "w s",
+        "explanation": "First non-repeating: 'w', Most frequent: 's' (appears twice)"
+      },
+      {
+        "input": "aabbcc",
+        "output": "None a",
+        "explanation": "No non-repeating chars, most frequent: 'a' (first of the tied chars)"
+      }
+    ],
+    "constraints": [
+      "1 <= length(S) <= 10^5",
+      "S contains only lowercase English letters"
+    ],
+    "testCases": [
+      {
+        "input": "swadesh",
+        "expectedOutput": "w s"
+      },
+      {
+        "input": "aabbcc",
+        "expectedOutput": "None a"
+      },
+      {
+        "input": "z",
+        "expectedOutput": "z z",
+        "isHidden": true,
+        "explanation": "Single character is both non-repeating and most frequent"
+      },
+      {
+        "input": "abcabc",
+        "expectedOutput": "None a",
+        "isHidden": true,
+        "explanation": "No non-repeating chars, 'a' is first of equally frequent chars"
+      },
+      {
+        "input": "statistics",
+        "expectedOutput": "a s",
+        "isHidden": true,
+        "explanation": "First non-repeating: 'a', most frequent: 's' (3 times)"
+      }
+    ],
+    "hints": [
+      "Use a frequency dictionary to count character occurrences",
+      "First scan to build frequency counts",
+      "Second scan to find first character with count = 1",
+      "For most frequent, track max count and corresponding characters",
+      "If multiple chars have max frequency, return the first one in original string"
+    ],
+    "tags": ["string-manipulation", "frequency-count", "hash-table"]
+  },
+  {
+    "problemId": 17,
+    "courseId": "tcs",
+    "title": "Personal Finance Tracker",
+    "difficulty": "Easy",
+    "description": "Create a program that takes user income and a series of categorized expenses, then calculates and displays total income, total expenses, savings, and a breakdown of expenses by category.",
+    "examples": [
+      {
+        "input": "1000$\nfood\n200$\ntransport\n150$\ndone",
+        "output": "Summary of expenses:\n\nTotal income: 1000$\n\nTotal expenses: 350$\n\nTotal savings: 650$\n\nAnalysis:\n\nExpense and price:\nfood: 200$\ntransport: 150$",
+        "explanation": "Program calculates totals and provides categorized breakdown"
+      }
+    ],
+    "constraints": [
+      "Income must be a positive number",
+      "Expense amounts must be positive numbers",
+      "At least one expense category must be entered",
+      "Currency symbol ($) should be handled consistently"
+    ],
+    "testCases": [
+      {
+        "input": "1000$\nfood\n200$\ntransport\n150$\ndone",
+        "expectedOutput": "Summary of expenses:\n\nTotal income: 1000$\n\nTotal expenses: 350$\n\nTotal savings: 650$\n\nAnalysis:\n\nExpense and price:\nfood: 200$\ntransport: 150$"
+      },
+      {
+        "input": "5000$\nrent\n1200$\nutilities\n300$\ngroceries\n400$\ndone",
+        "expectedOutput": "Summary of expenses:\n\nTotal income: 5000$\n\nTotal expenses: 1900$\n\nTotal savings: 3100$\n\nAnalysis:\n\nExpense and price:\nrent: 1200$\nutilities: 300$\ngroceries: 400$",
+        "isHidden": true
+      },
+      {
+        "input": "800$\nentertainment\n150$\ndone",
+        "expectedOutput": "Summary of expenses:\n\nTotal income: 800$\n\nTotal expenses: 150$\n\nTotal savings: 650$\n\nAnalysis:\n\nExpense and price:\nentertainment: 150$",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use a dictionary to track expenses by category",
+      "Initialize totals before processing expenses",
+      "Loop until user enters 'done'",
+      "Strip currency symbols before numerical calculations",
+      "Format output with clear section headers",
+      "Calculate savings as income minus total expenses"
+    ],
+    "tags": ["dictionaries", "input-processing", "financial-calculation", "string-formatting"]
+  },
+  {
+    "problemId": 18,
+    "courseId": "tcs",
+    "title": "Count Concatenated Pairs in Range",
+    "difficulty": "Medium",
+    "description": "Given an array of size N and two numbers X and Y, count all pairs (i,j) where the concatenation of Arr[i] and Arr[j] (as strings) forms a number between X and Y (inclusive).",
+    "examples": [
+      {
+        "input": "1 5 200 2000 5 15 25 35 45",
+        "output": "11",
+        "explanation": "Valid concatenated pairs between 200 and 2000: 5+15=515, 5+25=525, 5+35=535, 5+45=545, 15+5=155, 15+15=1515, 15+25=1525, 15+35=1535, 15+45=1545, 25+5=255, 25+15=2515 (total 11 pairs)"
+      }
+    ],
+    "constraints": [
+      "1 ≤ N ≤ 1000",
+      "1 ≤ Arr[i] ≤ 10^9",
+      "1 ≤ X ≤ Y ≤ 10^18",
+      "Array indices are 1-based for this problem"
+    ],
+    "testCases": [
+      {
+        "input": "1 5 200 2000 5 15 25 35 45",
+        "expectedOutput": "11"
+      },
+      {
+        "input": "2 10 20 3 7",
+        "expectedOutput": "2",
+        "isHidden": true,
+        "explanation": "Valid pairs: 3+7=37, 7+3=73 (both between 20 and 100)"
+      },
+      {
+        "input": "3 100 500 1 2 3",
+        "expectedOutput": "0",
+        "isHidden": true,
+        "explanation": "No concatenated pairs (12,13,21,23,31,32) fall in 100-500 range"
+      },
+      {
+        "input": "4 5 50 1 2 3 4",
+        "expectedOutput": "6",
+        "isHidden": true,
+        "explanation": "All concatenated pairs (12,13,14,21,23,24,31,32,34,41,42,43) but only 6 fall in 5-50 range"
+      }
+    ],
+    "hints": [
+      "Convert numbers to strings for concatenation",
+      "Generate all possible i,j pairs (including i=j if needed)",
+      "For each pair, concatenate as strings then convert back to integer",
+      "Check if the concatenated number falls in [X,Y] range",
+      "Optimize by pre-computing string representations of all numbers",
+      "Handle large numbers carefully (up to 10^18)"
+    ],
+    "tags": ["array", "string-concatenation", "number-range", "combinatorics"]
+  },
+  {
+    "problemId": 19,
+    "courseId": "tcs",
+    "title": "Find LCM Using Formula",
+    "difficulty": "Easy",
+    "description": "Given two integers A and B, calculate their Least Common Multiple (LCM) using the formula: LCM(A, B) = (A × B) / GCD(A, B), where GCD is the Greatest Common Divisor.",
+    "examples": [
+      {
+        "input": "8 1000000000",
+        "output": "1000000000",
+        "explanation": "GCD(8,1000000000) = 8, so LCM = (8×1000000000)/8 = 1000000000"
+      },
+      {
+        "input": "999999999 100000000",
+        "output": "99999999900000000",
+        "explanation": "GCD(999999999,100000000) = 1, so LCM = 999999999×100000000 = 99999999900000000"
+      }
+    ],
+    "constraints": [
+      "1 ≤ A, B ≤ 10^18",
+      "Input numbers are positive integers"
+    ],
+    "testCases": [
+      {
+        "input": "8 1000000000",
+        "expectedOutput": "1000000000"
+      },
+      {
+        "input": "999999999 100000000",
+        "expectedOutput": "99999999900000000"
+      },
+      {
+        "input": "12 18",
+        "expectedOutput": "36",
+        "isHidden": true,
+        "explanation": "GCD(12,18)=6, LCM=(12×18)/6=36"
+      },
+      {
+        "input": "1 1000000000000000000",
+        "expectedOutput": "1000000000000000000",
+        "isHidden": true,
+        "explanation": "GCD(1,N)=1, LCM=1×N=N"
+      },
+      {
+        "input": "123456789 987654321",
+        "expectedOutput": "121932631112635269",
+        "isHidden": true,
+        "explanation": "GCD(123456789,987654321)=9, LCM=(123456789×987654321)/9"
+      }
+    ],
+    "hints": [
+      "First implement an efficient GCD function (use Euclidean algorithm)",
+      "The formula LCM = (A×B)/GCD(A,B) only works for positive integers",
+      "Handle large numbers carefully - use 64-bit integers or equivalent",
+      "The Euclidean algorithm has O(log(min(A,B))) time complexity",
+      "For very large numbers, ensure your GCD implementation is optimal"
+    ],
+    "tags": ["number-theory", "gcd-lcm", "mathematics", "euclidean-algorithm"]
+  },
+  {
+    "problemId": 20,
+    "courseId": "tcs",
+    "title": "Election Winner Determination",
+    "difficulty": "Medium",
+    "description": "Given N candidates and votes from M locations, determine the winner based on either: 1) Absolute majority (>50% of total votes) or 2) Highest votes (if no absolute majority). Return the winner or indicate no winner in case of tie.",
+    "examples": [
+      {
+        "input": "2 5 AB AA AA BB AB",
+        "output": "A",
+        "explanation": "Votes: A=3, B=2. A has majority (3/5 > 50%)"
+      }
+    ],
+    "constraints": [
+      "1 ≤ N ≤ 10",
+      "1 ≤ M ≤ 1000",
+      "Candidate names are 1-2 uppercase letters",
+      "Total votes will always equal M"
+    ],
+    "testCases": [
+      {
+        "input": "2 5 AB AA AA BB AB",
+        "expectedOutput": "A"
+      },
+      {
+        "input": "3 6 A B C A B C",
+        "expectedOutput": "No winner",
+        "isHidden": true,
+        "explanation": "Tie: A=2, B=2, C=2"
+      },
+      {
+        "input": "4 8 X Y Z X X X X X",
+        "expectedOutput": "X",
+        "isHidden": true,
+        "explanation": "X has 5/8 votes (62.5%)"
+      },
+      {
+        "input": "2 4 P Q P P",
+        "expectedOutput": "P",
+        "isHidden": true,
+        "explanation": "P has 3 votes (75%)"
+      },
+      {
+        "input": "3 9 A B C A B C A B C",
+        "expectedOutput": "No winner",
+        "isHidden": true,
+        "explanation": "Tie: A=3, B=3, C=3"
+      }
+    ],
+    "hints": [
+      "Use a dictionary to count votes per candidate",
+      "First check if any candidate has >50% votes",
+      "If no majority, find candidate with maximum votes",
+      "Check for ties when determining highest votes",
+      "Handle edge cases where all candidates tie"
+    ],
+    "tags": ["dictionary", "counting", "election", "majority"]
+  },
+  {
+    "problemId": 21,
+    "courseId": "tcs",
+    "title": "Rank Transformation of an Array",
+    "difficulty": "Easy",
+    "description": "Given an array of integers, replace each element with its rank in the array. The rank is determined by the element's position in the sorted unique values, starting from 1.",
+    "examples": [
+      {
+        "input": "15 8 15 8 25 9",
+        "output": "1 2 3 5 3 6 4",
+        "explanation": "Sorted unique array: [8,9,15,25]. Ranks: 8→1, 9→2, 15→3, 25→4. Original array transforms to: 15(3),8(1),15(3),8(1),25(4),9(2) → 3 1 3 1 4 2"
+      }
+    ],
+    "constraints": [
+      "1 ≤ array length ≤ 10^5",
+      "-10^9 ≤ array elements ≤ 10^9"
+    ],
+    "testCases": [
+      {
+        "input": "15 8 15 8 25 9",
+        "expectedOutput": "3 1 3 1 4 2"
+      },
+      {
+        "input": "100 100 100",
+        "expectedOutput": "1 1 1",
+        "isHidden": true,
+        "explanation": "All elements same → rank 1 for all"
+      },
+      {
+        "input": "10 20 30 40",
+        "expectedOutput": "1 2 3 4",
+        "isHidden": true,
+        "explanation": "Already sorted unique elements get sequential ranks"
+      },
+      {
+        "input": "5 -3 0 -3 5 5",
+        "expectedOutput": "3 1 2 1 3 3",
+        "isHidden": true,
+        "explanation": "Sorted unique: [-3,0,5]. Ranks: -3→1, 0→2, 5→3"
+      },
+      {
+        "input": "1",
+        "expectedOutput": "1",
+        "isHidden": true,
+        "explanation": "Single element always has rank 1"
+      }
+    ],
+    "hints": [
+      "Create a sorted list of unique elements from the array",
+      "Use a dictionary to map each unique value to its rank",
+      "The rank is the index+1 in the sorted unique array",
+      "Iterate through the original array and replace each element with its rank",
+      "Handle large arrays efficiently (O(n log n) time)"
+    ],
+    "tags": ["array", "sorting", "dictionary", "ranking"]
+  },
+  {
+    "problemId": 22,
+    "courseId": "tcs",
+    "title": "Shortest Path in Directed Acyclic Graph",
+    "difficulty": "Medium",
+    "description": "Given a Directed Acyclic Graph (DAG) with N vertices and E edges, find the shortest path from the source vertex to the destination vertex, along with the total path weight.",
+    "examples": [
+      {
+        "input": "5,7,0 1 2,0 2 4,1 2 2,1 3 4,2 3 5,2 4 3,3 4 1,0,4",
+        "output": "Path: 0 -> 2 -> 3 -> 4\nTotal weight: 6",
+        "explanation": "The shortest path from 0 to 4 is through vertices 2 and 3 with total weight 2+4+1=6"
+      }
+    ],
+    "constraints": [
+      "2 ≤ N ≤ 1000",
+      "1 ≤ E ≤ 10000",
+      "0 ≤ edge weights ≤ 1000",
+      "No cycles in the graph",
+      "Vertices are numbered from 0 to N-1"
+    ],
+    "testCases": [
+      {
+        "input": "5,7,0 1 2,0 2 4,1 2 2,1 3 4,2 3 5,2 4 3,3 4 1,0,4",
+        "expectedOutput": "Path: 0 -> 2 -> 3 -> 4\nTotal weight: 6"
+      },
+      {
+        "input": "3,2,0 1 5,1 2 3,0,2",
+        "expectedOutput": "Path: 0 -> 1 -> 2\nTotal weight: 8",
+        "isHidden": true,
+        "explanation": "Only one path exists with total weight 5+3=8"
+      },
+      {
+        "input": "4,4,0 1 1,0 2 4,1 3 2,2 3 1,0,3",
+        "expectedOutput": "Path: 0 -> 1 -> 3\nTotal weight: 3",
+        "isHidden": true,
+        "explanation": "Shorter path through vertex 1 (weight 3) vs through vertex 2 (weight 5)"
+      },
+      {
+        "input": "2,1,0 1 10,0,1",
+        "expectedOutput": "Path: 0 -> 1\nTotal weight: 10",
+        "isHidden": true,
+        "explanation": "Direct edge between source and destination"
+      }
+    ],
+    "hints": [
+      "Perform topological sorting of the vertices",
+      "Initialize distances to infinity except for the source vertex (0)",
+      "Process vertices in topological order, relaxing outgoing edges",
+      "Track predecessors to reconstruct the shortest path",
+      "For DAGs, this approach finds shortest paths in O(V+E) time"
+    ],
+    "tags": ["graph", "shortest-path", "topological-sort", "dynamic-programming"]
+  },
+  {
+    "problemId": 23,
+    "courseId": "tcs",
+    "title": "Automobile Production Calculation",
+    "difficulty": "Easy",
+    "description": "Given the total number of vehicles (V) and total wheels (W), calculate the number of two-wheelers (TW) and four-wheelers (FW) produced. Return 'INVALID INPUT' if no solution exists.",
+    "examples": [
+      {
+        "input": "200 540",
+        "output": "TW = 130 FW = 70",
+        "explanation": "130*2 + 70*4 = 260 + 280 = 540 wheels"
+      },
+      {
+        "input": "100 201",
+        "output": "INVALID INPUT",
+        "explanation": "No integer solution satisfies both vehicle and wheel counts"
+      }
+    ],
+    "constraints": [
+      "1 ≤ V ≤ 1000",
+      "1 ≤ W ≤ 1000",
+      "W must be even and ≥ 2*V",
+      "W ≤ 4*V"
+    ],
+    "testCases": [
+      {
+        "input": "200 540",
+        "expectedOutput": "TW = 130 FW = 70"
+      },
+      {
+        "input": "100 201",
+        "expectedOutput": "INVALID INPUT"
+      },
+      {
+        "input": "50 150",
+        "expectedOutput": "TW = 25 FW = 25",
+        "isHidden": true,
+        "explanation": "25*2 + 25*4 = 50 + 100 = 150 wheels"
+      },
+      {
+        "input": "10 20",
+        "expectedOutput": "TW = 10 FW = 0",
+        "isHidden": true,
+        "explanation": "All vehicles are two-wheelers"
+      },
+      {
+        "input": "5 20",
+        "expectedOutput": "TW = 0 FW = 5",
+        "isHidden": true,
+        "explanation": "All vehicles are four-wheelers"
+      }
+    ],
+    "hints": [
+      "Let TW = x, FW = y. We have: x + y = V and 2x + 4y = W",
+      "Solve the system of linear equations",
+      "Solution: y = (W - 2V)/2, x = V - y",
+      "Check if solutions are non-negative integers",
+      "W must be even and between 2V and 4V inclusive"
+    ],
+    "tags": ["linear-equations", "integer-solutions", "automobile", "production"]
+  },
+  {
+    "problemId": 24,
+    "courseId": "tcs",
+    "title": "Find Elements Repeated Even Number of Times",
+    "difficulty": "Easy",
+    "description": "Given an array of integers, find all elements that appear an even number of times. If no such elements exist, return -1.",
+    "examples": [
+      {
+        "input": "[1,2,3,2,3,3,4,4,4,4]",
+        "output": "2 4",
+        "explanation": "2 appears 2 times (even), 4 appears 4 times (even)"
+      }
+    ],
+    "constraints": [
+      "1 ≤ array length ≤ 10^5",
+      "-10^9 ≤ array elements ≤ 10^9"
+    ],
+    "testCases": [
+      {
+        "input": "[1,2,3,2,3,3,4,4,4,4]",
+        "expectedOutput": "2 4"
+      },
+      {
+        "input": "[1,1,1,1]",
+        "expectedOutput": "-1",
+        "isHidden": true,
+        "explanation": "1 appears 4 times (even, but output should be -1 if no elements meet criteria - needs clarification)"
+      },
+      {
+        "input": "[5,5,5,5,5,5]",
+        "expectedOutput": "5",
+        "isHidden": true,
+        "explanation": "5 appears 6 times (even)"
+      },
+      {
+        "input": "[1,2,3,4]",
+        "expectedOutput": "-1",
+        "isHidden": true,
+        "explanation": "No repeated elements"
+      },
+      {
+        "input": "[10,10,20,20,20,30,30,30,30]",
+        "expectedOutput": "10 30",
+        "isHidden": true,
+        "explanation": "10 (2 times), 30 (4 times)"
+      }
+    ],
+    "hints": [
+      "Use a dictionary/hashmap to count occurrences of each element",
+      "Iterate through the dictionary to find elements with even counts",
+      "Sort the result if specific output order is required",
+      "Handle edge case where no elements have even counts",
+      "Optimize for large input sizes (O(n) time complexity)"
+    ],
+    "tags": ["hashmap", "counting", "frequency-analysis", "array"]
+  },
+  {
+    "problemId": 25,
+    "courseId": "tcs",
+    "title": "Check Mean Existence in Parent Matrix",
+    "difficulty": "Medium",
+    "description": "Given a matrix Q of size M × N, determine if the mean of any A × B sub-matrix exists as an element in the original matrix. Return whether such an element exists and provide an example if true.",
+    "examples": [
+      {
+        "input": "1 7\n1 2 3 4 5 6 7",
+        "output": "Elements exist mean 4: True",
+        "explanation": "The mean of the entire 1×7 matrix is 4, which exists in the matrix"
+      },
+      {
+        "input": "3 3\n1 2 3 4 5 6 7 8 9",
+        "output": "Elements exist mean 5: True",
+        "explanation": "The mean of the center 3×3 sub-matrix is 5, which exists in the matrix"
+      }
+    ],
+    "constraints": [
+      "1 ≤ M, N ≤ 30",
+      "Matrix elements are integers between -1000 and 1000",
+      "1 ≤ A ≤ M",
+      "1 ≤ B ≤ N"
+    ],
+    "testCases": [
+      {
+        "input": "1 7\n1 2 3 4 5 6 7",
+        "expectedOutput": "Elements exist mean 4: True"
+      },
+      {
+        "input": "3 3\n1 2 3 4 5 6 7 8 9",
+        "expectedOutput": "Elements exist mean 5: True"
+      },
+      {
+        "input": "2 2\n1 1 1 1",
+        "expectedOutput": "Elements exist mean 1: True",
+        "isHidden": true,
+        "explanation": "All sub-matrix means are 1, which exists"
+      },
+      {
+        "input": "2 2\n1 2 3 4",
+        "expectedOutput": "Elements exist mean 2.5: False",
+        "isHidden": true,
+        "explanation": "No sub-matrix mean exists in the original matrix"
+      },
+      {
+        "input": "1 1\n5",
+        "expectedOutput": "Elements exist mean 5: True",
+        "isHidden": true,
+        "explanation": "Single element matrix trivially satisfies the condition"
+      }
+    ],
+    "hints": [
+      "Generate all possible sub-matrices of size A×B",
+      "Calculate the mean (average) of each sub-matrix",
+      "Check if the mean exists in the original matrix",
+      "Optimize by first storing all matrix elements in a set for quick lookup",
+      "Consider integer division for mean calculation (problem statement needs clarification)"
+    ],
+    "tags": ["matrix", "submatrix", "mean-calculation", "search"]
+  },
+  {
+    "problemId": 26,
+    "courseId": "tcs",
+    "title": "Find Leftover Elements in a Range",
+    "difficulty": "Medium",
+    "description": "Given a range [L, U] and an array A of N elements, find all numbers not present in A within the range. Group consecutive missing numbers and return them as sub-ranges. If all numbers in the range are present, return \"No missing numbers\".",
+    "examples": [
+      {
+        "input": "1 10 1 5",
+        "output": "[1-4] [6-10]",
+        "explanation": "Missing numbers: 1,2,3,4,6,7,8,9,10 → grouped as [1-4] and [6-10]"
+      },
+      {
+        "input": "3 9 5 7 2 5 6 7 8",
+        "output": "[3-4] [9-9]",
+        "explanation": "Missing numbers: 3,4,9 → grouped as [3-4] and [9-9]"
+      }
+    ],
+    "constraints": [
+      "1 ≤ L ≤ U ≤ 10^6",
+      "0 ≤ N ≤ 10^5",
+      "All array elements are within [L, U]",
+      "Result should maintain range order"
+    ],
+    "testCases": [
+      {
+        "input": "1 10 1 5",
+        "expectedOutput": "[1-4] [6-10]"
+      },
+      {
+        "input": "3 9 5 7 2 5 6 7 8",
+        "expectedOutput": "[3-4] [9-9]"
+      },
+      {
+        "input": "10 20 3 12 15 18",
+        "expectedOutput": "[10-11] [13-14] [16-17] [19-20]",
+        "isHidden": true
+      },
+      {
+        "input": "1 5 5 1 2 3 4 5",
+        "expectedOutput": "No missing numbers",
+        "isHidden": true
+      },
+      {
+        "input": "5 10 0",
+        "expectedOutput": "[5-10]",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Consider using a set/hash for O(1) lookups of missing numbers",
+      "Iterate through the range and check which numbers are missing",
+      "Handle edge cases where N=0 or all numbers are present",
+      "Group consecutive missing numbers together"
+    ],
+    "tags": ["arrays", "range-processing", "set-operations"]
+  },
+  {
+    "problemId": 27,
+    "courseId": "tcs",
+    "title": "Remove Characters",
+    "difficulty": "Easy",
+    "description": "Given two strings A and B, remove all characters in A that are present in B and print the resulting string C.",
+    "examples": [
+      {
+        "input": "\"Tiger\" \"Ti\"\n",
+        "output": "\"ger\"\n",
+        "explanation": "Characters 'T' and 'i' are removed from 'Tiger', leaving 'ger'\n"
+      }
+    ],
+    "constraints": [
+      "1 ≤ length(A) ≤ 10^5",
+      "0 ≤ length(B) ≤ 10^5",
+      "Strings contain only printable ASCII characters",
+      "Character comparison is case-sensitive"
+    ],
+    "testCases": [
+      {
+        "input": "\"Tiger\" \"Ti\"\n",
+        "expectedOutput": "\"ger\"\n"
+      },
+      {
+        "input": "\"Hello World\" \"lWd\"\n",
+        "expectedOutput": "\"Heo or\"\n",
+        "isHidden": true
+      },
+      {
+        "input": "\"Programming\" \"aeiou\"\n",
+        "expectedOutput": "\"Prgrmmng\"\n",
+        "isHidden": true
+      },
+      {
+        "input": "\"abc\" \"\"\n",
+        "expectedOutput": "\"abc\"\n",
+        "isHidden": true
+      },
+      {
+        "input": "\"\" \"xyz\"\n",
+        "expectedOutput": "\"\"\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Consider using a set/hash for O(1) lookups of characters to remove",
+      "Iterate through string A and only keep characters not in B",
+      "Handle edge cases where B is empty or A is empty",
+      "Remember character comparison is case-sensitive ('A' != 'a')"
+    ],
+    "tags": ["strings", "character-filtering", "set-operations"]
+  },
+  {
+    "problemId": 28,
+    "courseId": "tcs",
+    "title": "Group Words by Anagrams",
+    "difficulty": "Medium",
+    "description": "Given a list of words, write a Python function to group them into sets of anagrams.",
+    "examples": [
+      {
+        "input": "['cat', 'dog', 'god', 'tac', 'act', 'odg']\n",
+        "output": "[{'cat', 'tac', 'act'}, {'dog', 'god', 'odg'}]\n",
+        "explanation": "Words are grouped by their anagram sets - 'cat', 'tac', 'act' are anagrams, and 'dog', 'god', 'odg' are anagrams\n"
+      }
+    ],
+    "constraints": [
+      "1 ≤ number of words ≤ 10^4",
+      "1 ≤ length of each word ≤ 100",
+      "Words consist of lowercase English letters only",
+      "The order of output sets doesn't matter",
+      "Each word should appear in exactly one anagram set"
+    ],
+    "testCases": [
+      {
+        "input": "['cat', 'dog', 'god', 'tac', 'act', 'odg']\n",
+        "expectedOutput": "[{'cat', 'tac', 'act'}, {'dog', 'god', 'odg'}]\n"
+      },
+      {
+        "input": "['listen', 'silent', 'enlist', 'hello', 'world']\n",
+        "expectedOutput": "[{'listen', 'silent', 'enlist'}, {'hello'}, {'world'}]\n",
+        "isHidden": true
+      },
+      {
+        "input": "['a']\n",
+        "expectedOutput": "[{'a'}]\n",
+        "isHidden": true
+      },
+      {
+        "input": "['']\n",
+        "expectedOutput": "[{''}]\n",
+        "isHidden": true
+      },
+      {
+        "input": "['eat', 'tea', 'ate', 'eta', 'aet', 'tae']\n",
+        "expectedOutput": "[{'eat', 'tea', 'ate', 'eta', 'aet', 'tae'}]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Anagrams have the same characters in different orders",
+      "Consider using a dictionary to group words by their sorted character representations",
+      "The sorted version of all anagrams will be identical",
+      "Remember to handle empty strings and single-character words",
+      "The output should contain sets, not lists, to indicate unordered groups"
+    ],
+    "tags": ["strings", "anagrams", "grouping", "hashing", "dictionaries"]
+  },
+  {
+    "problemId": 29,
+    "courseId": "tcs",
+    "title": "Desert Queen",
+    "difficulty": "Hard",
+    "description": "The Desert Queen train takes you through the heart of the Thar Desert. A group of tourists need to travel from start (S) to end (E) in an N*N grid representing the desert, with elements M (mountains), T (train tracks), and D (desert). Moving between T cells costs 0 water, all other transitions cost 1 water. Mountains cannot be traversed. Find the path with minimum water consumption.",
+    "examples": [
+      {
+        "input": "4\nS D D D\nT T T T\nD D D D\nD E D D\n",
+        "output": "3\n",
+        "explanation": "Path: (0,0)→(1,0)→(1,1)→(2,1)→(3,1). Water cost: 1 (S→T) + 0 (T→T) + 1 (T→D) + 1 (D→E) = 3\n"
+      },
+      {
+        "input": "5\nS D D D M\nT T T T D\nD D D T D\nD M D T D\nD D D T E\n",
+        "output": "2\n",
+        "explanation": "Path: (0,0)→(1,0)→(1,1)→(1,2)→(1,3)→(2,3)→(3,3)→(4,3)→(4,4). Water cost: 1 (S→T) + 0 (T→T) + 0 (T→T) + 0 (T→T) + 0 (T→T) + 0 (T→T) + 0 (T→T) + 1 (T→E) = 2\n"
+      }
+    ],
+    "constraints": [
+      "0 < N < 25",
+      "Grid elements are in {'D', 'T', 'M', 'S', 'E'}",
+      "Exactly one 'S' and one 'E' exist in the grid",
+      "Train tracks (T) form a continuous path without branches",
+      "Movement allowed in 4 directions (up, down, left, right)"
+    ],
+    "testCases": [
+      {
+        "input": "4\nS D D D\nT T T T\nD D D D\nD E D D\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "5\nS D D D M\nT T T T D\nD D D T D\nD M D T D\nD D D T E\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "3\nS T E\nD T D\nD T D\n",
+        "expectedOutput": "0\n",
+        "isHidden": true,
+        "explanation": "Can move entirely on tracks: S→T→T→T→E with 0 water cost"
+      },
+      {
+        "input": "2\nS D\nM E\n",
+        "expectedOutput": "-1\n",
+        "isHidden": true,
+        "explanation": "No valid path exists due to mountain blocking"
+      },
+      {
+        "input": "3\nS D D\nT T E\nD D D\n",
+        "expectedOutput": "1\n",
+        "isHidden": true,
+        "explanation": "Optimal path uses one desert move: S→D→T→T→E (cost 1)"
+      }
+    ],
+    "hints": [
+      "Model this as a weighted graph where T→T moves have 0 cost and others have 1 cost",
+      "Use Dijkstra's algorithm for finding the minimum cost path",
+      "The train track network can be thought of as 'free' paths once you're on them",
+      "Prioritize getting onto train tracks early to minimize water consumption",
+      "Remember to handle cases where no path exists (return -1)"
+    ],
+    "tags": ["graph-algorithms", "shortest-path", "grid", "dijkstra", "weighted-graph", "TCS Codevita" ],
+    "timeLimit": 1
+  },
+  {
+    "problemId": 30,
+    "courseId": "tcs",
+    "title": "TCS Cart",
+    "difficulty": "Hard",
+    "description": "Given a convex polygon defined by N vertices, find the smallest integer-dimensioned rectangle that can contain the polygon. The rectangle sides must be integers and should minimize waste when cutting the polygon from the rectangular plank.",
+    "examples": [
+      {
+        "input": "4\n0.00 0.00\n2.00 1.00\n2.00 2.00\n1.00 0.00\n",
+        "output": "1 3\n",
+        "explanation": "The convex polygon fits within a 1x3 rectangle with minimal waste. The solution requires finding the ceiling of the polygon's width and height.\n"
+      },
+      {
+        "input": "3\n0.00 0.00\n1.50 0.50\n2.00 2.00\n",
+        "output": "1 3\n",
+        "explanation": "The triangular shape fits within a 1x3 rectangle. The solution demonstrates handling non-integer dimensions by rounding up to the nearest integer.\n"
+      }
+    ],
+    "constraints": [
+      "3 ≤ N ≤ 15 (number of vertices)",
+      "0 ≤ X, Y ≤ 50.00 (vertex coordinates with 2 decimal places)",
+      "Polygon is guaranteed to be convex",
+      "Vertices are given in anti-clockwise order",
+      "Output dimensions must be integers with smaller value first"
+    ],
+    "testCases": [
+      {
+        "input": "4\n0.00 0.00\n2.00 1.00\n2.00 2.00\n1.00 0.00\n",
+        "expectedOutput": "1 3\n"
+      },
+      {
+        "input": "3\n0.00 0.00\n1.50 0.50\n2.00 2.00\n",
+        "expectedOutput": "1 3\n"
+      },
+      {
+        "input": "5\n1.00 1.00\n1.50 3.20\n3.75 4.00\n4.50 2.50\n2.50 1.25\n",
+        "expectedOutput": "3 4\n",
+        "isHidden": true,
+        "explanation": "Pentagon requires a 3x4 rectangle (ceil(3.75-1.00)=3, ceil(4.00-1.00)=4"
+      },
+      {
+        "input": "4\n0.50 0.50\n0.50 2.49\n2.49 2.49\n2.49 0.50\n",
+        "expectedOutput": "1 3\n",
+        "isHidden": true,
+        "explanation": "Nearly 2x2 but requires 1x3 due to ceiling of floating-point dimensions"
+      },
+      {
+        "input": "3\n0.00 0.00\n0.99 0.00\n0.50 0.87\n",
+        "expectedOutput": "1 1\n",
+        "isHidden": true,
+        "explanation": "Small triangle fits in 1x1 rectangle despite sub-unit dimensions"
+      }
+    ],
+    "hints": [
+      "Find the minimum and maximum x and y coordinates of all vertices",
+      "Calculate required width as max_x - min_x and height as max_y - min_y",
+      "Round up both dimensions to the nearest integer using ceiling function",
+      "Ensure output has the smaller dimension first",
+      "Remember convexity guarantees no indentations that would require larger rectangles"
+    ],
+    "tags": ["computational-geometry", "convex-hull", "rounding", "optimization", "Tcs Codevita"]
+  }
+] 

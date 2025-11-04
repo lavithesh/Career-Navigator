@@ -1,0 +1,1730 @@
+[
+     {
+        "problemId": 1,
+        "courseId": "capgemini",
+        "title": "String Compression",
+        "difficulty": "Easy",
+        "description": "Given a string with multiple characters that are repeated consecutively, reduce the size of the string by replacing consecutive repeated characters with the character followed by the count of repetitions.",
+        "examples": [
+          {
+            "input": "aabbbbeeeeffggg\n",
+            "output": "a2b4e4f2g3\n"
+          }
+        ],
+        "constraints": [
+          "The input string will contain only lowercase English letters.",
+          "The length of the input string will be between 1 and 1000 characters."
+        ],
+        "testCases": [
+          {
+            "input": "aabbbbeeeeffggg\n",
+            "expectedOutput": "a2b4e4f2g3\n"
+          },
+          {
+            "input": "aaaaa\n",
+            "expectedOutput": "a5\n"
+          },
+          {
+            "input": "abcdefg\n",
+            "expectedOutput": "abcdefg\n"
+          },
+          {
+            "input": "a\n",
+            "expectedOutput": "a\n"
+          },
+          {
+            "input": "aabbccddeeff\n",
+            "expectedOutput": "a2b2c2d2e2f2\n"
+          },
+          {
+            "input": "abbcccdddd\n",
+            "expectedOutput": "ab2c3d4\n"
+          }
+        ],
+        "hints": [
+          "Iterate through the string, keeping track of the current character and its count.",
+          "If the next character is the same as the current character, increment the count.",
+          "If the next character is different, append the current character and its count (if greater than 1) to the result.",
+          "Reset the current character and count for the next character.",
+          "Handle the last character in the string."
+        ],
+        "tags": ["String Compression", "String Manipulation", "Counting"]
+      },
+       {
+        "problemId": 2,
+        "courseId": "capgemini",
+        "title": "Spiral Matrix Traversal",
+        "difficulty": "Medium",
+        "description": "Write a program to traverse a matrix in a spiral format.",
+        "examples": [
+          {
+            "input": "5 4\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16\n17 18 19 20\n",
+            "output": "1 2 3 4 8 12 16 20 19 18 17 13 9 5 6 7 11 15 14 10\n"
+          }
+        ],
+        "constraints": [
+          "1 <= rows, cols <= 100",
+          "The matrix elements are integers."
+        ],
+        "testCases": [
+          {
+            "input": "5 4\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16\n17 18 19 20\n",
+            "expectedOutput": "1 2 3 4 8 12 16 20 19 18 17 13 9 5 6 7 11 15 14 10\n"
+          },
+          {
+            "input": "3 3\n1 2 3\n4 5 6\n7 8 9\n",
+            "expectedOutput": "1 2 3 6 9 8 7 4 5\n"
+          },
+          {
+            "input": "1 1\n1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "2 2\n1 2\n3 4\n",
+            "expectedOutput": "1 2 4 3\n"
+          },
+          {
+            "input": "1 4\n1 2 3 4\n",
+            "expectedOutput": "1 2 3 4\n"
+          },
+          {
+            "input": "4 1\n1\n2\n3\n4\n",
+            "expectedOutput": "1 2 3 4\n"
+          },
+          {
+            "input": "2 3\n1 2 3\n4 5 6\n",
+            "expectedOutput": "1 2 3 6 5 4\n"
+          }
+        ],
+        "hints": [
+          "Initialize four variables: top, bottom, left, and right to represent the boundaries of the matrix.",
+          "Traverse the matrix in a spiral pattern, moving from left to right, top to bottom, right to left, and bottom to top.",
+          "Update the boundaries after each traversal.",
+          "Continue the traversal until all elements are visited.",
+          "Handle the edge cases where the matrix has only one row or one column."
+        ],
+        "tags": ["Spiral Matrix", "Matrix Traversal", "Array"]
+      },
+       {
+        "problemId": 3,
+        "courseId": "capgemini",
+        "title": "Integer Frequency Count",
+        "difficulty": "Easy",
+        "description": "Given an array of integers, print the number of times each integer has occurred in the array.",
+        "examples": [
+          {
+            "input": "10\n1 2 3 3 4 1 4 5 1 2\n",
+            "output": "1 occurs 3 times\n2 occurs 2 times\n3 occurs 2 times\n4 occurs 2 times\n5 occurs 1 times\n"
+          }
+        ],
+        "constraints": [
+          "1 <= array length <= 100",
+          "1 <= array elements <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "10\n1 2 3 3 4 1 4 5 1 2\n",
+            "expectedOutput": "1 occurs 3 times\n2 occurs 2 times\n3 occurs 2 times\n4 occurs 2 times\n5 occurs 1 times\n"
+          },
+          {
+            "input": "5\n1 1 1 1 1\n",
+            "expectedOutput": "1 occurs 5 times\n"
+          },
+          {
+            "input": "5\n1 2 3 4 5\n",
+            "expectedOutput": "1 occurs 1 times\n2 occurs 1 times\n3 occurs 1 times\n4 occurs 1 times\n5 occurs 1 times\n"
+          },
+          {
+            "input": "1\n1\n",
+            "expectedOutput": "1 occurs 1 times\n"
+          },
+          {
+            "input": "6\n1 2 1 2 1 3\n",
+            "expectedOutput": "1 occurs 3 times\n2 occurs 2 times\n3 occurs 1 times\n"
+          },
+          {
+            "input": "7\n1 2 3 1 2 3 1\n",
+            "expectedOutput": "1 occurs 3 times\n2 occurs 2 times\n3 occurs 2 times\n"
+          },
+          {
+            "input": "8\n1 2 3 4 1 2 3 4\n",
+            "expectedOutput": "1 occurs 2 times\n2 occurs 2 times\n3 occurs 2 times\n4 occurs 2 times\n"
+          }
+        ],
+        "hints": [
+          "Use a dictionary or hash map to store the frequency of each integer.",
+          "Iterate through the array and update the frequency count for each integer.",
+          "Iterate through the dictionary and print the frequency of each integer.",
+          "Handle the case where the array is empty."
+        ],
+        "tags": ["Integer Frequency", "Array", "Counting", "Hash Map"]
+      },
+       {
+        "problemId": 4,
+        "courseId": "capgemini",
+        "title": "Evaluate Polynomial",
+        "difficulty": "Easy",
+        "description": "Write a program to evaluate the polynomial expression: a^3 + a^2b + 2a^2b + 2ab^2 + ab^2 + b^3, given the values of a and b.",
+        "examples": [
+          {
+            "input": "2 3\n",
+            "output": "125\n"
+          },
+          {
+            "input": "1 1\n",
+            "output": "8\n"
+          }
+        ],
+        "constraints": [
+          "-10 <= a, b <= 10"
+        ],
+        "testCases": [
+          {
+            "input": "2 3\n",
+            "expectedOutput": "125\n"
+          },
+          {
+            "input": "1 1\n",
+            "expectedOutput": "8\n"
+          },
+          {
+            "input": "0 0\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "-1 1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "1 -1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "2 0\n",
+            "expectedOutput": "8\n"
+          },
+          {
+            "input": "0 2\n",
+            "expectedOutput": "8\n"
+          }
+        ],
+        "hints": [
+          "Simplify the given polynomial expression: a^3 + 3a^2b + 3ab^2 + b^3.",
+          "Recognize that the simplified expression is (a + b)^3.",
+          "Calculate (a + b)^3 and return the result.",
+          "Handle edge cases like a = 0, b = 0."
+        ],
+        "tags": ["Polynomial Evaluation", "Mathematics", "Arithmetic"]
+      },
+       {
+        "problemId": 5,
+        "courseId": "capgemini",
+        "title": "Tyre Count in Dealerships",
+        "difficulty": "Easy",
+        "description": "Given the number of dealerships and the number of cars and bikes in each dealership, calculate the total number of tyres in each dealership. Assume each car has 4 tyres and each bike has 2 tyres.",
+        "examples": [
+          {
+            "input": "3\n4 2\n4 0\n1 2\n",
+            "output": "20\n16\n8\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number of dealerships <= 100",
+          "0 <= number of cars, bikes <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "3\n4 2\n4 0\n1 2\n",
+            "expectedOutput": "20\n16\n8\n"
+          },
+          {
+            "input": "1\n5 5\n",
+            "expectedOutput": "30\n"
+          },
+          {
+            "input": "2\n0 0\n10 10\n",
+            "expectedOutput": "0\n60\n"
+          },
+          {
+            "input": "4\n1 0\n0 1\n2 2\n3 3\n",
+            "expectedOutput": "4\n2\n12\n18\n"
+          },
+          {
+            "input": "1\n100 0\n",
+            "expectedOutput": "400\n"
+          },
+          {
+            "input": "1\n0 100\n",
+            "expectedOutput": "200\n"
+          },
+          {
+            "input": "2\n1 1\n10 10\n",
+            "expectedOutput": "6\n60\n"
+          }
+        ],
+        "hints": [
+          "Read the number of dealerships.",
+          "For each dealership, read the number of cars and bikes.",
+          "Calculate the total number of tyres using the formula: (number of cars * 4) + (number of bikes * 2).",
+          "Print the total number of tyres for each dealership."
+        ],
+        "tags": ["Tyre Count", "Arithmetic", "Loop"]
+      },
+       {
+        "problemId": 6,
+        "courseId": "capgemini",
+        "title": "Find Factors",
+        "difficulty": "Easy",
+        "description": "Write a program to find the factors of a given number. If the input is negative, ignore the sign and find the factors. If the input is zero, print 'No Factors'.",
+        "examples": [
+          {
+            "input": "54\n",
+            "output": "1, 2, 3, 6, 9, 18, 27, 54\n"
+          }
+        ],
+        "constraints": [
+          "-1000 <= input number <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "54\n",
+            "expectedOutput": "1, 2, 3, 6, 9, 18, 27, 54\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "No Factors\n"
+          },
+          {
+            "input": "-12\n",
+            "expectedOutput": "1, 2, 3, 4, 6, 12\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "2\n",
+            "expectedOutput": "1, 2\n"
+          },
+          {
+            "input": "10\n",
+            "expectedOutput": "1, 2, 5, 10\n"
+          },
+          {
+            "input": "100\n",
+            "expectedOutput": "1, 2, 4, 5, 10, 20, 25, 50, 100\n"
+          }
+        ],
+        "hints": [
+          "Take the absolute value of the input number.",
+          "If the number is 0, print 'No Factors'.",
+          "Iterate from 1 to the number and check if each number is a factor.",
+          "If a number is a factor, append it to the result string.",
+          "Print the result string."
+        ],
+        "tags": ["Factors", "Mathematics", "Loop"]
+      },
+       {
+        "problemId": 7,
+        "courseId": "capgemini",
+        "title": "Maximum Marks in Semester",
+        "difficulty": "Medium",
+        "description": "Raj wants to know the maximum marks scored by him in each semester. The mark should be between 0 to 100, if it goes beyond the range display 'You have entered invalid mark.'",
+        "examples": [
+          {
+            "input": "Enter no of semester:3\nEnter no of subjects in 1 semester:3\nEnter no of subjects in 2 semester:4\nEnter no of subjects in 3 semester:2\nMarks obtained in semester 1:50 60 70\nMarks obtained in semester 2:90 98 76 67\nMarks obtained in semester 3:89 76\n",
+            "output": "Maximum mark in 1 semester:70\nMaximum mark in 2 semester:98\nMaximum mark in 3 semester:89\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number of semesters <= 10",
+          "1 <= number of subjects per semester <= 10",
+          "0 <= marks <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "Enter no of semester:3\nEnter no of subjects in 1 semester:3\nEnter no of subjects in 2 semester:4\nEnter no of subjects in 3 semester:2\nMarks obtained in semester 1:50 60 70\nMarks obtained in semester 2:90 98 76 67\nMarks obtained in semester 3:89 76\n",
+            "expectedOutput": "Maximum mark in 1 semester:70\nMaximum mark in 2 semester:98\nMaximum mark in 3 semester:89\n"
+          },
+          {
+            "input": "Enter no of semester:1\nEnter no of subjects in 1 semester:5\nMarks obtained in semester 1:10 20 30 40 50\n",
+            "expectedOutput": "Maximum mark in 1 semester:50\n"
+          },
+          {
+            "input": "Enter no of semester:2\nEnter no of subjects in 1 semester:2\nEnter no of subjects in 2 semester:2\nMarks obtained in semester 1:100 0\nMarks obtained in semester 2:50 50\n",
+            "expectedOutput": "Maximum mark in 1 semester:100\nMaximum mark in 2 semester:50\n"
+          },
+          {
+            "input": "Enter no of semester:1\nEnter no of subjects in 1 semester:1\nMarks obtained in semester 1:100\n",
+            "expectedOutput": "Maximum mark in 1 semester:100\n"
+          },
+          {
+            "input": "Enter no of semester:2\nEnter no of subjects in 1 semester:3\nEnter no of subjects in 2 semester:2\nMarks obtained in semester 1:101 50 60\nMarks obtained in semester 2:60 70\n",
+            "expectedOutput": "You have entered invalid mark.\nMaximum mark in 2 semester:70\n"
+          },
+          {
+            "input": "Enter no of semester:2\nEnter no of subjects in 1 semester:3\nEnter no of subjects in 2 semester:2\nMarks obtained in semester 1:50 101 60\nMarks obtained in semester 2:60 70\n",
+            "expectedOutput": "You have entered invalid mark.\nMaximum mark in 2 semester:70\n"
+          },
+          {
+            "input": "Enter no of semester:2\nEnter no of subjects in 1 semester:3\nEnter no of subjects in 2 semester:2\nMarks obtained in semester 1:50 60 101\nMarks obtained in semester 2:60 70\n",
+            "expectedOutput": "You have entered invalid mark.\nMaximum mark in 2 semester:70\n"
+          }
+        ],
+        "hints": [
+          "Read the number of semesters.",
+          "For each semester, read the number of subjects and the marks obtained in each subject.",
+          "Validate the marks to be between 0 and 100. If any mark is outside this range, print the error message and continue.",
+          "Find the maximum mark for each semester.",
+          "Print the maximum mark for each semester."
+        ],
+        "tags": ["Maximum Marks", "Array", "Loop", "Validation"]
+      },
+       {
+        "problemId": 8,
+        "courseId": "capgemini",
+        "title": "Minimum Discount Product",
+        "difficulty": "Medium",
+        "description": "Mayuri buys 'N' number of products from a shop. The shop offers a different percentage of discount on each item. She wants to know the item that has the minimum discount offer, so that she can avoid buying that and save money. Input Format: The first input refers to the number of items; the second input is the item name, price and discount percentage separated by comma(,). Assume the minimum discount offer is in the form of Integer. Note: There can be more than one product with a minimum discount.",
+        "examples": [
+          {
+            "input": "4\nmobile,10000,20\nshoe,5000,10\nwatch,6000,15\nlaptop,35000,5\n",
+            "output": "shoe\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number of items <= 100",
+          "1 <= price <= 100000",
+          "1 <= discount percentage <= 100",
+          "Item names will not contain commas."
+        ],
+        "testCases": [
+          {
+            "input": "4\nmobile,10000,20\nshoe,5000,10\nwatch,6000,15\nlaptop,35000,5\n",
+            "expectedOutput": "shoe\n"
+          },
+          {
+            "input": "2\nbook,100,5\npen,50,10\n",
+            "expectedOutput": "book\n"
+          },
+          {
+            "input": "3\napple,100,10\nbanana,100,10\norange,100,10\n",
+            "expectedOutput": "apple\nbanana\norange\n"
+          },
+          {
+            "input": "1\nkeyboard,2000,15\n",
+            "expectedOutput": "keyboard\n"
+          },
+          {
+            "input": "5\nitem1,1000,5\nitem2,2000,10\nitem3,3000,15\nitem4,4000,20\nitem5,5000,25\n",
+            "expectedOutput": "item1\n"
+          },
+          {
+            "input": "3\nitem1,1000,10\nitem2,1000,5\nitem3,1000,15\n",
+            "expectedOutput": "item2\n"
+          },
+          {
+            "input": "3\nitem1,1000,10\nitem2,500,20\nitem3,2000,5\n",
+            "expectedOutput": "item3\n"
+          }
+        ],
+        "hints": [
+          "Read the number of items.",
+          "For each item, read the item name, price, and discount percentage.",
+          "Calculate the discount amount for each item.",
+          "Keep track of the minimum discount amount and the corresponding item name(s).",
+          "If there are multiple items with the same minimum discount, print all of them.",
+          "Print the item name(s) with the minimum discount."
+        ],
+        "tags": ["Minimum Discount", "Array", "Loop", "String Processing"]
+      },
+       {
+        "problemId": 9,
+        "courseId": "capgemini",
+        "title": "Move Hashes to Front",
+        "difficulty": "Medium",
+        "description": "Write a function that accepts a string of length 'len', the string has some '#', in it you have to move all the hashes to the front of the string and return the whole string back and print it. char* moveHash(char str[], int n);",
+        "examples": [
+          {
+            "input": "Move#Hash#to#Front\n",
+            "output": "###MoveHashtoFront\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of string <= 100",
+          "The string will contain only alphanumeric characters and '#'."
+        ],
+        "testCases": [
+          {
+            "input": "Move#Hash#to#Front\n",
+            "expectedOutput": "###MoveHashtoFront\n"
+          },
+          {
+            "input": "NoHashHere\n",
+            "expectedOutput": "NoHashHere\n"
+          },
+          {
+            "input": "#####\n",
+            "expectedOutput": "#####\n"
+          },
+          {
+            "input": "a#b#c#d#e\n",
+            "expectedOutput": "####abcde\n"
+          },
+          {
+            "input": "#a#b#c#d#e#\n",
+            "expectedOutput": "######abcde\n"
+          },
+          {
+            "input": "a#b#cde\n",
+            "expectedOutput": "##abcde\n"
+          },
+          {
+            "input": "a#b#c#d\n",
+            "expectedOutput": "###abcd\n"
+          }
+        ],
+        "hints": [
+          "Count the number of '#' characters in the string.",
+          "Create a new string with the '#' characters at the beginning.",
+          "Append the remaining characters of the original string to the new string.",
+          "Return the new string.",
+          "Handle edge cases like no '#' in the string or all '#' in the string."
+        ],
+        "tags": ["Move Hashes", "String Manipulation", "Counting"]
+      },
+      {
+        "problemId": 10,
+        "courseId": "capgemini",
+        "title": "Season from Month",
+        "difficulty": "Easy",
+        "description": "Shraddha Kapoor's professor suggested that she study hard and prepare well for the lesson on seasons. If her professor says month then, she has to tell the name of the season corresponding to that month. So write the program to get the solution to the above task? March to May -> Spring Season, June to August -> Summer Season, September to November -> Autumn Season, December to February -> Winter Season. Note: The entered month should be in the range of 1 to 12. If the user enters a month less than 1 or greater than 12 then the message 'Invalid Month Entered' should get displayed.",
+        "examples": [
+          {
+            "input": "Enter month: 6\n",
+            "output": "Season: Summer\n"
+          }
+        ],
+        "constraints": [
+          "1 <= month <= 12"
+        ],
+        "testCases": [
+          {
+            "input": "Enter month: 6\n",
+            "expectedOutput": "Season: Summer\n"
+          },
+          {
+            "input": "Enter month: 3\n",
+            "expectedOutput": "Season: Spring\n"
+          },
+          {
+            "input": "Enter month: 10\n",
+            "expectedOutput": "Season: Autumn\n"
+          },
+          {
+            "input": "Enter month: 12\n",
+            "expectedOutput": "Season: Winter\n"
+          },
+          {
+            "input": "Enter month: 1\n",
+            "expectedOutput": "Season: Winter\n"
+          },
+          {
+            "input": "Enter month: 5\n",
+            "expectedOutput": "Season: Spring\n"
+          },
+          {
+            "input": "Enter month: 9\n",
+            "expectedOutput": "Season: Autumn\n"
+          },
+          {
+            "input": "Enter month: 2\n",
+            "expectedOutput": "Season: Winter\n"
+          },
+          {
+            "input": "Enter month: 0\n",
+            "expectedOutput": "Invalid Month Entered\n"
+          },
+          {
+            "input": "Enter month: 13\n",
+            "expectedOutput": "Invalid Month Entered\n"
+          }
+        ],
+        "hints": [
+          "Read the month as an integer.",
+          "Check if the month is within the valid range (1 to 12).",
+          "If the month is invalid, print 'Invalid Month Entered'.",
+          "If the month is valid, determine the season based on the given ranges.",
+          "Print the season."
+        ],
+        "tags": ["Season from Month", "Conditional Statements", "Mapping"]
+      },
+       {
+        "problemId": 11,
+        "courseId": "capgemini",
+        "title": "Counting Valleys",
+        "difficulty": "Easy",
+        "description": "Given a sequence of up and down steps during a hike, determine the number of valleys traversed. A valley is a sequence of consecutive steps below sea level. The input is a string of 'U' (up) and 'D' (down) characters. The starting point is always at sea level.",
+        "examples": [
+          {
+            "input": "8\nUDDDUDUU\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "2 <= number of steps <= 10^6",
+          "The input string will contain only 'U' and 'D' characters."
+        ],
+        "testCases": [
+          {
+            "input": "8\nUDDDUDUU\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "12\nDDUUDDUDUUUD\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "8\nUUUUUUUU\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "8\nDDDDDDDD\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "2\nUD\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "2\nDU\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "10\nDUDUDUDUDU\n",
+            "expectedOutput": "5\n"
+          }
+        ],
+        "hints": [
+          "Initialize the sea level to 0.",
+          "Iterate through the string, incrementing the sea level for 'U' and decrementing for 'D'.",
+          "A valley starts when the sea level goes below 0 and ends when it returns to 0.",
+          "Keep track of the number of valleys encountered.",
+          "Return the number of valleys."
+        ],
+        "tags": ["Counting Valleys", "String Traversal", "Simulation"]
+      },
+      {
+        "problemId": 12,
+        "courseId": "capgemini",
+        "title": "Matrix Identity Check",
+        "difficulty": "Easy",
+        "description": "Write a program to check if two given matrices are identical. Two matrices are identical if they have the same dimensions and all corresponding elements are equal.",
+        "examples": [
+          {
+            "input": "Matrix A: [[1,1,1,1], [2,2,2,2], [3,3,3,3], [4,4,4,4]]\nMatrix B: [[1,1,1,1], [2,2,2,2], [3,3,3,3], [4,4,4,4]]\n",
+            "output": "Matrices are identical\n"
+          },
+          {
+            "input": "Matrix A: [[1, 2], [3, 4]]\nMatrix B: [[1, 2], [3, 5]]\n",
+            "output": "Matrices are not identical\n"
+          },
+          {
+            "input": "Matrix A: [[1, 2], [3, 4]]\nMatrix B: [[1, 2, 3], [4, 5, 6]]\n",
+            "output": "Matrices are not identical\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number of rows, columns <= 100",
+          "The matrices will contain integers."
+        ],
+        "testCases": [
+          {
+            "input": "Matrix A: [[1,1,1,1], [2,2,2,2], [3,3,3,3], [4,4,4,4]]\nMatrix B: [[1,1,1,1], [2,2,2,2], [3,3,3,3], [4,4,4,4]]\n",
+            "expectedOutput": "Matrices are identical\n"
+          },
+          {
+            "input": "Matrix A: [[1, 2], [3, 4]]\nMatrix B: [[1, 2], [3, 5]]\n",
+            "expectedOutput": "Matrices are not identical\n"
+          },
+          {
+            "input": "Matrix A: [[1, 2], [3, 4]]\nMatrix B: [[1, 2, 3], [4, 5, 6]]\n",
+            "expectedOutput": "Matrices are not identical\n"
+          },
+          {
+            "input": "Matrix A: [[1]]\nMatrix B: [[1]]\n",
+            "expectedOutput": "Matrices are identical\n"
+          },
+          {
+            "input": "Matrix A: [[1, 2, 3]]\nMatrix B: [[1, 2, 3]]\n",
+            "expectedOutput": "Matrices are identical\n"
+          },
+          {
+            "input": "Matrix A: [[1], [2], [3]]\nMatrix B: [[1], [2], [3]]\n",
+            "expectedOutput": "Matrices are identical\n"
+          },
+          {
+            "input": "Matrix A: [[1, 2], [3, 4]]\nMatrix B: [[1, 2], [4, 3]]\n",
+            "expectedOutput": "Matrices are not identical\n"
+          }
+        ],
+        "hints": [
+          "Check if the dimensions of the two matrices are the same.",
+          "If the dimensions are different, the matrices are not identical.",
+          "If the dimensions are the same, iterate through the matrices and compare the corresponding elements.",
+          "If any corresponding elements are different, the matrices are not identical.",
+          "If all corresponding elements are equal, the matrices are identical."
+        ],
+        "tags": ["Matrix Identity", "Matrix Comparison", "Array"]
+      },
+       {
+        "problemId": 13,
+        "courseId": "capgemini",
+        "title": "Pythagorean Triplets",
+        "difficulty": "Medium",
+        "description": "Generate all Pythagorean triplets with values smaller than a given limit. A Pythagorean triplet consists of three positive integers a, b, and c, such that a^2 + b^2 = c^2.",
+        "examples": [
+          {
+            "input": "limit = 20\n",
+            "output": "3 4 5\n8 6 10\n5 12 13\n15 8 17\n12 16 20\n"
+          }
+        ],
+        "constraints": [
+          "1 <= limit <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "limit = 20\n",
+            "expectedOutput": "3 4 5\n8 6 10\n5 12 13\n15 8 17\n12 16 20\n"
+          },
+          {
+            "input": "limit = 10\n",
+            "expectedOutput": "3 4 5\n6 8 10\n"
+          },
+          {
+            "input": "limit = 5\n",
+            "expectedOutput": "3 4 5\n"
+          },
+          {
+            "input": "limit = 1\n",
+            "expectedOutput": ""
+          },
+          {
+            "input": "limit = 30\n",
+            "expectedOutput": "3 4 5\n8 6 10\n5 12 13\n15 8 17\n12 16 20\n21 20 29\n"
+          },
+          {
+            "input": "limit = 25\n",
+            "expectedOutput": "3 4 5\n8 6 10\n5 12 13\n15 8 17\n12 16 20\n"
+          },
+          {
+            "input": "limit = 15\n",
+            "expectedOutput": "3 4 5\n8 6 10\n5 12 13\n"
+          }
+        ],
+        "hints": [
+          "Use three nested loops to iterate through all possible combinations of a, b, and c.",
+          "Check if the combination forms a Pythagorean triplet (a^2 + b^2 = c^2).",
+          "Ensure that a < b < c to avoid duplicate triplets.",
+          "Print the triplets that satisfy the condition.",
+          "Optimize the loops to reduce the number of iterations."
+        ],
+        "tags": ["Pythagorean Triplets", "Mathematics", "Nested Loops"]
+      },
+       {
+        "problemId": 14,
+        "courseId": "capgemini",
+        "title": "Binary Search",
+        "difficulty": "Easy",
+        "description": "Implement a binary search algorithm to find a target value in a sorted array. The function should return the index of the target value in the array. If the target is not found, return -1.",
+        "examples": [
+          {
+            "input": "Array: [1, 2, 3, 4, 5, 6, 7, 8, 9]\nTarget: 4\n",
+            "output": "3\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 4, 5, 6, 7, 8, 9]\nTarget: 10\n",
+            "output": "-1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= array length <= 100",
+          "The array will contain unique integers sorted in ascending order.",
+          "-100 <= target <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "Array: [1, 2, 3, 4, 5, 6, 7, 8, 9]\nTarget: 4\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 4, 5, 6, 7, 8, 9]\nTarget: 10\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "Array: [1]\nTarget: 1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "Array: [1, 2]\nTarget: 2\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "Array: [1, 2, 3]\nTarget: 1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "Array: [1, 3, 5, 7, 9]\nTarget: 5\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "Array: [-5, -2, 0, 3, 8]\nTarget: 0\n",
+            "expectedOutput": "2\n"
+          }
+        ],
+        "hints": [
+          "Initialize two pointers, left and right, to the start and end of the array.",
+          "While left <= right, calculate the middle index.",
+          "If the middle element is equal to the target, return the middle index.",
+          "If the middle element is less than the target, move the left pointer to middle + 1.",
+          "If the middle element is greater than the target, move the right pointer to middle - 1.",
+          "If the target is not found, return -1."
+        ],
+        "tags": ["Binary Search", "Search Algorithm", "Array"]
+      },
+       {
+        "problemId": 15,
+        "courseId": "capgemini",
+        "title": "String Rotation",
+        "difficulty": "Easy",
+        "description": "Determine if one string is a rotation of another. A string is a rotation of another if it can be obtained by rotating the characters of the other string.",
+        "examples": [
+          {
+            "input": "String A: \"ABCD\"\nString B: \"CDAB\"\n",
+            "output": "True\n"
+          },
+          {
+            "input": "String A: \"ABCD\"\nString B: \"ACBD\"\n",
+            "output": "False\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of strings <= 100",
+          "The strings will contain only uppercase English letters."
+        ],
+        "testCases": [
+          {
+            "input": "String A: \"ABCD\"\nString B: \"CDAB\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String A: \"ABCD\"\nString B: \"ACBD\"\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "String A: \"A\"\nString B: \"A\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String A: \"ABC\"\nString B: \"CAB\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String A: \"ABC\"\nString B: \"BCA\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String A: \"ABC\"\nString B: \"ACB\"\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "String A: \"WATERBOTTLE\"\nString B: \"ERBOTTLEWAT\"\n",
+            "expectedOutput": "True\n"
+          }
+        ],
+        "hints": [
+          "Check if the lengths of the two strings are equal. If not, they cannot be rotations of each other.",
+          "Concatenate string A with itself (A + A).",
+          "Check if string B is a substring of the concatenated string.",
+          "If string B is a substring, it is a rotation of string A. Otherwise, it is not.",
+          "Handle the edge case where the strings are empty or have length 1."
+        ],
+        "tags": ["String Rotation", "String Manipulation", "Substring"]
+      },
+       {
+        "problemId": 16,
+        "courseId": "capgemini",
+        "title": "Missing Number in Array",
+        "difficulty": "Easy",
+        "description": "Given an array containing n-1 integers in the range from 1 to n, find the missing number.",
+        "examples": [
+          {
+            "input": "Array: [1, 2, 4, 5, 6]\n",
+            "output": "3\n"
+          }
+        ],
+        "constraints": [
+          "2 <= n <= 100",
+          "The array will contain n-1 unique integers in the range from 1 to n."
+        ],
+        "testCases": [
+          {
+            "input": "Array: [1, 2, 4, 5, 6]\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "Array: [2, 3, 4, 5, 6]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 4, 6]\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "Array: [1]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "Array: [2]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "Array: [1, 3]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 5]\n",
+            "expectedOutput": "4\n"
+          }
+        ],
+        "hints": [
+          "Calculate the sum of the first n natural numbers using the formula: n * (n + 1) / 2.",
+          "Calculate the sum of the elements in the given array.",
+          "The missing number is the difference between the two sums.",
+          "Handle the edge cases where n is 2."
+        ],
+        "tags": ["Missing Number", "Array", "Mathematics"]
+      },
+       {
+        "problemId": 17,
+        "courseId": "capgemini",
+        "title": "Reverse Linked List",
+        "difficulty": "Medium",
+        "description": "Write a function to reverse a singly linked list.",
+        "examples": [
+          {
+            "input": "1 -> 2 -> 3 -> 4 -> 5\n",
+            "output": "5 -> 4 -> 3 -> 2 -> 1\n"
+          },
+          {
+            "input": "1\n",
+            "output": "1\n"
+          },
+          {
+            "input": "1 -> 2\n",
+            "output": "2 -> 1\n"
+          }
+        ],
+        "constraints": [
+          "The linked list may contain any integer values.",
+          "The linked list may be empty or contain only one node."
+        ],
+        "testCases": [
+          {
+            "input": "1 -> 2 -> 3 -> 4 -> 5\n",
+            "expectedOutput": "5 -> 4 -> 3 -> 2 -> 1\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "1 -> 2\n",
+            "expectedOutput": "2 -> 1\n"
+          },
+          {
+            "input": "1 -> 2 -> 3\n",
+            "expectedOutput": "3 -> 2 -> 1\n"
+          },
+          {
+            "input": "1 -> 2 -> 3 -> 4\n",
+            "expectedOutput": "4 -> 3 -> 2 -> 1\n"
+          },
+          {
+            "input": "1 -> 2 -> 3 -> 4 -> 5 -> 6\n",
+            "expectedOutput": "6 -> 5 -> 4 -> 3 -> 2 -> 1\n"
+          },
+          {
+            "input": "",
+            "expectedOutput": "\n"
+          }
+        ],
+        "hints": [
+          "Use three pointers: prev, curr, and next.",
+          "Initialize prev to null and curr to the head of the linked list.",
+          "Iterate through the linked list, reversing the pointers.",
+          "In each iteration, store the next node in the next pointer.",
+          "Reverse the current node's pointer to point to the previous node.",
+          "Move the prev pointer to the current node and the curr pointer to the next node.",
+          "After the loop, the prev pointer will be the new head of the reversed list.",
+          "Handle the edge cases where the list is empty or contains only one node."
+        ],
+        "tags": ["Reverse Linked List", "Linked List", "Pointers"]
+      },
+       {
+        "problemId": 18,
+        "courseId": "capgemini",
+        "title": "Longest Substring Without Repeating Characters",
+        "difficulty": "Medium",
+        "description": "Given a string, find the length of the longest substring without repeating characters.",
+        "examples": [
+          {
+            "input": "String: \"abcabcbb\"\n",
+            "output": "3\n"
+          },
+          {
+            "input": "String: \"bbbbb\"\n",
+            "output": "1\n"
+          },
+          {
+            "input": "String: \"pwwkew\"\n",
+            "output": "3\n"
+          }
+        ],
+        "constraints": [
+          "0 <= length of string <= 10^4",
+          "The string may contain any ASCII characters."
+        ],
+        "testCases": [
+          {
+            "input": "String: \"abcabcbb\"\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "String: \"bbbbb\"\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "String: \"pwwkew\"\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "String: \"\"\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "String: \"abcde\"\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "String: \"dvdf\"\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "String: \"abba\"\n",
+            "expectedOutput": "2\n"
+          }
+        ],
+        "hints": [
+          "Use a sliding window approach with two pointers, left and right.",
+          "Use a set or a hash map to keep track of the characters in the current window.",
+          "Move the right pointer to expand the window until a repeating character is found.",
+          "When a repeating character is found, move the left pointer to shrink the window until the repeating character is removed.",
+          "Update the maximum length of the substring without repeating characters.",
+          "Handle the edge case where the string is empty."
+        ],
+        "tags": ["Longest Substring", "String Manipulation", "Sliding Window"]
+      },
+      {
+        "problemId": 19,
+        "courseId": "capgemini",
+        "title": "Find Duplicates in Array",
+        "difficulty": "Medium",
+        "description": "Find duplicates in a given array of integers.",
+        "examples": [
+          {
+            "input": "Array: [4, 3, 2, 7, 8, 2, 3, 1]\n",
+            "output": "Duplicates: 2, 3\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "1 <= array elements <= length of array"
+        ],
+        "testCases": [
+          {
+            "input": "Array: [4, 3, 2, 7, 8, 2, 3, 1]\n",
+            "expectedOutput": "Duplicates: 2, 3\n"
+          },
+          {
+            "input": "Array: [1, 1, 2, 2, 3, 3]\n",
+            "expectedOutput": "Duplicates: 1, 2, 3\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 4, 5]\n",
+            "expectedOutput": "Duplicates: \n"
+          },
+          {
+            "input": "Array: [1, 1, 1, 1, 1]\n",
+            "expectedOutput": "Duplicates: 1\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 4, 2, 3, 5]\n",
+            "expectedOutput": "Duplicates: 2, 3\n"
+          },
+          {
+            "input": "Array: [10, 2, 5, 10, 9, 10, 3, 2]\n",
+            "expectedOutput": "Duplicates: 10, 2\n"
+          },
+          {
+            "input": "Array: [1]\n",
+            "expectedOutput": "Duplicates: \n"
+          }
+        ],
+        "hints": [
+          "Use a hash set or a hash map to keep track of the elements encountered so far.",
+          "Iterate through the array and check if each element is already in the hash set.",
+          "If an element is already in the hash set, it is a duplicate. Add it to the result set.",
+          "Return the result set containing the duplicates.",
+          "Handle the edge case where the array is empty or contains no duplicates."
+        ],
+        "tags": ["Find Duplicates", "Array", "Hash Set"]
+      },
+       {
+        "problemId": 20,
+        "courseId": "capgemini",
+        "title": "Check Prime Number",
+        "difficulty": "Easy",
+        "description": "Write a function to check if a given number is prime. A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.",
+        "examples": [
+          {
+            "input": "Number: 29\n",
+            "output": "True\n"
+          },
+          {
+            "input": "Number: 4\n",
+            "output": "False\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number <= 10^6"
+        ],
+        "testCases": [
+          {
+            "input": "Number: 29\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "Number: 4\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "Number: 2\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "Number: 1\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "Number: 10\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "Number: 17\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "Number: 97\n",
+            "expectedOutput": "True\n"
+          }
+        ],
+        "hints": [
+          "If the number is less than or equal to 1, it is not prime.",
+          "If the number is 2, it is prime.",
+          "If the number is even and greater than 2, it is not prime.",
+          "Iterate from 3 to the square root of the number, checking for divisibility.",
+          "If the number is divisible by any odd number in the range, it is not prime.",
+          "If the loop finishes without finding a divisor, the number is prime.",
+          "Handle the edge cases for 1 and 2."
+        ],
+        "tags": ["Check Prime", "Mathematics", "Number Theory"]
+      },
+       {
+        "problemId": 21,
+        "courseId": "capgemini",
+        "title": "Merge Two Sorted Arrays",
+        "difficulty": "Easy",
+        "description": "Merge two sorted arrays into a single sorted array.",
+        "examples": [
+          {
+            "input": "Array 1: [1, 3, 5]\nArray 2: [2, 4, 6]\n",
+            "output": "[1, 2, 3, 4, 5, 6]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of arrays <= 100",
+          "The arrays will contain integers sorted in ascending order."
+        ],
+        "testCases": [
+          {
+            "input": "Array 1: [1, 3, 5]\nArray 2: [2, 4, 6]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5, 6]\n"
+          },
+          {
+            "input": "Array 1: [1, 2, 3]\nArray 2: [4, 5, 6]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5, 6]\n"
+          },
+          {
+            "input": "Array 1: [4, 5, 6]\nArray 2: [1, 2, 3]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5, 6]\n"
+          },
+          {
+            "input": "Array 1: [1]\nArray 2: [2]\n",
+            "expectedOutput": "[1, 2]\n"
+          },
+          {
+            "input": "Array 1: [2]\nArray 2: [1]\n",
+            "expectedOutput": "[1, 2]\n"
+          },
+          {
+            "input": "Array 1: [1, 2, 3]\nArray 2: []\n",
+            "expectedOutput": "[1, 2, 3]\n"
+          },
+          {
+            "input": "Array 1: []\nArray 2: [1, 2, 3]\n",
+            "expectedOutput": "[1, 2, 3]\n"
+          }
+        ],
+        "hints": [
+          "Create a new array to store the merged result.",
+          "Use three pointers, one for each input array and one for the result array.",
+          "Compare the elements at the current pointers of the input arrays.",
+          "Add the smaller element to the result array and move the corresponding pointer.",
+          "Repeat until one of the input arrays is exhausted.",
+          "Add the remaining elements from the other input array to the result array.",
+          "Return the result array."
+        ],
+        "tags": ["Merge Sorted Arrays", "Array", "Sorting"]
+      },
+       {
+        "problemId": 22,
+        "courseId": "capgemini",
+        "title": "Rotate Array",
+        "difficulty": "Easy",
+        "description": "Rotate an array by k steps to the right.",
+        "examples": [
+          {
+            "input": "Array: [1, 2, 3, 4, 5]\nk = 2\n",
+            "output": "[4, 5, 1, 2, 3]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 100",
+          "0 <= k <= 100",
+          "The array will contain integers."
+        ],
+        "testCases": [
+          {
+            "input": "Array: [1, 2, 3, 4, 5]\nk = 2\n",
+            "expectedOutput": "[4, 5, 1, 2, 3]\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 4, 5]\nk = 1\n",
+            "expectedOutput": "[5, 1, 2, 3, 4]\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 4, 5]\nk = 5\n",
+            "expectedOutput": "[1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 4, 5]\nk = 0\n",
+            "expectedOutput": "[1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "Array: [1, 2, 3]\nk = 2\n",
+            "expectedOutput": "[2, 3, 1]\n"
+          },
+          {
+            "input": "Array: [1, 2]\nk = 1\n",
+            "expectedOutput": "[2, 1]\n"
+          },
+          {
+            "input": "Array: [1]\nk = 1\n",
+            "expectedOutput": "[1]\n"
+          }
+        ],
+        "hints": [
+          "Calculate the effective rotation by taking k modulo the length of the array.",
+          "Create a new array to store the rotated result.",
+          "Copy the last k elements of the original array to the beginning of the new array.",
+          "Copy the remaining elements of the original array to the end of the new array.",
+          "Return the new array.",
+          "Handle the edge cases where k is 0 or equal to the length of the array."
+        ],
+        "tags": ["Rotate Array", "Array Manipulation", "Rotation"]
+      },
+       {
+        "problemId": 23,
+        "courseId": "capgemini",
+        "title": "Balanced Parentheses",
+        "difficulty": "Easy",
+        "description": "Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid. An input string is valid if: Open brackets must be closed by the same type of brackets. Open brackets must be closed in the correct order.",
+        "examples": [
+          {
+            "input": "String: \"{[()]}\"\n",
+            "output": "True\n"
+          },
+          {
+            "input": "String: \"([)]\"\n",
+            "output": "False\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of string <= 10^4",
+          "The string will contain only the characters '(', ')', '{', '}', '[' and ']'."
+        ],
+        "testCases": [
+          {
+            "input": "String: \"{[()]}\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String: \"([)]\"\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "String: \"()[]{}\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String: \"(]\"\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "String: \"{[]}\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String: \"(((((((((())))))))))\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String: \"(((((((((()))))))))))]\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "String: \"\"\n",
+            "expectedOutput": "True\n"
+          }
+        ],
+        "hints": [
+          "Use a stack to keep track of the opening brackets.",
+          "Iterate through the string, pushing opening brackets onto the stack.",
+          "When a closing bracket is encountered, check if it matches the top of the stack.",
+          "If it matches, pop the opening bracket from the stack.",
+          "If it doesn't match or the stack is empty, the string is not balanced.",
+          "After iterating through the string, the stack should be empty if the string is balanced.",
+          "Handle the edge case where the string is empty."
+        ],
+        "tags": ["Balanced Parentheses", "Stack", "String Manipulation"]
+      },
+       {
+        "problemId": 24,
+        "courseId": "capgemini",
+        "title": "Largest Sum Contiguous Subarray (Kadane's Algorithm)",
+        "difficulty": "Medium",
+        "description": "Find the maximum sum of a contiguous subarray using Kadane's Algorithm.",
+        "examples": [
+          {
+            "input": "Array: [-2, 1, -3, 4, -1, 2, 1, -5, 4]\n",
+            "output": "6\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^4 <= array elements <= 10^4"
+        ],
+        "testCases": [
+          {
+            "input": "Array: [-2, 1, -3, 4, -1, 2, 1, -5, 4]\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "Array: [1, 2, 3, 4, 5]\n",
+            "expectedOutput": "15\n"
+          },
+          {
+            "input": "Array: [-1, -2, -3, -4, -5]\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "Array: [-2, -3, 4, -1, -2, 1, 5, -3]\n",
+            "expectedOutput": "7\n"
+          },
+          {
+            "input": "Array: [1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "Array: [-1]\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "Array: [0]\n",
+            "expectedOutput": "0\n"
+          }
+        ],
+        "hints": [
+          "Initialize two variables: max_so_far and max_ending_here.",
+          "Initialize max_so_far to the first element of the array and max_ending_here to 0.",
+          "Iterate through the array, updating max_ending_here at each step.",
+          "If max_ending_here becomes negative, reset it to 0.",
+          "Update max_so_far with the maximum of max_so_far and max_ending_here.",
+          "Return max_so_far.",
+          "Handle the edge cases where all elements are negative."
+        ],
+        "tags": ["Kadane's Algorithm", "Maximum Subarray Sum", "Dynamic Programming"]
+      },
+       {
+        "problemId": 25,
+        "courseId": "capgemini",
+        "title": "Intersection of Two Arrays",
+        "difficulty": "Easy",
+        "description": "Find the intersection of two unsorted arrays. The result should contain only unique elements.",
+        "examples": [
+          {
+            "input": "Array 1: [1, 2, 2, 1]\nArray 2: [2, 2]\n",
+            "output": "[2]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of arrays <= 100",
+          "The arrays will contain integers."
+        ],
+        "testCases": [
+          {
+            "input": "Array 1: [1, 2, 2, 1]\nArray 2: [2, 2]\n",
+            "expectedOutput": "[2]\n"
+          },
+          {
+            "input": "Array 1: [4, 9, 5]\nArray 2: [9, 4, 9, 8, 4]\n",
+            "expectedOutput": "[4, 9]\n"
+          },
+          {
+            "input": "Array 1: [1, 2, 3]\nArray 2: [4, 5, 6]\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "Array 1: [1, 2, 3, 4, 5]\nArray 2: [1, 2, 3, 4, 5]\n",
+            "expectedOutput": "[1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "Array 1: [1, 1, 1, 1, 1]\nArray 2: [1, 1, 1]\n",
+            "expectedOutput": "[1]\n"
+          },
+          {
+            "input": "Array 1: []\nArray 2: [1, 2, 3]\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "Array 1: [1, 2, 3]\nArray 2: []\n",
+            "expectedOutput": "[]\n"
+          }
+        ],
+        "hints": [
+          "Use a hash set to store the elements of the first array.",
+          "Iterate through the second array and check if each element is in the hash set.",
+          "If an element is in the hash set, add it to the result set.",
+          "Return the result set as an array.",
+          "Handle the edge cases where one or both arrays are empty.",
+          "Ensure the result array does not contain duplicates."
+        ],
+        "tags": ["Intersection of Arrays", "Array", "Hash Set"]
+      },
+      {
+        "problemId": 26,
+        "courseId": "capgemini",
+        "title": "Check Palindrome",
+        "difficulty": "Easy",
+        "description": "Given a string, check if it is a palindrome. A palindrome is a string that reads the same backward as forward.",
+        "examples": [
+          {
+            "input": "String: \"racecar\"\n",
+            "output": "True\n"
+          },
+          {
+            "input": "String: \"hello\"\n",
+            "output": "False\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of string <= 100",
+          "The string will contain only lowercase English letters."
+        ],
+        "testCases": [
+          {
+            "input": "String: \"racecar\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String: \"hello\"\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "String: \"a\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String: \"aa\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String: \"aba\"\n",
+            "expectedOutput": "True\n"
+          },
+          {
+            "input": "String: \"abc\"\n",
+            "expectedOutput": "False\n"
+          },
+          {
+            "input": "String: \"madam\"\n",
+            "expectedOutput": "True\n"
+          }
+        ],
+        "hints": [
+          "Use two pointers, one at the beginning and one at the end of the string.",
+          "Compare the characters at the two pointers.",
+          "If the characters are different, the string is not a palindrome.",
+          "Move the pointers towards the center of the string.",
+          "If the pointers meet or cross, the string is a palindrome.",
+          "Handle the edge cases where the string is empty or has length 1."
+        ],
+        "tags": ["Check Palindrome", "String Manipulation", "Two Pointers"]
+      },
+      {
+        "problemId": 27,
+        "courseId": "capgemini",
+        "title": "Matrix Rotation by 90 Degrees",
+        "difficulty": "Medium",
+        "description": "Rotate a 2D matrix by 90 degrees clockwise.",
+        "examples": [
+          {
+            "input": "Matrix: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n",
+            "output": "[[7, 4, 1], [8, 5, 2], [9, 6, 3]]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= dimensions of matrix <= 100",
+          "The matrix will be a square matrix (n x n).",
+          "The matrix will contain integers."
+        ],
+        "testCases": [
+          {
+            "input": "Matrix: [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\n",
+            "expectedOutput": "[[7, 4, 1], [8, 5, 2], [9, 6, 3]]\n"
+          },
+          {
+            "input": "Matrix: [[1, 2], [3, 4]]\n",
+            "expectedOutput": "[[3, 1], [4, 2]]\n"
+          },
+          {
+            "input": "Matrix: [[1]]\n",
+            "expectedOutput": "[[1]]\n"
+          },
+          {
+            "input": "Matrix: [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]\n",
+            "expectedOutput": "[[13, 9, 5, 1], [14, 10, 6, 2], [15, 11, 7, 3], [16, 12, 8, 4]]\n"
+          },
+          {
+            "input": "Matrix: [[-1, -2], [-3, -4]]\n",
+            "expectedOutput": "[[-3, -1], [-4, -2]]\n"
+          },
+          {
+            "input": "Matrix: [[0, 1], [2, 3]]\n",
+            "expectedOutput": "[[2, 0], [3, 1]]\n"
+          },
+          {
+            "input": "Matrix: [[1, 0, 0], [0, 1, 0], [0, 0, 1]]\n",
+            "expectedOutput": "[[0, 0, 1], [0, 1, 0], [1, 0, 0]]\n"
+          }
+        ],
+        "hints": [
+          "Transpose the matrix (swap rows and columns).",
+          "Reverse each row of the transposed matrix.",
+          "The resulting matrix is the 90-degree clockwise rotation of the original matrix.",
+          "Handle the edge case of a 1x1 matrix."
+        ],
+        "tags": ["Matrix Rotation", "Matrix Manipulation", "Transpose"]
+      },
+       {
+        "problemId": 28,
+        "courseId": "capgemini",
+        "title": "Majority Element",
+        "difficulty": "Easy",
+        "description": "Given an array of size n, find the majority element. The majority element is the element that appears more than n/2 times.",
+        "examples": [
+          {
+            "input": "Array: [2, 2, 1, 1, 1, 2, 2]\n",
+            "output": "2\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "The array will always contain a majority element."
+        ],
+        "testCases": [
+          {
+            "input": "Array: [2, 2, 1, 1, 1, 2, 2]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "Array: [3, 2, 3]\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "Array: [1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "Array: [1, 1, 2, 2, 1, 1, 1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "Array: [5, 4, 5, 4, 5, 5, 5]\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "Array: [10, 10, 10, 9, 9]\n",
+            "expectedOutput": "10\n"
+          },
+          {
+            "input": "Array: [7, 7, 7, 7, 8]\n",
+            "expectedOutput": "7\n"
+          }
+        ],
+        "hints": [
+          "Use a hash map to count the frequency of each element.",
+          "Iterate through the array and update the frequency count in the hash map.",
+          "Find the element with the maximum frequency.",
+          "Return the element with the maximum frequency.",
+          "Alternatively, use Moore's Voting Algorithm for a more efficient solution.",
+          "Moore's Voting Algorithm: Initialize a candidate and a count. Iterate through the array. If count is 0, set the current element as the candidate and count to 1. If the current element is the candidate, increment count. Otherwise, decrement count. Return the candidate."
+        ],
+        "tags": ["Majority Element", "Array", "Hash Map", "Moore's Voting Algorithm"]
+      },
+      {
+        "problemId": 29,
+        "courseId": "capgemini",
+        "title": "First Non-Repeated Character",
+        "difficulty": "Easy",
+        "description": "Given a string, find the first character that does not repeat.",
+        "examples": [
+          {
+            "input": "String: \"swiss\"\n",
+            "output": "w\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of string <= 100",
+          "The string will contain only lowercase English letters."
+        ],
+        "testCases": [
+          {
+            "input": "String: \"swiss\"\n",
+            "expectedOutput": "w\n"
+          },
+          {
+            "input": "String: \"leetcode\"\n",
+            "expectedOutput": "l\n"
+          },
+          {
+            "input": "String: \"aabbccddeeff\"\n",
+            "expectedOutput": "\n"
+          },
+          {
+            "input": "String: \"aabbcceeffg\"\n",
+            "expectedOutput": "g\n"
+          },
+          {
+            "input": "String: \"a\"\n",
+            "expectedOutput": "a\n"
+          },
+          {
+            "input": "String: \"aabb\"\n",
+            "expectedOutput": "\n"
+          },
+          {
+            "input": "String: \"abcdeabcdeff\"\n",
+            "expectedOutput": "f\n"
+          }
+        ],
+        "hints": [
+          "Use a hash map to store the frequency of each character.",
+          "Iterate through the string and update the frequency count in the hash map.",
+          "Iterate through the string again and check if the frequency of each character is 1.",
+          "If a character has a frequency of 1, return it.",
+          "If no non-repeating character is found, return an empty string.",
+          "Handle the edge case where the string is empty."
+        ],
+        "tags": ["First Non-Repeated Character", "String Manipulation", "Hash Map"]
+      },
+       {
+        "problemId": 30,
+        "courseId": "capgemini",
+        "title": "Merge Intervals",
+        "difficulty": "Medium",
+        "description": "Given a collection of intervals, merge all overlapping intervals.",
+        "examples": [
+          {
+            "input": "Intervals: [[1,3],[2,6],[8,10],[15,18]]\n",
+            "output": "[[1,6],[8,10],[15,18]]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number of intervals <= 10^4",
+          "Each interval is represented as [start, end].",
+          "0 <= start <= end <= 10^4"
+        ],
+        "testCases": [
+          {
+            "input": "Intervals: [[1,3],[2,6],[8,10],[15,18]]\n",
+            "expectedOutput": "[[1,6],[8,10],[15,18]]\n"
+          },
+          {
+            "input": "Intervals: [[1,4],[4,5]]\n",
+            "expectedOutput": "[[1,5]]\n"
+          },
+          {
+            "input": "Intervals: [[1,4],[0,4]]\n",
+            "expectedOutput": "[[0,4]]\n"
+          },
+          {
+            "input": "Intervals: [[1,4],[0,1]]\n",
+            "expectedOutput": "[[0,4]]\n"
+          },
+          {
+            "input": "Intervals: [[1,3],[2,6],[8,10],[15,18],[16,17]]\n",
+            "expectedOutput": "[[1,6],[8,10],[15,18]]\n"
+          },
+          {
+            "input": "Intervals: [[1,3],[2,6],[8,10],[15,18],[19,20]]\n",
+            "expectedOutput": "[[1,6],[8,10],[15,18],[19,20]]\n"
+          },
+          {
+            "input": "Intervals: [[1,3],[2,6],[8,10],[15,18],[100,101]]\n",
+            "expectedOutput": "[[1,6],[8,10],[15,18],[100,101]]\n"
+          }
+        ],
+        "hints": [
+          "Sort the intervals by their start times.",
+          "Initialize a result list with the first interval.",
+          "Iterate through the sorted intervals, comparing each interval with the last interval in the result list.",
+          "If the current interval overlaps with the last interval in the result list, merge them.",
+          "Otherwise, add the current interval to the result list.",
+          "Return the result list.",
+          "Handle the edge case where the input list is empty."
+        ],
+        "tags": ["Merge Intervals", "Array", "Sorting"]
+      }
+]

@@ -1,0 +1,1766 @@
+[
+  {
+    "problemId": 1,
+    "courseId": "airbnb",
+    "title": "Palindrome Pairs",
+    "difficulty": "Hard",
+    "description": "You are given a 0-indexed array of unique strings words.\nA palindrome pair is a pair of integers (i, j) such that:\n0 <= i, j < words.length,\ni != j, and\nwords[i] + words[j] (the concatenation of the two strings) is a palindrome.\nReturn an array of all the palindrome pairs of words.\nYou must write an algorithm with O(sum of words[i].length) runtime complexity.",
+    "examples": [
+      {
+        "input": "words = [\"abcd\",\"dcba\",\"lls\",\"s\",\"sssll\"]\n",
+        "output": "[[0,1],[1,0],[3,2],[2,4]]\n",
+        "explanation": "The palindromes are [\"abcddcba\",\"dcbaabcd\",\"slls\",\"llssssll\"]\n"
+      },
+      {
+        "input": "words = [\"bat\",\"tab\",\"cat\"]\n",
+        "output": "[[0,1],[1,0]]\n",
+        "explanation": "The palindromes are [\"battab\",\"tabbat\"]\n"
+      },
+      {
+        "input": "words = [\"a\",\"\"]\n",
+        "output": "[[0,1],[1,0]]\n",
+        "explanation": "The palindromes are [\"a\",\"a\"]\n"
+      }
+    ],
+    "constraints": [
+      "1 <= words.length <= 5000",
+      "0 <= words[i].length <= 300",
+      "words[i] consists of lowercase English letters."
+    ],
+    "testCases": [
+      {
+        "input": "words = [\"abcd\",\"dcba\",\"lls\",\"s\",\"sssll\"]\n",
+        "expectedOutput": "[[0,1],[1,0],[3,2],[2,4]]\n"
+      },
+      {
+        "input": "words = [\"bat\",\"tab\",\"cat\"]\n",
+        "expectedOutput": "[[0,1],[1,0]]\n"
+      },
+      {
+        "input": "words = [\"a\",\"\"]\n",
+        "expectedOutput": "[[0,1],[1,0]]\n"
+      },
+      {
+        "input": "words = [\"\",\"a\",\"b\"]\n",
+        "expectedOutput": "[[0,1],[0,2],[1,0],[2,0]]\n",
+        "isHidden": true
+      },
+      {
+        "input": "words = [\"ab\",\"ba\",\"abc\",\"cba\"]\n",
+        "expectedOutput": "[[0,1],[1,0],[2,3],[3,2]]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Checking every two pairs will exceed the time limit. It will be O(n^2 * k). We need a faster way.",
+      "If we hash every string in the array, how can we check if two pairs form a palindrome after the concatenation?",
+      "We can check every string in words and consider it as words[j] (i.e., the suffix of the target palindrome). We can check if there is a hash of string that can be the prefix to make it a palindrome."
+    ],
+    "tags": ["Array", "Hash Table", "String", "Trie"]
+  },
+  {
+    "problemId": 2,
+    "courseId": "airbnb",
+    "title": "Text Justification",
+    "difficulty": "Hard",
+    "description": "Given an array of strings words and a width maxWidth, format the text such that each line has exactly maxWidth characters and is fully (left and right) justified.\nYou should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces ' ' when necessary so that each line has exactly maxWidth characters.\nExtra spaces between words should be distributed as evenly as possible. If the number of spaces on a line does not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right.\nFor the last line of text, it should be left-justified, and no extra space is inserted between words.\nNote:\nA word is defined as a character sequence consisting of non-space characters only.\nEach word's length is guaranteed to be greater than 0 and not exceed maxWidth.\nThe input array words contains at least one word.",
+    "examples": [
+      {
+        "input": "words = [\"This\", \"is\", \"an\", \"example\", \"of\", \"text\", \"justification.\"], maxWidth = 16\n",
+        "output": "[\n  \"This    is    an\",\n  \"example  of text\",\n  \"justification.  \"\n]\n",
+        "explanation": "The words are formatted to fit within the maxWidth of 16 characters. The last line is left-justified.\n"
+      },
+      {
+        "input": "words = [\"What\",\"must\",\"be\",\"acknowledgment\",\"shall\",\"be\"], maxWidth = 16\n",
+        "output": "[\n  \"What   must   be\",\n  \"acknowledgment  \",\n  \"shall be        \"\n]\n",
+        "explanation": "Note that the last line is \"shall be    \" instead of \"shall     be\", because the last line must be left-justified instead of fully-justified.\nNote that the second line is also left-justified because it contains only one word.\n"
+      },
+      {
+        "input": "words = [\"Science\",\"is\",\"what\",\"we\",\"understand\",\"well\",\"enough\",\"to\",\"explain\",\"to\",\"a\",\"computer.\",\"Art\",\"is\",\"everything\",\"else\",\"we\",\"do\"], maxWidth = 20\n",
+        "output": "[\n  \"Science  is  what we\",\n  \"understand      well\",\n  \"enough to explain to\",\n  \"a  computer. Art is\",\n  \"everything else we\",\n  \"do                  \"\n]\n",
+        "explanation": "Words are arranged and spaces are distributed according to the rules for the given maxWidth.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= words.length <= 300",
+      "1 <= words[i].length <= 20",
+      "words[i] consists of only English letters and symbols.",
+      "1 <= maxWidth <= 100",
+      "words[i].length <= maxWidth"
+    ],
+    "testCases": [
+      {
+        "input": "words = [\"This\", \"is\", \"an\", \"example\", \"of\", \"text\", \"justification.\"], maxWidth = 16\n",
+        "expectedOutput": "[\n  \"This    is    an\",\n  \"example  of text\",\n  \"justification.  \"\n]\n"
+      },
+      {
+        "input": "words = [\"What\",\"must\",\"be\",\"acknowledgment\",\"shall\",\"be\"], maxWidth = 16\n",
+        "expectedOutput": "[\n  \"What   must   be\",\n  \"acknowledgment  \",\n  \"shall be        \"\n]\n"
+      },
+      {
+        "input": "words = [\"Science\",\"is\",\"what\",\"we\",\"understand\",\"well\",\"enough\",\"to\",\"explain\",\"to\",\"a\",\"computer.\",\"Art\",\"is\",\"everything\",\"else\",\"we\",\"do\"], maxWidth = 20\n",
+        "expectedOutput": "[\n  \"Science  is  what we\",\n  \"understand      well\",\n  \"enough to explain to\",\n  \"a  computer. Art is\",\n  \"everything else we\",\n  \"do                  \"\n]\n"
+      },
+      {
+        "input": "words = [\"a\",\"b\",\"c\",\"d\",\"e\"], maxWidth = 3\n",
+        "expectedOutput": "[\n  \"a  \",\n  \"b  \",\n  \"c  \",\n  \"d  \",\n  \"e  \"\n]\n",
+        "isHidden": true
+      },
+      {
+        "input": "words = [\"Listen\",\"to\",\"many,\",\"speak\",\"to\",\"a\",\"few.\"], maxWidth = 6\n",
+        "expectedOutput": "[\n  \"Listen\",\n  \"to    \",\n  \"many,\",\n  \"speak \",\n  \"to   a\",\n  \"few.  \"\n]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Process words line by line.",
+      "Calculate the number of spaces needed for each line.",
+      "Distribute spaces evenly between words, with extra spaces going to the left.",
+      "Handle the last line separately for left justification."
+    ],
+    "tags": ["Array", "String", "Simulation"]
+  },
+  {
+    "problemId": 3,
+    "courseId": "airbnb",
+    "title": "Cheapest Flights Within K Stops",
+    "difficulty": "Medium",
+    "description": "There are n cities connected by some number of flights. You are given an array flights where flights[i] = [fromi, toi, pricei] indicates that there is a flight from city fromi to city toi with cost pricei.\nYou are also given three integers src, dst, and k, return the cheapest price from src to dst with at most k stops. If there is no such route, return -1.",
+    "examples": [
+      {
+        "input": "n = 4, flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src = 0, dst = 3, k = 1\n",
+        "output": "700\n",
+        "explanation": "The graph is shown above.\nThe optimal path with at most 1 stop from city 0 to 3 is marked in red and has cost 100 + 600 = 700.\nNote that the path through cities [0,1,2,3] is cheaper but is invalid because it uses 2 stops.\n"
+      },
+      {
+        "input": "n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1\n",
+        "output": "200\n",
+        "explanation": "The graph is shown above.\nThe optimal path with at most 1 stop from city 0 to 2 is marked in red and has cost 100 + 100 = 200.\n"
+      },
+      {
+        "input": "n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 0\n",
+        "output": "500\n",
+        "explanation": "The graph is shown above.\nThe optimal path with no stops from city 0 to 2 is marked in red and has cost 500.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 100",
+      "0 <= flights.length <= (n * (n - 1) / 2)",
+      "flights[i].length == 3",
+      "0 <= fromi, toi < n",
+      "fromi != toi",
+      "1 <= pricei <= 104",
+      "There will not be any multiple flights between two cities.",
+      "0 <= src, dst, k < n",
+      "src != dst"
+    ],
+    "testCases": [
+      {
+        "input": "n = 4, flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src = 0, dst = 3, k = 1\n",
+        "expectedOutput": "700\n"
+      },
+      {
+        "input": "n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1\n",
+        "expectedOutput": "200\n"
+      },
+      {
+        "input": "n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 0\n",
+        "expectedOutput": "500\n"
+      },
+      {
+        "input": "n = 5, flights = [[0,1,5],[1,2,5],[0,3,2],[3,1,2],[1,4,1],[4,2,1]], src = 0, dst = 2, k = 2\n",
+        "expectedOutput": "7\n",
+        "isHidden": true
+      },
+      {
+        "input": "n = 5, flights = [[0,1,1],[0,2,5],[1,2,1],[2,3,1]], src = 0, dst = 3, k = 1\n",
+        "expectedOutput": "-1\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use Breadth-First Search (BFS) to traverse the graph.",
+      "Keep track of the minimum cost to reach each city with a given number of stops.",
+      "Use a queue to store the cities to visit and their costs.",
+      "Maintain a distance array to keep track of the minimum cost to reach each city."
+    ],
+    "tags": ["Dynamic Programming", "Depth-First Search", "Breadth-First Search", "Graph", "Heap (Priority Queue)", "Shortest Path"]
+  },
+  {
+    "problemId": 4,
+    "courseId": "airbnb",
+    "title": "Sliding Puzzle",
+    "difficulty": "Hard",
+    "description": "On an 2 x 3 board, there are five tiles labeled from 1 to 5, and an empty square represented by 0. A move consists of choosing 0 and a 4-directionally adjacent number and swapping it.\nThe state of the board is solved if and only if the board is [[1,2,3],[4,5,0]].\nGiven the puzzle board board, return the least number of moves required so that the state of the board is solved. If it is impossible for the state of the board to be solved, return -1.",
+    "examples": [
+      {
+        "input": "board = [[1,2,3],[4,0,5]]\n",
+        "output": "1\n",
+        "explanation": "Swap the 0 and the 5 in one move.\n"
+      },
+      {
+        "input": "board = [[1,2,3],[5,4,0]]\n",
+        "output": "-1\n",
+        "explanation": "No number of moves will make the board solved.\n"
+      },
+      {
+        "input": "board = [[4,1,2],[5,0,3]]\n",
+        "output": "5\n",
+        "explanation": "5 is the smallest number of moves that solves the board.\nAn example path:\nAfter move 0: [[4,1,2],[5,0,3]]\nAfter move 1: [[4,1,2],[0,5,3]]\nAfter move 2: [[0,1,2],[4,5,3]]\nAfter move 3: [[1,0,2],[4,5,3]]\nAfter move 4: [[1,2,0],[4,5,3]]\nAfter move 5: [[1,2,3],[4,5,0]]\n"
+      }
+    ],
+    "constraints": [
+      "board.length == 2",
+      "board[i].length == 3",
+      "0 <= board[i][j] <= 5",
+      "Each value board[i][j] is unique."
+    ],
+    "testCases": [
+      {
+        "input": "board = [[1,2,3],[4,0,5]]\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "board = [[1,2,3],[5,4,0]]\n",
+        "expectedOutput": "-1\n"
+      },
+      {
+        "input": "board = [[4,1,2],[5,0,3]]\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "board = [[3,2,4],[1,5,0]]\n",
+        "expectedOutput": "14\n",
+        "isHidden": true
+      },
+      {
+        "input": "board = [[0,1,2],[3,4,5]]\n",
+        "expectedOutput": "-1\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use Breadth-First Search (BFS) to traverse the possible states of the board.",
+      "Represent the board as a string to easily store and compare states.",
+      "Keep track of visited states to avoid cycles.",
+      "Use a queue to store the states to visit and their corresponding move counts."
+    ],
+    "tags": ["Array", "Dynamic Programming", "Backtracking", "Breadth-First Search", "Memoization", "Matrix"]
+  },
+  {
+    "problemId": 5,
+    "courseId": "airbnb",
+    "title": "Flatten Nested List Iterator",
+    "difficulty": "Medium",
+    "description": "You are given a nested list of integers nestedList. Each element is either an integer or a list whose elements may also be integers or other lists. Implement an iterator to flatten it.\nImplement the NestedIterator class:\nNestedIterator(List<NestedInteger> nestedList) Initializes the iterator with the nested list nestedList.\nint next() Returns the next integer in the nested list.\nboolean hasNext() Returns true if there are still some integers in the nested list and false otherwise.\nYour code will be tested with the following pseudocode:\ninitialize iterator with nestedList\nres = []\nwhile iterator.hasNext()\n    append iterator.next() to the end of res\nreturn res\nIf res matches the expected flattened list, then your code will be judged as correct.",
+    "examples": [
+      {
+        "input": "nestedList = [[1,1],2,[1,1]]\n",
+        "output": "[1,1,2,1,1]\n",
+        "explanation": "By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,1,2,1,1].\n"
+      },
+      {
+        "input": "nestedList = [1,[4,[6]]]\n",
+        "output": "[1,4,6]\n",
+        "explanation": "By calling next repeatedly until hasNext returns false, the order of elements returned by next should be: [1,4,6].\n"
+      }
+    ],
+    "constraints": [
+      "1 <= nestedList.length <= 500",
+      "The values of the integers in the nested list is in the range [-106, 106]."
+    ],
+    "testCases": [
+      {
+        "input": "nestedList = [[1,1],2,[1,1]]\n",
+        "expectedOutput": "[1,1,2,1,1]\n"
+      },
+      {
+        "input": "nestedList = [1,[4,[6]]]\n",
+        "expectedOutput": "[1,4,6]\n"
+      },
+      {
+        "input": "nestedList = []\n",
+        "expectedOutput": "[]\n",
+        "isHidden": true
+      },
+      {
+        "input": "nestedList = [[],[]]\n",
+        "expectedOutput": "[]\n",
+        "isHidden": true
+      },
+      {
+        "input": "nestedList = [[[1,2],3],[4,[5,6]]]\n",
+        "expectedOutput": "[1,2,3,4,5,6]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use a stack or queue to store the nested lists and integers.",
+      "When encountering a nested list, push or enqueue its elements in reverse order.",
+      "When encountering an integer, return it as the next element."
+    ],
+    "tags": ["Stack", "Tree", "Depth-First Search", "Design", "Queue", "Iterator"]
+  },
+  {
+    "problemId": 6,
+    "courseId": "airbnb",
+    "title": "Fraction to Recurring Decimal",
+    "difficulty": "Medium",
+    "description": "Given two integers representing the numerator and denominator of a fraction, return the fraction in string format.\nIf the fractional part is repeating, enclose the repeating part in parentheses.\nIf multiple answers are possible, return any of them.\nIt is guaranteed that the length of the answer string is less than 104 for all the given inputs.",
+    "examples": [
+      {
+        "input": "numerator = 1, denominator = 2\n",
+        "output": "0.5\n",
+        "explanation": "1 divided by 2 is 0.5.\n"
+      },
+      {
+        "input": "numerator = 2, denominator = 1\n",
+        "output": "2\n",
+        "explanation": "2 divided by 1 is 2.\n"
+      },
+      {
+        "input": "numerator = 4, denominator = 333\n",
+        "output": "0.(012)\n",
+        "explanation": "4 divided by 333 results in a repeating decimal 0.012012...\n"
+      }
+    ],
+    "constraints": [
+      "-231 <= numerator, denominator <= 231 - 1",
+      "denominator != 0"
+    ],
+    "testCases": [
+      {
+        "input": "numerator = 1, denominator = 2\n",
+        "expectedOutput": "0.5\n"
+      },
+      {
+        "input": "numerator = 2, denominator = 1\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "numerator = 4, denominator = 333\n",
+        "expectedOutput": "0.(012)\n"
+      },
+      {
+        "input": "numerator = 1, denominator = 6\n",
+        "expectedOutput": "0.1(6)\n",
+        "isHidden": true
+      },
+      {
+        "input": "numerator = -50, denominator = 8\n",
+        "expectedOutput": "-6.25\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "No scary math, just apply elementary math knowledge. Still remember how to perform a long division?",
+      "Try a long division on 4/9, the repeating part is obvious. Now try 4/333. Do you see a pattern?",
+      "Notice that once the remainder starts repeating, so does the divided result.",
+      "Be wary of edge cases! List out as many test cases as you can think of and test your code thoroughly."
+    ],
+    "tags": ["Hash Table", "Math", "String"]
+  },
+  {
+    "problemId": 7,
+    "courseId": "airbnb",
+    "title": "Combination Sum",
+    "difficulty": "Medium",
+    "description": "Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order.\nThe same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different.\nThe test cases are generated such that the number of unique combinations that sum up to target is less than 150 combinations for the given input.",
+    "examples": [
+      {
+        "input": "candidates = [2,3,6,7], target = 7\n",
+        "output": "[[2,2,3],[7]]\n",
+        "explanation": "2 and 3 are candidates, and 2 + 2 + 3 = 7. Note that 2 can be used multiple times.\n7 is a candidate, and 7 = 7.\nThese are the only two combinations.\n"
+      },
+      {
+        "input": "candidates = [2,3,5], target = 8\n",
+        "output": "[[2,2,2,2],[2,3,3],[3,5]]\n",
+        "explanation": "Combinations that sum to 8.\n"
+      },
+      {
+        "input": "candidates = [2], target = 1\n",
+        "output": "[]\n",
+        "explanation": "No combinations possible.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= candidates.length <= 30",
+      "2 <= candidates[i] <= 40",
+      "All elements of candidates are distinct.",
+      "1 <= target <= 40"
+    ],
+    "testCases": [
+      {
+        "input": "candidates = [2,3,6,7], target = 7\n",
+        "expectedOutput": "[[2,2,3],[7]]\n"
+      },
+      {
+        "input": "candidates = [2,3,5], target = 8\n",
+        "expectedOutput": "[[2,2,2,2],[2,3,3],[3,5]]\n"
+      },
+      {
+        "input": "candidates = [2], target = 1\n",
+        "expectedOutput": "[]\n"
+      },
+      {
+        "input": "candidates = [1], target = 1\n",
+        "expectedOutput": "[[1]]\n",
+        "isHidden": true
+      },
+      {
+        "input": "candidates = [1,2], target = 4\n",
+        "expectedOutput": "[[1,1,1,1],[1,1,2],[2,2]]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use backtracking to explore all possible combinations.",
+      "Maintain a current combination and a remaining target.",
+      "At each step, try adding each candidate to the current combination and recursively explore the remaining target."
+    ],
+    "tags": ["Array", "Backtracking"]
+  },
+  {
+    "problemId": 8,
+    "courseId": "airbnb",
+    "title": "Wiggle Sort II",
+    "difficulty": "Medium",
+    "description": "Given an integer array nums, reorder it such that nums[0] < nums[1] > nums[2] < nums[3]....\nYou may assume the input array always has a valid answer.",
+    "examples": [
+      {
+        "input": "nums = [1,5,1,1,6,4]\n",
+        "output": "[1,6,1,5,1,4]\n",
+        "explanation": "[1,4,1,5,1,6] is also accepted.\n"
+      },
+      {
+        "input": "nums = [1,3,2,2,3,1]\n",
+        "output": "[2,3,1,3,1,2]\n",
+        "explanation": "Result is a wiggle sorted array.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 5 * 104",
+      "0 <= nums[i] <= 5000",
+      "It is guaranteed that there will be an answer for the given input nums."
+    ],
+    "testCases": [
+      {
+        "input": "nums = [1,5,1,1,6,4]\n",
+        "expectedOutput": "[1,6,1,5,1,4]\n"
+      },
+      {
+        "input": "nums = [1,3,2,2,3,1]\n",
+        "expectedOutput": "[2,3,1,3,1,2]\n"
+      },
+      {
+        "input": "nums = [4,5,5,6]\n",
+        "expectedOutput": "[5,6,4,5]\n",
+        "isHidden": true
+      },
+      {
+        "input": "nums = [1,2,2,1,2,1,1,1,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]\n",
+        "expectedOutput": "[1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2]\n",
+        "isHidden": true
+      },
+      {
+        "input": "nums = [5,3,1,2,6,7,8,5]\n",
+        "expectedOutput": "[5,7,3,6,1,8,2,5]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Find the median of the array.",
+      "Partition the array into three parts: smaller than median, equal to median, and greater than median.",
+      "Place the elements in the wiggle pattern using the partitioned parts."
+    ],
+    "tags": ["Array", "Divide and Conquer", "Greedy", "Sorting", "Quickselect"]
+  },
+  {
+    "problemId": 9,
+    "courseId": "airbnb",
+    "title": "Koko Eating Bananas",
+    "difficulty": "Medium",
+    "description": "Koko loves to eat bananas. There are n piles of bananas, the ith pile has piles[i] bananas. The guards have gone and will come back in h hours.\nKoko can decide her bananas-per-hour eating speed of k. Each hour, she chooses some pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, she eats all of them instead and will not eat any more bananas during this hour.\nKoko likes to eat slowly but still wants to finish eating all the bananas before the guards return.\nReturn the minimum integer k such that she can eat all the bananas within h hours.",
+    "examples": [
+      {
+        "input": "piles = [3,6,7,11], h = 8\n",
+        "output": "4\n",
+        "explanation": "With k = 4, Koko can finish eating all the bananas in 8 hours.\n"
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 5\n",
+        "output": "30\n",
+        "explanation": "With k = 30, Koko can finish eating all the bananas in 5 hours.\n"
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 6\n",
+        "output": "23\n",
+        "explanation": "With k = 23, Koko can finish eating all the bananas in 6 hours.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= piles.length <= 104",
+      "piles.length <= h <= 109",
+      "1 <= piles[i] <= 109"
+    ],
+    "testCases": [
+      {
+        "input": "piles = [3,6,7,11], h = 8\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 5\n",
+        "expectedOutput": "30\n"
+      },
+      {
+        "input": "piles = [30,11,23,4,20], h = 6\n",
+        "expectedOutput": "23\n"
+      },
+      {
+        "input": "piles = [1,1,1,1000000000], h = 10\n",
+        "expectedOutput": "100000000\n",
+        "isHidden": true
+      },
+      {
+        "input": "piles = [1000000000,1000000000,1000000000], h = 2\n",
+        "expectedOutput": "2000000000\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use binary search to find the minimum k.",
+      "The search space is between 1 and the maximum pile size.",
+      "For each k, calculate the time it takes to eat all the bananas.",
+      "Adjust the search range based on whether the time is greater or less than h."
+    ],
+    "tags": ["Array", "Binary Search"]
+  },
+  {
+    "problemId": 10,
+    "courseId": "airbnb",
+    "title": "Trapping Rain Water",
+    "difficulty": "Hard",
+    "description": "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.",
+    "examples": [
+      {
+        "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]\n",
+        "output": "6\n",
+        "explanation": "The above elevation map (black section) is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped.\n"
+      },
+      {
+        "input": "height = [4,2,0,3,2,5]\n",
+        "output": "9\n",
+        "explanation": "The water trapped is 9 units.\n"
+      }
+    ],
+    "constraints": [
+      "n == height.length",
+      "1 <= n <= 2 * 104",
+      "0 <= height[i] <= 105"
+    ],
+    "testCases": [
+      {
+        "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "height = [4,2,0,3,2,5]\n",
+        "expectedOutput": "9\n"
+      },
+      {
+        "input": "height = [2,0,2]\n",
+        "expectedOutput": "2\n",
+        "isHidden": true
+      },
+      {
+        "input": "height = [3,0,1,0,4]\n",
+        "expectedOutput": "7\n",
+        "isHidden": true
+      },
+      {
+        "input": "height = [5,4,1,2]\n",
+        "expectedOutput": "1\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "For each element, find the maximum height of bars to the left and right of it.",
+      "The amount of water that can be trapped at that element is the minimum of the left and right maximums minus the height of the element.",
+      "Use dynamic programming or two pointers to efficiently calculate the left and right maximums."
+    ],
+    "tags": ["Array", "Two Pointers", "Dynamic Programming", "Stack", "Monotonic Stack"]
+  },
+  {
+    "problemId": 11,
+    "courseId": "airbnb",
+    "title": "Two Sum",
+    "difficulty": "Easy",
+    "description": "Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.\nYou may assume that each input would have exactly one solution, and you may not use the same element twice.\nYou can return the answer in any order.",
+    "examples": [
+      {
+        "input": "nums = [2,7,11,15], target = 9\n",
+        "output": "[0,1]\n",
+        "explanation": "Because nums[0] + nums[1] == 9, we return [0, 1].\n"
+      },
+      {
+        "input": "nums = [3,2,4], target = 6\n",
+        "output": "[1,2]\n",
+        "explanation": "nums[1] + nums[2] == 6, we return [1, 2].\n"
+      },
+      {
+        "input": "nums = [3,3], target = 6\n",
+        "output": "[0,1]\n",
+        "explanation": "nums[0] + nums[1] == 6, we return [0, 1].\n"
+      }
+    ],
+    "constraints": [
+      "2 <= nums.length <= 104",
+      "-109 <= nums[i] <= 109",
+      "-109 <= target <= 109",
+      "Only one valid answer exists."
+    ],
+    "testCases": [
+      {
+        "input": "nums = [2,7,11,15], target = 9\n",
+        "expectedOutput": "[0,1]\n"
+      },
+      {
+        "input": "nums = [3,2,4], target = 6\n",
+        "expectedOutput": "[1,2]\n"
+      },
+      {
+        "input": "nums = [3,3], target = 6\n",
+        "expectedOutput": "[0,1]\n"
+      },
+      {
+        "input": "nums = [-1,-2,-3,-4,-5], target = -8\n",
+        "expectedOutput": "[2,4]\n",
+        "isHidden": true
+      },
+      {
+        "input": "nums = [0,4,3,0], target = 0\n",
+        "expectedOutput": "[0,3]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "A really brute force way would be to search for all possible pairs of numbers but that would be too slow. Again, it's best to try out brute force solutions for just for completeness. It is from these brute force solutions that you can come up with optimizations.",
+      "So, if we fix one of the numbers, say x, we have to scan the entire array to find the next number y which is value - x where value is the input parameter. Can we change our array somehow so that this search becomes faster?",
+      "The second train of thought is, without changing the array, can we use additional space somehow? Like maybe a hash map to speed up the search?"
+    ],
+    "tags": ["Array", "Hash Table"]
+  },
+  {
+    "problemId": 12,
+    "courseId": "airbnb",
+    "title": "Pyramid Transition Matrix",
+    "difficulty": "Medium",
+    "description": "You are stacking blocks to form a pyramid. Each block has a color, which is represented by a single letter. Each row of blocks contains one less block than the row beneath it and is centered on top.\nTo make the pyramid aesthetically pleasing, there are only specific triangular patterns that are allowed. A triangular pattern consists of a single block stacked on top of two blocks. The patterns are given as a list of three-letter strings allowed, where the first two characters of a pattern represent the left and right bottom blocks respectively, and the third character is the top block.\nFor example, \"ABC\" represents a triangular pattern with a 'C' block stacked on top of an 'A' (left) and 'B' (right) block. Note that this is different from \"BAC\" where 'B' is on the left bottom and 'A' is on the right bottom.\nYou start with a bottom row of blocks bottom, given as a single string, that you must use as the base of the pyramid.\nGiven bottom and allowed, return true if you can build the pyramid all the way to the top such that every triangular pattern in the pyramid is in allowed, or false otherwise.",
+    "examples": [
+      {
+        "input": "bottom = \"BCD\", allowed = [\"BCC\",\"CDE\",\"CEA\",\"FFF\"]\n",
+        "output": "true\n",
+        "explanation": "The allowed triangular patterns are shown on the right.\nStarting from the bottom (level 3), we can build \"CE\" on level 2 and then build \"A\" on level 1.\nThere are three triangular patterns in the pyramid, which are \"BCC\", \"CDE\", and \"CEA\". All are allowed.\n"
+      },
+      {
+        "input": "bottom = \"AAAA\", allowed = [\"AAB\",\"AAC\",\"BCD\",\"BBE\",\"DEF\"]\n",
+        "output": "false\n",
+        "explanation": "The allowed triangular patterns are shown on the right.\nStarting from the bottom (level 4), there are multiple ways to build level 3, but trying all the possibilites, you will get always stuck before building level 1.\n"
+      }
+    ],
+    "constraints": [
+      "2 <= bottom.length <= 6",
+      "0 <= allowed.length <= 216",
+      "allowed[i].length == 3",
+      "The letters in all input strings are from the set {'A', 'B', 'C', 'D', 'E', 'F'}.",
+      "All the values of allowed are unique."
+    ],
+    "testCases": [
+      {
+        "input": "bottom = \"BCD\", allowed = [\"BCC\",\"CDE\",\"CEA\",\"FFF\"]\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "bottom = \"AAAA\", allowed = [\"AAB\",\"AAC\",\"BCD\",\"BBE\",\"DEF\"]\n",
+        "expectedOutput": "false\n"
+      },
+      {
+        "input": "bottom = \"AABA\", allowed = [\"AAA\",\"AAB\",\"ABA\",\"ABB\",\"BAC\"]\n",
+        "expectedOutput": "false\n",
+        "isHidden": true
+      },
+      {
+        "input": "bottom = \"AABCC\", allowed = [\"CCA\",\"AAB\",\"ABC\",\"BCA\",\"CAB\",\"ACC\",\"BAB\"]\n",
+        "expectedOutput": "true\n",
+        "isHidden": true
+      },
+      {
+        "input": "bottom = \"ABC\", allowed = [\"CBA\", \"AAA\", \"CCD\", \"DDE\", \"EEF\"]\n",
+        "expectedOutput": "false\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use backtracking to explore all possible pyramid configurations.",
+      "For each possible pair of characters in the current row, check if there is a corresponding top character in allowed.",
+      "Recursively build the next row and check if it leads to a valid pyramid."
+    ],
+    "tags": ["Bit Manipulation", "Depth-First Search", "Breadth-First Search"]
+  },
+  {
+    "problemId": 13,
+    "courseId": "airbnb",
+    "title": "Shortest Path to Get All Keys",
+    "difficulty": "Hard",
+    "description": "You are given an m x n grid grid where:\n'.' is an empty cell.\n'#' is a wall.\n'@' is the starting point.\nLowercase letters represent keys.\nUppercase letters represent locks.\nYou start at the starting point and one move consists of walking one space in one of the four cardinal directions. You cannot walk outside the grid, or walk into a wall.\nIf you walk over a key, you can pick it up and you cannot walk over a lock unless you have its corresponding key.\nFor some 1 <= k <= 6, there is exactly one lowercase and one uppercase letter of the first k letters of the English alphabet in the grid. This means that there is exactly one key for each lock, and one lock for each key; and also that the letters used to represent the keys and locks were chosen in the same order as the English alphabet.\nReturn the lowest number of moves to acquire all keys. If it is impossible, return -1.",
+    "examples": [
+      {
+        "input": "grid = [\"@.a..\",\"###.#\",\"b.A.B\"]\n",
+        "output": "8\n",
+        "explanation": "Note that the goal is to obtain all the keys not to open all the locks.\n"
+      },
+      {
+        "input": "grid = [\"@..aA\",\"..B#.\",\"....b\"]\n",
+        "output": "6\n",
+        "explanation": "The shortest path to get all keys is 6 moves.\n"
+      },
+      {
+        "input": "grid = [\"@Aa\"]\n",
+        "output": "-1\n",
+        "explanation": "It's impossible to get all keys.\n"
+      }
+    ],
+    "constraints": [
+      "m == grid.length",
+      "n == grid[i].length",
+      "1 <= m, n <= 30",
+      "grid[i][j] is either an English letter, '.', '#', or '@'.",
+      "There is exactly one '@' in the grid.",
+      "The number of keys in the grid is in the range [1, 6].",
+      "Each key in the grid is unique.",
+      "Each key in the grid has a matching lock."
+    ],
+    "testCases": [
+      {
+        "input": "grid = [\"@.a..\",\"###.#\",\"b.A.B\"]\n",
+        "expectedOutput": "8\n"
+      },
+      {
+        "input": "grid = [\"@..aA\",\"..B#.\",\"....b\"]\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "grid = [\"@Aa\"]\n",
+        "expectedOutput": "-1\n"
+      },
+      {
+        "input": "grid = [\"@.a..\",\"b..A.\"]\n",
+        "expectedOutput": "6\n",
+        "isHidden": true
+      },
+      {
+        "input": "grid = [\"@...a\",\"....A\",\"....b\",\"....B\"]\n",
+        "expectedOutput": "6\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use Breadth-First Search (BFS) to traverse the grid.",
+      "Keep track of the keys collected so far using a bitmask.",
+      "Use a 3D visited array to store visited states (position and keys).",
+      "When encountering a key, update the bitmask. When encountering a lock, check if the corresponding key is collected."
+    ],
+    "tags": ["Array", "Bit Manipulation", "Breadth-First Search", "Matrix"]
+  },
+  {
+    "problemId": 14,
+    "courseId": "airbnb",
+    "title": "Guess the Word",
+    "difficulty": "Hard",
+    "description": "You are given an array of unique strings words where words[i] is six letters long. One word of words was chosen as a secret word.\nYou are also given the helper object Master. You may call Master.guess(word) where word is a six-letter-long string, and it must be from words. Master.guess(word) returns:\n-1 if word is not from words, or\nan integer representing the number of exact matches (value and position) of your guess to the secret word.\nThere is a parameter allowedGuesses for each test case where allowedGuesses is the maximum number of times you can call Master.guess(word).\nFor each test case, you should call Master.guess with the secret word without exceeding the maximum number of allowed guesses. You will get:\n\"Either you took too many guesses, or you did not find the secret word.\" if you called Master.guess more than allowedGuesses times or if you did not call Master.guess with the secret word, or\n\"You guessed the secret word correctly.\" if you called Master.guess with the secret word with the number of calls to Master.guess less than or equal to allowedGuesses.\nThe test cases are generated such that you can guess the secret word with a reasonable strategy (other than using the bruteforce method).",
+    "examples": [
+      {
+        "input": "secret = \"acckzz\", words = [\"acckzz\",\"ccbazz\",\"eiowzz\",\"abcczz\"], allowedGuesses = 10\n",
+        "output": "You guessed the secret word correctly.\n",
+        "explanation": "master.guess(\"aaaaaa\") returns -1, because \"aaaaaa\" is not in wordlist.\nmaster.guess(\"acckzz\") returns 6, because \"acckzz\" is secret and has all 6 matches.\nmaster.guess(\"ccbazz\") returns 3, because \"ccbazz\" has 3 matches.\nmaster.guess(\"eiowzz\") returns 2, because \"eiowzz\" has 2 matches.\nmaster.guess(\"abcczz\") returns 4, because \"abcczz\" has 4 matches.\nWe made 5 calls to master.guess, and one of them was the secret, so we pass the test case.\n"
+      },
+      {
+        "input": "secret = \"hamada\", words = [\"hamada\",\"khaled\"], allowedGuesses = 10\n",
+        "output": "You guessed the secret word correctly.\n",
+        "explanation": "Since there are two words, you can guess both.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= words.length <= 100",
+      "words[i].length == 6",
+      "words[i] consist of lowercase English letters.",
+      "All the strings of wordlist are unique.",
+      "secret exists in words.",
+      "10 <= allowedGuesses <= 30"
+    ],
+    "testCases": [
+      {
+        "input": "secret = \"acckzz\", words = [\"acckzz\",\"ccbazz\",\"eiowzz\",\"abcczz\"], allowedGuesses = 10\n",
+        "expectedOutput": "You guessed the secret word correctly.\n"
+      },
+      {
+        "input": "secret = \"hamada\", words = [\"hamada\",\"khaled\"], allowedGuesses = 10\n",
+        "expectedOutput": "You guessed the secret word correctly.\n"
+      },
+      {
+        "input": "secret = \"abcdef\", words = [\"abcdef\",\"ghijkl\",\"mnopqr\",\"stuvwx\",\"yzabcd\",\"efghij\"], allowedGuesses = 10\n",
+        "expectedOutput": "You guessed the secret word correctly.\n",
+        "isHidden": true
+      },
+      {
+        "input": "secret = \"aaaaaa\", words = [\"aaaaaa\",\"bbbbbb\",\"cccccc\",\"dddddd\",\"eeeeee\",\"ffffff\"], allowedGuesses = 10\n",
+        "expectedOutput": "You guessed the secret word correctly.\n",
+        "isHidden": true
+      },
+      {
+        "input": "secret = \"qwerty\", words = [\"qwerty\",\"asdfgh\",\"zxcvbn\",\"poiulk\",\"mnbvcx\",\"lkjhgf\"], allowedGuesses = 10\n",
+        "expectedOutput": "You guessed the secret word correctly.\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use a minimax strategy to reduce the number of possible secret words.",
+      "Choose a guess that minimizes the maximum number of remaining possible secret words.",
+      "Calculate the number of matches between each pair of words to filter out words that don't match the guess result."
+    ],
+    "tags": ["Array", "Math", "String", "Interactive", "Game Theory"]
+  },
+  {
+    "problemId": 15,
+    "courseId": "airbnb",
+    "title": "Word Search II",
+    "difficulty": "Hard",
+    "description": "Given an m x n board of characters and a list of strings words, return all words on the board.\nEach word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.",
+    "examples": [
+      {
+        "input": "board = [[\"o\",\"a\",\"a\",\"n\"],[\"e\",\"t\",\"a\",\"e\"],[\"i\",\"h\",\"k\",\"r\"],[\"i\",\"f\",\"l\",\"v\"]], words = [\"oath\",\"pea\",\"eat\",\"rain\"]\n",
+        "output": "[\"eat\",\"oath\"]\n",
+        "explanation": "The words \"eat\" and \"oath\" can be found on the board.\n"
+      },
+      {
+        "input": "board = [[\"a\",\"b\"],[\"c\",\"d\"]], words = [\"abcb\"]\n",
+        "output": "[]\n",
+        "explanation": "The word \"abcb\" cannot be found on the board.\n"
+      }
+    ],
+    "constraints": [
+      "m == board.length",
+      "n == board[i].length",
+      "1 <= m, n <= 12",
+      "board[i][j] is a lowercase English letter.",
+      "1 <= words.length <= 3 * 104",
+      "1 <= words[i].length <= 10",
+      "words[i] consists of lowercase English letters.",
+      "All the strings of words are unique."
+    ],
+    "testCases": [
+      {
+        "input": "board = [[\"o\",\"a\",\"a\",\"n\"],[\"e\",\"t\",\"a\",\"e\"],[\"i\",\"h\",\"k\",\"r\"],[\"i\",\"f\",\"l\",\"v\"]], words = [\"oath\",\"pea\",\"eat\",\"rain\"]\n",
+        "expectedOutput": "[\"eat\",\"oath\"]\n"
+      },
+      {
+        "input": "board = [[\"a\",\"b\"],[\"c\",\"d\"]], words = [\"abcb\"]\n",
+        "expectedOutput": "[]\n"
+      },
+      {
+        "input": "board = [[\"a\",\"b\",\"c\"],[\"a\",\"e\",\"d\"],[\"a\",\"f\",\"g\"]], words = [\"eaabcdgfa\"]\n",
+        "expectedOutput": "[\"eaabcdgfa\"]\n",
+        "isHidden": true
+      },
+      {
+        "input": "board = [[\"a\",\"a\"]], words = [\"aaa\"]\n",
+        "expectedOutput": "[]\n",
+        "isHidden": true
+      },
+      {
+        "input": "board = [[\"a\",\"b\",\"c\",\"e\"],[\"s\",\"f\",\"c\",\"s\"],[\"a\",\"d\",\"e\",\"e\"]], words = [\"abcced\",\"see\",\"adse\",\"abcfs\"]\n",
+        "expectedOutput": "[\"abcced\",\"see\",\"adse\"]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "You would need to optimize your backtracking to pass the larger test. Could you stop backtracking earlier?",
+      "If the current candidate does not exist in all words' prefix, you could stop backtracking immediately. What kind of data structure could answer such query efficiently? Does a hash table work? Why or why not? How about a Trie? If you would like to learn how to implement a basic trie, please work on this problem: Implement Trie (Prefix Tree) first."
+    ],
+    "tags": ["Array", "String", "Backtracking", "Trie", "Matrix"]
+  },
+  {
+    "problemId": 16,
+    "courseId": "airbnb",
+    "title": "Coin Change",
+    "difficulty": "Medium",
+    "description": "You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.\nReturn the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.\nYou may assume that you have an infinite number of each kind of coin.",
+    "examples": [
+      {
+        "input": "coins = [1,2,5], amount = 11\n",
+        "output": "3\n",
+        "explanation": "11 = 5 + 5 + 1\n"
+      },
+      {
+        "input": "coins = [2], amount = 3\n",
+        "output": "-1\n",
+        "explanation": "It is impossible to make 3 using only coins of denomination 2.\n"
+      },
+      {
+        "input": "coins = [1], amount = 0\n",
+        "output": "0\n",
+        "explanation": "No coins needed to make 0.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= coins.length <= 12",
+      "1 <= coins[i] <= 231 - 1",
+      "0 <= amount <= 104"
+    ],
+    "testCases": [
+      {
+        "input": "coins = [1,2,5], amount = 11\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "coins = [2], amount = 3\n",
+        "expectedOutput": "-1\n"
+      },
+      {
+        "input": "coins = [1], amount = 0\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "coins = [1], amount = 1\n",
+        "expectedOutput": "1\n",
+        "isHidden": true
+      },
+      {
+        "input": "coins = [1,2,5], amount = 100\n",
+        "expectedOutput": "20\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use dynamic programming to solve this problem.",
+      "Create an array dp of size amount + 1, where dp[i] represents the minimum number of coins needed to make amount i.",
+      "Initialize dp[0] to 0 and all other elements to a large value (e.g., amount + 1).",
+      "Iterate through the coins and update the dp array using the recurrence relation: dp[i] = min(dp[i], dp[i - coin] + 1)."
+    ],
+    "tags": [
+      "Array",
+      "Dynamic Programming",
+      "Breadth-First Search"
+    ]
+  },
+  {
+    "problemId": 17,
+    "courseId": "airbnb",
+    "title": "Add Two Numbers",
+    "difficulty": "Medium",
+    "description": "You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.\nYou may assume the two numbers do not contain any leading zero, except the number 0 itself.",
+    "examples": [
+      {
+        "input": "l1 = [2,4,3], l2 = [5,6,4]\n",
+        "output": "[7,0,8]\n",
+        "explanation": "342 + 465 = 807.\n"
+      },
+      {
+        "input": "l1 = [0], l2 = [0]\n",
+        "output": "[0]\n",
+        "explanation": "0 + 0 = 0.\n"
+      },
+      {
+        "input": "l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]\n",
+        "output": "[8,9,9,9,0,0,0,1]\n",
+        "explanation": "9999999 + 9999 = 10009998.\n"
+      }
+    ],
+    "constraints": [
+      "The number of nodes in each linked list is in the range [1, 100].",
+      "0 <= Node.val <= 9",
+      "It is guaranteed that the list represents a number that does not have leading zeros."
+    ],
+    "testCases": [
+      {
+        "input": "l1 = [2,4,3], l2 = [5,6,4]\n",
+        "expectedOutput": "[7,0,8]\n"
+      },
+      {
+        "input": "l1 = [0], l2 = [0]\n",
+        "expectedOutput": "[0]\n"
+      },
+      {
+        "input": "l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]\n",
+        "expectedOutput": "[8,9,9,9,0,0,0,1]\n"
+      },
+      {
+        "input": "l1 = [1,8], l2 = [0]\n",
+        "expectedOutput": "[1,8]\n",
+        "isHidden": true
+      },
+      {
+        "input": "l1 = [9], l2 = [1,9,9,9,9,9,9,9,9,9]\n",
+        "expectedOutput": "[0,0,0,0,0,0,0,0,0,0,1]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Iterate through both linked lists simultaneously.",
+      "Keep track of the carry value when the sum of digits exceeds 9.",
+      "Create a new linked list to store the result.",
+      "Handle the case where one list is longer than the other."
+    ],
+    "tags": ["Linked List", "Math", "Recursion"]
+  },
+  {
+    "problemId": 18,
+    "courseId": "airbnb",
+    "title": "Regular Expression Matching",
+    "difficulty": "Hard",
+    "description": "Given an input string s and a pattern p, implement regular expression matching with support for '.' and '' where:\n'.' Matches any single character. \n'' Matches zero or more of the preceding element.\nThe matching should cover the entire input string (not partial).",
+    "examples": [
+      {
+        "input": "s = \"aa\", p = \"a\"\n",
+        "output": "false\n",
+        "explanation": "\"a\" does not match the entire string \"aa\".\n"
+      },
+      {
+        "input": "s = \"aa\", p = \"a*\"\n",
+        "output": "true\n",
+        "explanation": "'*' means zero or more of the preceding element, 'a'. Therefore, by repeating 'a' once, it becomes \"aa\".\n"
+      },
+      {
+        "input": "s = \"ab\", p = \".*\"\n",
+        "output": "true\n",
+        "explanation": "\".\" means \"zero or more () of any character (.)\".\n"
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 20",
+      "1 <= p.length <= 20",
+      "s contains only lowercase English letters.",
+      "p contains only lowercase English letters, '.', and '*'.",
+      "It is guaranteed for each appearance of the character '*', there will be a previous valid character to match."
+    ],
+    "testCases": [
+      {
+        "input": "s = \"aa\", p = \"a\"\n",
+        "expectedOutput": "false\n"
+      },
+      {
+        "input": "s = \"aa\", p = \"a*\"\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "s = \"ab\", p = \".*\"\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "s = \"aab\", p = \"c*a*b\"\n",
+        "expectedOutput": "true\n",
+        "isHidden": true
+      },
+      {
+        "input": "s = \"mississippi\", p = \"mis*is*p*.\"\n",
+        "expectedOutput": "false\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use dynamic programming to solve this problem.",
+      "Create a 2D table dp where dp[i][j] represents whether the first i characters of s match the first j characters of p.",
+      "Initialize dp[0][0] to true.",
+      "Handle the cases where p[j-1] is '.' or '*'.",
+      "If p[j-1] is '*', consider two cases: matching zero or more of the preceding element."
+    ],
+    "tags": ["String", "Dynamic Programming", "Recursion"]
+  },
+  {
+    "problemId": 19,
+    "courseId": "airbnb",
+    "title": "Maximum Profit in Job Scheduling",
+    "difficulty": "Hard",
+    "description": "We have n jobs, where every job is scheduled to be done from startTime[i] to endTime[i], obtaining a profit of profit[i].\nYou're given the startTime, endTime and profit arrays, return the maximum profit you can take such that there are no two jobs in the subset with overlapping time range.\nIf you choose a job that ends at time X you will be able to start another job that starts at time X.",
+    "examples": [
+      {
+        "input": "startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]\n",
+        "output": "120\n",
+        "explanation": "The subset chosen is the first and fourth job. \nTime range [1-3]+[3-6] , we get profit of 120 = 50 + 70.\n"
+      },
+      {
+        "input": "startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]\n",
+        "output": "150\n",
+        "explanation": "The subset chosen is the first, fourth and fifth job. \nProfit obtained 150 = 20 + 70 + 60.\n"
+      },
+      {
+        "input": "startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]\n",
+        "output": "6\n",
+        "explanation": "The maximum profit is 6.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= startTime.length == endTime.length == profit.length <= 5 * 104",
+      "1 <= startTime[i] < endTime[i] <= 109",
+      "1 <= profit[i] <= 104"
+    ],
+    "testCases": [
+      {
+        "input": "startTime = [1,2,3,3], endTime = [3,4,5,6], profit = [50,10,40,70]\n",
+        "expectedOutput": "120\n"
+      },
+      {
+        "input": "startTime = [1,2,3,4,6], endTime = [3,5,10,6,9], profit = [20,20,100,70,60]\n",
+        "expectedOutput": "150\n"
+      },
+      {
+        "input": "startTime = [1,1,1], endTime = [2,3,4], profit = [5,6,4]\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "startTime = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], endTime = [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2], profit = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]\n",
+        "expectedOutput": "1\n",
+        "isHidden": true
+      },
+      {
+        "input": "startTime = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50], endTime = [2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51], profit = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]\n",
+        "expectedOutput": "50\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Think on DP.",
+      "Sort the elements by starting time, then define the dp[i] as the maximum profit taking elements from the suffix starting at i.",
+      "Use binarySearch (lower_bound/upper_bound on C++) to get the next index for the DP transition."
+    ],
+    "tags": ["Array", "Binary Search", "Dynamic Programming", "Sorting"]
+  },
+  {
+    "problemId": 20,
+    "courseId": "airbnb",
+    "title": "Bulls and Cows",
+    "difficulty": "Medium",
+    "description": "You are playing the Bulls and Cows game with your friend.\nYou write down a secret number and ask your friend to guess what the number is. When your friend makes a guess, you provide a hint with the following info:\nThe number of \"bulls\", which are digits in the guess that are in the correct position.\nThe number of \"cows\", which are digits in the guess that are in your secret number but are located in the wrong position. Specifically, the non-bull digits in the guess that could be rearranged such that they become bulls.\nGiven the secret number secret and your friend's guess guess, return the hint for your friend's guess.\nThe hint should be formatted as \"xAyB\", where x is the number of bulls and y is the number of cows. Note that both secret and guess may contain duplicate digits.",
+    "examples": [
+      {
+        "input": "secret = \"1807\", guess = \"7810\"\n",
+        "output": "1A3B\n",
+        "explanation": "Bulls are connected with a '|' and cows are underlined:\n\"1807\"\n  |\n\"7810\"\n"
+      },
+      {
+        "input": "secret = \"1123\", guess = \"0111\"\n",
+        "output": "1A1B\n",
+        "explanation": "Bulls are connected with a '|' and cows are underlined:\n\"1123\"        \"1123\"\n  |      or     |\n\"0111\"        \"0111\"\nNote that only one of the two unmatched 1s is counted as a cow since the non-bull digits can only be rearranged to allow one 1 to be a bull.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= secret.length, guess.length <= 1000",
+      "secret.length == guess.length",
+      "secret and guess consist of digits only."
+    ],
+    "testCases": [
+      {
+        "input": "secret = \"1807\", guess = \"7810\"\n",
+        "expectedOutput": "1A3B\n"
+      },
+      {
+        "input": "secret = \"1123\", guess = \"0111\"\n",
+        "expectedOutput": "1A1B\n"
+      },
+      {
+        "input": "secret = \"11\", guess = \"10\"\n",
+        "expectedOutput": "1A0B\n",
+        "isHidden": true
+      },
+      {
+        "input": "secret = \"11\", guess = \"01\"\n",
+        "expectedOutput": "0A1B\n",
+        "isHidden": true
+      },
+      {
+        "input": "secret = \"1122\", guess = \"1221\"\n",
+        "expectedOutput": "2A2B\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use two passes. In the first pass, count bulls. In the second pass, count cows.",
+      "Use a hash map or array to keep track of the counts of digits in secret and guess.",
+      "Be careful with duplicate digits."
+    ],
+    "tags": ["Hash Table", "String", "Counting"]
+  },
+  {
+    "problemId": 21,
+    "courseId": "airbnb",
+    "title": "Minimum Window Substring",
+    "difficulty": "Hard",
+    "description": "Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string \"\".\nThe testcases will be generated such that the answer is unique.",
+    "examples": [
+      {
+        "input": "s = \"ADOBECODEBANC\", t = \"ABC\"\n",
+        "output": "\"BANC\"\n",
+        "explanation": "The minimum window substring \"BANC\" includes 'A', 'B', and 'C' from string t.\n"
+      },
+      {
+        "input": "s = \"a\", t = \"a\"\n",
+        "output": "\"a\"\n",
+        "explanation": "The entire string s is the minimum window.\n"
+      },
+      {
+        "input": "s = \"a\", t = \"aa\"\n",
+        "output": "\"\"\n",
+        "explanation": "Both 'a's from t must be included in the window.\nSince the largest window of s only has one 'a', return empty string.\n"
+      }
+    ],
+    "constraints": [
+      "m == s.length",
+      "n == t.length",
+      "1 <= m, n <= 105",
+      "s and t consist of uppercase and lowercase English letters."
+    ],
+    "testCases": [
+      {
+        "input": "s = \"ADOBECODEBANC\", t = \"ABC\"\n",
+        "expectedOutput": "\"BANC\"\n"
+      },
+      {
+        "input": "s = \"a\", t = \"a\"\n",
+        "expectedOutput": "\"a\"\n"
+      },
+      {
+        "input": "s = \"a\", t = \"aa\"\n",
+        "expectedOutput": "\"\"\n"
+      },
+      {
+        "input": "s = \"abc\", t = \"ac\"\n",
+        "expectedOutput": "\"abc\"\n",
+        "isHidden": true
+      },
+      {
+        "input": "s = \"aa\", t = \"aa\"\n",
+        "expectedOutput": "\"aa\"\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use two pointers to create a window of letters in s, which would have all the characters from t.",
+      "Expand the right pointer until all the characters of t are covered.",
+      "Once all the characters are covered, move the left pointer and ensure that all the characters are still covered to minimize the subarray size.",
+      "Continue expanding the right and left pointers until you reach the end of s."
+    ],
+    "tags": ["Hash Table", "String", "Sliding Window"]
+  },
+  {
+    "problemId": 22,
+    "courseId": "airbnb",
+    "title": "Contains Duplicate II",
+    "difficulty": "Easy",
+    "description": "Given an integer array nums and an integer k, return true if there are two distinct indices i and j in the array such that nums[i] == nums[j] and abs(i - j) <= k.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1], k = 3\n",
+        "output": "true\n",
+        "explanation": "nums[0] == nums[3] and abs(0 - 3) <= 3.\n"
+      },
+      {
+        "input": "nums = [1,0,1,1], k = 1\n",
+        "output": "true\n",
+        "explanation": "nums[0] == nums[2] and abs(0 - 2) <= 1, or nums[2] == nums[3] and abs(2-3) <=1.\n"
+      },
+      {
+        "input": "nums = [1,2,3,1,2,3], k = 2\n",
+        "output": "false\n",
+        "explanation": "There are no two indices i and j such that nums[i] == nums[j] and abs(i - j) <= 2.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 105",
+      "-109 <= nums[i] <= 109",
+      "0 <= k <= 105"
+    ],
+    "testCases": [
+      {
+        "input": "nums = [1,2,3,1], k = 3\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "nums = [1,0,1,1], k = 1\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "nums = [1,2,3,1,2,3], k = 2\n",
+        "expectedOutput": "false\n"
+      },
+      {
+        "input": "nums = [99,99], k = 2\n",
+        "expectedOutput": "true\n",
+        "isHidden": true
+      },
+      {
+        "input": "nums = [1,2,3,4,5], k = 5\n",
+        "expectedOutput": "false\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use a hash map to store the elements and their indices.",
+      "For each element, check if it exists in the hash map and if the difference between the current index and the stored index is less than or equal to k."
+    ],
+    "tags": ["Array", "Hash Table", "Sliding Window"]
+  },
+  {
+    "problemId": 23,
+    "courseId": "airbnb",
+    "title": "Mini Parser",
+    "difficulty": "Medium",
+    "description": "Given a string s represents the serialization of a nested list, implement a parser to deserialize it and return the deserialized NestedInteger.\nEach element is either an integer or a list whose elements may also be integers or other lists.",
+    "examples": [
+      {
+        "input": "s = \"324\"\n",
+        "output": "324\n",
+        "explanation": "You should return a NestedInteger object which contains a single integer 324.\n"
+      },
+      {
+        "input": "s = \"[123,[456,[789]]]\"\n",
+        "output": "[123,[456,[789]]]\n",
+        "explanation": "Return a NestedInteger object containing a nested list with 2 elements:\n1. An integer containing value 123.\n2. A nested list containing two elements:\n    i.  An integer containing value 456.\n    ii. A nested list with one element:\n         a. An integer containing value 789\n"
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 5 * 104",
+      "s consists of digits, square brackets \"[]\", negative sign '-', and commas ','.",
+      "s is the serialization of valid NestedInteger.",
+      "All the values in the input are in the range [-106, 106]."
+    ],
+    "testCases": [
+      {
+        "input": "s = \"324\"\n",
+        "expectedOutput": "324\n"
+      },
+      {
+        "input": "s = \"[123,[456,[789]]]\"\n",
+        "expectedOutput": "[123,[456,[789]]]\n"
+      },
+      {
+        "input": "s = \"[]\"\n",
+        "expectedOutput": "[]\n",
+        "isHidden": true
+      },
+      {
+        "input": "s = \"[1,2,3]\"\n",
+        "expectedOutput": "[1,2,3]\n",
+        "isHidden": true
+      },
+      {
+        "input": "s = \"[-1]\"\n",
+        "expectedOutput": "[-1]\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use a stack to keep track of the current nested list.",
+      "When encountering '[', create a new nested list and push it onto the stack.",
+      "When encountering ']', pop the current nested list from the stack and add it to the previous nested list.",
+      "When encountering a number, create a NestedInteger with that number and add it to the current nested list."
+    ],
+    "tags": ["String", "Stack", "Depth-First Search"]
+  },
+  {
+    "problemId": 24,
+    "courseId": "airbnb",
+    "title": "House Robber",
+    "difficulty": "Medium",
+    "description": "You are a professional robber planning to rob houses along a street. Each house has a certain amount of money stashed, the only constraint stopping you from robbing each of them is that adjacent houses have security systems connected and it will automatically contact the police if two adjacent houses were broken into on the same night.\nGiven an integer array nums representing the amount of money of each house, return the maximum amount of money you can rob tonight without alerting the police.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1]\n",
+        "output": "4\n",
+        "explanation": "Rob house 1 (money = 1) and then rob house 3 (money = 3).\nTotal amount you can rob = 1 + 3 = 4.\n"
+      },
+      {
+        "input": "nums = [2,7,9,3,1]\n",
+        "output": "12\n",
+        "explanation": "Rob house 1 (money = 2), rob house 3 (money = 9) and rob house 5 (money = 1).\nTotal amount you can rob = 2 + 9 + 1 = 12.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 100",
+      "0 <= nums[i] <= 400"
+    ],
+    "testCases": [
+      {
+        "input": "nums = [1,2,3,1]\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "nums = [2,7,9,3,1]\n",
+        "expectedOutput": "12\n"
+      },
+      {
+        "input": "nums = [2,1]\n",
+        "expectedOutput": "2\n",
+        "isHidden": true
+      },
+      {
+        "input": "nums = [1,1,1,1]\n",
+        "expectedOutput": "2\n",
+        "isHidden": true
+      },
+      {
+        "input": "nums = [1,2,3,4,5,6,7,8,9,10]\n",
+        "expectedOutput": "30\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use dynamic programming to solve this problem.",
+      "Create an array dp of the same size as nums, where dp[i] represents the maximum amount of money that can be robbed up to house i.",
+      "The recurrence relation is dp[i] = max(dp[i-2] + nums[i], dp[i-1])."
+    ],
+    "tags": ["Array", "Dynamic Programming"]
+  },
+  {
+    "problemId": 25,
+    "courseId": "airbnb",
+    "title": "Longest Palindromic Substring",
+    "difficulty": "Medium",
+    "description": "Given a string s, return the longest palindromic substring in s.",
+    "examples": [
+      {
+        "input": "s = \"babad\"\n",
+        "output": "\"bab\"\n",
+        "explanation": "\"aba\" is also a valid answer.\n"
+      },
+      {
+        "input": "s = \"cbbd\"\n",
+        "output": "\"bb\"\n",
+        "explanation": "The longest palindromic substring is \"bb\".\n"
+      }
+    ],
+    "constraints": [
+      "1 <= s.length <= 1000",
+      "s consist of only digits and English letters."
+    ],
+    "testCases": [
+      {
+        "input": "s = \"babad\"\n",
+        "expectedOutput": "\"bab\"\n"
+      },
+      {
+        "input": "s = \"cbbd\"\n",
+        "expectedOutput": "\"bb\"\n"
+      },
+      {
+        "input": "s = \"a\"\n",
+        "expectedOutput": "\"a\"\n",
+        "isHidden": true
+      },
+      {
+        "input": "s = \"ac\"\n",
+        "expectedOutput": "\"a\"\n",
+        "isHidden": true
+      },
+      {
+        "input": "s = \"aaaa\"\n",
+        "expectedOutput": "\"aaaa\"\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "How can we reuse a previously computed palindrome to compute a larger palindrome?",
+      "If “aba” is a palindrome, is “xabax” a palindrome? Similarly is “xabay” a palindrome?",
+      "Complexity based hint: If we use brute-force and check whether for every start and end position a substring is a palindrome we have O(n^2) start - end pairs and O(n) palindromic checks. Can we reduce the time for palindromic checks to O(1) by reusing some previous computation."
+    ],
+    "tags": ["Two Pointers", "String", "Dynamic Programming"]
+  },
+  {
+    "problemId": 26,
+    "courseId": "airbnb",
+    "title": "Contains Duplicate III",
+    "difficulty": "Hard",
+    "description": "You are given an integer array nums and two integers indexDiff and valueDiff.\nFind a pair of indices (i, j) such that:\ni != j,\nabs(i - j) <= indexDiff.\nabs(nums[i] - nums[j]) <= valueDiff, and\nReturn true if such pair exists or false otherwise.",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,1], indexDiff = 3, valueDiff = 0\n",
+        "output": "true\n",
+        "explanation": "We can choose (i, j) = (0, 3).\nWe satisfy the three conditions:\ni != j --> 0 != 3\nabs(i - j) <= indexDiff --> abs(0 - 3) <= 3\nabs(nums[i] - nums[j]) <= valueDiff --> abs(1 - 1) <= 0\n"
+      },
+      {
+        "input": "nums = [1,5,9,1,5,9], indexDiff = 2, valueDiff = 3\n",
+        "output": "false\n",
+        "explanation": "After trying all the possible pairs (i, j), we cannot satisfy the three conditions, so we return false.\n"
+      }
+    ],
+    "constraints": [
+      "2 <= nums.length <= 105",
+      "-109 <= nums[i] <= 109",
+      "1 <= indexDiff <= nums.length",
+      "0 <= valueDiff <= 109"
+    ],
+    "testCases": [
+      {
+        "input": "nums = [1,2,3,1], indexDiff = 3, valueDiff = 0\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "nums = [1,5,9,1,5,9], indexDiff = 2, valueDiff = 3\n",
+        "expectedOutput": "false\n"
+      },
+      {
+        "input": "nums = [1,0,1], indexDiff = 1, valueDiff = 2\n",
+        "expectedOutput": "true\n",
+        "isHidden": true
+      },
+      {
+        "input": "nums = [1,5,9,1,5,9], indexDiff = 3, valueDiff = 3\n",
+        "expectedOutput": "true\n",
+        "isHidden": true
+      },
+      {
+        "input": "nums = [2,2], indexDiff = 3, valueDiff = 0\n",
+        "expectedOutput": "true\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Time complexity O(n logk) - This will give an indication that sorting is involved for k elements.",
+      "Use already existing state to evaluate next state - Like, a set of k sorted numbers are only needed to be tracked. When we are processing the next number in array, then we can utilize the existing sorted state and it is not necessary to sort next overlapping set of k numbers again."
+    ],
+    "tags": ["Array", "Sliding Window", "Sorting", "Bucket Sort", "Ordered Set"]
+  },
+  {
+    "problemId": 27,
+    "courseId": "airbnb",
+    "title": "Lowest Common Ancestor of a Binary Tree",
+    "difficulty": "Medium",
+    "description": "Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.\nAccording to the definition of LCA on Wikipedia: “The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).”.",
+    "examples": [
+      {
+        "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1\n",
+        "output": "3\n",
+        "explanation": "The LCA of nodes 5 and 1 is 3.\n"
+      },
+      {
+        "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4\n",
+        "output": "5\n",
+        "explanation": "The LCA of nodes 5 and 4 is 5, since a node can be a descendant of itself according to the LCA definition.\n"
+      },
+      {
+        "input": "root = [1,2], p = 1, q = 2\n",
+        "output": "1\n",
+        "explanation": "The LCA of nodes 1 and 2 is 1.\n"
+      }
+    ],
+    "constraints": [
+      "The number of nodes in the tree is in the range [2, 105].",
+      "-109 <= Node.val <= 109",
+      "All Node.val are unique.",
+      "p != q",
+      "p and q will exist in the tree."
+    ],
+    "testCases": [
+      {
+        "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 1\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 5, q = 4\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "root = [1,2], p = 1, q = 2\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "root = [1,2,3], p = 2, q = 3\n",
+        "expectedOutput": "1\n",
+        "isHidden": true
+      },
+      {
+        "input": "root = [3,5,1,6,2,0,8,null,null,7,4], p = 7, q = 4\n",
+        "expectedOutput": "2\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use a recursive approach.",
+      "If the current node is null, return null.",
+      "If the current node is either p or q, return the current node.",
+      "Recursively call the function on the left and right subtrees.",
+      "If both left and right subtrees return a non-null node, then the current node is the LCA.",
+      "Otherwise, return the non-null node from either the left or right subtree."
+    ],
+    "tags": ["Tree", "Depth-First Search", "Binary Tree"]
+  },
+  {
+    "problemId": 28,
+    "courseId": "airbnb",
+    "title": "Intersection of Two Linked Lists",
+    "difficulty": "Easy",
+    "description": "Given the heads of two singly linked-lists headA and headB, return the node at which the two lists intersect. If the two linked lists have no intersection at all, return null.\nFor example, the following two linked lists begin to intersect at node c1:\nThe test cases are generated such that there are no cycles anywhere in the entire linked structure.\nNote that the linked lists must retain their original structure after the function returns.\nCustom Judge:\nThe inputs to the judge are given as follows (your program is not given these inputs):\nintersectVal - The value of the node where the intersection occurs. This is 0 if there is no intersected node.\nlistA - The first linked list.\nlistB - The second linked list.\nskipA - The number of nodes to skip ahead in listA (starting from the head) to get to the intersected node.\nskipB - The number of nodes to skip ahead in listB (starting from the head) to get to the intersected node.\nThe judge will then create the linked structure based on these inputs and pass the two heads, headA and headB to your program. If you correctly return the intersected node, then your solution will be accepted.",
+    "examples": [
+      {
+        "input": "intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3\n",
+        "output": "Intersected at '8'\n",
+        "explanation": "The intersected node's value is 8 (note that this must not be 0 if the two lists intersect).\nFrom the head of A, it reads as [4,1,8,4,5]. From the head of B, it reads as [5,6,1,8,4,5]. There are 2 nodes before the intersected node in A; There are 3 nodes before the intersected node in B.\n- Note that the intersected node's value is not 1 because the nodes with value 1 in A and B (2nd node in A and 3rd node in B) are different node references. In other words, they point to two different locations in memory, while the nodes with value 8 in A and B (3rd node in A and 4th node in B) point to the same location in memory.\n"
+      },
+      {
+        "input": "intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1\n",
+        "output": "Intersected at '2'\n",
+        "explanation": "The intersected node's value is 2 (note that this must not be 0 if the two lists intersect).\nFrom the head of A, it reads as [1,9,1,2,4]. From the head of B, it reads as [3,2,4]. There are 3 nodes before the intersected node in A; There are 1 node before the intersected node in B.\n"
+      },
+      {
+        "input": "intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2\n",
+        "output": "No intersection\n",
+        "explanation": "From the head of A, it reads as [2,6,4]. From the head of B, it reads as [1,5]. Since the two lists do not intersect, intersectVal must be 0, while skipA and skipB can be arbitrary values.\nExplanation: The two lists do not intersect, so return null.\n"
+      }
+    ],
+    "constraints": [
+      "The number of nodes of listA is in the m.",
+      "The number of nodes of listB is in the n.",
+      "1 <= m, n <= 3 * 104",
+      "1 <= Node.val <= 105",
+      "0 <= skipA <= m",
+      "0 <= skipB <= n",
+      "intersectVal is 0 if listA and listB do not intersect.",
+      "intersectVal == listA[skipA] == listB[skipB] if listA and listB intersect."
+    ],
+    "testCases": [
+      {
+        "input": "intersectVal = 8, listA = [4,1,8,4,5], listB = [5,6,1,8,4,5], skipA = 2, skipB = 3\n",
+        "expectedOutput": "Intersected at '8'\n"
+      },
+      {
+        "input": "intersectVal = 2, listA = [1,9,1,2,4], listB = [3,2,4], skipA = 3, skipB = 1\n",
+        "expectedOutput": "Intersected at '2'\n"
+      },
+      {
+        "input": "intersectVal = 0, listA = [2,6,4], listB = [1,5], skipA = 3, skipB = 2\n",
+        "expectedOutput": "No intersection\n"
+      },
+      {
+        "input": "intersectVal = 1, listA = [1], listB = [1], skipA = 0, skipB = 0\n",
+        "expectedOutput": "Intersected at '1'\n",
+        "isHidden": true
+      },
+      {
+        "input": "intersectVal = 0, listA = [1], listB = [2], skipA = 1, skipB = 1\n",
+        "expectedOutput": "No intersection\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use a hash table to store the nodes of one linked list and then check if the nodes of the other linked list exist in the hash table.",
+      "Use two pointers to traverse the linked lists. If one pointer reaches the end of the list, move it to the head of the other list. If the two pointers meet, they are at the intersection node."
+    ],
+    "tags": ["Hash Table", "Linked List", "Two Pointers"]
+  },
+  {
+    "problemId": 29,
+    "courseId": "airbnb",
+    "title": "Happy Number",
+    "difficulty": "Easy",
+    "description": "Write an algorithm to determine if a number n is happy.\nA happy number is a number defined by the following process:\nStarting with any positive integer, replace the number by the sum of the squares of its digits.\nRepeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.\nThose numbers for which this process ends in 1 are happy.\nReturn true if n is a happy number, and false if not.",
+    "examples": [
+      {
+        "input": "n = 19\n",
+        "output": "true\n",
+        "explanation": "12 + 92 = 82\n82 + 22 = 68\n62 + 82 = 100\n12 + 02 + 02 = 1\n"
+      },
+      {
+        "input": "n = 2\n",
+        "output": "false\n",
+        "explanation": "The number 2 is not a happy number.\n"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 231 - 1"
+    ],
+    "testCases": [
+      {
+        "input": "n = 19\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "n = 2\n",
+        "expectedOutput": "false\n"
+      },
+      {
+        "input": "n = 1\n",
+        "expectedOutput": "true\n",
+        "isHidden": true
+      },
+      {
+        "input": "n = 7\n",
+        "expectedOutput": "true\n",
+        "isHidden": true
+      },
+      {
+        "input": "n = 1111111\n",
+        "expectedOutput": "true\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Use a set to store the numbers that have been seen so far.",
+      "If a number is repeated, then it is not a happy number.",
+      "If the number becomes 1, then it is a happy number."
+    ],
+    "tags": ["Hash Table", "Math", "Two Pointers"]
+  },
+  {
+    "problemId": 30,
+    "courseId": "airbnb",
+    "title": "Single Number",
+    "difficulty": "Easy",
+    "description": "Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.\nYou must implement a solution with a linear runtime complexity and use only constant extra space.",
+    "examples": [
+      {
+        "input": "nums = [2,2,1]\n",
+        "output": "1\n"
+      },
+      {
+        "input": "nums = [4,1,2,1,2]\n",
+        "output": "4\n"
+      },
+      {
+        "input": "nums = [1]\n",
+        "output": "1\n"
+      }
+    ],
+    "constraints": [
+      "1 <= nums.length <= 3 * 104",
+      "-3 * 104 <= nums[i] <= 3 * 104",
+      "Each element in the array appears twice except for one element which appears only once."
+    ],
+    "testCases": [
+      {
+        "input": "nums = [2,2,1]\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "nums = [4,1,2,1,2]\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "nums = [1]\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "nums = [1,2,10,2,1,10,16]\n",
+        "expectedOutput": "16\n",
+        "isHidden": true
+      },
+      {
+        "input": "nums = [0,0,10,10,100,100,1000]\n",
+        "expectedOutput": "1000\n",
+        "isHidden": true
+      }
+    ],
+    "hints": [
+      "Think about the XOR (^) operator's property."
+    ],
+    "tags": ["Array", "Bit Manipulation"]
+  }
+] 

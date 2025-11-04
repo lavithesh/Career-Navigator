@@ -1,0 +1,2032 @@
+[
+     {
+        "problemId": 1,
+        "courseId": "cognizant",
+        "title": "Fuel Consumption Calculation",
+        "difficulty": "Easy",
+        "description": "Write a program to calculate the fuel consumption of your truck. The program should ask the user to enter the quantity of diesel to fill up the tank and the distance covered till the tank goes dry. Calculate the fuel consumption and display it in the format (liters per 100 kilometers). Convert the same result to the U.S. style of miles per gallon and display the result. If the quantity or distance is zero or negative display 'is an Invalid Input'. [Note: The US approach of fuel consumption calculation (distance / fuel) is the inverse of the European approach (fuel / distance ). Also note that 1 kilometer is 0.6214 miles, and 1 liter is 0.2642 gallons.] The result should be with two decimal places.",
+        "examples": [
+          {
+            "input": "20\n150\n",
+            "output": "Liters/100KM\n13.33\nMiles/gallons\n17.64\n"
+          },
+          {
+            "input": "0\n100\n",
+            "output": "is an Invalid Input\n"
+          },
+          {
+            "input": "10\n0\n",
+            "output": "is an Invalid Input\n"
+          },
+          {
+            "input": "-10\n50\n",
+            "output": "is an Invalid Input\n"
+          },
+          {
+            "input": "50\n500\n",
+            "output": "Liters/100KM\n10.00\nMiles/gallons\n23.52\n"
+          },
+          {
+            "input": "100\n1000\n",
+            "output": "Liters/100KM\n10.00\nMiles/gallons\n23.52\n"
+          }
+        ],
+        "constraints": [
+          "Quantity of diesel and distance covered should be positive integers."
+        ],
+        "testCases": [
+          {
+            "input": "20\n150\n",
+            "expectedOutput": "Liters/100KM\n13.33\nMiles/gallons\n17.64\n"
+          },
+          {
+            "input": "0\n100\n",
+            "expectedOutput": "is an Invalid Input\n"
+          },
+          {
+            "input": "10\n0\n",
+            "expectedOutput": "is an Invalid Input\n"
+          },
+          {
+            "input": "-10\n50\n",
+            "expectedOutput": "is an Invalid Input\n"
+          },
+          {
+            "input": "50\n500\n",
+            "expectedOutput": "Liters/100KM\n10.00\nMiles/gallons\n23.52\n"
+          },
+          {
+            "input": "100\n1000\n",
+            "expectedOutput": "Liters/100KM\n10.00\nMiles/gallons\n23.52\n"
+          }
+        ],
+        "hints": [
+          "Read the quantity of diesel and distance covered from the user.",
+          "Check if the quantity or distance is zero or negative. If so, print 'is an Invalid Input'.",
+          "Calculate the fuel consumption in liters per 100 kilometers: (quantity / distance) * 100.",
+          "Convert the distance to miles: distance * 0.6214.",
+          "Convert the quantity to gallons: quantity * 0.2642.",
+          "Calculate the fuel consumption in miles per gallon: miles / gallons.",
+          "Print the results with two decimal places using the specified format."
+        ],
+        "tags": ["Math", "Fuel Consumption", "Conversion"]
+      },
+       {
+        "problemId": 2,
+        "courseId": "cognizant",
+        "title": "Movie Theatre Bill Generation",
+        "difficulty": "Easy",
+        "description": "Vohra went to a movie with his friends in a Wave theatre and during break time he bought pizzas, puffs and cool drinks. Consider the following prices: Rs.100/pizza, Rs.20/puffs, Rs.10/cooldrink. Generate a bill for what Vohra has bought.",
+        "examples": [
+          {
+            "input": "10\n12\n5\n",
+            "output": "Bill Details\nNo of pizzas:10\nNo of puffs:12\nNo of cooldrinks:5\nTotal price=1290\n"
+          }
+        ],
+        "constraints": [
+          "Number of pizzas, puffs, and cool drinks should be non-negative integers."
+        ],
+        "testCases": [
+          {
+            "input": "10\n12\n5\n",
+            "expectedOutput": "Bill Details\nNo of pizzas:10\nNo of puffs:12\nNo of cooldrinks:5\nTotal price=1290\n"
+          },
+          {
+            "input": "0\n0\n0\n",
+            "expectedOutput": "Bill Details\nNo of pizzas:0\nNo of puffs:0\nNo of cooldrinks:0\nTotal price=0\n"
+          },
+          {
+            "input": "1\n1\n1\n",
+            "expectedOutput": "Bill Details\nNo of pizzas:1\nNo of puffs:1\nNo of cooldrinks:1\nTotal price=130\n"
+          },
+          {
+            "input": "5\n10\n15\n",
+            "expectedOutput": "Bill Details\nNo of pizzas:5\nNo of puffs:10\nNo of cooldrinks:15\nTotal price=850\n"
+          },
+          {
+              "input": "100\n1\n0\n",
+              "expectedOutput": "Bill Details\nNo of pizzas:100\nNo of puffs:1\nNo of cooldrinks:0\nTotal price=10020\n"
+          },
+          {
+              "input": "0\n100\n100\n",
+              "expectedOutput": "Bill Details\nNo of pizzas:0\nNo of puffs:100\nNo of cooldrinks:100\nTotal price=3000\n"
+          }
+        ],
+        "hints": [
+          "Read the number of pizzas, puffs, and cool drinks from the user.",
+          "Calculate the total price: (number of pizzas * 100) + (number of puffs * 20) + (number of cool drinks * 10).",
+          "Print the bill details in the specified format."
+        ],
+        "tags": ["Bill Generation", "Math", "Input/Output"]
+      },
+      {
+        "problemId": 3,
+        "courseId": "cognizant",
+        "title": "Magic Board Character Display",
+        "difficulty": "Easy",
+        "description": "Ritik wants a magic board, which displays a character for a corresponding number for his science project. Help him to develop such an application. For example when the digits 65,66,67,68 are entered, the alphabet ABCD are to be displayed. [Assume the number of inputs should be always 4]",
+        "examples": [
+          {
+            "input": "65666768\n",
+            "output": "65-A\n66-B\n67-C\n68-D\n"
+          }
+        ],
+        "constraints": [
+          "The input string will always contain 4 numbers representing ASCII values between 65 and 90 (A-Z)."
+        ],
+        "testCases": [
+          {
+            "input": "65666768\n",
+            "expectedOutput": "65-A\n66-B\n67-C\n68-D\n"
+          },
+          {
+            "input": "69707172\n",
+            "expectedOutput": "69-E\n70-F\n71-G\n72-H\n"
+          },
+          {
+            "input": "87888990\n",
+            "expectedOutput": "87-W\n88-X\n89-Y\n90-Z\n"
+          },
+          {
+            "input": "77787980\n",
+            "expectedOutput": "77-M\n78-N\n79-O\n80-P\n"
+          },
+          {
+              "input" : "70717273\n",
+              "expectedOutput": "70-F\n71-G\n72-H\n73-I\n"
+          },
+          {
+              "input": "65708090\n",
+              "expectedOutput": "65-A\n70-F\n80-P\n90-Z\n"
+          }
+        ],
+        "hints": [
+          "Read the input string.",
+          "Extract the four numbers from the input string.",
+          "Convert each number to its corresponding character using the ASCII table.",
+          "Print the number and character in the specified format."
+        ],
+        "tags": ["ASCII", "String", "Character Conversion"]
+      },
+       {
+        "problemId": 4,
+        "courseId": "cognizant",
+        "title": "FOE College Placement Analysis",
+        "difficulty": "Easy",
+        "description": "FOE college wants to recognize the department which has succeeded in getting the maximum number of placements for this academic year. The departments that have participated in the recruitment drive are CSE, ECE, MECH. Help the college find the department getting maximum placements. Check for all the possible output given in the sample snapshot. Note: If any input is negative, the output should be “Input is Invalid”. If all departments have equal number of placements, the output should be “None of the department has got the highest placement”.",
+        "examples": [
+          {
+            "input": "90\n45\n70\n",
+            "output": "Highest placement\nCSE\n"
+          },
+          {
+            "input": "-1\n45\n70\n",
+            "output": "Input is Invalid\n"
+          },
+          {
+            "input": "90\n90\n90\n",
+            "output": "None of the department has got the highest placement\n"
+          }
+        ],
+        "constraints": [
+          "The number of students placed in each department should be integers."
+        ],
+        "testCases": [
+          {
+            "input": "90\n45\n70\n",
+            "expectedOutput": "Highest placement\nCSE\n"
+          },
+          {
+            "input": "45\n90\n70\n",
+            "expectedOutput": "Highest placement\nECE\n"
+          },
+          {
+            "input": "45\n70\n90\n",
+            "expectedOutput": "Highest placement\nMECH\n"
+          },
+          {
+            "input": "90\n90\n90\n",
+            "expectedOutput": "None of the department has got the highest placement\n"
+          },
+          {
+            "input": "-1\n45\n70\n",
+            "expectedOutput": "Input is Invalid\n"
+          },
+          {
+            "input": "45\n-1\n70\n",
+            "expectedOutput": "Input is Invalid\n"
+          },
+          {
+            "input": "45\n70\n-1\n",
+            "expectedOutput": "Input is Invalid\n"
+          }
+        ],
+        "hints": [
+          "Read the number of students placed in each department (CSE, ECE, MECH).",
+          "Check if any of the inputs are negative. If so, print 'Input is Invalid'.",
+          "Find the maximum number of placements among the three departments.",
+          "If all departments have the same number of placements, print 'None of the department has got the highest placement'.",
+          "Otherwise, print the department with the highest placement.",
+          "Use conditional statements to compare the placement numbers."
+        ],
+        "tags": ["Placement Analysis", "Conditional Statements", "Maximum"]
+      },
+       {
+        "problemId": 5,
+        "courseId": "cognizant",
+        "title": "Theater Ticket Discount Calculation",
+        "difficulty": "Medium",
+        "description": "In a theater, there is a discount scheme announced where one gets a 10% discount on the total cost of tickets when there is a bulk booking of more than 20 tickets, and a discount of 2% on the total cost of tickets if a special coupon card is submitted. Develop a program to find the total cost as per the scheme. The cost of the k class ticket is Rs.75 and q class is Rs.150. Refreshments can also be opted by paying an additional of Rs. 50 per member. Hint: k and q and You have to book minimum of 5 tickets and maximum of 40 at a time. If fails display “Minimum of 5 and Maximum of 40 Tickets”. If circle is given a value other than ‘k’ or ‘q’ the output should be “Invalid Input”. The ticket cost should be printed exactly to two decimal places.",
+        "examples": [
+          {
+            "input": "35\ny\ny\nk\n",
+            "output": "Ticket cost:4065.25\n"
+          },
+          {
+            "input": "4\ny\ny\nk\n",
+            "output": "Minimum of 5 and Maximum of 40 Tickets\n"
+          },
+          {
+            "input": "41\ny\ny\nk\n",
+            "output": "Minimum of 5 and Maximum of 40 Tickets\n"
+          },
+          {
+            "input": "35\ny\ny\nr\n",
+            "output": "Invalid Input\n"
+          }
+        ],
+        "constraints": [
+          "Number of tickets should be between 5 and 40 (inclusive).",
+          "Circle should be 'k' or 'q'.",
+          "Refreshment and coupon code inputs should be 'y' or 'n'."
+        ],
+        "testCases": [
+          {
+            "input": "35\ny\ny\nk\n",
+            "expectedOutput": "Ticket cost:4065.25\n"
+          },
+          {
+            "input": "25\nn\nn\nq\n",
+            "expectedOutput": "Ticket cost:3750.00\n"
+          },
+          {
+            "input": "5\ny\nn\nk\n",
+            "expectedOutput": "Ticket cost:625.00\n"
+          },
+          {
+            "input": "40\ny\ny\nq\n",
+            "expectedOutput": "Ticket cost:6480.00\n"
+          },
+          {
+              "input": "4\ny\ny\nk\n",
+              "expectedOutput": "Minimum of 5 and Maximum of 40 Tickets\n"
+          },
+          {
+              "input": "35\ny\ny\nr\n",
+              "expectedOutput": "Invalid Input\n"
+          }
+        ],
+        "hints": [
+          "Read the number of tickets, refreshment option, coupon code option, and circle from the user.",
+          "Check if the number of tickets is within the valid range (5 to 40). If not, print 'Minimum of 5 and Maximum of 40 Tickets'.",
+          "Check if the circle input is 'k' or 'q'. If not, print 'Invalid Input'.",
+          "Calculate the base ticket cost based on the circle type.",
+          "Calculate the refreshment cost if applicable.",
+          "Apply the bulk booking discount (10%) if the number of tickets is greater than 20.",
+          "Apply the coupon code discount (2%) if applicable.",
+          "Calculate the total cost and print it with two decimal places."
+        ],
+        "tags": ["Theater Ticket", "Discount Calculation", "Conditional Statements"]
+      },
+       {
+        "problemId": 6,
+        "courseId": "cognizant",
+        "title": "Season Determination",
+        "difficulty": "Easy",
+        "description": "Rhea Pandey’s teacher has asked her to prepare well for the lesson on seasons. When her teacher tells a month, she needs to say the season corresponding to that month. Write a program to solve the above task. Spring – March to May, Summer – June to August, Autumn – September to November and, Winter – December to February. Month should be in the range 1 to 12. If not the output should be “Invalid month”.",
+        "examples": [
+          {
+            "input": "11\n",
+            "output": "Season:Autumn\n"
+          },
+          {
+            "input": "13\n",
+            "output": "Invalid month\n"
+          }
+        ],
+        "constraints": [
+          "Month should be an integer between 1 and 12 (inclusive)."
+        ],
+        "testCases": [
+          {
+            "input": "11\n",
+            "expectedOutput": "Season:Autumn\n"
+          },
+          {
+            "input": "3\n",
+            "expectedOutput": "Season:Spring\n"
+          },
+          {
+            "input": "6\n",
+            "expectedOutput": "Season:Summer\n"
+          },
+          {
+            "input": "12\n",
+            "expectedOutput": "Season:Winter\n"
+          },
+          {
+              "input" : "2\n",
+              "expectedOutput": "Season:Winter\n"
+          },
+          {
+              "input": "13\n",
+              "expectedOutput": "Invalid month\n"
+          }
+        ],
+        "hints": [
+          "Read the month from the user.",
+          "Check if the month is within the valid range (1 to 12). If not, print 'Invalid month'.",
+          "Use conditional statements to determine the season based on the month.",
+          "Print the season."
+        ],
+        "tags": ["Season Determination", "Conditional Statements", "Month"]
+      },
+       {
+        "problemId": 7,
+        "courseId": "cognizant",
+        "title": "Prime Numbers in a Range",
+        "difficulty": "Medium",
+        "description": "To speed up his composition of generating unpredictable rhythms, Blue Bandit wants the list of prime numbers available in a range of numbers. Can you help him out? Write a java program to print all prime numbers in the interval [a, b] (a and b, both inclusive). Note: Input 1 should be less than Input 2. Both inputs should be positive. Range must always be greater than zero. If any of the conditions mentioned above fails, then display “Provide valid input”. Use a minimum of one for loop and one while loop.",
+        "examples": [
+          {
+            "input": "2\n15\n",
+            "output": "2 3 5 7 11 13\n"
+          },
+          {
+            "input": "15\n2\n",
+            "output": "Provide valid input\n"
+          },
+          {
+            "input": "-2\n15\n",
+            "output": "Provide valid input\n"
+          },
+          {
+            "input": "2\n-15\n",
+            "output": "Provide valid input\n"
+          },
+          {
+            "input": "10\n10\n",
+            "output": "Provide valid input\n"
+          }
+        ],
+        "constraints": [
+          "a and b should be positive integers.",
+          "a should be less than b."
+        ],
+        "testCases": [
+          {
+            "input": "2\n15\n",
+            "expectedOutput": "2 3 5 7 11 13\n"
+          },
+          {
+            "input": "10\n20\n",
+            "expectedOutput": "11 13 17 19\n"
+          },
+          {
+            "input": "1\n5\n",
+            "expectedOutput": "2 3 5\n"
+          },
+          {
+            "input": "15\n2\n",
+            "expectedOutput": "Provide valid input\n"
+          },
+          {
+            "input": "-2\n15\n",
+            "expectedOutput": "Provide valid input\n"
+          },
+          {
+            "input": "2\n-15\n",
+            "expectedOutput": "Provide valid input\n"
+          },
+          {
+            "input": "10\n10\n",
+            "expectedOutput": "Provide valid input\n"
+          }
+        ],
+        "hints": [
+          "Read the range [a, b] from the user.",
+          "Check if a < b and a, b are positive. If not, print 'Provide valid input'.",
+          "Iterate through the range [a, b] using a for loop.",
+          "For each number, check if it is prime using a while loop.",
+          "To check if a number is prime, iterate from 2 to the square root of the number.",
+          "If the number is divisible by any number in this range, it is not prime.",
+          "Print the prime numbers found."
+        ],
+        "tags": ["Prime Numbers", "Loops", "Range"]
+      },
+       {
+        "problemId": 8,
+        "courseId": "cognizant",
+        "title": "Palindrome Number Check",
+        "difficulty": "Easy",
+        "description": "Goutam and Tanul play by telling numbers. Goutam says a number to Tanul. Tanul should first reverse the number and check if it is same as the original. If yes, Tanul should say “Palindrome”. If not, he should say “Not a Palindrome”. If the number is negative, print “Invalid Input”. Help Tanul by writing a program.",
+        "examples": [
+          {
+            "input": "21212\n",
+            "output": "Palindrome\n"
+          },
+          {
+            "input": "12345\n",
+            "output": "Not a Palindrome\n"
+          },
+          {
+            "input": "-123\n",
+            "output": "Invalid Input\n"
+          }
+        ],
+        "constraints": [
+          "The input number should be an integer."
+        ],
+        "testCases": [
+          {
+            "input": "21212\n",
+            "expectedOutput": "Palindrome\n"
+          },
+          {
+            "input": "12345\n",
+            "expectedOutput": "Not a Palindrome\n"
+          },
+          {
+            "input": "-123\n",
+            "expectedOutput": "Invalid Input\n"
+          },
+          {
+            "input": "1221\n",
+            "expectedOutput": "Palindrome\n"
+          },
+          {
+              "input": "1\n",
+              "expectedOutput": "Palindrome\n"
+          },
+          {
+              "input": "12321\n",
+              "expectedOutput": "Palindrome\n"
+          }
+        ],
+        "hints": [
+          "Read the number from the user.",
+          "Check if the number is negative. If so, print 'Invalid Input'.",
+          "Reverse the number.",
+          "Compare the reversed number with the original number.",
+          "If they are the same, print 'Palindrome'. Otherwise, print 'Not a Palindrome'."
+        ],
+        "tags": ["Palindrome", "Number Reversal", "Conditional Statements"]
+      },
+       {
+        "problemId": 9,
+        "courseId": "cognizant",
+        "title": "Employee Salary Increment Calculation",
+        "difficulty": "Easy",
+        "description": "XYZ Technologies is in the process of increment the salary of the employees. This increment is done based on their salary and their performance appraisal rating. If the appraisal rating is between 1 and 3, the increment is 10% of the salary. If the appraisal rating is between 3.1 and 4, the increment is 25% of the salary. If the appraisal rating is between 4.1 and 5, the increment is 30% of the salary. Help them to do this, by writing a program that displays the incremented salary. Note: If either the salary is 0 or negative (or) if the appraisal rating is not in the range 1 to 5 (inclusive), then the output should be “Invalid Input”.",
+        "examples": [
+          {
+            "input": "8000\n3\n",
+            "output": "8800\n"
+          },
+          {
+            "input": "10000\n3.5\n",
+            "output": "12500.0\n"
+          },
+          {
+            "input": "5000\n4.5\n",
+            "output": "6500.0\n"
+          },
+          {
+            "input": "-1000\n3\n",
+            "output": "Invalid Input\n"
+          },
+          {
+            "input": "8000\n0\n",
+            "output": "Invalid Input\n"
+          },
+          {
+            "input": "8000\n6\n",
+            "output": "Invalid Input\n"
+          }
+        ],
+        "constraints": [
+          "Salary should be a positive number.",
+          "Appraisal rating should be a number between 1 and 5 (inclusive)."
+        ],
+        "testCases": [
+          {
+            "input": "8000\n3\n",
+            "expectedOutput": "8800\n"
+          },
+          {
+            "input": "10000\n3.5\n",
+            "expectedOutput": "12500.0\n"
+          },
+          {
+            "input": "5000\n4.5\n",
+            "expectedOutput": "6500.0\n"
+          },
+          {
+            "input": "-1000\n3\n",
+            "expectedOutput": "Invalid Input\n"
+          },
+          {
+            "input": "8000\n0\n",
+            "expectedOutput": "Invalid Input\n"
+          },
+          {
+            "input": "8000\n6\n",
+            "expectedOutput": "Invalid Input\n"
+          }
+        ],
+        "hints": [
+          "Read the salary and appraisal rating from the user.",
+          "Check if the salary is 0 or negative, or if the appraisal rating is not in the range 1 to 5. If so, print 'Invalid Input'.",
+          "Use conditional statements to determine the increment percentage based on the appraisal rating.",
+          "Calculate the incremented salary.",
+          "Print the incremented salary."
+        ],
+        "tags": ["Salary Increment", "Conditional Statements", "Appraisal Rating"]
+      },
+       {
+        "problemId": 10,
+        "courseId": "cognizant",
+        "title": "Lucky Car Number",
+        "difficulty": "Easy",
+        "description": "Chaman planned to choose a four digit lucky number for his car. His lucky numbers are 3, 5 and 7. Help him find the number, whose sum is divisible by 3 or 5 or 7. Provide a valid car number, Fails to provide a valid input then display that number is not a valid car number. Note: The input other than 4 digit positive number [includes negative and 0] is considered as invalid. Refer the samples, to read and display the data.",
+        "examples": [
+          {
+            "input": "1234\n",
+            "output": "Lucky Number\n"
+          },
+          {
+            "input": "10000\n",
+            "output": "10000 is not a valid car number\n"
+          },
+          {
+            "input": "123\n",
+            "output": "123 is not a valid car number\n"
+          },
+          {
+            "input": "-1234\n",
+            "output": "-1234 is not a valid car number\n"
+          },
+          {
+            "input": "0\n",
+            "output": "0 is not a valid car number\n"
+          }
+        ],
+        "constraints": [
+          "The input should be a four-digit positive integer."
+        ],
+        "testCases": [
+          {
+            "input": "1234\n",
+            "expectedOutput": "Lucky Number\n"
+          },
+          {
+            "input": "1000\n",
+            "expectedOutput": "Lucky Number\n"
+          },
+          {
+            "input": "9999\n",
+            "expectedOutput": "Lucky Number\n"
+          },
+          {
+            "input": "10000\n",
+            "expectedOutput": "10000 is not a valid car number\n"
+          },
+          {
+            "input": "123\n",
+            "expectedOutput": "123 is not a valid car number\n"
+          },
+          {
+            "input": "-1234\n",
+            "expectedOutput": "-1234 is not a valid car number\n"
+          }
+        ],
+        "hints": [
+          "Read the car number from the user.",
+          "Check if the number is a four-digit positive integer. If not, print '{number} is not a valid car number'.",
+          "Calculate the sum of the digits of the number.",
+          "Check if the sum is divisible by 3, 5, or 7.",
+          "If the sum is divisible, print 'Lucky Number'. Otherwise, print '{number} is not a valid car number'."
+        ],
+        "tags": ["Lucky Number", "Divisibility", "Digit Sum"]
+      },
+       {
+        "problemId": 11,
+        "courseId": "cognizant",
+        "title": "Course Availability Check",
+        "difficulty": "Medium",
+        "description": "IIHM institution is offering a variety of courses to students. Students have a facility to check whether a particular course is available in the institution. Write a program to help the institution accomplish this task. If the number is less than or equal to zero display “Invalid Range”. Assume maximum number of courses is 20.",
+        "examples": [
+          {
+            "input": "5\nJava\nOracle\nC++\nMysql\nDotnet\nC++\n",
+            "output": "C++ course is available\n"
+          },
+          {
+            "input": "3\nPython\nRuby\nGo\nSwift\n",
+            "output": "Swift course is not available\n"
+          },
+          {
+            "input": "0\nJava\n",
+            "output": "Invalid Range\n"
+          },
+          {
+            "input": "-1\nJava\n",
+            "output": "Invalid Range\n"
+          },
+          {
+            "input": "20\nJava\nPython\nC++\nC\nRuby\nGo\nJavascript\nTypescript\nSwift\nKotlin\nDart\nPHP\nPerl\nScala\nGroovy\nR\nJulia\nMATLAB\nAssembly\nFortran\nJava\n",
+            "output": "Java course is available\n"
+          }
+        ],
+        "constraints": [
+          "The number of courses should be a positive integer and less than or equal to 20.",
+          "Course names are strings."
+        ],
+        "testCases": [
+          {
+            "input": "5\nJava\nOracle\nC++\nMysql\nDotnet\nC++\n",
+            "expectedOutput": "C++ course is available\n"
+          },
+          {
+            "input": "3\nPython\nRuby\nGo\nSwift\n",
+            "expectedOutput": "Swift course is not available\n"
+          },
+          {
+            "input": "0\nJava\n",
+            "expectedOutput": "Invalid Range\n"
+          },
+          {
+            "input": "-1\nJava\n",
+            "expectedOutput": "Invalid Range\n"
+          },
+          {
+            "input": "20\nJava\nPython\nC++\nC\nRuby\nGo\nJavascript\nTypescript\nSwift\nKotlin\nDart\nPHP\nPerl\nScala\nGroovy\nR\nJulia\nMATLAB\nAssembly\nFortran\nJava\n",
+            "expectedOutput": "Java course is available\n"
+          },
+          {
+            "input": "1\nJava\nPython\n",
+            "expectedOutput": "Python course is not available\n"
+          }
+        ],
+        "hints": [
+          "Read the number of courses from the user.",
+          "Check if the number of courses is valid (1 to 20). If not, print 'Invalid Range'.",
+          "Read the course names from the user and store them in a list.",
+          "Read the course to be searched from the user.",
+          "Check if the course to be searched is in the list of courses.",
+          "If the course is found, print '{course} course is available'. Otherwise, print '{course} course is not available'."
+        ],
+        "tags": ["Course Availability", "List", "String Search"]
+      },
+       {
+        "problemId": 12,
+        "courseId": "cognizant",
+        "title": "Minimum Discount Item",
+        "difficulty": "Medium",
+        "description": "Mayuri buys “N” no of products from a shop. The shop offers a different percentage of discount on each item. She wants to know the item that has the minimum discount offer, so that she can avoid buying that and save money. [Input Format: The first input refers to the no of items; the second input is the item name, price and discount percentage separated by comma(,)] Assume the minimum discount offer is in the form of Integer. Note: There can be more than one product with a minimum discount.",
+        "examples": [
+          {
+            "input": "4\nmobile,10000,20\nshoe,5000,10\nwatch,6000,15\nlaptop,35000,5\n",
+            "output": "shoe\n"
+          },
+          {
+            "input": "2\napple,100,10\nbanana,100,10\n",
+            "output": "apple\nbanana\n"
+          },
+          {
+            "input": "1\npen,10,50\n",
+            "output": "pen\n"
+          }
+        ],
+        "constraints": [
+          "The number of items (N) is a positive integer.",
+          "Each item input is in the format 'name,price,discount_percentage'.",
+          "Price and discount percentage are positive integers."
+        ],
+        "testCases": [
+          {
+            "input": "4\nmobile,10000,20\nshoe,5000,10\nwatch,6000,15\nlaptop,35000,5\n",
+            "expectedOutput": "shoe\n"
+          },
+          {
+            "input": "2\napple,100,10\nbanana,100,10\n",
+            "expectedOutput": "apple\nbanana\n"
+          },
+          {
+            "input": "1\npen,10,50\n",
+            "expectedOutput": "pen\n"
+          },
+          {
+            "input": "3\nbook,200,5\nchocolate,150,10\njuice,100,15\n",
+            "expectedOutput": "book\n"
+          },
+          {
+              "input": "5\nitem1,100,1\nitem2,200,2\nitem3,300,3\nitem4,400,4\nitem5,500,5\n",
+              "expectedOutput": "item1\n"
+          },
+          {
+              "input": "3\nitem1,1000,50\nitem2,500,100\nitem3,250,200\n",
+              "expectedOutput": "item1\n"
+          }
+        ],
+        "hints": [
+          "Read the number of items (N) from the user.",
+          "Read the item details (name, price, discount percentage) for each item.",
+          "Calculate the discount amount for each item.",
+          "Find the minimum discount amount.",
+          "Store the item names with the minimum discount amount.",
+          "Print the item names with the minimum discount amount."
+        ],
+        "tags": ["Minimum Discount", "Item Analysis", "String Processing"]
+      },
+      {
+        "problemId": 13,
+        "courseId": "cognizant",
+        "title": "Maximum Marks in Semesters",
+        "difficulty": "Medium",
+        "description": "Raj wants to know the maximum marks scored by him in each semester. The mark should be between 0 to 100, if goes beyond the range display “You have entered invalid mark.”.",
+        "examples": [
+          {
+            "input": "3\n3\n4\n2\n50\n60\n70\n90\n98\n76\n67\n89\n76\n",
+            "output": "Maximum mark in 1 semester:70\nMaximum mark in 2 semester:98\nMaximum mark in 3 semester:89\n"
+          },
+          {
+            "input": "2\n2\n1\n100\n101\n99\n",
+            "output": "You have entered invalid mark.\nMaximum mark in 2 semester:99\n"
+          },
+          {
+            "input": "1\n3\n-1\n50\n60\n70\n",
+            "output": "You have entered invalid mark.\n"
+          },
+          {
+            "input": "2\n1\n1\n100\n100\n",
+            "output": "Maximum mark in 1 semester:100\nMaximum mark in 2 semester:100\n"
+          }
+        ],
+        "constraints": [
+          "Number of semesters is a positive integer.",
+          "Number of subjects in each semester is a positive integer.",
+          "Marks should be integers between 0 and 100 (inclusive)."
+        ],
+        "testCases": [
+          {
+            "input": "3\n3\n4\n2\n50\n60\n70\n90\n98\n76\n67\n89\n76\n",
+            "expectedOutput": "Maximum mark in 1 semester:70\nMaximum mark in 2 semester:98\nMaximum mark in 3 semester:89\n"
+          },
+          {
+            "input": "2\n2\n1\n100\n101\n99\n",
+            "expectedOutput": "You have entered invalid mark.\nMaximum mark in 2 semester:99\n"
+          },
+          {
+            "input": "1\n3\n-1\n50\n60\n70\n",
+            "expectedOutput": "You have entered invalid mark.\n"
+          },
+          {
+            "input": "2\n1\n1\n100\n100\n",
+            "expectedOutput": "Maximum mark in 1 semester:100\nMaximum mark in 2 semester:100\n"
+          },
+          {
+              "input" : "2\n3\n2\n0\n100\n50\n100\n0\n",
+              "expectedOutput": "Maximum mark in 1 semester:100\nMaximum mark in 2 semester:100\n"
+          },
+          {
+              "input" : "1\n5\n10\n20\n30\n40\n50\n",
+              "expectedOutput": "Maximum mark in 1 semester:50\n"
+          }
+        ],
+        "hints": [
+          "Read the number of semesters.",
+          "For each semester, read the number of subjects and the marks obtained.",
+          "Check if any mark is outside the valid range (0 to 100). If so, print 'You have entered invalid mark.' and skip to the next semester.",
+          "Find the maximum mark for each semester.",
+          "Print the maximum mark for each semester."
+        ],
+        "tags": ["Maximum Marks", "Semester Analysis", "Input Validation"]
+      },
+       {
+        "problemId": 14,
+        "courseId": "cognizant",
+        "title": "Find Factors of a Number",
+        "difficulty": "Easy",
+        "description": "Bela teaches her daughter to find the factors of a given number. When she provides a number to her daughter, she should tell the factors of that number. Help her to do this, by writing a program. Note: If the input provided is negative, ignore the sign and provide the output. If the input is zero the output should be “No Factors”.",
+        "examples": [
+          {
+            "input": "54\n",
+            "output": "1, 2, 3, 6, 9, 18, 27, 54\n"
+          },
+          {
+            "input": "0\n",
+            "output": "No Factors\n"
+          },
+          {
+            "input": "-10\n",
+            "output": "1, 2, 5, 10\n"
+          }
+        ],
+        "constraints": [
+          "The input number should be an integer."
+        ],
+        "testCases": [
+          {
+            "input": "54\n",
+            "expectedOutput": "1, 2, 3, 6, 9, 18, 27, 54\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "No Factors\n"
+          },
+          {
+            "input": "-10\n",
+            "expectedOutput": "1, 2, 5, 10\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+              "input": "12\n",
+              "expectedOutput": "1, 2, 3, 4, 6, 12\n"
+          },
+           {
+              "input": "16\n",
+              "expectedOutput": "1, 2, 4, 8, 16\n"
+          }
+        ],
+        "hints": [
+          "Read the number from the user.",
+          "If the number is zero, print 'No Factors'.",
+          "If the number is negative, take its absolute value.",
+          "Iterate from 1 to the number.",
+          "For each number in the iteration, check if it is a factor of the given number.",
+          "If it is a factor, append it to a string with a comma and space.",
+          "Print the string containing the factors."
+        ],
+        "tags": ["Factors", "Number Iteration", "String Manipulation"]
+      },
+       {
+        "problemId": 15,
+        "courseId": "cognizant",
+        "title": "Best Stock Buy Price",
+        "difficulty": "Medium",
+        "description": "You want to buy a particular stock at its lowest price and sell it later at its highest price. Since the stock market is unpredictable, you steal the price plans of a company for this stock for the next N days. Find the best price you can get to buy this stock to achieve maximum profit. Note: The initial price of the stock is 0. Input Specification: Input1: N, number of days. Input2: Array representing change in stock price for the day. Output Specification: Your function must return the best price to buy the stock at.",
+        "examples": [
+          {
+            "input": "5\n-39957,-17136,35466,21820,-26711\n",
+            "output": "-57093\n"
+          },
+          {
+            "input": "3\n1,2,3\n",
+            "output": "0\n"
+          },
+          {
+            "input": "3\n-1,-2,-3\n",
+            "output": "-6\n"
+          },
+          {
+            "input": "1\n10\n",
+            "output": "0\n"
+          },
+          {
+              "input": "4\n10, -5, 20, -10\n",
+              "output": "-5\n"
+          },
+          {
+              "input": "6\n-10, 5, -20, 10, -5, 20\n",
+              "output": "-25\n"
+          }
+        ],
+        "constraints": [
+          "N is a positive integer.",
+          "The array representing the change in stock price can contain positive and negative integers."
+        ],
+        "testCases": [
+          {
+            "input": "5\n-39957,-17136,35466,21820,-26711\n",
+            "expectedOutput": "-57093\n"
+          },
+          {
+            "input": "3\n1,2,3\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "3\n-1,-2,-3\n",
+            "expectedOutput": "-6\n"
+          },
+          {
+            "input": "1\n10\n",
+            "expectedOutput": "0\n"
+          },
+          {
+              "input": "4\n10, -5, 20, -10\n",
+              "expectedOutput": "-5\n"
+          },
+          {
+              "input": "6\n-10, 5, -20, 10, -5, 20\n",
+              "expectedOutput": "-25\n"
+          }
+        ],
+        "hints": [
+          "Read the number of days (N) from the user.",
+          "Read the array representing the change in stock price for each day.",
+          "Initialize the current stock price to 0.",
+          "Initialize the minimum stock price to 0.",
+          "Iterate through the array of stock price changes.",
+          "For each day, update the current stock price by adding the change in price.",
+          "Update the minimum stock price if the current stock price is lower.",
+          "Return the minimum stock price."
+        ],
+        "tags": ["Stock Price", "Minimum Price", "Array Iteration"]
+      },
+       {
+        "problemId": 16,
+        "courseId": "cognizant",
+        "title": "Next Greater Number with Same Digits",
+        "difficulty": "Medium",
+        "description": "Given a positive whole number n, find the smallest number which has the very same digits existing in the whole number n and is greater than n. In the event that no such certain number exists, return -1. Note: that the returned number should fit in a 32-digit number, if there is a substantial answer however it doesn’t fit in a 32-bit number, return -1.",
+        "examples": [
+          {
+            "input": "12\n",
+            "output": "21\n"
+          },
+          {
+            "input": "21\n",
+            "output": "-1\n"
+          },
+          {
+            "input": "123\n",
+            "output": "132\n"
+          },
+          {
+            "input": "12345\n",
+            "output": "12354\n"
+          },
+          {
+              "input": "534976\n",
+              "output": "536479\n"
+          },
+          {
+              "input": "4321\n",
+              "output": "-1\n"
+          }
+        ],
+        "constraints": [
+          "n is a positive whole number."
+        ],
+        "testCases": [
+          {
+            "input": "12\n",
+            "expectedOutput": "21\n"
+          },
+          {
+            "input": "21\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "123\n",
+            "expectedOutput": "132\n"
+          },
+          {
+            "input": "12345\n",
+            "expectedOutput": "12354\n"
+          },
+          {
+              "input": "534976\n",
+              "expectedOutput": "536479\n"
+          },
+          {
+              "input": "4321\n",
+              "expectedOutput": "-1\n"
+          }
+        ],
+        "hints": [
+          "Convert the number n to a string.",
+          "Find the largest index i such that s[i] < s[i+1]. If no such index exists, return -1.",
+          "Find the largest index j such that s[i] < s[j].",
+          "Swap s[i] and s[j].",
+          "Reverse the substring s[i+1:].",
+          "Convert the string back to a number.",
+          "Check if the number fits in a 32-bit integer. If not, return -1.",
+          "Return the number."
+        ],
+        "tags": ["Next Greater Number", "String Manipulation", "Number Conversion"]
+      },
+       {
+        "problemId": 17,
+        "courseId": "cognizant",
+        "title": "Henry's Ancestral Siblings",
+        "difficulty": "Medium",
+        "description": "Henry is extremely keen on history and every one of the ages of his family. He does a ton of exploration and understands that he has plummeted from the incomparable Amaya line. After a ton of looking through old records and the most recent records of the general public, he can discover all the parent-kid connections in his family right from the extraordinary ruler Ming of the tradition to himself. These connections are given in the structure of a direct exhibit where the emperor is at the main position and his kids are at pos (2i + 1) and (2i + 2). This is the pattern followed throughout. Henry needs to sort out every one of the kin of individual X from the information. Write a program for Henry to figure out all the siblings of person X from the data. Return the sorted list of all of Henry's siblings. If no sibling return [-1]. Input 1: N, the length of the array. Input 2: An array representing the ancestral tree. Input 3: X, the person whose siblings are sought. Output – return the array of all siblings in increasingly sorted order.",
+        "examples": [
+          {
+            "input": "5\n1,2,3,4,5\n1\n",
+            "output": "[-1]\n"
+          },
+          {
+            "input": "7\n1,2,3,4,5,6,7\n2\n",
+            "output": "[3]\n"
+          },
+          {
+            "input": "7\n1,2,3,4,5,6,7\n4\n",
+            "output": "[5]\n"
+          },
+          {
+            "input": "15\n1,2,3,4,5,6,7,8,9,10,11,12,13,14,15\n8\n",
+            "output": "[9]\n"
+          },
+          {
+              "input": "15\n1,2,3,4,5,6,7,8,9,10,11,12,13,14,15\n3\n",
+              "output": "[2]\n"
+          },
+          {
+              "input": "10\n1,2,3,4,5,6,7,8,9,10\n6\n",
+              "output": "[7]\n"
+          }
+        ],
+        "constraints": [
+          "N is a positive integer.",
+          "The array represents a valid ancestral tree structure.",
+          "X is a valid person in the tree."
+        ],
+        "testCases": [
+          {
+            "input": "5\n1,2,3,4,5\n1\n",
+            "expectedOutput": "[-1]\n"
+          },
+          {
+            "input": "7\n1,2,3,4,5,6,7\n2\n",
+            "expectedOutput": "[3]\n"
+          },
+          {
+            "input": "7\n1,2,3,4,5,6,7\n4\n",
+            "expectedOutput": "[5]\n"
+          },
+          {
+            "input": "15\n1,2,3,4,5,6,7,8,9,10,11,12,13,14,15\n8\n",
+            "expectedOutput": "[9]\n"
+          },
+          {
+              "input": "15\n1,2,3,4,5,6,7,8,9,10,11,12,13,14,15\n3\n",
+              "expectedOutput": "[2]\n"
+          },
+          {
+              "input": "10\n1,2,3,4,5,6,7,8,9,10\n6\n",
+              "expectedOutput": "[7]\n"
+          }
+        ],
+        "hints": [
+          "Read the number of people (N), the ancestral tree, and the person (X) from the input.",
+          "Find the index of person X in the ancestral tree.",
+          "Calculate the parent's index using (index - 1) / 2.",
+          "Find the siblings of X by checking the elements at indices 2 * parent + 1 and 2 * parent + 2.",
+          "If X is the root (index 0), return [-1].",
+          "If no siblings exist, return [-1].",
+          "Sort the siblings in ascending order.",
+          "Return the sorted list of siblings."
+        ],
+        "tags": ["Ancestral Tree", "Siblings", "Array Manipulation"]
+      },
+       {
+        "problemId": 18,
+        "courseId": "cognizant",
+        "title": "Longest Palindromic Subsequence",
+        "difficulty": "Medium",
+        "description": "Rohan and his team are participating in the Treasure Hunt event of college in which in each step they have to solve one problem to get a clue about the Treasure location. Rohan’s team has performed very well and reached the final step where they have to provide a code of a problem to get a final clue about treasure. Given a string s, they need to find the longest palindromic subsequence’s length in s. A subsequence is a sequence that can be derived from another sequence by deleting some or no elements without changing the order of the remaining elements. The string contains only lowercase letters. Write a program to help Rohan’s team that takes in input as String x and returns the length of the longest palindromic subsequence of x. Input Specification: input1: string input. Output Specification: Return the length of the longest palindromic subsequence.",
+        "examples": [
+          {
+            "input": "bbbab\n",
+            "output": "4\n"
+          },
+          {
+            "input": "cbbd\n",
+            "output": "2\n"
+          },
+          {
+            "input": "a\n",
+            "output": "1\n"
+          },
+          {
+            "input": "abcda\n",
+            "output": "3\n"
+          },
+          {
+              "input": "character\n",
+              "output": "3\n"
+          },
+          {
+              "input": "racecar\n",
+              "output": "7\n"
+          }
+        ],
+        "constraints": [
+          "The input string contains only lowercase letters."
+        ],
+        "testCases": [
+          {
+            "input": "bbbab\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "cbbd\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "a\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "abcda\n",
+            "expectedOutput": "3\n"
+          },
+          {
+              "input": "character\n",
+              "expectedOutput": "3\n"
+          },
+          {
+              "input": "racecar\n",
+              "expectedOutput": "7\n"
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve this problem.",
+          "Create a 2D array dp where dp[i][j] stores the length of the longest palindromic subsequence of the substring s[i:j+1].",
+          "Initialize the diagonal elements of dp with 1 (dp[i][i] = 1).",
+          "Iterate through the substrings of increasing length and update the dp array.",
+          "If s[i] == s[j], then dp[i][j] = dp[i+1][j-1] + 2.",
+          "If s[i] != s[j], then dp[i][j] = max(dp[i+1][j], dp[i][j-1]).",
+          "Return dp[0][n-1] where n is the length of the string."
+        ],
+        "tags": ["Longest Palindromic Subsequence", "Dynamic Programming", "String"]
+      },
+       {
+        "problemId": 19,
+        "courseId": "cognizant",
+        "title": "Remainder Modulo 11",
+        "difficulty": "Medium",
+        "description": "Given a number n, the task is to find the remainder when n is divided by 11. The input number may be very large. Since the given number can be very large, you can not use n % 11. Input Specification: inputs a large number in the form of a string. Output Specification: Return the remainder modulo 11 of input1. Example1: Input: str = 13589234356546756 Output: 6",
+        "examples": [
+          {
+            "input": "13589234356546756\n",
+            "output": "6\n"
+          },
+          {
+            "input": "11\n",
+            "output": "0\n"
+          },
+          {
+            "input": "12\n",
+            "output": "1\n"
+          },
+          {
+            "input": "23\n",
+            "output": "1\n"
+          },
+          {
+              "input": "100\n",
+              "output": "1\n"
+          },
+          {
+              "input": "1000\n",
+              "output": "10\n"
+          }
+        ],
+        "constraints": [
+          "The input number is a large positive integer represented as a string."
+        ],
+        "testCases": [
+          {
+            "input": "13589234356546756\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "11\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "12\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "23\n",
+            "expectedOutput": "1\n"
+          },
+          {
+              "input": "100\n",
+              "expectedOutput": "1\n"
+          },
+          {
+              "input": "1000\n",
+              "expectedOutput": "10\n"
+          }
+        ],
+        "hints": [
+          "Read the large number as a string.",
+          "Use the property that the remainder when a number is divided by 11 is the same as the remainder when the alternating sum of its digits is divided by 11.",
+          "Iterate through the string from right to left.",
+          "Calculate the alternating sum of the digits.",
+          "Return the remainder when the alternating sum is divided by 11.",
+          "Handle negative alternating sums by adding 11 until the sum is non-negative."
+        ],
+        "tags": ["Modulo 11", "Large Number", "String Manipulation"]
+      },
+       {
+        "problemId": 20,
+        "courseId": "cognizant",
+        "title": "Jasleen's Bulb Collection",
+        "difficulty": "Medium",
+        "description": "Jasleen has bought a new bulb factory. The factory has a single file of machines, numbered from 1 to N. Each machine has a certain number of fully prepared bulbs. Jasleen has a rule she wants to follow. She wants to collect an equal amount of bulb from each machine from which she collects bulbs. Jasleen can start collecting bulb from any machine, but once she starts collecting, she collects from every consecutive machine until she reaches the last machine she wants to collect from. Find the maximum number of bulbs she can collect. Input Specification: Input1: N, the number of machines. Input2: An array of N elements (a1,a2 a3……aN), denoting the number of fully prepared bulbs in each machine of the factory. Output Specification: An integer output denoting the maximum number of bulbs that Allie can collect.",
+        "examples": [
+          {
+            "input": "3\n1,2,3\n",
+            "output": "3\n"
+          },
+          {
+            "input": "4\n1,1,1,1\n",
+            "output": "4\n"
+          },
+          {
+            "input": "4\n1,2,1,2\n",
+            "output": "2\n"
+          },
+          {
+            "input": "5\n1,2,3,4,5\n",
+            "output": "5\n"
+          },
+          {
+              "input": "5\n5,4,3,2,1\n",
+              "output": "5\n"
+          },
+          {
+              "input": "6\n1,2,2,1,3,3\n",
+              "output": "6\n"
+          }
+        ],
+        "constraints": [
+          "N is a positive integer.",
+          "The array of N elements contains positive integers."
+        ],
+        "testCases": [
+          {
+            "input": "3\n1,2,3\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "4\n1,1,1,1\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "4\n1,2,1,2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "5\n1,2,3,4,5\n",
+            "expectedOutput": "5\n"
+          },
+          {
+              "input": "5\n5,4,3,2,1\n",
+              "expectedOutput": "5\n"
+          },
+          {
+              "input": "6\n1,2,2,1,3,3\n",
+              "expectedOutput": "6\n"
+          }
+        ],
+        "hints": [
+          "Iterate through all possible subarrays of the input array.",
+          "For each subarray, check if all elements are equal.",
+          "If all elements are equal, calculate the total number of bulbs collected.",
+          "Keep track of the maximum number of bulbs collected so far.",
+          "Return the maximum number of bulbs collected."
+        ],
+        "tags": ["Bulb Collection", "Subarrays", "Maximum"]
+      },
+      {
+        "problemId": 21,
+        "courseId": "cognizant",
+        "title": "Devilliers' Lucky Jersey Number",
+        "difficulty": "Medium",
+        "description": "An astrologer gives a matrix to devilliers and tells him to add a largest row sum and largest column sum of the given matrix. The number which appears as a result is his lucky number for the final match jersey. Write a program that adds up the largest row sum and the largest column sum from an N-rows*M-columns array of numbers to help devilliers for finding his lucky number for the final match jersey. As a preliminary phrase, you should reformat the sequence of numbers as a matrix, whose number of rows and columns are to be specified as arguments. Input Specification: Input 1: Integer for row dimension of the array. Input 2: Integer for column dimension of the array. Input 3: Array elements to be entered in row major. Output Specifications: Largest row sum + Largest column sum.",
+        "examples": [
+          {
+            "input": "4\n4\n1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4\n",
+            "output": "26\n"
+          },
+          {
+            "input": "2\n3\n1,2,3,4,5,6\n",
+            "output": "21\n"
+          },
+          {
+            "input": "3\n2\n1,2,3,4,5,6\n",
+            "output": "21\n"
+          },
+          {
+            "input": "1\n5\n1,2,3,4,5\n",
+            "output": "20\n"
+          },
+          {
+              "input": "5\n1\n1,2,3,4,5\n",
+              "output": "20\n"
+          },
+          {
+              "input": "3\n3\n-1,2,3,4,-5,6,7,8,-9\n",
+              "output": "15\n"
+          }
+        ],
+        "constraints": [
+          "N and M are positive integers representing the number of rows and columns.",
+          "The number of elements in the input array is N * M.",
+          "The elements in the array can be positive or negative integers."
+        ],
+        "testCases": [
+          {
+            "input": "4\n4\n1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4\n",
+            "expectedOutput": "26\n"
+          },
+          {
+            "input": "2\n3\n1,2,3,4,5,6\n",
+            "expectedOutput": "21\n"
+          },
+          {
+            "input": "3\n2\n1,2,3,4,5,6\n",
+            "expectedOutput": "21\n"
+          },
+          {
+            "input": "1\n5\n1,2,3,4,5\n",
+            "expectedOutput": "20\n"
+          },
+          {
+              "input": "5\n1\n1,2,3,4,5\n",
+              "expectedOutput": "20\n"
+          },
+          {
+              "input": "3\n3\n-1,2,3,4,-5,6,7,8,-9\n",
+              "expectedOutput": "15\n"
+          }
+        ],
+        "hints": [
+          "Read the number of rows (N) and columns (M) from the user.",
+          "Read the array elements from the user.",
+          "Create a 2D array (matrix) from the input array elements.",
+          "Calculate the sum of each row and find the largest row sum.",
+          "Calculate the sum of each column and find the largest column sum.",
+          "Add the largest row sum and the largest column sum.",
+          "Print the result."
+        ],
+        "tags": ["Matrix Sum", "Largest Sum", "2D Array"]
+      },
+       {
+        "problemId": 22,
+        "courseId": "cognizant",
+        "title": "Williamson's Permutation and Combination",
+        "difficulty": "Hard",
+        "description": "Williamson is an analyst he needs to analyse a particular topic for performing analysis for that he needs to find a permutation of a given object.He don't know how to find permutation so for simplifying his work he is hiring one software developer who can code for him and find a permutation and combination of a given object. Consider you are giving an interview to williamson for working with him. Find a permutation of given input to proof that you are fit for his requirement. Input Specification: nCr where n and r are numbers given by Williamson to you nCr is defined as n! / (r! x (n-r)!) Here, n! denotes the factorial of a number. Also, you have to calculate this number as modulo. Input Specification: input1: The number n. input2: The number r. Input3: The number m. Output specification: The value of nCr%m.",
+        "examples": [
+          {
+            "input": "3\n2\n1000000009\n",
+            "output": "3\n"
+          },
+          {
+            "input": "5\n2\n1000000007\n",
+            "output": "10\n"
+          },
+          {
+            "input": "10\n3\n1000000007\n",
+            "output": "120\n"
+          },
+          {
+            "input": "10\n5\n1000000007\n",
+            "output": "252\n"
+          },
+          {
+              "input": "20\n10\n1000000007\n",
+              "output": "184756\n"
+          },
+          {
+              "input": "100\n50\n1000000007\n",
+              "output": "848827725\n"
+          }
+        ],
+        "constraints": [
+          "n, r, and m are positive integers.",
+          "r <= n."
+        ],
+        "testCases": [
+          {
+            "input": "3\n2\n1000000009\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "5\n2\n1000000007\n",
+            "expectedOutput": "10\n"
+          },
+          {
+            "input": "10\n3\n1000000007\n",
+            "expectedOutput": "120\n"
+          },
+          {
+            "input": "10\n5\n1000000007\n",
+            "expectedOutput": "252\n"
+          },
+          {
+              "input": "20\n10\n1000000007\n",
+              "expectedOutput": "184756\n"
+          },
+          {
+              "input": "100\n50\n1000000007\n",
+              "expectedOutput": "848827725\n"
+          }
+        ],
+        "hints": [
+          "Calculate the factorial of n, r, and (n-r).",
+          "Use modular inverse to calculate the division modulo m.",
+          "Calculate nCr modulo m using the formula nCr = n! / (r! * (n-r)!).",
+          "Use long data type to avoid integer overflow.",
+          "Use efficient modular exponentiation to calculate modular inverse."
+        ],
+        "tags": ["Permutation", "Combination", "Modulo", "Factorial"]
+      },
+       {
+        "problemId": 23,
+        "courseId": "cognizant",
+        "title": "Derangement Count",
+        "difficulty": "Medium",
+        "description": "A Derangement is a permutation of n elements, such that no element appears in its original position. For example, a derangement of [0, 1, 2, 3] is [2, 3, 1, 0]. Given a number n, find the total number of Derangements of a set of n elements. Input Specification: input1: N, the number of Objects. Output Specification: Return the number of arrangements in which no object occurs at its original position. Example 1: Input: n = 2 Output: 1 For two elements say [0, 1], there is only one possible derangement {1,0}",
+        "examples": [
+          {
+            "input": "2\n",
+            "output": "1\n"
+          },
+          {
+            "input": "3\n",
+            "output": "2\n"
+          },
+          {
+            "input": "4\n",
+            "output": "9\n"
+          },
+          {
+            "input": "5\n",
+            "output": "44\n"
+          },
+          {
+              "input": "6\n",
+              "output": "265\n"
+          },
+          {
+              "input": "7\n",
+              "output": "1854\n"
+          }
+        ],
+        "constraints": [
+          "n is a positive integer."
+        ],
+        "testCases": [
+          {
+            "input": "2\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "3\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "4\n",
+            "expectedOutput": "9\n"
+          },
+          {
+            "input": "5\n",
+            "expectedOutput": "44\n"
+          },
+          {
+              "input": "6\n",
+              "expectedOutput": "265\n"
+          },
+          {
+              "input": "7\n",
+              "expectedOutput": "1854\n"
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve this problem.",
+          "The recurrence relation for derangements is: D(n) = (n-1) * [D(n-1) + D(n-2)]",
+          "Base cases: D(0) = 1, D(1) = 0, D(2) = 1",
+          "Create an array to store the derangement counts for each value of n.",
+          "Iterate from 3 to n and calculate the derangement count using the recurrence relation.",
+          "Return the derangement count for n."
+        ],
+        "tags": ["Derangement", "Dynamic Programming", "Permutation"]
+      },
+       {
+        "problemId": 24,
+        "courseId": "cognizant",
+        "title": "Vira's Rotated Words",
+        "difficulty": "Medium",
+        "description": "Vira writes an apology letter to anu. However, before Anu can read it, Vira’s enemy Rohan takes it and rotates the characters of each word left to right N times. Find the number of words that remain the same even after this shifting of letters. Input Specification: input1: String of words. input2: N, number of times rotation happens. Output Specification: Your function should return the number of correct words.",
+        "examples": [
+          {
+            "input": "llohe ereth\n2\n",
+            "output": "2\n"
+          },
+          {
+            "input": "abc def ghi\n1\n",
+            "output": "0\n"
+          },
+          {
+            "input": "aaaa bbbb cccc\n5\n",
+            "output": "3\n"
+          },
+          {
+            "input": "hello world level\n0\n",
+            "output": "1\n"
+          },
+          {
+              "input": "madam racecar level\n3\n",
+              "output": "3\n"
+          },
+          {
+              "input": "abc def ghi jklm\n4\n",
+              "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "The input string contains only lowercase letters and spaces.",
+          "N is a non-negative integer."
+        ],
+        "testCases": [
+          {
+            "input": "llohe ereth\n2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "abc def ghi\n1\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "aaaa bbbb cccc\n5\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "hello world level\n0\n",
+            "expectedOutput": "1\n"
+          },
+          {
+              "input": "madam racecar level\n3\n",
+              "expectedOutput": "3\n"
+          },
+          {
+              "input": "abc def ghi jklm\n4\n",
+              "expectedOutput": "0\n"
+          }
+        ],
+        "hints": [
+          "Split the input string into individual words.",
+          "For each word, rotate the characters N times.",
+          "Compare the rotated word with the original word.",
+          "Count the number of words that remain the same after rotation.",
+          "Return the count."
+        ],
+        "tags": ["String Rotation", "Word Comparison", "String Manipulation"]
+      },
+       {
+        "problemId": 25,
+        "courseId": "cognizant",
+        "title": "Adil's Movie Payment",
+        "difficulty": "Medium",
+        "description": "After Watching a movie at PVR, Adil is pondering over the number of ways in which he can pay for the movie. He has x1, x2, x3, x4 coins of values 1,2,5 and 10 respectively. He wants to determine the number of ways in which he can pay an amount A. You need to fill in a function that returns the number of ways to pay total amount. Input Specifications: Input 1: An integer value denoting the total amount to be paid. Output Specification: Return an Integer value denoting the number of ways to pay the total amount.",
+        "examples": [
+          {
+            "input": "40\n",
+            "output": "195\n"
+          },
+          {
+            "input": "10\n",
+            "output": "14\n"
+          },
+          {
+            "input": "5\n",
+            "output": "4\n"
+          },
+          {
+            "input": "2\n",
+            "output": "2\n"
+          },
+          {
+              "input": "1\n",
+              "output": "1\n"
+          },
+          {
+              "input": "0\n",
+              "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "The total amount to be paid (A) is a non-negative integer."
+        ],
+        "testCases": [
+          {
+            "input": "40\n",
+            "expectedOutput": "195\n"
+          },
+          {
+            "input": "10\n",
+            "expectedOutput": "14\n"
+          },
+          {
+            "input": "5\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+              "input": "1\n",
+              "expectedOutput": "1\n"
+          },
+          {
+              "input": "0\n",
+              "expectedOutput": "1\n"
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve this problem.",
+          "Create an array dp of size A+1 to store the number of ways to pay each amount.",
+          "Initialize dp[0] to 1 (one way to pay 0 amount).",
+          "Iterate through the coin values (1, 2, 5, 10).",
+          "For each coin value, iterate through the amounts from the coin value to A.",
+          "Update dp[amount] by adding dp[amount - coin value].",
+          "Return dp[A]."
+        ],
+        "tags": ["Dynamic Programming", "Coin Change", "Payment Ways"]
+      },
+       {
+        "problemId": 26,
+        "courseId": "cognizant",
+        "title": "Minimum Steps to Reduce X to 0",
+        "difficulty": "Medium",
+        "description": "Given an array of positive integers nums and a target integer x, return the minimum number of steps to reduce x to exactly 0 by subtracting elements from the array, either from the beginning or the end. If it's not possible, return -1.",
+        "examples": [
+          {
+            "input": "[1, 1, 4, 2, 3]\n5\n",
+            "output": "2\n"
+          },
+          {
+            "input": "[5, 6, 7, 8, 9]\n4\n",
+            "output": "-1\n"
+          },
+          {
+            "input": "[3, 2, 20, 1, 1, 3]\n10\n",
+            "output": "5\n"
+          },
+          {
+            "input": "[1, 1, 1, 1, 1]\n5\n",
+            "output": "5\n"
+          },
+          {
+              "input": "[1, 1, 1, 1, 1]\n3\n",
+              "output": "3\n"
+          },
+          {
+              "input": "[1, 1, 1, 1, 1]\n0\n",
+              "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "nums is an array of positive integers.",
+          "x is a non-negative integer."
+        ],
+        "testCases": [
+          {
+            "input": "[1, 1, 4, 2, 3]\n5\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[5, 6, 7, 8, 9]\n4\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "[3, 2, 20, 1, 1, 3]\n10\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "[1, 1, 1, 1, 1]\n5\n",
+            "expectedOutput": "5\n"
+          },
+          {
+              "input": "[1, 1, 1, 1, 1]\n3\n",
+              "expectedOutput": "3\n"
+          },
+          {
+              "input": "[1, 1, 1, 1, 1]\n0\n",
+              "expectedOutput": "0\n"
+          }
+        ],
+        "hints": [
+          "Use a sliding window approach.",
+          "Calculate the total sum of the array.",
+          "Find the longest subarray whose sum is total_sum - x.",
+          "The minimum number of steps is nums.length - length of the longest subarray.",
+          "If no such subarray is found, return -1.",
+          "Handle the edge case where x equals the total sum of the array."
+        ],
+        "tags": ["Minimum Steps", "Sliding Window", "Array Sum"]
+      },
+       {
+        "problemId": 27,
+        "courseId": "cognizant",
+        "title": "Longest Substring Without Repeating Characters",
+        "difficulty": "Medium",
+        "description": "Given a string, find the length of the longest substring without repeating characters.",
+        "examples": [
+          {
+            "input": "abcabcbb\n",
+            "output": "3\n"
+          },
+          {
+            "input": "bbbbb\n",
+            "output": "1\n"
+          },
+          {
+            "input": "pwwkew\n",
+            "output": "3\n"
+          },
+          {
+            "input": "abcde\n",
+            "output": "5\n"
+          },
+          {
+              "input": "a\n",
+              "output": "1\n"
+          },
+          {
+              "input": "\n",
+              "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "The input string can contain any ASCII characters."
+        ],
+        "testCases": [
+          {
+            "input": "abcabcbb\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "bbbbb\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "pwwkew\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "abcde\n",
+            "expectedOutput": "5\n"
+          },
+          {
+              "input": "a\n",
+              "expectedOutput": "1\n"
+          },
+          {
+              "input": "\n",
+              "expectedOutput": "0\n"
+          }
+        ],
+        "hints": [
+          "Use a sliding window approach.",
+          "Maintain a set to store the characters in the current window.",
+          "Expand the window to the right as long as the characters are unique.",
+          "If a repeating character is found, shrink the window from the left.",
+          "Keep track of the maximum length of the window.",
+          "Return the maximum length."
+        ],
+        "tags": ["Longest Substring", "Sliding Window", "String"]
+      },
+      {
+        "problemId": 28,
+        "courseId": "cognizant",
+        "title": "Kth Smallest Element in a Sorted Matrix",
+        "difficulty": "Medium",
+        "description": "Given an n x n matrix where each of the rows and columns is sorted in ascending order, find the kth smallest element in the matrix.",
+        "examples": [
+          {
+            "input": "[[1,5,9],[10,11,13],[12,13,15]]\n8\n",
+            "output": "13\n"
+          },
+          {
+            "input": "[[1,2],[1,3]]\n2\n",
+            "output": "2\n"
+          },
+          {
+            "input": "[[1,2,3],[4,5,6],[7,8,9]]\n5\n",
+            "output": "5\n"
+          },
+          {
+            "input": "[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]\n10\n",
+            "output": "10\n"
+          },
+          {
+              "input": "[[1]]\n1\n",
+              "output": "1\n"
+          },
+          {
+              "input": "[[1,2,3],[4,5,6],[7,8,9]]\n1\n",
+              "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "matrix is an n x n matrix.",
+          "Each row and column of matrix is sorted in ascending order.",
+          "1 <= k <= n^2."
+        ],
+        "testCases": [
+          {
+            "input": "[[1,5,9],[10,11,13],[12,13,15]]\n8\n",
+            "expectedOutput": "13\n"
+          },
+          {
+            "input": "[[1,2],[1,3]]\n2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[[1,2,3],[4,5,6],[7,8,9]]\n5\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "[[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]\n10\n",
+            "expectedOutput": "10\n"
+          },
+          {
+              "input": "[[1]]\n1\n",
+              "expectedOutput": "1\n"
+          },
+          {
+              "input": "[[1,2,3],[4,5,6],[7,8,9]]\n1\n",
+              "expectedOutput": "1\n"
+          }
+        ],
+        "hints": [
+          "Use binary search to solve this problem.",
+          "The range of the kth smallest element is [matrix[0][0], matrix[n-1][n-1]].",
+          "For each mid value in the range, count the number of elements less than or equal to mid.",
+          "If the count is less than k, search in the right half of the range.",
+          "If the count is greater than or equal to k, search in the left half of the range.",
+          "Return the left boundary of the range when the binary search finishes."
+        ],
+        "tags": ["Kth Smallest", "Sorted Matrix", "Binary Search"]
+      },
+       {
+        "problemId": 29,
+        "courseId": "cognizant",
+        "title": "Container With Most Water",
+        "difficulty": "Medium",
+        "description": "Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i are at (i, ai) and (i, 0). Find two lines, which together with the x-axis forms a container, such that the container contains the most water.",
+        "examples": [
+          {
+            "input": "[1,8,6,2,5,4,8,3,7]\n",
+            "output": "49\n"
+          },
+          {
+            "input": "[1,1]\n",
+            "output": "1\n"
+          },
+          {
+            "input": "[4,3,2,1,4]\n",
+            "output": "16\n"
+          },
+          {
+            "input": "[1,2,1]\n",
+            "output": "2\n"
+          },
+          {
+              "input": "[10,9,8,7,6,5,4,3,2,1]\n",
+              "output": "25\n"
+          },
+          {
+              "input": "[1,2,3,4,5,6,7,8,9,10]\n",
+              "output": "25\n"
+          }
+        ],
+        "constraints": [
+          "n == height.length",
+          "2 <= n <= 10^5",
+          "0 <= height[i] <= 10^4"
+        ],
+        "testCases": [
+          {
+            "input": "[1,8,6,2,5,4,8,3,7]\n",
+            "expectedOutput": "49\n"
+          },
+          {
+            "input": "[1,1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[4,3,2,1,4]\n",
+            "expectedOutput": "16\n"
+          },
+          {
+            "input": "[1,2,1]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+              "input": "[10,9,8,7,6,5,4,3,2,1]\n",
+              "expectedOutput": "25\n"
+          },
+          {
+              "input": "[1,2,3,4,5,6,7,8,9,10]\n",
+              "expectedOutput": "25\n"
+          }
+        ],
+        "hints": [
+          "Use a two-pointer approach.",
+          "Initialize two pointers, left and right, at the beginning and end of the height array.",
+          "Calculate the area of the container formed by the two pointers.",
+          "Update the maximum area if the current area is greater.",
+          "Move the pointer with the smaller height towards the other pointer.",
+          "Repeat steps 3-5 until the two pointers meet.",
+          "Return the maximum area."
+        ],
+        "tags": ["Container", "Two Pointers", "Area"]
+      },
+       {
+        "problemId": 30,
+        "courseId": "cognizant",
+        "title": "Maximum Subarray",
+        "difficulty": "Medium",
+        "description": "Given an integer array nums, find the contiguous subarray (containing at least one number) which has the largest sum and return its sum.",
+        "examples": [
+          {
+            "input": "[-2,1,-3,4,-1,2,1,-5,4]\n",
+            "output": "6\n"
+          },
+          {
+            "input": "[1]\n",
+            "output": "1\n"
+          },
+          {
+            "input": "[5,4,-1,7,8]\n",
+            "output": "23\n"
+          },
+          {
+            "input": "[-1,-2,-3,-4]\n",
+            "output": "-1\n"
+          },
+          {
+              "input": "[-2, -1]\n",
+              "output": "-1\n"
+          },
+          {
+              "input": "[1, 2, 3, 4]\n",
+              "output": "10\n"
+          }
+        ],
+        "constraints": [
+          "1 <= nums.length <= 10^5",
+          "-10^4 <= nums[i] <= 10^4"
+        ],
+        "testCases": [
+          {
+            "input": "[-2,1,-3,4,-1,2,1,-5,4]\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[5,4,-1,7,8]\n",
+            "expectedOutput": "23\n"
+          },
+          {
+            "input": "[-1,-2,-3,-4]\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+              "input": "[-2, -1]\n",
+              "expectedOutput": "-1\n"
+          },
+          {
+              "input": "[1, 2, 3, 4]\n",
+              "expectedOutput": "10\n"
+          }
+        ],
+        "hints": [
+          "Use Kadane's algorithm to solve this problem.",
+          "Initialize two variables, max_so_far and current_max, to the first element of the array.",
+          "Iterate through the array starting from the second element.",
+          "Update current_max by taking the maximum of the current element and the sum of the current element and current_max.",
+          "Update max_so_far by taking the maximum of max_so_far and current_max.",
+          "Return max_so_far."
+        ],
+        "tags": ["Maximum Subarray", "Kadane's Algorithm", "Dynamic Programming"]
+      }
+]

@@ -1,0 +1,1545 @@
+[
+     {
+    "problemId": 1,
+    "courseId": "deloitte",
+    "title": "Class Monitor Selection",
+    "difficulty": "Easy",
+    "description": "After JEE Mains, some students got admission into an engineering college. Now there is a class consisting of such n students, and the HOD came to say it is time to select the class monitor. But He never gets all of them at one time. So he brought a register, every time he gets someone with less rank than the previous time he cut the name and wrote the name of the student and the rank. For a given number of ranks he gets each time, you have to predict how many names are cut in the list.",
+    "examples": [
+      {
+        "input": "6\n4 3 7 2 6 1\n",
+        "output": "3\n"
+      }
+    ],
+    "constraints": [
+      "1 <= Number of Visiting <= 10^9",
+      "1 <= ranks <= 10000"
+    ],
+    "testCases": [
+      {
+        "input": "6\n4 3 7 2 6 1\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "5\n1 2 3 4 5\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "5\n5 4 3 2 1\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "7\n1 3 2 4 5 7 6\n",
+        "expectedOutput": "2\n"
+      },
+      {
+          "input": "1\n1\n",
+          "expectedOutput": "0\n"
+      },
+      {
+          "input": "10\n10 9 8 7 6 5 4 3 2 1\n",
+          "expectedOutput": "9\n"
+      }
+    ],
+    "hints": [
+      "Read the number of visits and the ranks.",
+      "Keep track of the current minimum rank.",
+      "Iterate through the ranks and compare each rank with the current minimum.",
+      "If a rank is less than the current minimum, update the minimum and increment the count of cut names.",
+      "Return the count of cut names."
+    ],
+    "tags": ["Array", "Minimum", "Iteration"]
+  },
+  {
+    "problemId": 2,
+    "courseId": "deloitte",
+    "title": "Corona Virus and Binary Numbers",
+    "difficulty": "Medium",
+    "description": "Every decimal number can be changed into its binary form. Suppose your computer has its own CoronaVirus, that eats binary digits from the right side of a number. Suppose a virus has n spikes, it will eat up n LSB binary digits in your numbers. You will have a bunch of numbers, and your machine will have a virus with n spikes, you have to calculate what will be the final situation of the final numbers.",
+    "examples": [
+      {
+        "input": "5\n1 2 3 4 5\n2\n",
+        "output": "0 0 0 1 1\n"
+      }
+    ],
+    "constraints": [
+      "1 <= N <= 100",
+      "0 <= V[i] <= 10^9",
+      "0 <= n <= 30"
+    ],
+    "testCases": [
+      {
+        "input": "5\n1 2 3 4 5\n2\n",
+        "expectedOutput": "0 0 0 1 1\n"
+      },
+      {
+        "input": "3\n10 20 30\n3\n",
+        "expectedOutput": "1 2 3\n"
+      },
+      {
+        "input": "4\n15 16 17 18\n4\n",
+        "expectedOutput": "0 1 1 1\n"
+      },
+      {
+        "input": "1\n100\n0\n",
+        "expectedOutput": "100\n"
+      },
+      {
+          "input" : "2\n1000 1001\n10\n",
+          "expectedOutput" : "0 0\n"
+      },
+      {
+          "input": "6\n1 2 3 4 5 6\n1\n",
+          "expectedOutput": "0 1 1 2 2 3\n"
+      }
+  
+    ],
+    "hints": [
+      "Read the input: N, the array V, and n.",
+      "For each number in V, perform a right shift operation by n bits.",
+      "Print the resulting numbers in the array V, separated by spaces.",
+      "Right shifting a number by n bits is equivalent to dividing the number by 2^n and taking the integer part.",
+      "In Python, you can use the >> operator for right shift."
+    ],
+    "tags": ["Bit Manipulation", "Array", "Right Shift"]
+  },
+   {
+    "problemId": 3,
+    "courseId": "deloitte",
+    "title": "Numbers with K Set Bits",
+    "difficulty": "Medium",
+    "description": "Arnab has given me a challenge. I have to calculate the number of numbers which are less than a certain value n, and have exactly k set bits in its binary form. As you are a Prepster like me, help me write a code that will take input for n and k and give the expected output.",
+    "examples": [
+      {
+        "input": "7 2\n",
+        "output": "3\n"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 10000",
+      "1 <= k <= 10"
+    ],
+    "testCases": [
+      {
+        "input": "7 2\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "10 1\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "16 3\n",
+        "expectedOutput": "10\n"
+      },
+      {
+        "input": "32 4\n",
+        "expectedOutput": "15\n"
+      },
+      {
+          "input" : "100 5\n",
+          "expectedOutput" : "21\n"
+      },
+      {
+          "input": "10000 10\n",
+          "expectedOutput": "1\n"
+      }
+    ],
+    "hints": [
+      "Iterate through numbers from 1 to n-1.",
+      "For each number, count the number of set bits in its binary representation.",
+      "If the number of set bits is equal to k, increment a counter.",
+      "Return the counter.",
+      "To count set bits, you can use bitwise operations or convert the number to binary and count the '1's."
+    ],
+    "tags": ["Bit Manipulation", "Counting", "Iteration"]
+  },
+   {
+    "problemId": 4,
+    "courseId": "deloitte",
+    "title": "Total Momentum of Particles",
+    "difficulty": "Easy",
+    "description": "Ratul made a linked list, a list made of n nodes, where every node has two variables, the velocity and the mass of a particle. Since all the particles have the velocity in the same direction, find the total momentum of the entity made by the particles from the linked list.",
+    "examples": [
+      {
+        "input": "4\n1 3\n2 4\n2 3\n4 5\n",
+        "output": "37\n"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 10000",
+      "1 <= mass, velocity <= 100"
+    ],
+    "testCases": [
+      {
+        "input": "4\n1 3\n2 4\n2 3\n4 5\n",
+        "expectedOutput": "37\n"
+      },
+      {
+        "input": "1\n10 10\n",
+        "expectedOutput": "100\n"
+      },
+      {
+        "input": "3\n1 1\n2 2\n3 3\n",
+        "expectedOutput": "14\n"
+      },
+      {
+        "input": "2\n100 1\n1 100\n",
+        "expectedOutput": "200\n"
+      },
+      {
+          "input": "5\n1 1\n1 2\n1 3\n1 4\n1 5\n",
+          "expectedOutput": "15\n"
+      },
+      {
+          "input": "6\n10 10\n1 1\n2 2\n3 3\n4 4\n5 5\n",
+          "expectedOutput": "155\n"
+      }
+    ],
+    "hints": [
+      "Read the number of particles (n).",
+      "For each particle, read its mass and velocity.",
+      "Calculate the momentum of each particle (momentum = mass * velocity).",
+      "Sum the momenta of all particles.",
+      "Print the total momentum."
+    ],
+    "tags": ["Linked List", "Math", "Momentum"]
+  },
+   {
+    "problemId": 5,
+    "courseId": "deloitte",
+    "title": "Anish's Lazy Winner Name",
+    "difficulty": "Hard",
+    "description": "Anish is the laziest person you can ever see. He is tasked to write the name of the winner in a game where two people take part. And he just writes the longest common subsequence over there, so that with minimum change or no backspace he can edit the name to the winner’s name. For two given names, you have to predict what Anish will write in his computer before the start of the name. If there are more than two longest subsequences possible, write the one with less lexicographic value.",
+    "examples": [
+      {
+        "input": "ABCD\nBACD\n",
+        "output": "ACD\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of names <= 100",
+      "Names contain only uppercase letters."
+    ],
+    "testCases": [
+      {
+        "input": "ABCD\nBACD\n",
+        "expectedOutput": "ACD\n"
+      },
+      {
+        "input": "ABC\nDEF\n",
+        "expectedOutput": "\n"
+      },
+      {
+        "input": "AAAA\nAAAA\n",
+        "expectedOutput": "AAAA\n"
+      },
+      {
+        "input": "ABCDEF\nACEFGH\n",
+        "expectedOutput": "ACEF\n"
+      },
+      {
+          "input": "ABCBDA\nACBDAB\n",
+          "expectedOutput": "ACBDA\n"
+      },
+      {
+          "input": "ABC\nACB\n",
+          "expectedOutput": "AC\n"
+      }
+    ],
+    "hints": [
+      "Use dynamic programming to find the longest common subsequence (LCS).",
+      "Create a 2D array dp where dp[i][j] stores the length of the LCS of the first i characters of the first string and the first j characters of the second string.",
+      "If the characters at the current positions are equal, dp[i][j] = dp[i-1][j-1] + 1.",
+      "Otherwise, dp[i][j] = max(dp[i-1][j], dp[i][j-1]).",
+      "Backtrack through the dp array to reconstruct the LCS.",
+      "If there are multiple LCSs, choose the lexicographically smallest one.",
+      "Lexicographical comparison can be done character by character."
+    ],
+    "tags": ["Dynamic Programming", "String", "LCS", "Lexicographical"]
+  },
+   {
+    "problemId": 6,
+    "courseId": "deloitte",
+    "title": "Find Numbers with Even Digits",
+    "difficulty": "Easy",
+    "description": "In a distant kingdom, a wise king has a chest full of magical numbers. He decides to reward the most observant mathematician in the land. Your task is to analyze a list of these numbers and identify which ones contain an even number of digits. The king believes that only numbers with an even number of digits hold the key to unlock the hidden treasures of the kingdom. Can you help identify these numbers for the king?",
+    "examples": [
+      {
+        "input": "123,4567,89,1001,22\n",
+        "output": "4567 89 1001 22\n"
+      }
+    ],
+    "constraints": [
+      "1 <= array length <= 10^4",
+      "1 <= num <= 10^9"
+    ],
+    "testCases": [
+      {
+        "input": "123,4567,89,1001,22\n",
+        "expectedOutput": "4567 89 1001 22\n"
+      },
+      {
+        "input": "1,2,3,4,5\n",
+        "expectedOutput": "\n"
+      },
+      {
+        "input": "10,100,1000,10000\n",
+        "expectedOutput": "10 10000\n"
+      },
+      {
+        "input": "12345678,12,1234,1\n",
+        "expectedOutput": "12345678 12 1234\n"
+      },
+      {
+          "input" : "11,22,33,44,55,66,77,88,99\n",
+          "expectedOutput" : "11 22 33 44 55 66 77 88 99\n"
+      },
+      {
+          "input": "1000000000,100000000,10000000,1000000,100000,10000,1000,100,10,1\n",
+          "expectedOutput": "1000000000 10000000 100000 100 10\n"
+      }
+    ],
+    "hints": [
+      "Read the input string and split it into an array of numbers.",
+      "For each number, determine the number of digits it contains.",
+      "If the digit count is even, add the number to the output list.",
+      "Print the numbers in the output list, separated by spaces."
+    ],
+    "tags": ["Array", "Digits", "Counting"]
+  },
+   {
+    "problemId": 7,
+    "courseId": "deloitte",
+    "title": "Making Anagrams",
+    "difficulty": "Medium",
+    "description": "Alice is attending a cryptography class and has discovered that anagrams can be very useful. She is working on an encryption scheme that involves two large strings. The encryption is dependent on determining the minimum number of character deletions required to turn the two strings into anagrams. Two strings are considered anagrams if the letters of one string can be rearranged to form the other string, meaning both strings must contain the same exact letters in the same exact frequencies. Given two strings, your task is to calculate the minimum number of deletions required to make them anagrams. Characters can be deleted from either string.",
+    "examples": [
+      {
+        "input": "cde\nabc\n",
+        "output": "4\n"
+      }
+    ],
+    "constraints": [
+      "Both strings consist only of lowercase English letters (a to z).",
+      "The lengths of the strings can vary but will not exceed 10^4."
+    ],
+    "testCases": [
+      {
+        "input": "cde\nabc\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "abc\nabc\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "abc\ndef\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "abcd\nabc\n",
+        "expectedOutput": "1\n"
+      },
+      {
+          "input": "abcde\nabcdefg\n",
+          "expectedOutput": "2\n"
+      },
+      {
+          "input": "fcrxzwscanmligyrtjxzkglewfvpsizuhlcvjmdtleodkesslevelawbcizktz\nfcrxzwscanmligyrtjxzkglewfvpsizuhlcvjmdtleodkesslevelawbcizktz\n",
+          "expectedOutput": "0\n"
+      }
+    ],
+    "hints": [
+      "Count the frequency of each character in both strings.",
+      "Calculate the absolute difference in frequencies for each character.",
+      "Sum up the absolute differences to get the total number of deletions.",
+      "Use a hash map or an array to store the character frequencies."
+    ],
+    "tags": ["String", "Anagrams", "Hash Map", "Counting"]
+  },
+   {
+    "problemId": 8,
+    "courseId": "deloitte",
+    "title": "Decode Nested Encoded Strings",
+    "difficulty": "Hard",
+    "description": "A mysterious letter arrives at your doorstep containing a cryptic message. The letter reads: 'Decode the message to reveal the treasure.' The message is encoded using nested repetition, such as '2[a3[b]]', where numbers indicate the number of repetitions. Your task is to decode such messages. For instance, '2[a3[b]]' expands to 'abbbabbb'. Can you solve this puzzle and unveil the treasure?",
+    "examples": [
+      {
+        "input": "3[a2[bc]]\n",
+        "output": "abcbcabcbcabcbc\n"
+      }
+    ],
+    "constraints": [
+      "The encoded string contains only alphanumeric characters, square brackets, and digits.",
+      "The maximum nesting level is 100.",
+      "The length of the encoded string does not exceed 10^4."
+    ],
+    "testCases": [
+      {
+        "input": "3[a2[bc]]\n",
+        "expectedOutput": "abcbcabcbcabcbc\n"
+      },
+      {
+        "input": "2[abc]3[cd]ef\n",
+        "expectedOutput": "abcabccdcdcdef\n"
+      },
+      {
+        "input": "abc\n",
+        "expectedOutput": "abc\n"
+      },
+      {
+        "input": "10[a]\n",
+        "expectedOutput": "aaaaaaaaaa\n"
+      },
+      {
+          "input" : "2[a3[b]4[c]]\n",
+          "expectedOutput": "abbbccccabbbcccc\n"
+      },
+      {
+          "input": "3[z]2[2[y]pq]\n",
+          "expectedOutput": "zzzyyypqyyypq\n"
+      }
+    ],
+    "hints": [
+      "Use a stack to keep track of the repetitions and decoded substrings.",
+      "Iterate through the encoded string character by character.",
+      "If you encounter a digit, parse the number and push it onto the stack.",
+      "If you encounter an opening bracket '[', push the current decoded string onto the stack and reset the decoded string.",
+      "If you encounter a closing bracket ']', pop the previous decoded string and the repetition count from the stack, and append the repeated current decoded string to the previous decoded string.",
+      "If you encounter a letter, append it to the current decoded string.",
+      "Return the final decoded string."
+    ],
+    "tags": ["String", "Stack", "Decoding"]
+  },
+  {
+    "problemId": 9,
+    "courseId": "deloitte",
+    "title": "Count Binary Substrings with Equal 0s and 1s",
+    "difficulty": "Medium",
+    "description": "A famous mathematician has been studying binary sequences and discovered a fascinating pattern. He realized that there are certain substrings where the number of 0s is equal to the number of 1s. Intrigued by this observation, he asks you to help find how many such substrings exist in a given binary string. The mathematician believes that these balanced substrings can lead to new discoveries in the world of numbers. Can you find them?",
+    "examples": [
+      {
+        "input": "00110011\n",
+        "output": "6\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the binary string <= 10^5",
+      "The string only contains characters '0' and '1'."
+    ],
+    "testCases": [
+      {
+        "input": "00110011\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "10101\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "000111\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "111000\n",
+        "expectedOutput": "3\n"
+      },
+      {
+          "input": "01010101\n",
+          "expectedOutput": "8\n"
+      },
+      {
+          "input": "00111001\n",
+          "expectedOutput": "5\n"
+      }
+    ],
+    "hints": [
+      "Iterate through the string and consider all possible substrings.",
+      "For each substring, count the number of 0s and 1s.",
+      "If the counts are equal, increment a counter.",
+      "Return the counter.",
+      "Alternatively, you can optimize the solution by keeping track of consecutive groups of 0s and 1s and using that information to count the balanced substrings."
+    ],
+    "tags": ["String", "Counting", "Substrings"]
+  },
+  {
+    "problemId": 10,
+    "courseId": "deloitte",
+    "title": "Calculate Salutes Exchanged by Soldiers",
+    "difficulty": "Easy",
+    "description": "In a grand military parade, soldiers march in a straight line. Some soldiers are facing left, while others are facing right. Every time a soldier facing right comes across a soldier facing left, they exchange a salute. Your task is to calculate how many salutes happen in total. Can you determine the total number of salutes based on the arrangement of soldiers in the parade?",
+    "examples": [
+      {
+        "input": "><<<>\n",
+        "output": "2\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the string <= 1000",
+      "The string consists of '>' and '<' characters only, representing soldiers facing right and left, respectively."
+    ],
+    "testCases": [
+      {
+        "input": "><<<>\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": ">>><<<\n",
+        "expectedOutput": "9\n"
+      },
+      {
+        "input": "<<>>\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": ">>>\n",
+        "expectedOutput": "0\n"
+      },
+      {
+          "input": "<<<\n",
+          "expectedOutput": "0\n"
+      },
+      {
+          "input": "><><><><\n",
+          "expectedOutput": "16\n"
+      }
+    ],
+    "hints": [
+      "Iterate through the string.",
+      "For each '>' character, count the number of '<' characters to its right.",
+      "Sum up the counts to get the total number of salutes.",
+      "Alternatively, you can iterate through the string and keep track of the number of '>' characters encountered so far. When you encounter a '<' character, add the current count of '>' characters to the total salutes."
+    ],
+    "tags": ["String", "Counting", "Iteration"]
+  },
+   {
+    "problemId": 11,
+    "courseId": "deloitte",
+    "title": "Sort Words Based on Embedded Numbers",
+    "difficulty": "Easy",
+    "description": "A peculiar list of words has been found, where each word contains an embedded number indicating its position in the correct order. Your task is to rearrange the words in the correct order based on these embedded numbers. For example, 'is2' and 'Th1is' should be placed in the correct sequence based on their numbers. Can you sort the list and reveal the correct sequence of words?",
+    "examples": [
+      {
+        "input": "[\"is2\", \"a3\", \"Th1is\"]\n",
+        "output": "This is a\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the list <= 1000",
+      "Each word contains exactly one digit indicating its position (1-9)."
+    ],
+    "testCases": [
+      {
+        "input": "[\"is2\", \"a3\", \"Th1is\"]\n",
+        "expectedOutput": "This is a\n"
+      },
+      {
+        "input": "[\"worl1d\", \"hell2o\"]\n",
+        "expectedOutput": "world hello\n"
+      },
+      {
+        "input": "[\"on1e\", \"tw2o\", \"thr3ee\"]\n",
+        "expectedOutput": "one two three\n"
+      },
+      {
+        "input": "[\"fi5ve\", \"fo4ur\", \"thr3ee\", \"tw2o\", \"on1e\"]\n",
+        "expectedOutput": "one two three four five\n"
+      },
+      {
+          "input": "[\"a1\"]\n",
+          "expectedOutput": "a\n"
+      },
+      {
+           "input": "[\"wo1rd\", \"wo3rd\", \"wo2rd\"]\n",
+           "expectedOutput": "word word word\n"
+      }
+    ],
+    "hints": [
+      "Iterate through the list of words.",
+      "For each word, extract the digit indicating its position.",
+      "Store the words in a dictionary or list, using the extracted digit as the key or index.",
+      "Sort the dictionary or list by keys or indices.",
+      "Concatenate the sorted words with spaces in between.",
+      "Return the resulting string."
+    ],
+    "tags": ["String", "Sorting", "Extraction"]
+  },
+   {
+    "problemId": 12,
+    "courseId": "deloitte",
+    "title": "Return a String with Repeated Words Based on Embedded Counts",
+    "difficulty": "Easy",
+    "description": "You have received a list of words, each with a number embedded indicating how many times that word should be repeated. Your task is to construct a new string by repeating each word the specified number of times. For example, the word 'hello3' should be repeated 3 times. Can you generate the final string based on this pattern?",
+    "examples": [
+      {
+        "input": "[\"hello3\", \"world2\"]\n",
+        "output": "hellohellohello worldworld\n"
+      }
+    ],
+    "constraints": [
+      "1 <= number of words <= 100",
+      "Each word contains exactly one number indicating how many times it should be repeated."
+    ],
+    "testCases": [
+      {
+        "input": "[\"hello3\", \"world2\"]\n",
+        "expectedOutput": "hellohellohello worldworld\n"
+      },
+      {
+        "input": "[\"a1\", \"b2\", \"c3\"]\n",
+        "expectedOutput": "a bb ccc\n"
+      },
+      {
+        "input": "[\"word5\"]\n",
+        "expectedOutput": "wordwordwordwordword\n"
+      },
+      {
+        "input": "[\"repeat0\"]\n",
+        "expectedOutput": "\n"
+      },
+      {
+          "input" : "[\"one1\", \"two2\", \"three3\", \"four4\"]\n",
+          "expectedOutput": "one twotwo threethreethree fourfourfourfour\n"
+      },
+      {
+          "input": "[\"w1o1r1d1\"]\n",
+          "expectedOutput": "word\n"
+      }
+    ],
+    "hints": [
+      "Iterate through the list of words.",
+      "For each word, extract the word and the repetition count.",
+      "Repeat the word the specified number of times.",
+      "Concatenate the repeated words to form the final string.",
+      "Return the final string."
+    ],
+    "tags": ["String", "Repetition", "Extraction"]
+  },
+   {
+    "problemId": 13,
+    "courseId": "deloitte",
+    "title": "Find All Happy Numbers in a Range",
+    "difficulty": "Medium",
+    "description": "In a small village, people celebrate their happiness by performing a ritual with numbers. A number is considered 'happy' if the process of repeatedly summing the squares of its digits eventually leads to 1. For example, the number 19 is happy because 1^2 + 9^2 = 82, 8^2 + 2^2 = 68, and so on, eventually reaching 1. Your task is to find all happy numbers in a given range. Can you help the villagers find their happy numbers?",
+    "examples": [
+      {
+        "input": "1, 20\n",
+        "output": "[1, 7, 10, 13, 19]\n"
+      }
+    ],
+    "constraints": [
+      "The range is between 1 and 10^4."
+    ],
+    "testCases": [
+      {
+        "input": "1, 20\n",
+        "expectedOutput": "[1, 7, 10, 13, 19]\n"
+      },
+      {
+        "input": "1, 10\n",
+        "expectedOutput": "[1, 7, 10]\n"
+      },
+      {
+        "input": "20, 30\n",
+        "expectedOutput": "[23, 28]\n"
+      },
+      {
+        "input": "1, 100\n",
+        "expectedOutput": "[1, 7, 10, 13, 19, 23, 28, 31, 32, 44, 49, 68, 70, 79, 82, 86, 91, 94, 97, 100]\n"
+      },
+      {
+          "input" : "1000, 1010\n",
+          "expectedOutput" : "[1000]\n"
+      },
+      {
+          "input": "1, 1\n",
+          "expectedOutput": "[1]\n"
+      }
+    ],
+    "hints": [
+      "Create a function to check if a number is happy.",
+      "Inside the function, repeatedly sum the squares of the digits of the number.",
+      "If the sum becomes 1, the number is happy.",
+      "If the sum enters a cycle (e.g., 4, 16, 37, 58, 89, 145, 42, 20, 4), the number is not happy.",
+      "Iterate through the given range and check each number for happiness.",
+      "Store the happy numbers in a list and return it."
+    ],
+    "tags": ["Math", "Happy Numbers", "Iteration"]
+  },
+  {
+    "problemId": 14,
+    "courseId": "deloitte",
+    "title": "Evaluate Product of Array Excluding the Current Index",
+    "difficulty": "Medium",
+    "description": "In a world where magical creatures live in harmony, every creature has a unique power level represented by an array. However, to determine the total power, each creature wants to know the total power of all others except itself. Can you calculate the product of all numbers in the array except the current one for each index, without using division? The creatures will be very grateful if you can solve this for them.",
+    "examples": [
+      {
+        "input": "[1, 2, 3, 4]\n",
+        "output": "[24, 12, 8, 6]\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the array <= 10^5",
+      "1 <= num <= 10^4"
+    ],
+    "testCases": [
+      {
+        "input": "[1, 2, 3, 4]\n",
+        "expectedOutput": "[24, 12, 8, 6]\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n",
+        "expectedOutput": "[120, 60, 40, 30, 24]\n"
+      },
+      {
+        "input": "[1]\n",
+        "expectedOutput": "[1]\n"
+      },
+      {
+        "input": "[2, 2, 2]\n",
+        "expectedOutput": "[4, 4, 4]\n"
+      },
+      {
+          "input" : "[10, 20, 30]\n",
+          "expectedOutput": "[600, 300, 200]\n"
+      },
+      {
+          "input": "[1,1,1,1,1]\n",
+          "expectedOutput": "[1,1,1,1,1]\n"
+      }
+    ],
+    "hints": [
+      "Create two arrays, left and right, to store the products of elements to the left and right of each index.",
+      "Initialize left[0] to 1 and right[n-1] to 1.",
+      "Calculate left[i] = left[i-1] * nums[i-1] for i from 1 to n-1.",
+      "Calculate right[i] = right[i+1] * nums[i+1] for i from n-2 to 0.",
+      "The result array will be result[i] = left[i] * right[i] for each index i.",
+      "Avoid using division."
+    ],
+    "tags": ["Array", "Product", "Prefix Sum"]
+  },
+   {
+    "problemId": 15,
+    "courseId": "deloitte",
+    "title": "Pyramid Pattern Using Numbers",
+    "difficulty": "Easy",
+    "description": "A skilled artist is designing a pyramid-like pattern using numbers for a grand festival. The pyramid consists of numbers arranged in increasing order from the top to the base, forming rows. Each row in the pyramid contains a sequence of numbers that increases from 1 up to the row number. The artist needs your help to create this pyramid pattern for any given number of rows. Can you design the pyramid pattern for the festival?",
+    "examples": [
+      {
+        "input": "4\n",
+        "output": "1\n12\n123\n1234\n"
+      }
+    ],
+    "constraints": [
+      "1 <= number of rows <= 100"
+    ],
+    "testCases": [
+      {
+        "input": "4\n",
+        "expectedOutput": "1\n12\n123\n1234\n"
+      },
+      {
+        "input": "1\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "3\n",
+        "expectedOutput": "1\n12\n123\n"
+      },
+      {
+        "input": "5\n",
+        "expectedOutput": "1\n12\n123\n1234\n12345\n"
+      },
+      {
+          "input" : "2\n",
+          "expectedOutput" : "1\n12\n"
+      },
+      {
+          "input": "10\n",
+          "expectedOutput": "1\n12\n123\n1234\n12345\n123456\n1234567\n12345678\n123456789\n12345678910\n"
+      }
+    ],
+    "hints": [
+      "Use nested loops to create the pyramid pattern.",
+      "The outer loop iterates through the rows of the pyramid.",
+      "The inner loop iterates through the numbers in each row.",
+      "Print the numbers in each row without a newline character.",
+      "After each row, print a newline character to move to the next row."
+    ],
+    "tags": ["Pattern", "Loops", "Numbers"]
+  },
+   {
+    "problemId": 16,
+    "courseId": "deloitte",
+    "title": "Check if Two Strings are Permutations",
+    "difficulty": "Easy",
+    "description": "Two friends, Alice and Bob, were given two strings and challenged to check if one is a permutation of the other. Alice insists that a permutation should contain the same characters but in a different order. Bob, on the other hand, is skeptical. Can you help them by determining if one string is a permutation of the other?",
+    "examples": [
+      {
+        "input": "\"abc\",\"cab\"\n",
+        "output": "True\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of both strings <= 10^5",
+      "The strings consist of uppercase and lowercase English alphabets."
+    ],
+    "testCases": [
+      {
+        "input": "\"abc\",\"cab\"\n",
+        "expectedOutput": "True\n"
+      },
+      {
+        "input": "\"abc\",\"abd\"\n",
+        "expectedOutput": "False\n"
+      },
+      {
+        "input": "\"aabb\",\"abab\"\n",
+        "expectedOutput": "True\n"
+      },
+      {
+        "input": "\"a\",\"a\"\n",
+        "expectedOutput": "True\n"
+      },
+      {
+          "input" : "\"abc\",\"abcd\"\n",
+          "expectedOutput": "False\n"
+      },
+      {
+          "input": "\"AaBbCc\",\"bBaAcC\"\n",
+          "expectedOutput": "True\n"
+      }
+    ],
+    "hints": [
+      "Check if the lengths of the two strings are equal. If not, they cannot be permutations.",
+      "Count the frequency of each character in both strings.",
+      "Compare the frequency counts. If they are the same for all characters, the strings are permutations.",
+      "Use a hash map or an array to store the character frequencies."
+    ],
+    "tags": ["String", "Permutations", "Hash Map", "Counting"]
+  },
+   {
+    "problemId": 17,
+    "courseId": "deloitte",
+    "title": "Determine the Score of Balanced Parentheses",
+    "difficulty": "Medium",
+    "description": "In a world of balanced equations, mathematicians have designed a set of parentheses rules. Each pair of balanced parentheses has a score based on its depth, where deeper pairs have higher scores. Your task is to calculate the total score of the balanced parentheses string, where each pair of parentheses has a score equal to the sum of its score at that depth. Can you help them evaluate the score of the parentheses?",
+    "examples": [
+      {
+        "input": "(()())\n",
+        "output": "6\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the parentheses string <= 1000",
+      "The string only contains '(' and ')'."
+    ],
+    "testCases": [
+      {
+        "input": "(()())\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "()\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "(())()\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "((()))\n",
+        "expectedOutput": "8\n"
+      },
+      {
+          "input" : "()()\n",
+          "expectedOutput": "4\n"
+      },
+      {
+          "input": "((()()))\n",
+          "expectedOutput": "12\n"
+      }
+    ],
+    "hints": [
+      "Use a stack to keep track of the depth of the parentheses.",
+      "Initialize the score to 0.",
+      "Iterate through the parentheses string.",
+      "When you encounter an opening parenthesis '(', push the current depth onto the stack and increment the depth.",
+      "When you encounter a closing parenthesis ')', pop the depth from the stack and add 2 * depth to the score.",
+      "Return the score."
+    ],
+    "tags": ["String", "Stack", "Parentheses"]
+  },
+   {
+    "problemId": 18,
+    "courseId": "deloitte",
+    "title": "Arrange Seats in a Circular Order, Maintaining Gaps",
+    "difficulty": "Medium",
+    "description": "At a royal banquet, there are a number of seats arranged in a circular fashion. The guests must be seated such that there is a specific gap between each of them. Your task is to arrange the guests in these seats while maintaining the required gaps. Can you solve the seating arrangement puzzle?",
+    "examples": [
+      {
+        "input": "4, 2\n",
+        "output": "[1, 3, 4, 2]\n"
+      }
+    ],
+    "constraints": [
+      "1 <= number of guests <= 1000",
+      "Each guest must sit in a unique seat."
+    ],
+    "testCases": [
+      {
+        "input": "4, 2\n",
+        "expectedOutput": "[1, 3, 4, 2]\n"
+      },
+      {
+        "input": "5, 1\n",
+        "expectedOutput": "[1, 2, 3, 4, 5]\n"
+      },
+      {
+        "input": "3, 1\n",
+        "expectedOutput": "[1, 2, 3]\n"
+      },
+      {
+        "input": "6, 3\n",
+        "expectedOutput": "[1, 4, 5, 2, 6, 3]\n"
+      },
+      {
+          "input" : "2, 1\n",
+          "expectedOutput": "[1, 2]\n"
+      },
+      {
+          "input": "1, 5\n",
+          "expectedOutput": "[1]\n"
+      }
+    ],
+    "hints": [
+      "Create an array to store the seating arrangement.",
+      "Start with the first guest at seat 1.",
+      "For each subsequent guest, find the next available seat with the required gap.",
+      "Since the seats are circular, wrap around the array if necessary.",
+      "Store the guest's number in the corresponding seat.",
+      "Return the seating arrangement array."
+    ],
+    "tags": ["Array", "Circular", "Seating Arrangement"]
+  },
+   {
+    "problemId": 19,
+    "courseId": "deloitte",
+    "title": "Create a Lexicographically Smallest Palindrome",
+    "difficulty": "Medium",
+    "description": "In a kingdom of words, the royal council has tasked you with creating the lexicographically smallest palindrome from a given string. A palindrome is a word that reads the same forward and backward. The council wants the smallest lexicographical palindrome that can be formed by modifying the given string. Can you help them achieve this?",
+    "examples": [
+      {
+        "input": "abca\n",
+        "output": "abba\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the string <= 100"
+    ],
+    "testCases": [
+      {
+        "input": "abca\n",
+        "expectedOutput": "abba\n"
+      },
+      {
+        "input": "abcba\n",
+        "expectedOutput": "abcba\n"
+      },
+      {
+        "input": "abbac\n",
+        "expectedOutput": "abcba\n"
+      },
+      {
+        "input": "aabbcc\n",
+        "expectedOutput": "abccba\n"
+      },
+      {
+          "input": "a\n",
+          "expectedOutput": "a\n"
+      },
+      {
+          "input": "zzza\n",
+          "expectedOutput": "azza\n"
+      }
+    ],
+    "hints": [
+      "Iterate through the first half of the string.",
+      "For each character, compare it with the corresponding character from the end of the string.",
+      "If they are different, replace the larger character with the smaller one.",
+      "Return the modified string, which will be the lexicographically smallest palindrome.",
+      "Handle the case where the string has an odd length separately."
+    ],
+    "tags": ["String", "Palindrome", "Lexicographical"]
+  },
+  {
+    "problemId": 20,
+    "courseId": "deloitte",
+    "title": "Decode and Evaluate a Nested List of Operations",
+    "difficulty": "Hard",
+    "description": "A wizard has encoded a series of operations into a nested list format, and you must decode it to evaluate the result. Each operation may involve simple arithmetic or deeper nested operations. Your task is to evaluate the expression after decoding the nested list. Can you help the wizard solve the encoded equation?",
+    "examples": [
+      {
+        "input": "[\"1\", \"+\", [\"2\", \"*\", \"3\"]]\n",
+        "output": "7\n"
+      }
+    ],
+    "constraints": [
+      "1 <= number of operations <= 100",
+      "The operations involve basic arithmetic operations (+, -, *, /)."
+    ],
+    "testCases": [
+      {
+        "input": "[\"1\", \"+\", [\"2\", \"*\", \"3\"]]\n",
+        "expectedOutput": "7\n"
+      },
+      {
+        "input": "[\"10\", \"-\", \"5\"]\n",
+        "expectedOutput": "5\n"
+      },
+      {
+        "input": "[\"2\", \"*\", [\"3\", \"+\", \"4\"]]\n",
+        "expectedOutput": "14\n"
+      },
+      {
+        "input": "[\"10\", \"/\", \"2\"]\n",
+        "expectedOutput": "5\n"
+      },
+      {
+          "input" : "[\"1\", \"+\", [\"2\", \"*\", [\"3\", \"-\", \"1\"]]]\n",
+          "expectedOutput": "5\n"
+      },
+      {
+          "input": "[\"10\", \"+\", [\"20\", \"-\", [\"30\", \"/\", \"5\"]]]\n",
+          "expectedOutput": "24\n"
+      }
+    ],
+    "hints": [
+      "Use recursion to evaluate the nested list.",
+      "If the current element is a number, convert it to an integer or float.",
+      "If the current element is an operator, recursively evaluate the left and right operands.",
+      "Perform the operation based on the operator.",
+      "Handle the base case when the list contains only a single number.",
+      "Return the result of the evaluation."
+    ],
+    "tags": ["Recursion", "List", "Evaluation", "Arithmetic"]
+  },
+  {
+    "problemId": 21,
+    "courseId": "deloitte",
+    "title": "Calculate the Number of Subsequences in an Array that Meet a Condition",
+    "difficulty": "Medium",
+    "description": "In a kingdom of arrays, there is a rule that only certain subsequences can be accepted for the royal collection. Your task is to calculate how many subsequences in a given array meet a specific condition. The condition involves checking if the subsequence satisfies certain arithmetic properties. Can you calculate the number of such subsequences?",
+    "examples": [
+      {
+        "input": "[1, 2, 3]\n",
+        "output": "6\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the array <= 1000"
+    ],
+    "testCases": [
+      {
+        "input": "[1, 2, 3]\n",
+        "expectedOutput": "6\n"
+      },
+      {
+        "input": "[1]\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "[1, 1]\n",
+        "expectedOutput": "3\n"
+      },
+      {
+        "input": "[1, 2, 3, 4]\n",
+        "expectedOutput": "10\n"
+      },
+      {
+          "input" : "[5,6]\n",
+          "expectedOutput": "3\n"
+      },
+      {
+          "input": "[1,2,3,4,5]\n",
+          "expectedOutput": "15\n"
+      }
+    ],
+    "hints": [
+      "Iterate through all possible subsequences of the array.",
+      "For each subsequence, check if it meets the given condition.",
+      "If it does, increment a counter.",
+      "Return the counter.",
+      "To generate subsequences, you can use bit manipulation or recursion.",
+      "The condition is that all subsequences should be counted."
+    ],
+    "tags": ["Array", "Subsequences", "Counting"]
+  },
+   {
+    "problemId": 22,
+    "courseId": "deloitte",
+    "title": "Identify the First Occurrence of One Word in Another",
+    "difficulty": "Easy",
+    "description": "In a library of books, you are tasked with identifying the first occurrence of one word within another. The librarian has given you two words, and you must determine where the second word first appears in the first word. Can you find the position of the first occurrence efficiently?",
+    "examples": [
+      {
+        "input": "\"hello\", \"ll\"\n",
+        "output": "2\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of both words <= 1000"
+    ],
+    "testCases": [
+      {
+        "input": "\"hello\", \"ll\"\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "\"abc\", \"def\"\n",
+        "expectedOutput": "-1\n"
+      },
+      {
+        "input": "\"aaaaa\", \"bba\"\n",
+        "expectedOutput": "-1\n"
+      },
+      {
+        "input": "\"mississippi\", \"issi\"\n",
+        "expectedOutput": "1\n"
+      },
+      {
+          "input" : "\"word\", \"word\"\n",
+          "expectedOutput": "0\n"
+      },
+      {
+          "input": "\"abcdefg\", \"efg\"\n",
+          "expectedOutput": "4\n"
+      }
+    ],
+    "hints": [
+      "Iterate through the first word, starting from the beginning.",
+      "For each position, check if the second word matches the substring of the first word starting at that position.",
+      "If a match is found, return the position.",
+      "If no match is found, return -1.",
+      "You can use string slicing or a nested loop to compare the words."
+    ],
+    "tags": ["String", "Substring", "Search"]
+  },
+   {
+    "problemId": 23,
+    "courseId": "deloitte",
+    "title": "Calculate the Total XOR of All Subsets of an Array",
+    "difficulty": "Medium",
+    "description": "A group of mathematicians has been studying the properties of the XOR operation, and they are particularly interested in the XOR of all possible subsets of an array. Your task is to calculate the total XOR of all subsets. Can you help them with this complex mathematical task?",
+    "examples": [
+      {
+        "input": "[1, 2, 3]\n",
+        "output": "0\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the array <= 10^5",
+      "1 <= a[i] <= 1000"
+    ],
+    "testCases": [
+      {
+        "input": "[1, 2, 3]\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "[1]\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "[1, 1]\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "[1, 2, 3, 4]\n",
+        "expectedOutput": "0\n"
+      },
+      {
+          "input" : "[5,6]\n",
+          "expectedOutput": "0\n"
+      },
+      {
+          "input": "[1,2,3,4,5]\n",
+          "expectedOutput": "0\n"
+      }
+    ],
+    "hints": [
+      "Generate all possible subsets of the array.",
+      "For each subset, calculate the XOR of its elements.",
+      "Sum up the XOR values of all subsets.",
+      "Return the sum.",
+      "To generate subsets, you can use bit manipulation or recursion.",
+      "The total XOR of all subsets is always 0, unless the array contains only one element."
+    ],
+    "tags": ["Array", "Subsets", "XOR"]
+  },
+   {
+    "problemId": 24,
+    "courseId": "deloitte",
+    "title": "Count All Subarrays that Sum Up to a Given Value",
+    "difficulty": "Medium",
+    "description": "In a kingdom of sums, there is a challenge where you must find all subarrays whose sum equals a given value. The kingdom's ruler has given you an array, and you must determine how many subarrays meet this condition. Can you solve the sum puzzle?",
+    "examples": [
+      {
+        "input": "[1, 2, 3], 3\n",
+        "output": "2\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the array <= 1000",
+      "-1000 <= sum value <= 1000"
+    ],
+    "testCases": [
+      {
+        "input": "[1, 2, 3], 3\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "[1, 1, 1], 2\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5], 5\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "[1, -1, 0], 0\n",
+        "expectedOutput": "3\n"
+      },
+      {
+          "input" : "[1,2,3,4,5], 15\n",
+          "expectedOutput": "1\n"
+      },
+      {
+          "input": "[-1, -2, -3], -3\n",
+          "expectedOutput": "2\n"
+      }
+    ],
+    "hints": [
+      "Iterate through all possible subarrays of the array.",
+      "For each subarray, calculate the sum of its elements.",
+      "If the sum equals the given value, increment a counter.",
+      "Return the counter.",
+      "You can use nested loops to generate all subarrays.",
+      "Consider using a hash map to optimize the solution for larger arrays."
+    ],
+    "tags": ["Array", "Subarrays", "Sum"]
+  },
+   {
+    "problemId": 25,
+    "courseId": "deloitte",
+    "title": "Find Numbers in an Array with an Even Number of Digits",
+    "difficulty": "Easy",
+    "description": "A mathematician in the kingdom is fascinated by the number of digits in numbers. He wonders how many numbers in an array have an even number of digits. Your task is to find how many numbers in the given array have an even number of digits. Can you solve the puzzle?",
+    "examples": [
+      {
+        "input": "[12, 345, 2, 6, 7896]\n",
+        "output": "2\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the array <= 1000",
+      "1 <= num <= 10^5"
+    ],
+    "testCases": [
+      {
+        "input": "[12, 345, 2, 6, 7896]\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "[1, 10, 100, 1000, 10000]\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "[1, 2, 3, 4, 5]\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "[11, 22, 33, 44, 55]\n",
+        "expectedOutput": "5\n"
+      },
+      {
+          "input" : "[1234]\n",
+          "expectedOutput": "1\n"
+      },
+      {
+          "input": "[123456,12345,1234,123,12,1]\n",
+          "expectedOutput": "3\n"
+      }
+    ],
+    "hints": [
+      "Iterate through the array.",
+      "For each number, count the number of digits.",
+      "If the digit count is even, increment a counter.",
+      "Return the counter.",
+      "To count the digits, you can convert the number to a string and find its length, or repeatedly divide the number by 10."
+    ],
+    "tags": ["Array", "Digits", "Counting"]
+  },
+   {
+    "problemId": 26,
+    "courseId": "deloitte",
+    "title": "Group Anagrams in a List of Strings",
+    "difficulty": "Medium",
+    "description": "A kingdom has many different types of spells, represented as words. Each spell can be cast in multiple ways, with the same letters rearranged. Your task is to group the spells (strings) that are anagrams of each other. Can you group the anagrams and display them together?",
+    "examples": [
+      {
+        "input": "[\"eat\", \"tea\", \"tan\", \"ate\", \"nat\", \"bat\"]\n",
+        "output": "[[\"eat\", \"tea\", \"ate\"], [\"tan\", \"nat\"], [\"bat\"]]\n"
+      }
+    ],
+    "constraints": [
+      "1 <= number of words <= 1000"
+    ],
+    "testCases": [
+      {
+        "input": "[\"eat\", \"tea\", \"tan\", \"ate\", \"nat\", \"bat\"]\n",
+        "expectedOutput": "[[\"eat\", \"tea\", \"ate\"], [\"tan\", \"nat\"], [\"bat\"]]\n"
+      },
+      {
+        "input": "[\"abc\", \"cba\", \"xyz\", \"zyx\"]\n",
+        "expectedOutput": "[[\"abc\", \"cba\"], [\"xyz\", \"zyx\"]]\n"
+      },
+      {
+        "input": "[\"a\"]\n",
+        "expectedOutput": "[[\"a\"]]\n"
+      },
+      {
+        "input": "[\"dog\", \"god\", \"act\", \"tac\", \"cat\"]\n",
+        "expectedOutput": "[[\"dog\", \"god\"], [\"act\", \"tac\"], [\"cat\"]]\n"
+      },
+      {
+          "input" : "[\"listen\", \"silent\"]\n",
+          "expectedOutput": "[[\"listen\", \"silent\"]]\n"
+      },
+      {
+          "input": "[\"aabb\", \"bbaa\", \"abcd\", \"dcba\"]\n",
+          "expectedOutput": "[[\"aabb\", \"bbaa\"], [\"abcd\", \"dcba\"]]\n"
+      }
+    ],
+    "hints": [
+      "Create a hash map to store the anagram groups.",
+      "For each word, sort its characters to create a unique key.",
+      "If the key exists in the hash map, append the word to the corresponding list.",
+      "If the key does not exist, create a new list with the word and add it to the hash map.",
+      "Return the values of the hash map as the result.",
+      "Sorting the characters of a string creates a unique identifier for anagrams."
+    ],
+    "tags": ["String", "Anagrams", "Hash Map", "Grouping"]
+  },
+   {
+    "problemId": 27,
+    "courseId": "deloitte",
+    "title": "Stick Cutting Problem",
+    "difficulty": "Medium",
+    "description": "You are given a collection of sticks of varying lengths. Your task is to repeatedly cut the sticks as follows: 1. Determine the shortest stick length in the collection. 2. Cut all sticks by that shortest length. 3. Discard all sticks that become zero after the cut. 4. Count and record the number of sticks remaining before each cut. Continue the process until there are no sticks left.",
+    "examples": [
+      {
+        "input": "6\n[5, 4, 4, 2, 2, 8]\n",
+        "output": "[6, 4, 2, 1]\n"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 10^3",
+      "1 <= arr[i] <= 10^6"
+    ],
+    "testCases": [
+      {
+        "input": "6\n[5, 4, 4, 2, 2, 8]\n",
+        "expectedOutput": "[6, 4, 2, 1]\n"
+      },
+      {
+        "input": "1\n[1]\n",
+        "expectedOutput": "[1]\n"
+      },
+      {
+        "input": "3\n[1, 2, 3]\n",
+        "expectedOutput": "[3, 2, 1]\n"
+      },
+      {
+        "input": "5\n[1, 1, 1, 1, 1]\n",
+        "expectedOutput": "[5, 4, 3, 2, 1]\n"
+      },
+      {
+          "input" : "4\n[10, 20, 30, 40]\n",
+          "expectedOutput": "[4, 3, 2, 1]\n"
+      },
+      {
+        "input": "7\n[1, 2, 3, 4, 5, 6, 7]\n",
+        "expectedOutput": "[7, 6, 5, 4, 3, 2, 1]\n"
+      }
+    ],
+    "hints": [
+      "Sort the array to easily find the shortest stick.",
+      "Iterate through the array, cutting each stick by the shortest length.",
+      "Remove sticks that become zero after the cut.",
+      "Count and record the number of sticks before each cut.",
+      "Repeat the process until no sticks remain.",
+      "Use a loop to continue the cutting process."
+    ],
+    "tags": ["Array", "Sorting", "Iteration"]
+  },
+   {
+    "problemId": 28,
+    "courseId": "deloitte",
+    "title": "Alice and Bob's Challenge Ratings",
+    "difficulty": "Easy",
+    "description": "Alice and Bob each created a challenge. These challenges are scored based on three categories: clarity, originality, and difficulty. The scores for Alice's challenge are given as a = [a[0], a[1], a[2]], and the scores for Bob's challenge are given as b = [b[0], b[1], b[2]]. Task: Compare their scores category by category: 1. If a[i] > b[i], Alice earns 1 point. 2. If a[i] < b[i], Bob earns 1 point. 3. If a[i] == b[i], no points are awarded. You need to calculate the total points for Alice and Bob and return them as [Alice's score, Bob's score].",
+    "examples": [
+      {
+        "input": "[5, 6, 7], [3, 6, 10]\n",
+        "output": "[1, 1]\n"
+      }
+    ],
+    "constraints": [
+      "1 <= a[i], b[i] <= 100 for all i.",
+      "Each list contains exactly 3 integers."
+    ],
+    "testCases": [
+      {
+        "input": "[5, 6, 7], [3, 6, 10]\n",
+        "expectedOutput": "[1, 1]\n"
+      },
+      {
+        "input": "[1, 2, 3], [3, 2, 1]\n",
+        "expectedOutput": "[1, 1]\n"
+      },
+      {
+        "input": "[1, 1, 1], [1, 1, 1]\n",
+        "expectedOutput": "[0, 0]\n"
+      },
+      {
+        "input": "[10, 20, 30], [5, 15, 25]\n",
+        "expectedOutput": "[3, 0]\n"
+      },
+      {
+          "input" : "[1,5,10], [2,3,4]\n",
+          "expectedOutput": "[0,3]\n"
+      },
+      {
+          "input": "[100,1,50], [1,100,25]\n",
+          "expectedOutput": "[1,2]\n"
+      }
+    ],
+    "hints": [
+      "Initialize Alice's and Bob's scores to 0.",
+      "Iterate through the lists a and b.",
+      "Compare the corresponding elements a[i] and b[i].",
+      "If a[i] > b[i], increment Alice's score.",
+      "If a[i] < b[i], increment Bob's score.",
+      "Return the list [Alice's score, Bob's score]."
+    ],
+    "tags": ["Array", "Comparison", "Scoring"]
+  },
+   {
+    "problemId": 29,
+    "courseId": "deloitte",
+    "title": "Longest Palindromic Substring",
+    "difficulty": "Medium",
+    "description": "In a kingdom of words, the royal scholars have tasked you with finding the longest palindromic substring from a given string. A palindrome is a string that reads the same forwards and backwards. The scholars want to know which substring in the string is the longest palindrome. Can you help them solve this problem?",
+    "examples": [
+      {
+        "input": "babad\n",
+        "output": "bab\n"
+      }
+    ],
+    "constraints": [
+      "1 <= length of the string <= 1000"
+    ],
+    "testCases": [
+      {
+        "input": "babad\n",
+        "expectedOutput": "bab\n"
+      },
+      {
+        "input": "cbbd\n",
+        "expectedOutput": "bb\n"
+      },
+      {
+        "input": "a\n",
+        "expectedOutput": "a\n"
+      },
+      {
+        "input": "ac\n",
+        "expectedOutput": "a\n"
+      },
+      {
+          "input" : "racecar\n",
+          "expectedOutput": "racecar\n"
+      },
+      {
+          "input": "bananas\n",
+          "expectedOutput": "anana\n"
+      }
+    ],
+    "hints": [
+      "Iterate through the string.",
+      "For each character, expand outwards to find the longest palindrome centered at that character.",
+      "Consider both odd and even length palindromes.",
+      "Keep track of the longest palindrome found so far.",
+      "Return the longest palindrome.",
+      "Use a helper function to expand around the center of the palindrome."
+    ],
+    "tags": ["String", "Palindrome", "Substring"]
+  },
+  {
+    "problemId": 30,
+    "courseId": "deloitte",
+    "title": "Page-Turning Problem",
+    "difficulty": "Easy",
+    "description": "A teacher asks the class to turn to a specific page number in a book. A student can start turning pages either from the front of the book or the back. The task is to calculate the minimum number of page turns required to reach the desired page. Rules: 1. The book always starts with page 1 on the right side. 2. Pages are printed in pairs: Page 1 on the right; page 2 on the left of the next page. The last page may stand alone if the book has an odd number of pages. 3. Students can start turning pages from: The front of the book (starting at page 1). The back of the book (starting from the last page).",
+    "examples": [
+      {
+        "input": "6\n2\n",
+        "output": "1\n"
+      },
+      {
+        "input": "5\n4\n",
+        "output": "0\n"
+      }
+    ],
+    "constraints": [
+      "1 <= n <= 10^5",
+      "1 <= p <= n"
+    ],
+    "testCases": [
+      {
+        "input": "6\n2\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "5\n4\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "7\n3\n",
+        "expectedOutput": "1\n"
+      },
+      {
+        "input": "8\n6\n",
+        "expectedOutput": "1\n"
+      },
+      {
+          "input" : "9\n8\n",
+          "expectedOutput": "1\n"
+      },
+      {
+          "input": "10\n1\n",
+          "expectedOutput": "0\n"
+      }
+    ],
+    "hints": [
+      "Calculate the number of page turns from the front of the book.",
+      "Calculate the number of page turns from the back of the book.",
+      "Return the minimum of the two values.",
+      "To calculate the page turns, divide the page number by 2 (integer division).",
+      "Handle the case where the book has an odd number of pages."
+    ],
+    "tags": ["Math", "Minimum", "Page Turning"]
+  }
+]

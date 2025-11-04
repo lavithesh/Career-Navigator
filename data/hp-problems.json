@@ -1,0 +1,1828 @@
+[
+{
+  "problemId": 1,
+  "courseId": "hp",
+  "title": "Detect Cycle in a Linked List",
+  "difficulty": "Easy",
+  "description": "Given a singly linked list, determine if it contains a cycle. A cycle exists if any node's next pointer points to a previously visited node.",
+  "examples": [
+    {
+      "input": "list = [1, 2, 3, 4]\nloop at 4 -> 1\n",
+      "output": "Loop Detected\n"
+    }
+  ],
+  "constraints": [
+    "1 <= number of nodes <= 99",
+    "-10^5 <= Node.val <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "list = [1, 2, 3, 4]\nloop at 4 -> 1\n",
+      "expectedOutput": "Loop Detected\n"
+    },
+    {
+      "input": "list = [1]\nno loop\n",
+      "expectedOutput": "No Loop Detected\n"
+    },
+    {
+      "input": "list = [1, 2]\nno loop\n",
+      "expectedOutput": "No Loop Detected\n"
+    },
+    {
+      "input": "list = [1, 2]\nloop at 2 -> 1\n",
+      "expectedOutput": "Loop Detected\n"
+    },
+    {
+      "input": "list = [1, 2, 3]\nloop at 3 -> 2\n",
+      "expectedOutput": "Loop Detected\n"
+    },
+    {
+      "input": "list = [1, 2, 3, 4, 5]\nloop at 5 -> 3\n",
+      "expectedOutput": "Loop Detected\n"
+    },
+    {
+      "input": "list = [1, 2, 3]\nno loop\n",
+      "expectedOutput": "No Loop Detected\n"
+    }
+  ],
+  "hints": [
+    "Use the Floyd's Cycle-Finding Algorithm (also known as the 'tortoise and hare' algorithm).",
+    "Maintain two pointers, a slow pointer that moves one step at a time, and a fast pointer that moves two steps at a time.",
+    "If there is a cycle, the fast pointer will eventually meet the slow pointer.",
+    "If the fast pointer reaches the end of the list (null) before meeting the slow pointer, then there is no cycle."
+  ],
+  "tags": ["Linked List", "Cycle Detection", "Floyd's Algorithm"]
+},
+{
+  "problemId": 2,
+  "courseId": "hp",
+  "title": "Find Stepping Numbers in a Range",
+  "difficulty": "Medium",
+  "description": "Find all stepping numbers within a given range [n, m]. Stepping numbers are those where adjacent digits differ by 1 (e.g., 123, 545, 98).",
+  "examples": [
+    {
+      "input": "100 500\n",
+      "output": "101 121 123 210 212 232 234 321 323 343 345\n"
+    }
+  ],
+  "constraints": [
+    "0 <= n < m <= 1,000,000,000"
+  ],
+  "testCases": [
+    {
+      "input": "100 500\n",
+      "expectedOutput": "101 121 123 210 212 232 234 321 323 343 345\n"
+    },
+    {
+      "input": "0 20\n",
+      "expectedOutput": "0 1 2 3 4 5 6 7 8 9 10 12 21\n"
+    },
+    {
+      "input": "1000 1050\n",
+      "expectedOutput": "1010 1012 1032 1034\n"
+    },
+    {
+      "input": "990 1020\n",
+      "expectedOutput": "989 1010 1012 1032\n"
+    },
+    {
+      "input": "0 10000\n",
+      "expectedOutput": "0 1 2 3 4 5 6 7 8 9 10 12 21 121 123 210 212 232 234 321 323 343 345 432 434 454 543 545 656 767 878 989 1010 1012 1032 1034 1210 1212 1232 1234 2101 2102 2121 2123 2321 2323 2343 2345 3210 3212 3232 3234 3432 3434 3454 4321 4323 4343 4345 4543 4545 5432 5434 5454 5656 6565 6767 7676 7878 8787 8989 9878 9898 10101 10121 10123 10321 10323 10343 10345 12101 12102 12121 12123 12321 12323 12343 12345 21010 21012 21021 21210 21212 21232 21234 23210 23212 23232 23234 23432 23434 23454 32101 32102 32121 32123 32321 32323 32343 32345 34321 34323 34343 34345 34543 34545 43210 43212 43232 43234 43432 43434 43454 45432 45434 45454 45656 54321 54323 54343 54345 54543 54545 56565 56767 65656 65676 67656 67676 67878 76767 76787 78767 78787 78989 87878 87898 89878 89898 98789 98989 101010 101012 101032 101034 101210 101212 101232 101234 103210 103212 103232 103234 103432 103434 103454\n"
+    },
+    {
+      "input": "100000 100050\n",
+      "expectedOutput": "101010 101012 101032 101034\n"
+    },
+    {
+      "input": "999999990 1000000000\n",
+      "expectedOutput": "998989899 999190999 999898999\n"
+    }
+  ],
+  "hints": [
+    "Use Breadth-First Search (BFS) or Depth-First Search (DFS) to generate stepping numbers.",
+    "Start with single-digit numbers (0-9) as the initial stepping numbers.",
+    "For each stepping number, generate the next possible stepping numbers by appending a digit that differs from the last digit by 1.",
+    "For example, from 12, you can generate 121 and 123.",
+    "Use a queue (for BFS) or recursion (for DFS) to manage the numbers to process.",
+    "Check if the generated numbers are within the given range [n, m].",
+    "Be careful to avoid leading zeros and handle the case of the number 0."
+  ],
+  "tags": ["Number Theory", "Stepping Numbers", "BFS", "DFS"]
+},
+{
+  "problemId": 3,
+  "courseId": "hp",
+  "title": "Remove Non-Alphanumeric Characters (Lowercase and Digits)",
+  "difficulty": "Easy",
+  "description": "Remove all characters from a given string that are not lowercase English letters (a-z) or numerical digits (0-9).",
+  "examples": [
+    {
+      "input": "“Hello!123$”\n",
+      "output": "“ello123”\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of the input string <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "“Hello!123$”\n",
+      "expectedOutput": "“ello123”\n"
+    },
+    {
+      "input": "“OnlyLowercaseAndDigits123”\n",
+      "expectedOutput": "“onlylowercaseanddigits123”\n"
+    },
+    {
+      "input": "“UPPERCASEandSPECIAL_CHARACTERS”\n",
+      "expectedOutput": "“”\n"
+    },
+    {
+      "input": "“12345”\n",
+      "expectedOutput": "“12345”\n"
+    },
+    {
+      "input": "“lowercase”\n",
+      "expectedOutput": "“lowercase”\n"
+    },
+    {
+      "input": "“1a2b3c”\n",
+      "expectedOutput": "“1a2b3c”\n"
+    },
+    {
+      "input": "“ White spaces and tabs \t ”\n",
+      "expectedOutput": "“”\n"
+    },
+    {
+      "input": "“”\n",
+      "expectedOutput": "“”\n"
+    }
+  ],
+  "hints": [
+    "Iterate through each character of the input string.",
+    "For each character, check if it is a lowercase letter (between 'a' and 'z' inclusive) or a numerical digit (between '0' and '9' inclusive).",
+    "If the character satisfies the condition, append it to a new string.",
+    "After iterating through all the characters, the new string will contain only the lowercase letters and digits."
+  ],
+  "tags": ["String", "Character Filtering"]
+},
+{
+  "problemId": 4,
+  "courseId": "hp",
+  "title": "Minimum Steps to Cover Points on an Infinite Grid",
+  "difficulty": "Easy",
+  "description": "Given a sequence of points on an infinite grid, find the minimum number of steps required to move from one point to the next in the sequence. You can move in eight directions: up, down, left, right, and the four diagonals.",
+  "examples": [
+    {
+      "input": "points[] = [(1, 1), (2, 2), (2, 3)]\n",
+      "output": "2\n"
+    }
+  ],
+  "constraints": [
+    "1 <= number of points <= 100",
+    "-10^5 <= point.x, point.y <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "points[] = [(1, 1), (2, 2), (2, 3)]\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "points[] = [(0, 0), (0, 0), (0, 0)]\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "points[] = [(0, 0), (1, 2)]\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "points[] = [(1, 5), (8, 2)]\n",
+      "expectedOutput": "7\n"
+    },
+    {
+      "input": "points[] = [(-1, -1), (1, 1)]\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "points[] = [(5, 5), (5, -5)]\n",
+      "expectedOutput": "10\n"
+    },
+    {
+      "input": "points[] = [(-3, 0), (0, 4), (3, 0)]\n",
+      "expectedOutput": "7\n"
+    }
+  ],
+  "hints": [
+    "Consider the movement between two consecutive points (x1, y1) and (x2, y2).",
+    "The number of steps required to move between these two points is determined by the maximum of the absolute difference in their x-coordinates and the absolute difference in their y-coordinates: max(abs(x2 - x1), abs(y2 - y1)).",
+    "Iterate through the sequence of points, calculating the steps required between each consecutive pair of points.",
+    "Sum up the steps calculated for each pair to get the total minimum number of steps for the entire sequence."
+  ],
+  "tags": ["Grid", "Path Finding", "Minimum Steps"]
+},
+{
+  "problemId": 5,
+  "courseId": "hp",
+  "title": "Sort Array After Squaring",
+  "difficulty": "Easy",
+  "description": "Given an array of integers sorted in non-decreasing order, return a new array containing the square of each number, also sorted in non-decreasing order.",
+  "examples": [
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "output": "[1, 4, 9, 16, 25]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of the input array <= 10^5",
+    "-10^4 <= element of the input array <= 10^4",
+    "The input array is sorted in non-decreasing order."
+  ],
+  "testCases": [
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "expectedOutput": "[1, 4, 9, 16, 25]\n"
+    },
+    {
+      "input": "[-5, -4, -3, -2, -1]\n",
+      "expectedOutput": "[1, 4, 9, 16, 25]\n"
+    },
+    {
+      "input": "[-2, -1, 0, 1, 2]\n",
+      "expectedOutput": "[0, 1, 1, 4, 4]\n"
+    },
+    {
+      "input": "[-5, -3, 0, 2, 6]\n",
+      "expectedOutput": "[0, 4, 9, 25, 36]\n"
+    },
+    {
+      "input": "[0]\n",
+      "expectedOutput": "[0]\n"
+    },
+    {
+      "input": "[-10, -5, 0, 5, 10]\n",
+      "expectedOutput": "[0, 25, 25, 100, 100]\n"
+    },
+    {
+      "input": "[-1]\n",
+      "expectedOutput": "[1]\n"
+    },
+    {
+      "input": "[1]\n",
+      "expectedOutput": "[1]\n"
+    }
+  ],
+  "hints": [
+    "One straightforward approach is to iterate through the input array, square each element, and then sort the resulting array.",
+    "Can you think of a more efficient approach that utilizes the fact that the input array is already sorted?",
+    "Consider using two pointers, one starting from the beginning of the array and the other from the end. Compare the absolute values of the elements at these pointers. The square of the element with the larger absolute value will be the next largest element in the sorted squared array. Place this squared value at the end of the result array and move the corresponding pointer inwards."
+  ],
+  "tags": ["Array", "Sorting", "Squaring", "Two Pointers"]
+},
+{
+  "problemId": 6,
+  "courseId": "hp",
+  "title": "Bubble Sort Algorithm",
+  "difficulty": "Easy",
+  "description": "Implement the Bubble Sort algorithm to sort an array of integers in non-decreasing order.",
+  "examples": [
+    {
+      "input": "[5, 1, 4, 2, 8]\n",
+      "output": "[1, 2, 4, 5, 8]\n"
+    },
+    {
+      "input": "[5, 4, 3, 2, 1]\n",
+      "output": "[1, 2, 3, 4, 5]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of the input array <= 1000",
+    "-10^5 <= element of the input array <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "[5, 1, 4, 2, 8]\n",
+      "expectedOutput": "[1, 2, 4, 5, 8]\n"
+    },
+    {
+      "input": "[5, 4, 3, 2, 1]\n",
+      "expectedOutput": "[1, 2, 3, 4, 5]\n"
+    },
+    {
+      "input": "[1, 2, 3, 4, 5]\n",
+      "expectedOutput": "[1, 2, 3, 4, 5]\n"
+    },
+    {
+      "input": "[1]\n",
+      "expectedOutput": "[1]\n"
+    },
+    {
+      "input": "[]\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "[10, -5, 0, 5, -10]\n",
+      "expectedOutput": "[-10, -5, 0, 5, 10]\n"
+    },
+    {
+      "input": "[3, 1, 3, 1, 3]\n",
+      "expectedOutput": "[1, 1, 3, 3, 3]\n"
+    }
+  ],
+  "hints": [
+    "Bubble Sort works by repeatedly stepping through the list, comparing adjacent elements and swapping them if they are in the wrong order.",
+    "The pass through the list is repeated until the list is sorted.",
+    "For an array of size n, the algorithm typically involves n-1 passes.",
+    "In each pass, compare the i-th element with the (i+1)-th element (for i from 0 to n-2). If arr[i] > arr[i+1], swap them.",
+    "After each pass, the largest unsorted element 'bubbles up' to its correct position at the end of the unsorted part of the array.",
+    "You can optimize the algorithm by stopping early if no swaps occur during a pass, indicating that the array is already sorted."
+  ],
+  "tags": ["Sorting", "Bubble Sort", "Algorithm"]
+},
+{
+  "problemId": 7,
+  "courseId": "hp",
+  "title": "Subarray with 0 sum",
+  "difficulty": "Easy",
+  "description": "Given an array of positive and negative numbers, determine if there exists a subarray (of size at least one) whose elements sum up to zero.",
+  "examples": [
+    {
+      "input": "{4, 2, -3, 1, 6}\n",
+      "output": "true\n"
+    },
+    {
+      "input": "{4, 2, 0, 1, 6}\n",
+      "output": "true\n"
+    },
+    {
+      "input": "{-3, 2, 3, 1, 6}\n",
+      "output": "false\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of the input array <= 10^5",
+    "-10^5 <= element of the input array <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "{4, 2, -3, 1, 6}\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "{4, 2, 0, 1, 6}\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "{-3, 2, 3, 1, 6}\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "{1, -1}\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "{0}\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "{1, 2, 3}\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "{-1, -2, -3}\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "{1, 2, -3}\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "{1, -2, 1}\n",
+      "expectedOutput": "true\n"
+    }
+  ],
+  "hints": [
+    "Iterate through all possible subarrays and check if their sum is zero. This approach has a time complexity of O(n^2).",
+    "Can you optimize this?",
+    "Consider using prefix sums. If the prefix sum at two different indices is the same, then the subarray between those indices has a sum of zero.",
+    "Use a hash set to store the prefix sums encountered so far. If the current prefix sum is already in the set, it means a subarray with a zero sum exists.",
+    "Initialize the prefix sum to 0 and add it to the set to handle the case where a subarray starting from the beginning has a zero sum."
+  ],
+  "tags": ["Array", "Subarray", "Summation", "Hashing", "Prefix Sum"]
+},
+{
+  "problemId": 8,
+  "courseId": "hp",
+  "title": "Delete all occurrences of a specific element from an array",
+  "difficulty": "Easy",
+  "description": "Given an array of integers, remove all occurrences of a specified integer from the array.",
+  "examples": [
+    {
+      "input": "array: [3, 2, 2, 1, 5, 2, 3, 5]\nelement to delete: 2\n",
+      "output": "[3, 1, 5, 3, 5]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of the input array <= 10^5",
+    "-10^5 <= element of the input array <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "array: [3, 2, 2, 1, 5, 2, 3, 5]\nelement to delete: 2\n",
+      "expectedOutput": "[3, 1, 5, 3, 5]\n"
+    },
+    {
+      "input": "array: [1, 2, 3, 4, 5]\nelement to delete: 3\n",
+      "expectedOutput": "[1, 2, 4, 5]\n"
+    },
+    {
+      "input": "array: [1, 1, 1, 1, 1]\nelement to delete: 1\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "array: [1, 2, 3]\nelement to delete: 4\n",
+      "expectedOutput": "[1, 2, 3]\n"
+    },
+    {
+      "input": "array: []\nelement to delete: 5\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "array: [5, 5, 5]\nelement to delete: 5\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "array: [1, 2, 1, 2, 1]\nelement to delete: 1\n",
+      "expectedOutput": "[2, 2]\n"
+    }
+  ],
+  "hints": [
+    "One approach is to create a new array and iterate through the original array. If an element is not equal to the element to be deleted, add it to the new array.",
+    "Alternatively, you can modify the original array in-place. Maintain a pointer to the next available position for a non-deleted element. Iterate through the array. If the current element is not the one to be deleted, move it to the position indicated by the pointer and increment the pointer.",
+    "After the iteration, the elements from the beginning of the array up to the pointer will be the elements after deletion. The remaining part of the array is irrelevant."
+  ],
+  "tags": ["Array", "Deletion", "Filtering"]
+},
+{
+  "problemId": 9,
+  "courseId": "hp",
+  "title": "Counting frequencies of array elements",
+  "difficulty": "Easy",
+  "description": "Given an array that may contain duplicate elements, count the frequency of each unique element in the array and print the element along with its frequency.",
+  "examples": [
+    {
+      "input": "arr[] = {10, 20, 20, 10, 10, 20, 5, 20}\n",
+      "output": "10 3\n20 4\n5 1\n"
+    },
+    {
+      "input": "arr[] = {10, 20, 20}\n",
+      "output": "10 1\n20 2\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of the input array <= 10^5",
+    "-10^5 <= element of the input array <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "arr[] = {10, 20, 20, 10, 10, 20, 5, 20}\n",
+      "expectedOutput": "10 3\n20 4\n5 1\n"
+    },
+    {
+      "input": "arr[] = {10, 20, 20}\n",
+      "expectedOutput": "10 1\n20 2\n"
+    },
+    {
+      "input": "arr[] = {1, 2, 3, 4, 5}\n",
+      "expectedOutput": "1 1\n2 1\n3 1\n4 1\n5 1\n"
+    },
+    {
+      "input": "arr[] = {1, 1, 1, 1, 1}\n",
+      "expectedOutput": "1 5\n"
+    },
+    {
+      "input": "arr[] = {}\n",
+      "expectedOutput": "\n"
+    },
+    {
+      "input": "arr[] = {-1, -1, 0, 1, 1}\n",
+      "expectedOutput": "-1 2\n0 1\n1 2\n"
+    },
+    {
+      "input": "arr[] = {5, 2, 8, 5, 2, 8, 5}\n",
+      "expectedOutput": "5 3\n2 2\n8 2\n"
+    }
+  ],
+  "hints": [
+    "You can use a hash map (or a dictionary) to store the frequency of each element.",
+    "Iterate through the input array.",
+    "For each element, check if it is already a key in the hash map.",
+    "If it is, increment its corresponding value (frequency).",
+    "If it's not, add it to the hash map with a frequency of 1.",
+    "After iterating through the entire array, iterate through the keys (unique elements) of the hash map and print each key along with its value (frequency). The order of outputting the elements doesn't typically matter unless specified."
+  ],
+  "tags": ["Array", "Frequency Counting", "Hashing"]
+},
+{
+  "problemId": 10,
+  "courseId": "hp",
+  "title": "Missing and Repeating in an Array",
+  "difficulty": "Medium",
+  "description": "Given an unsorted array of size n, where the elements are in the range [1, n]. One number from this range is missing, and one number appears twice. Find the missing and repeating numbers.",
+  "examples": [
+    {
+      "input": "arr[] = {3, 1, 3}\n",
+      "output": "3, 2\n"
+    },
+    {
+      "input": "arr[] = {4, 3, 6, 2, 1, 1}\n",
+      "output": "1, 5\n"
+    }
+  ],
+  "constraints": [
+    "1 <= n <= 10^5",
+    "1 <= arr[i] <= n"
+  ],
+  "testCases": [
+    {
+      "input": "arr[] = {3, 1, 3}\n",
+      "expectedOutput": "3, 2\n"
+    },
+    {
+      "input": "arr[] = {4, 3, 6, 2, 1, 1}\n",
+      "expectedOutput": "1, 5\n"
+    },
+    {
+      "input": "arr[] = {1, 2, 2, 4}\n",
+      "expectedOutput": "2, 3\n"
+    },
+    {
+      "input": "arr[] = {1, 3, 3}\n",
+      "expectedOutput": "3, 2\n"
+    },
+    {
+      "input": "arr[] = {2, 2}\n",
+      "expectedOutput": "2, 1\n"
+    },
+    {
+      "input": "arr[] = {1, 1}\n",
+      "expectedOutput": "1, 2\n"
+    },
+    {
+      "input": "arr[] = {1, 2, 3, 4, 4, 6}\n",
+      "expectedOutput": "4, 5\n"
+    }
+  ],
+  "hints": [
+    "One approach is to use a frequency array (or a hash map) to count the occurrences of each number. Iterate through the input array and update the counts. Then, iterate from 1 to n to find the number with a count of 2 (repeating) and the number with a count of 0 (missing).",
+    "Another efficient approach involves using the array indices themselves. Iterate through the array. For each element `arr[i]`, use its value to modify another position in the array. For example, if `arr[i]` is `x`, try to mark the index `x-1` as visited. Keep track of the signs of the elements. If you encounter an element `arr[i]` such that `arr[abs(arr[i]) - 1]` is already negative, then `abs(arr[i])` is the repeating number. After the first pass, iterate through the array again. The index `i` for which `arr[i]` is positive indicates that `i+1` is the missing number.",
+    "You can also use mathematical formulas. Calculate the sum of the array elements and the sum of squares of the array elements. Let the repeating number be R and the missing number be M. We know that the sum of numbers from 1 to n is n(n+1)/2, and the sum of squares is n(n+1)(2n+1)/6. Using the given array's sum and sum of squares, you can form two equations with R and M as variables and solve them.",
+    "An approach using XOR can also be used. XOR all the array elements and XOR all the numbers from 1 to n. The XOR of these two results will have bits set that are different in the repeating and missing numbers. Find the rightmost set bit in this XOR result. Iterate through the array and the numbers from 1 to n again. Divide the numbers into two groups based on whether this bit is set or not. The repeating and missing numbers will fall into different groups. XOR the numbers in each group to find the repeating and missing numbers."
+  ],
+  "tags": ["Array", "Missing Number", "Repeating Number"]
+},
+{
+  "problemId": 11,
+  "courseId": "hp",
+  "title": "Stack Implementation using Linked List",
+  "difficulty": "Easy",
+  "description": "Implement a stack data structure using a singly linked list. The stack should support the basic operations: push (add an element to the top), pop (remove and return the top element), peek (return the top element without removing it), and isEmpty (check if the stack is empty).",
+  "examples": [
+    {
+      "input": "push(1)\npush(2)\npop()\npush(3)\npop()\npop()\nisEmpty()\n",
+      "output": "2\n3\n1\ntrue\n"
+    }
+  ],
+  "constraints": [
+    "The number of push operations will not exceed 10^5.",
+    "The number of pop operations will not exceed 10^5.",
+    "The number of peek operations will not exceed 10^5.",
+    "The values pushed onto the stack will be integers."
+  ],
+  "testCases": [
+    {
+      "input": "push(1)\npush(2)\npop()\npush(3)\npop()\npop()\nisEmpty()\n",
+      "expectedOutput": "2\n3\n1\ntrue\n"
+    },
+    {
+      "input": "isEmpty()\npush(5)\nisEmpty()\npeek()\npop()\nisEmpty()\n",
+      "expectedOutput": "true\nfalse\n5\n5\ntrue\n"
+    },
+    {
+      "input": "push(10)\npush(20)\npeek()\npush(30)\npop()\npeek()\n",
+      "expectedOutput": "20\n30\n20\n"
+    },
+    {
+      "input": "pop()\n",
+      "expectedOutput": "Stack is empty\n"
+    },
+    {
+      "input": "peek()\n",
+      "expectedOutput": "Stack is empty\n"
+    },
+    {
+      "input": "push(-5)\npeek()\npop()\n",
+      "expectedOutput": "-5\n-5\n"
+    }
+  ],
+  "hints": [
+    "Represent the stack using a singly linked list where each node stores an element and a pointer to the next node.",
+    "The top of the stack can be the head of the linked list.",
+    "For the push operation, create a new node with the given value. Make its 'next' pointer point to the current head of the list, and then update the head to be the new node.",
+    "For the pop operation, if the stack is not empty, return the value of the head node and update the head to point to the next node. Handle the case where the stack is empty.",
+    "For the peek operation, if the stack is not empty, return the value of the head node without modifying the list. Handle the case where the stack is empty.",
+    "For the isEmpty operation, check if the head of the linked list is null."
+  ],
+  "tags": ["Data Structures", "Stack", "Linked List", "Implementation"]
+},
+{
+  "problemId": 12,
+  "courseId": "hp",
+  "title": "Creation and Deletion of Nodes in a Linked List",
+  "difficulty": "Easy",
+  "description": "Implement functions to create a new node and delete a node with a given value from a singly linked list.",
+  "examples": [
+    {
+      "input": "create(1)\ncreate(2)\ncreate(3)\ndelete(2)\ndisplay()\n",
+      "output": "1 -> 3 -> NULL\n"
+    },
+    {
+      "input": "create(5)\ncreate(5)\ndelete(5)\ndisplay()\n",
+      "output": "5 -> NULL\n"
+    },
+    {
+      "input": "create(10)\ndelete(10)\ndisplay()\n",
+      "output": "NULL\n"
+    },
+    {
+      "input": "create(1)\ncreate(2)\ndelete(3)\ndisplay()\n",
+      "output": "1 -> 2 -> NULL\n"
+    }
+  ],
+  "constraints": [
+    "The number of create operations will not exceed 100.",
+    "The number of delete operations will not exceed 100.",
+    "The values of the nodes will be integers."
+  ],
+  "testCases": [
+    {
+      "input": "create(1)\ncreate(2)\ncreate(3)\ndelete(2)\ndisplay()\n",
+      "expectedOutput": "1 -> 3 -> NULL\n"
+    },
+    {
+      "input": "create(5)\ncreate(5)\ndelete(5)\ndisplay()\n",
+      "expectedOutput": "5 -> NULL\n"
+    },
+    {
+      "input": "create(10)\ndelete(10)\ndisplay()\n",
+      "expectedOutput": "NULL\n"
+    },
+    {
+      "input": "create(1)\ncreate(2)\ndelete(3)\ndisplay()\n",
+      "expectedOutput": "1 -> 2 -> NULL\n"
+    },
+    {
+      "input": "create(7)\ndisplay()\ndelete(7)\ndisplay()\n",
+      "expectedOutput": "7 -> NULL\nNULL\n"
+    },
+    {
+      "input": "create(-1)\ncreate(0)\ncreate(1)\ndelete(0)\ndisplay()\n",
+      "expectedOutput": "-1 -> 1 -> NULL\n"
+    },
+    {
+      "input": "display()\ncreate(4)\ndisplay()\ndelete(4)\ndisplay()\n",
+      "expectedOutput": "NULL\n4 -> NULL\nNULL\n"
+    }
+  ],
+  "hints": [
+    "For node creation, define a Node structure with a value and a pointer to the next node. Create a new Node, assign the given value, and append it to the end of the existing linked list. If the list is empty, the new node becomes the head.",
+    "For node deletion, traverse the linked list to find the node with the given value.",
+    "If the node to be deleted is the head, update the head to the next node.",
+    "If the node is in the middle or at the end, update the 'next' pointer of the previous node to skip the node to be deleted. Be careful to handle the case where the node to be deleted is the last node (set the previous node's 'next' to NULL).",
+    "Handle the case where the list is empty or the node with the given value is not found.",
+    "Implement a display function to print the linked list to verify the operations."
+  ],
+  "tags": ["Linked List", "Node Creation", "Node Deletion"]
+},
+{
+  "problemId": 13,
+  "courseId": "hp",
+  "title": "Binary Tree Implementation using Linked List",
+  "difficulty": "Easy",
+  "description": "Implement a binary tree data structure using linked lists. Each node in the binary tree should have a value, a pointer to its left child, and a pointer to its right child. Implement functions to create nodes and potentially traverse the tree (inorder, preorder, postorder - basic structure is sufficient for this problem).",
+  "examples": [
+    {
+      "input": "createNode(1)\ninsertLeft(root, createNode(2))\ninsertRight(root, createNode(3))\ninsertLeft(root.left, createNode(4))\ninorderTraversal(root)\n",
+      "output": "4 2 1 3 \n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes created will not exceed 100.",
+    "The values of the nodes will be integers."
+  ],
+  "testCases": [
+    {
+      "input": "createNode(1)\ninsertLeft(root, createNode(2))\ninsertRight(root, createNode(3))\ninsertLeft(root.left, createNode(4))\ninorderTraversal(root)\n",
+      "expectedOutput": "4 2 1 3 \n"
+    },
+    {
+      "input": "createNode(10)\ninorderTraversal(root)\n",
+      "expectedOutput": "10 \n"
+    },
+    {
+      "input": "createNode(5)\ninsertLeft(root, createNode(3))\ninsertRight(root, createNode(7))\ninorderTraversal(root)\n",
+      "expectedOutput": "3 5 7 \n"
+    },
+    {
+      "input": "createNode(1)\ninsertLeft(root, createNode(2))\ninsertLeft(root.left, createNode(4))\npreorderTraversal(root)\n",
+      "expectedOutput": "1 2 4 \n"
+    },
+    {
+      "input": "createNode(1)\ninsertRight(root, createNode(3))\ninsertRight(root.right, createNode(5))\npostorderTraversal(root)\n",
+      "expectedOutput": "3 5 1 \n"
+    },
+    {
+      "input": "createNode(1)\n",
+      "expectedOutput": "1 \n"
+    }
+  ],
+  "hints": [
+    "Define a Node structure with a value, a pointer to the left child, and a pointer to the right child. Initialize both child pointers to NULL.",
+    "Implement a function `createNode(value)` that creates a new Node with the given value and returns it.",
+    "Implement functions `insertLeft(parent, child)` and `insertRight(parent, child)` to set the left and right children of a given parent node.",
+    "Implement basic tree traversal functions to demonstrate the structure:",
+    "  - `inorderTraversal(node)`: Recursively visit the left subtree, then the current node, then the right subtree.",
+    "  - `preorderTraversal(node)`: Recursively visit the current node, then the left subtree, then the right subtree.",
+    "  - `postorderTraversal(node)`: Recursively visit the left subtree, then the right subtree, then the current node.",
+    "For the purpose of this problem, the focus is on the node structure and basic insertion/traversal concepts. You don't need to handle complex tree balancing or searching operations."
+  ],
+  "tags": ["Data Structures", "Binary Tree", "Linked List", "Implementation", "Tree Traversal"]
+},
+{
+  "problemId": 14,
+  "courseId": "hp",
+  "title": "Binary Tree Implementation and Inorder Traversal",
+  "difficulty": "Easy",
+  "description": "Implement a binary tree data structure using linked lists and perform an inorder traversal. Each node should have a value, a left child pointer, and a right child pointer.",
+  "examples": [
+    {
+      "input": "createRoot(1)\ninsertLeft(root, 2)\ninsertRight(root, 3)\ninorderTraversal(root)\n",
+      "output": "2 1 3\n"
+    },
+    {
+      "input": "createRoot(10)\ninorderTraversal(root)\n",
+      "output": "10\n"
+    }
+  ],
+  "constraints": [
+    "Number of nodes in the tree will not exceed 100.",
+    "Node values are integers."
+  ],
+  "testCases": [
+    {
+      "input": "createRoot(1)\ninsertLeft(root, 2)\ninsertRight(root, 3)\ninorderTraversal(root)\n",
+      "expectedOutput": "2 1 3\n"
+    },
+    {
+      "input": "createRoot(10)\ninorderTraversal(root)\n",
+      "expectedOutput": "10\n"
+    },
+    {
+      "input": "createRoot(5)\ninsertLeft(root, 3)\ninsertRight(root, 7)\ninorderTraversal(root)\n",
+      "expectedOutput": "3 5 7\n"
+    },
+      {
+      "input": "createRoot(1)\ninsertLeft(root, 2)\ninsertRight(root, 3)\ninorderTraversal(root)\n",
+      "expectedOutput": "2 1 3\n"
+    },
+    {
+      "input": "createRoot(1)\ninsertLeft(root, 2)\ninsertLeft(root.left, 4)\ninsertRight(root.left, 5)\ninorderTraversal(root)\n",
+      "expectedOutput": "4 2 5 1\n"
+    },
+    {
+      "input": "createRoot(1)\ninsertRight(root, 3)\ninsertRight(root.right, 6)\ninorderTraversal(root)\n",
+      "expectedOutput": "1 3 6\n"
+    },
+    {
+      "input": "createRoot(1)\ninsertLeft(root, 2)\ninsertRight(root, 3)\ninsertLeft(root.left, 4)\ninsertRight(root.left, 5)\ninsertLeft(root.right, 6)\ninorderTraversal(root)\n",
+      "expectedOutput": "4 2 5 1 6 3\n"
+    }
+  ],
+  "hints": [
+    "Define a `Node` structure with `value`, `left`, and `right` pointers.",
+    "Implement `createRoot(value)` to create the root node.",
+    "Implement `insertLeft(node, value)` and `insertRight(node, value)` to add children.",
+    "Implement `inorderTraversal(node)`: recursively traverse left, process the node, then traverse right.",
+    "  -  Base case: If the node is NULL, return.",
+    "  -  Recursive step: Call `inorderTraversal` on the left child, then print the node's value, then call `inorderTraversal` on the right child."
+  ],
+  "tags": ["Binary Tree", "Inorder Traversal", "Data Structures", "Recursion"]
+},
+{
+  "problemId": 15,
+  "courseId": "hp",
+  "title": "Longest Common Subsequence",
+  "difficulty": "Medium",
+  "description": "Given two sequences, find the length of the longest subsequence present in both of them. A subsequence is a sequence that appears in the same relative order, but not necessarily contiguous.",
+  "examples": [
+    {
+      "input": "s1 = \"ABCDGH\", s2 = \"AEDFHR\"\n",
+      "output": "3\n"
+    },
+    {
+      "input": "s1 = \"AGGTAB\", s2 = \"GXTXAYB\"\n",
+      "output": "4\n"
+    }
+  ],
+  "constraints": [
+    "1 <= length of s1, s2 <= 1000",
+    "The strings consist of uppercase English letters."
+  ],
+  "testCases": [
+    {
+      "input": "s1 = \"ABCDGH\", s2 = \"AEDFHR\"\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "s1 = \"AGGTAB\", s2 = \"GXTXAYB\"\n",
+      "expectedOutput": "4\n"
+    },
+    {
+      "input": "s1 = \"\", s2 = \"\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "s1 = \"ABC\", s2 = \"ABC\"\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "s1 = \"ABC\", s2 = \"DEF\"\n",
+      "expectedOutput": "0\n"
+    },
+     {
+      "input": "s1 = \"AXBYCZ\", s2 = \"ABCDEF\"\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "s1 = \"AA\", s2 = \"AAAA\"\n",
+      "expectedOutput": "2\n"
+    }
+  ],
+  "hints": [
+    "Use dynamic programming to solve this problem.",
+    "Create a 2D array (dp table) of size (m+1) x (n+1), where m and n are the lengths of the two sequences.",
+    "dp[i][j] stores the length of the longest common subsequence of the first i characters of s1 and the first j characters of s2.",
+    "Initialize the first row and first column of the dp table to 0.",
+    "Iterate through the dp table, filling it as follows:",
+    "  - If s1[i-1] == s2[j-1], then dp[i][j] = dp[i-1][j-1] + 1.",
+    "  - Else, dp[i][j] = max(dp[i-1][j], dp[i][j-1]).",
+    "The final answer is stored in dp[m][n]."
+  ],
+  "tags": ["String", "Dynamic Programming", "Subsequence"]
+},
+{
+  "problemId": 16,
+  "courseId": "hp",
+  "title": "Wildcard Pattern Matching",
+  "difficulty": "Hard",
+  "description": "Given an input string (s) and a pattern (p), implement wildcard pattern matching with support for '?' and '*' where:\n\n* '?' Matches any single character.\n* '*' Matches any sequence of characters (including the empty sequence).\n\nThe matching should cover the entire input string (not partial matching).",
+  "examples": [
+    {
+      "input": "s = \"aa\", p = \"a\"\n",
+      "output": "false\n"
+    },
+    {
+      "input": "s = \"aa\", p = \"*\"\n",
+      "output": "true\n"
+    },
+    {
+      "input": "s = \"cb\", p = \"?a\"\n",
+      "output": "false\n"
+    },
+    {
+      "input": "s = \"adceb\", p = \"*a*b\"\n",
+      "output": "true\n"
+    }
+  ],
+  "constraints": [
+    "0 <= s.length, p.length <= 2000",
+    "s contains only lowercase English letters.",
+    "p contains only lowercase English letters, '?' or '*'"
+  ],
+  "approaches": [
+    {
+      "name": "Recursion",
+      "description": "A straightforward approach is to use recursion. However, this can lead to exponential time complexity in the worst case due to repeated calculations."
+    },
+    {
+      "name": "Dynamic Programming",
+      "description": "A more efficient approach is to use dynamic programming. This involves building a table to store the results of subproblems and avoid redundant calculations."
+    },
+    {
+      "name": "Greedy Approach",
+      "description": "In some cases, a carefully designed greedy approach can also solve the problem, often with better performance than dynamic programming."
+    }
+  ],
+  "dynamicProgrammingSolution": {
+    "description": "A dynamic programming solution involves creating a 2D table `dp` where `dp[i][j]` indicates whether the first `i` characters of the string `s` match the first `j` characters of the pattern `p`.",
+    "steps": [
+      {
+        "name": "Initialization",
+        "details": [
+          "`dp[0][0] = true` (empty string and empty pattern match)",
+          "For `j` from 1 to `p.length`:\n    * If `p[j-1] == '*'`, `dp[0][j] = dp[0][j-1]` (to handle patterns like \"*\", \"**\", \"***\")"
+        ]
+      },
+      {
+        "name": "Iteration",
+        "details": "Iterate through the table, filling it based on the following conditions:\n    * If `s[i-1] == p[j-1]` or `p[j-1] == '?'`: `dp[i][j] = dp[i-1][j-1]`\n    * If `p[j-1] == '*'`: `dp[i][j] = dp[i][j-1] || dp[i-1][j]`  ( * matches zero or more characters)\n    * Else: `dp[i][j] = false`"
+      },
+      {
+        "name": "Result",
+        "details": "The final answer is stored in `dp[s.length][p.length]`."
+      }
+    ]
+  },
+  "pythonImplementation": "def isMatch(s: str, p: str) -> bool:\n    \"\"\"\n    Implements wildcard pattern matching.\n\n    Args:\n        s: The input string.\n        p: The pattern string.\n\n    Returns:\n        True if the pattern matches the entire string, False otherwise.\n    \"\"\"\n    m, n = len(s), len(p)\n    dp = [[False] * (n + 1) for _ in range(m + 1)]\n    dp[0][0] = True\n\n    for j in range(1, n + 1):\n        if p[j - 1] == '*':\n            dp[0][j] = dp[0][j - 1]\n\n    for i in range(1, m + 1):\n        for j in range(1, n + 1):\n            if s[i - 1] == p[j - 1] or p[j - 1] == '?':\n                dp[i][j] = dp[i - 1][j - 1]\n            elif p[j - 1] == '*':\n                dp[i][j] = dp[i][j - 1] or dp[i - 1][j]\n            else:\n                dp[i][j] = False\n\n    return dp[m][n]",
+  "greedyApproach": {
+    "description": "A greedy approach is also possible. This approach is generally faster, although it can be trickier to implement correctly. The idea is to keep track of the last seen '*' and backtrack when a mismatch occurs."
+  },
+  "tags": [
+    "String",
+    "Pattern Matching",
+    "Wildcard",
+    "Dynamic Programming",
+    "Recursion",
+    "Greedy"
+  ]
+},
+{
+  "problemId": 17,
+  "courseId": "hp",
+  "title": "Detect Cycle in a Directed Graph",
+  "difficulty": "Medium",
+  "description": "Given a directed graph, determine if it contains a cycle. A cycle exists if there is a path that starts at a node and ends at the same node.",
+  "examples": [
+    {
+      "input": "graph = {0: [1, 2], 1: [2], 2: [0, 3], 3: [3]}\n",
+      "output": "true\n"
+    },
+    {
+      "input": "graph = {0: [1, 2], 1: [2], 2: [3], 3: []}\n",
+      "output": "false\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the graph will be between 1 and 10^5.",
+    "The edges are represented as an adjacency list.",
+    "The graph may contain self-loops."
+  ],
+  "testCases": [
+    {
+      "input": "graph = {0: [1, 2], 1: [2], 2: [0, 3], 3: [3]}\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "graph = {0: [1, 2], 1: [2], 2: [3], 3: []}\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "graph = {0: [1], 1: [2], 2: [0]}\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "graph = {0: [1], 1: [2], 2: [3], 3: []}\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "graph = {0: [0]}\n",
+      "expectedOutput": "true\n"
+    },
+    {
+      "input": "graph = {0: []}\n",
+      "expectedOutput": "false\n"
+    },
+    {
+      "input": "graph = {0: [1, 2], 1: [3], 2: [3], 3: [4], 4: [1]}\n",
+      "expectedOutput": "true\n"
+    }
+  ],
+  "hints": [
+    "Use Depth First Search (DFS) to traverse the graph.",
+    "Keep track of the nodes currently in the recursion stack. If a node is visited again while it is still in the recursion stack, then a cycle exists.",
+    "Maintain two sets (or arrays): 'visited' and 'recursionStack'.",
+    "'visited[node]' indicates whether the node has been visited.",
+    "'recursionStack[node]' indicates whether the node is currently in the recursion stack.",
+    "For each unvisited node, start a DFS traversal.",
+    "In the DFS function, mark the current node as visited and add it to the recursion stack.",
+    "For each neighbor of the current node:",
+    "    - If the neighbor is in the recursion stack, return true (cycle found).",
+    "    - If the neighbor is not visited, recursively call DFS for the neighbor.",
+    "After visiting all neighbors, remove the current node from the recursion stack and return false.",
+    "If the DFS traversal finishes without finding a cycle, the graph does not contain a cycle.",
+    "Another approach is to use Topological Sort. If a topological sort is not possible, then the graph contains a cycle."
+  ],
+  "tags": ["Graph", "Depth First Search", "Cycle Detection"]
+},
+{
+  "problemId": 18,
+  "courseId": "hp",
+  "title": "Boundary Traversal of a Binary Tree",
+  "difficulty": "Medium",
+  "description": "Given a binary tree, print its boundary traversal in an anti-clockwise direction.\n\nThe boundary traversal of a tree includes:\n\n1.  Left boundary: Set of nodes on the left extreme side from the root to the first leaf node.\n2.  Leaves: All the leaf nodes from left to right.\n3.  Right boundary: Set of nodes on the right extreme side from the last leaf node to the root.\n\nNote: If a node is both a left and right boundary node, or if it is a leaf and also a boundary node, it should be printed only once.  For example, for the following tree:\n\n```\n       1\n      / \\\n     2   3\n    / \\ / \\\n   4   5 6  7\n  /     \\\n 8       9\n```\n\nThe boundary traversal is: 1 2 4 8 9 5 6 7 3.",
+  "examples": [
+    {
+      "input": "```\n       1\n      / \\\n     2   3\n    / \\ / \\\n   4   5 6  7\n  /     \\\n 8       9\n```\n",
+      "output": "1 2 4 8 9 5 6 7 3\n"
+    },
+    {
+      "input": "```\n      1\n       \\\n        2\n         \\\n          3\n           \\\n            4\n```\n",
+      "output": "1 2 3 4\n"
+    }
+  ],
+  "constraints": [
+    "The number of nodes in the tree is between 1 and 10^5.",
+    "The value of each node is between 1 and 10^5."
+  ],
+  "testCases": [
+    {
+      "input": "```\n       1\n      / \\\n     2   3\n    / \\ / \\\n   4   5 6  7\n  /     \\\n 8       9\n```\n",
+      "expectedOutput": "1 2 4 8 9 5 6 7 3\n"
+    },
+    {
+      "input": "```\n      1\n       \\\n        2\n         \\\n          3\n           \\\n            4\n```\n",
+      "expectedOutput": "1 2 3 4\n"
+    },
+    {
+      "input": "```\n        1\n      / \\\n     2   3\n    /     \\\n   4       5\n```\n",
+      "expectedOutput": "1 2 4 5 3\n"
+    },
+    {
+      "input": "```\n      1\n     / \\\n    2   3\n   / \\ / \\\n  4  5 6  7\n```\n",
+      "expectedOutput": "1 2 4 5 6 7 3\n"
+    },
+    {
+      "input": "```\n       1\n      / \\\n     2   3\n    /     \\\n   4       5\n  /         \\\n 6           7\n```\n",
+      "expectedOutput": "1 2 4 6 7 5 3\n"
+    },
+    {
+      "input": "```\n      1\n     / \\\n    2   3\n   /     \\\n  4       5\n /         \\\n6           7\n```\n",
+      "expectedOutput": "1 2 4 6 7 5 3\n"
+    },
+    {
+      "input": "```\n      1\n     / \\\n    2   3\n   /     \\\n  4       5\n```\n",
+      "expectedOutput": "1 2 4 5 3\n"
+    }
+  ],
+  "hints": [
+    "The problem can be solved in multiple steps:",
+    "  1. Print the left boundary (excluding the leaf node).",
+    "  2. Print all the leaf nodes from left to right.",
+    "  3. Print the right boundary in reverse order (excluding the leaf node).",
+    "Write a helper function to check if a node is a leaf node.",
+    "For the left boundary, keep traversing the left subtree until you reach a leaf node. Print each node encountered.",
+    "For the right boundary, keep traversing the right subtree until you reach a leaf node. Store the nodes in a stack and then print them in reverse order.",
+    "Be careful to handle cases where the root node itself is a leaf node.",
+    "Ensure that leaf nodes are printed only once even if they are part of the left or right boundary."
+  ],
+  "tags": ["Tree", "Binary Tree", "Tree Traversal", "Boundary Traversal"]
+},
+{
+  "problemId": 19,
+  "courseId": "hp",
+  "title": "Trapping Rain Water",
+  "difficulty": "Hard",
+  "description": "Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.",
+  "examples": [
+    {
+      "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]\n",
+      "output": "6\n",
+      "explanation": "The above elevation map (black section) is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped."
+    },
+    {
+      "input": "height = [4,2,0,3,2,5]\n",
+      "output": "9\n"
+    }
+  ],
+  "constraints": [
+    "n == height.length",
+    "1 <= n <= 2 * 10^4",
+    "0 <= height[i] <= 10^5"
+  ],
+  "testCases": [
+    {
+      "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input": "height = [4,2,0,3,2,5]\n",
+      "expectedOutput": "9\n"
+    },
+    {
+      "input": "height = [2,0,2]\n",
+      "expectedOutput": "2\n"
+    },
+    {
+      "input": "height = [3,0,0,2,0,4]\n",
+      "expectedOutput": "10\n"
+    },
+    {
+      "input": "height = [0,1,0,2,1,0,1,3,2,1,2,1]\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input": "height = [4,2,3]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "height = [4,3,2,1,0,1,2,3,4]\n",
+      "expectedOutput": "6\n"
+    }
+  ],
+  "hints": [
+    "For each element in the array, find the maximum height of the bars to the left and right of it.",
+    "The amount of water that can be trapped at a particular index is limited by the shorter of the left and right maximum heights, minus the height of the bar at that index.",
+    "Use dynamic programming to precompute the left and right maximum heights for each position to optimize the solution.",
+    "Consider edge cases such as when the array is empty or has only one element (no water can be trapped).",
+    "Try to solve it with O(n) time complexity and O(1) space complexity using the two-pointer approach."
+  ],
+  "tags": ["Array", "Two Pointers", "Dynamic Programming", "Stack", "Monotonic Stack"]
+},
+{
+  "problemId": 20,
+  "courseId": "hp",
+  "title": "Merge k Sorted Lists",
+  "difficulty": "Hard",
+  "description": "You are given an array of k linked-lists lists, each linked-list is sorted in ascending order. Merge all the linked-lists into one sorted linked-list and return it.",
+  "examples": [
+    {
+      "input": "lists = [[1,4,5],[1,3,4],[2,6]]\n",
+      "output": "[1,1,2,3,4,4,5,6]\n",
+      "explanation": "The linked-lists are:\n[\n  1->4->5,\n  1->3->4,\n  2->6\n]\nmerging them into one sorted list:\n1->1->2->3->4->4->5->6"
+    },
+    {
+      "input": "lists = []\n",
+      "output": "[]\n"
+    },
+    {
+      "input": "lists = [[]]\n",
+      "output": "[]\n"
+    }
+  ],
+  "constraints": [
+    "k == lists.length",
+    "0 <= k <= 10^4",
+    "0 <= lists[i].length <= 500",
+    "-10^4 <= lists[i][j] <= 10^4",
+    "lists[i] is sorted in ascending order.",
+    "The sum of lists[i].length will not exceed 10^4."
+  ],
+  "testCases": [
+    {
+      "input": "lists = [[1,4,5],[1,3,4],[2,6]]\n",
+      "expectedOutput": "[1,1,2,3,4,4,5,6]\n"
+    },
+    {
+      "input": "lists = []\n",
+      "expectedOutput": "[]\n"
+    },
+    {
+      "input": "lists = [[]]\n",
+      "expectedOutput": "[]\n"
+    },
+
+    {
+        "input": "lists = [[1, 2, 3], [], [4, 5, 6]]\n",
+        "expectedOutput": "[1, 2, 3, 4, 5, 6]\n"
+    },
+    {
+        "input": "lists = [[1], [0]]\n",
+        "expectedOutput": "[0, 1]\n"
+    }
+  ],
+  "hints": [
+    "You can merge two sorted lists at a time.  Extend this approach to k lists.",
+    "Use a priority queue (min-heap) to efficiently find the smallest element among the k lists.",
+    "Insert the head of each list into the priority queue.",
+    "Repeatedly extract the smallest element from the priority queue, add it to the result list, and insert the next element from the list it came from.",
+    "If a list is exhausted, do not add null to the priority queue.",
+    "The time complexity can be improved using a priority queue to O(N log k), where N is the total number of nodes and k is the number of lists.",
+    "Divide and conquer approach can also be used.",
+    "Merge lists in pairs until you have one sorted list."
+  ],
+  "tags": ["Linked List", "Divide and Conquer", "Heap (Priority Queue)", "Merge Sort"]
+},
+{
+  "problemId": 21,
+  "courseId": "hp",
+  "title": "Shortest Palindrome",
+  "difficulty": "Hard",
+  "description": "You are given a string s. You can convert s to a palindrome by adding characters in front of it. Return the shortest palindrome you can find by performing this transformation.",
+  "examples": [
+    {
+      "input": "s = \"aacecaaa\"\n",
+      "output": "\"aaacecaaa\"\n"
+    },
+    {
+      "input": "s = \"abcd\"\n",
+      "output": "\"dcbabcd\"\n"
+    }
+  ],
+  "constraints": [
+    "0 <= s.length <= 5 * 10^4",
+    "s consists of lowercase English letters only."
+  ],
+  "testCases": [
+    {
+      "input": "s = \"aacecaaa\"\n",
+      "expectedOutput": "\"aaacecaaa\"\n"
+    },
+    {
+      "input": "s = \"abcd\"\n",
+      "expectedOutput": "\"dcbabcd\"\n"
+    },
+    {
+      "input": "s = \"aba\"\n",
+      "expectedOutput": "\"aba\"\n"
+    },
+    {
+      "input": "s = \"\"\n",
+      "expectedOutput": "\"\"\n"
+    },
+    {
+      "input": "s = \"aaaaa\"\n",
+      "expectedOutput": "\"aaaaa\"\n"
+    },
+    {
+      "input": "s = \"abcda\"\n",
+      "expectedOutput": "\"adcbcda\"\n"
+    },
+    {
+      "input": "s = \"abb\"\n",
+      "expectedOutput": "\"bbabb\"\n"
+    }
+  ],
+   "hints": [
+        "You need to find the longest palindromic prefix of the given string.",
+        "One approach is to iterate through the string, checking if the prefix up to that point is a palindrome.",
+        "For each prefix, you can reverse it and compare it with the original prefix.",
+        "Optimization is possible using the KMP algorithm.  Create a new string t = s + '#' + reverse(s).",
+        "Compute the prefix table (LPS array) for t. The last element of the LPS array indicates the length of the longest palindromic prefix in s.",
+        "Use the length of the longest palindromic prefix to construct the shortest palindrome."
+    ],
+  "tags": ["String", "Rolling Hash", "String Matching", "Hash Function"]
+},
+{
+  "problemId": 22,
+  "courseId": "hp",
+  "title": "Permutations",
+  "difficulty": "Medium",
+  "description": "Given an array nums of distinct integers, return all the possible permutations. You can return the answer in any order.",
+  "examples": [
+    {
+      "input": "nums = [1,2,3]\n",
+      "output": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]\n"
+    },
+    {
+      "input": "nums = [0,1]\n",
+      "output": "[[0,1],[1,0]]\n"
+    },
+    {
+      "input": "nums = [1]\n",
+      "output": "[[1]]\n"
+    }
+  ],
+  "constraints": [
+    "1 <= nums.length <= 6",
+    "-10 <= nums[i] <= 10",
+    "All the integers of nums are unique."
+  ],
+  "testCases": [
+    {
+      "input": "nums = [1,2,3]\n",
+      "expectedOutput": "[[1,2,3],[1,3,2],[2,1,3],[2,3,1],[3,1,2],[3,2,1]]\n"
+    },
+    {
+      "input": "nums = [0,1]\n",
+      "expectedOutput": "[[0,1],[1,0]]\n"
+    },
+    {
+      "input": "nums = [1]\n",
+      "expectedOutput": "[[1]]\n"
+    },
+    {
+      "input": "nums = [-1,0,1]\n",
+      "expectedOutput": "[[-1, 0, 1], [-1, 1, 0], [0, -1, 1], [0, 1, -1], [1, -1, 0], [1, 0, -1]]\n"
+    },
+    {
+      "input": "nums = [1,2,3,4]\n",
+      "expectedOutput": "[[1, 2, 3, 4], [1, 2, 4, 3], [1, 3, 2, 4], [1, 3, 4, 2], [1, 4, 2, 3], [1, 4, 3, 2], [2, 1, 3, 4], [2, 1, 4, 3], [2, 3, 1, 4], [2, 3, 4, 1], [2, 4, 1, 3], [2, 4, 3, 1], [3, 1, 2, 4], [3, 1, 4, 2], [3, 2, 1, 4], [3, 2, 4, 1], [3, 4, 1, 2], [3, 4, 2, 1], [4, 1, 2, 3], [4, 1, 3, 2], [4, 2, 1, 3], [4, 2, 3, 1], [4, 3, 1, 2], [4, 3, 2, 1]]\n"
+    }
+  ],
+  "hints": [
+    "Use backtracking to generate all possible permutations.",
+    "Maintain a list or set to keep track of the elements that have been used in the current permutation.",
+    "In each recursive call, iterate through the remaining unused elements.",
+    "For each unused element, add it to the current permutation and recursively call the function to generate the rest of the permutation.",
+    "Once a complete permutation is generated, add it to the result list.",
+    "Backtrack by removing the last added element and marking it as unused before returning from the recursive call."
+  ],
+  "tags": ["Array", "Backtracking"]
+},
+{
+  "problemId": 23,
+  "courseId": "hp",
+  "title": "Strong Password Checker",
+  "difficulty": "Hard",
+  "description": "A password is considered strong if the below conditions are all met:\nIt has at least 6 characters and at most 20 characters.\nIt contains at least one lowercase letter, at least one uppercase letter, and at least one digit.\nIt does not contain three repeating characters in a row (i.e., \"Baaabb0\" is weak, but \"Baaba0\" is strong).\nGiven a string password, return the minimum number of steps required to make password strong. if password is already strong, return 0.\nIn one step, you can:\nInsert one character to password,\nDelete one character from password, or\nReplace one character of password with another character.",
+  "examples": [
+    {
+      "input": "password = \"a\"\n",
+      "output": "5\n"
+    },
+    {
+      "input": "password = \"aA1\"\n",
+      "output": "3\n"
+    },
+    {
+      "input": "password = \"1337C0d3\"\n",
+      "output": "0\n"
+    }
+  ],
+  "constraints": [
+    "1 <= password.length <= 50",
+    "password consists of letters, digits, dot '.' or exclamation mark '!'."
+  ],
+  "testCases": [
+    {
+      "input": "password = \"a\"\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "password = \"aA1\"\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "password = \"1337C0d3\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "password = \"aaaaaaaaaaaaaaaaaaaaaa\"\n",
+      "expectedOutput": "6\n"
+    },
+    {
+      "input": "password = \"12345678901234567890\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "password = \"abc123ABC\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "password = \"AAA123abc\"\n",
+      "expectedOutput": "0\n"
+    },
+    {
+      "input": "password = \"aA1!.\"\n",
+      "expectedOutput": "1\n"
+    },
+        {
+      "input": "password = \"aaaaaaaaaa\"\n",
+      "expectedOutput": "4\n"
+    }
+  ],
+  "hints": [
+    "Analyze the password for each of the 3 conditions: length, character types, and repeating characters.",
+    "If the length is less than 6, calculate the number of missing characters and add them.",
+    "If the length is greater than 20, calculate the number of extra characters and delete them.",
+    "Count the number of missing character types (lowercase, uppercase, digit).",
+    "Identify and count consecutive repeating characters.",
+    "Consider the interdependencies of these three conditions.  For example, deleting characters might help with both length and repeating character violations.",
+    "Prioritize operations that solve multiple violations at once.",
+    "Greedy approach can be used.",
+    "Be careful when handling edge cases."
+  ],
+  "tags": ["String", "Greedy", "Heap (Priority Queue)"]
+},
+{
+  "problemId": 24,
+  "courseId": "hp",
+  "title": "Number of Islands",
+  "difficulty": "Medium",
+  "description": "Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.",
+  "examples": [
+    {
+      "input": "grid = [\n  [\"1\",\"1\",\"1\",\"1\",\"0\"],\n  [\"1\",\"1\",\"0\",\"1\",\"0\"],\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"0\",\"0\",\"0\",\"0\",\"0\"]\n]\n",
+      "output": "1\n"
+    },
+    {
+      "input": "grid = [\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"1\",\"1\",\"0\",\"0\",\"0\"],\n  [\"0\",\"0\",\"1\",\"0\",\"0\"],\n  [\"0\",\"0\",\"0\",\"1\",\"1\"]\n]\n",
+      "output": "3\n"
+    }
+  ],
+  "constraints": [
+    "m == grid.length",
+    "n == grid[i].length",
+    "1 <= m, n <= 300",
+    "grid[i][j] is '0' or '1'."
+  ],
+  "testCases": [
+    {
+      "input": "grid = [\n        [\"1\",\"1\",\"1\",\"1\",\"0\"],\n        [\"1\",\"1\",\"0\",\"1\",\"0\"],\n        [\"1\",\"1\",\"0\",\"0\",\"0\"],\n        [\"0\",\"0\",\"0\",\"0\",\"0\"]\n    ]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "grid = [\n        [\"1\",\"1\",\"0\",\"0\",\"0\"],\n        [\"1\",\"1\",\"0\",\"0\",\"0\"],\n        [\"0\",\"0\",\"1\",\"0\",\"0\"],\n        [\"0\",\"0\",\"0\",\"1\",\"1\"]\n    ]\n",
+      "expectedOutput": "3\n"
+    },
+    {
+      "input": "grid = [\n        [\"1\",\"1\",\"1\"],\n        [\"0\",\"1\",\"0\"],\n        [\"1\",\"1\",\"1\"]\n    ]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "grid = [\n        [\"0\",\"0\",\"0\",\"0\",\"0\"],\n        [\"0\",\"1\",\"0\",\"0\",\"0\"],\n        [\"0\",\"0\",\"0\",\"0\",\"0\"]\n    ]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "grid = [\n        [\"1\",\"1\",\"1\",\"1\",\"1\"],\n        [\"1\",\"1\",\"1\",\"1\",\"1\"],\n        [\"1\",\"1\",\"1\",\"1\",\"1\"]\n    ]\n",
+      "expectedOutput": "1\n"
+    },
+    {
+      "input": "grid = [\n        [\"1\",\"0\",\"1\",\"0\",\"1\"],\n        [\"0\",\"1\",\"0\",\"1\",\"0\"],\n        [\"1\",\"0\",\"1\",\"0\",\"1\"]\n    ]\n",
+      "expectedOutput": "5\n"
+    },
+    {
+      "input": "grid = []\n",
+      "expectedOutput": "0\n"
+    }
+  ],
+  "hints": [
+    "Use Depth-First Search (DFS) or Breadth-First Search (BFS) to traverse the grid.",
+    "Iterate over each cell in the grid. If a cell is '1' (land), increment the island count and explore all adjacent land cells.",
+    "For DFS, recursively visit all adjacent land cells and mark them as visited ('0' or some other marker) to avoid counting them again.",
+    "For BFS, use a queue to store the coordinates of land cells to be visited.  Similarly, mark visited cells to avoid revisiting.",
+    "Consider edge cases like an empty grid or a grid with only water.",
+    "Union Find is another approach to solve this problem."
+  ],
+  "tags": ["Array", "Depth-First Search", "Breadth-First Search", "Union Find", "Matrix"]
+},
+{
+  "problemId": 25,
+  "courseId": "hp",
+  "title": "Sudoku Solver",
+  "difficulty": "Hard",
+  "description": "Write a program to solve a Sudoku puzzle by filling the empty cells. A sudoku solution must satisfy all of the following rules:\n\nEach of the digits 1-9 must occur exactly once in each row.\nEach of the digits 1-9 must occur exactly once in each column.\nEach of the digits 1-9 must occur exactly once in each of the 9 3x3 sub-boxes of the grid.\n\nThe '.' character indicates empty cells.",
+  "examples": [
+    {
+      "input": "board = [[\"5\",\"3\",\".\",\".\",\"7\",\".\",\".\",\".\",\".\"],[\"6\",\".\",\".\",\"1\",\"9\",\"5\",\".\",\".\",\".\"],[\".\",\"9\",\"8\",\".\",\".\",\".\",\".\",\"6\",\".\"],[\"8\",\".\",\".\",\".\",\"6\",\".\",\".\",\".\",\"3\"],[\"4\",\".\",\".\",\"8\",\".\",\"3\",\".\",\".\",\"1\"],[\"7\",\".\",\".\",\".\",\"2\",\".\",\".\",\".\",\"6\"],[ \".\",\"6\",\".\",\".\",\".\",\".\",\"2\",\"8\",\".\"],[ \".\",\".\",\".\",\"4\",\"1\",\"9\",\".\",\".\",\"5\"],[ \".\",\".\",\".\",\".\",\"8\",\".\",\".\",\"7\",\"9\"]]\n",
+      "output": "[[\"5\",\"3\",\"4\",\"6\",\"7\",\"8\",\"9\",\"1\",\"2\"],[\"6\",\"7\",\"2\",\"1\",\"9\",\"5\",\"3\",\"4\",\"8\"],[\"1\",\"9\",\"8\",\"3\",\"4\",\"2\",\"5\",\"6\",\"7\"],[\"8\",\"5\",\"9\",\"7\",\"6\",\"1\",\"4\",\"2\",\"3\"],[\"4\",\"2\",\"6\",\"8\",\"5\",\"3\",\"7\",\"9\",\"1\"],[\"7\",\"1\",\"3\",\"9\",\"2\",\"4\",\"8\",\"5\",\"6\"],[\"9\",\"6\",\"1\",\"5\",\"3\",\"7\",\"2\",\"8\",\"4\"],[\"2\",\"8\",\"7\",\"4\",\"1\",\"9\",\"6\",\"3\",\"5\"],[\"3\",\"4\",\"5\",\"2\",\"8\",\"6\",\"1\",\"7\",\"9\"]]\n",
+      "explanation": "The input board is shown above and the only valid solution is shown below:"
+    }
+  ],
+  "constraints": [
+    "board.length == 9",
+    "board[i].length == 9",
+    "board[i][j] is a digit or '.'",
+    "It is guaranteed that the input board has only one solution."
+  ],
+  "testCases": [
+    {
+      "input": "board = [[\"5\",\"3\",\".\",\".\",\"7\",\".\",\".\",\".\",\".\"],[\"6\",\".\",\".\",\"1\",\"9\",\"5\",\".\",\".\",\".\"],[ \".\",\"9\",\"8\",\".\",\".\",\".\",\".\",\"6\",\".\"],[\"8\",\".\",\".\",\".\",\"6\",\".\",\".\",\".\",\"3\"],[\"4\",\".\",\".\",\"8\",\".\",\"3\",\".\",\".\",\"1\"],[\"7\",\".\",\".\",\".\",\"2\",\".\",\".\",\".\",\"6\"],[ \".\",\"6\",\".\",\".\",\".\",\".\",\"2\",\"8\",\".\"],[ \".\",\".\",\".\",\"4\",\"1\",\"9\",\".\",\".\",\"5\"],[ \".\",\".\",\".\",\".\",\"8\",\".\",\".\",\"7\",\"9\"]]\n",
+      "expectedOutput": "[[\"5\",\"3\",\"4\",\"6\",\"7\",\"8\",\"9\",\"1\",\"2\"],[\"6\",\"7\",\"2\",\"1\",\"9\",\"5\",\"3\",\"4\",\"8\"],[\"1\",\"9\",\"8\",\"3\",\"4\",\"2\",\"5\",\"6\",\"7\"],[\"8\",\"5\",\"9\",\"7\",\"6\",\"1\",\"4\",\"2\",\"3\"],[\"4\",\"2\",\"6\",\"8\",\"5\",\"3\",\"7\",\"9\",\"1\"],[\"7\",\"1\",\"3\",\"9\",\"2\",\"4\",\"8\",\"5\",\"6\"],[\"9\",\"6\",\"1\",\"5\",\"3\",\"7\",\"2\",\"8\",\"4\"],[\"2\",\"8\",\"7\",\"4\",\"1\",\"9\",\"6\",\"3\",\"5\"],[\"3\",\"4\",\"5\",\"2\",\"8\",\"6\",\"1\",\"7\",\"9\"]]\n"
+    },
+    {
+      "input": "board = [[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\"2\"],[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\"8\",\".\"],[ \".\",\".\",\".\",\".\",\".\",\".\",\"5\",\".\",\".\"],[ \".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[ \".\",\".\",\".\",\"3\",\".\",\".\",\".\",\".\",\".\"],[ \".\",\".\",\".\",\".\",\".\",\"2\",\".\",\".\",\".\"],[ \".\",\".\",\"2\",\".\",\".\",\".\",\".\",\".\",\".\"],[ \".\",\"1\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[ \".\",\".\",\"4\",\".\",\".\",\".\",\".\",\".\",\".\"]]\n",
+      "expectedOutput": "[[\"8\",\"7\",\"6\",\"5\",\"4\",\"3\",\"9\",\"1\",\"2\"],[\"2\",\"4\",\"3\",\"9\",\"7\",\"1\",\"6\",\"8\",\"5\"],[\"9\",\"5\",\"1\",\"6\",\"2\",\"8\",\"5\",\"4\",\"7\"],[\"1\",\"6\",\"7\",\"8\",\"9\",\"5\",\"4\",\"2\",\"3\"],[\"5\",\"9\",\"8\",\"3\",\"1\",\"4\",\"7\",\"6\",\"9\"],[\"3\",\"2\",\"4\",\"7\",\"6\",\"2\",\"1\",\"5\",\"8\"],[\"7\",\"8\",\"2\",\"1\",\"5\",\"9\",\"3\",\"4\",\"6\"],[\"6\",\"1\",\"5\",\"4\",\"3\",\"7\",\"8\",\"9\",\"1\"],[\"4\",\"3\",\"9\",\"2\",\"8\",\"6\",\"1\",\"7\",\"9\"]]\n"
+    },
+    {
+      "input": "board = [[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"],[\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\",\".\"]]",
+      "expectedOutput": "[[\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],[\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"1\",\"2\",\"3\"],[\"7\",\"8\",\"9\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\"],[\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"1\"],[\"5\",\"6\",\"7\",\"8\",\"9\",\"1\",\"2\",\"3\",\"4\"],[\"8\",\"9\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\"],[\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\",\"1\",\"2\"],[\"6\",\"7\",\"8\",\"9\",\"1\",\"2\",\"3\",\"4\",\"5\"],[\"9\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\"]]"
+    }
+    
+  ],
+  "hints": [
+    "Use backtracking to solve the Sudoku puzzle.",
+    "Iterate through each cell of the board. If the cell is empty ('.'), try filling it with digits from 1 to 9.",
+    "Before placing a digit, check if it's valid according to Sudoku rules (not present in the same row, column, or 3x3 sub-box).",
+    "If a digit is valid, place it and recursively try to solve the rest of the board.",
+    "If the recursive call finds a solution, return true. If no valid digit can be placed, backtrack by resetting the cell to '.' and return false.",
+    "The algorithm is guaranteed to find the unique solution if one exists."
+  ],
+  "tags": ["Array", "Hash Table", "Backtracking", "Matrix"]
+},
+
+  {
+    "problemId": 26,
+    "courseId": "hp",
+    "title": "Search a 2D Matrix",
+    "difficulty": "Medium",
+    "description": "You are given an m x n integer matrix matrix where each of the rows is sorted in non-decreasing order and the first integer of each row is greater than the last integer of the previous row. You are given an integer target.  Determine if the target exists in the matrix.",
+    "examples": [
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3\n",
+        "output": "true\n"
+      },
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13\n",
+        "output": "false\n"
+      }
+    ],
+    "constraints": [
+      "m == matrix.length",
+      "n == matrix[i].length",
+      "1 <= m, n <= 100",
+      "-10^4 <= matrix[i][j], target <= 10^4"
+    ],
+    "testCases": [
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13\n",
+        "expectedOutput": "false\n"
+      },
+      {
+        "input": "matrix = [[1]], target = 1\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "matrix = [[1,3]], target = 3\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 60\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 0\n",
+        "expectedOutput": "false\n"
+      },
+      {
+        "input": "matrix = [[-5,-4,-3],[-2,-1,0],[3,4,5]], target = -1\n",
+        "expectedOutput": "true\n"
+      }
+    ],
+    "hints": [
+      "Consider the matrix as a sorted 1D array. Use binary search.",
+      "Calculate the middle element's row and column indices.",
+      "Compare the middle element with the target.",
+      "Adjust the search space (left or right half) based on the comparison.",
+      "Time complexity: O(log(m*n))"
+    ],
+    "tags": ["Array", "Binary Search", "Matrix"]
+  },
+  {
+    "problemId": 27,
+    "courseId": "hp",
+    "title": "Combination Sum",
+    "difficulty": "Medium",
+    "description": "Given an array of distinct integers candidates and a target integer target, return a list of all unique combinations of candidates where the chosen numbers sum to target. You may return the combinations in any order. The same number may be chosen from candidates an unlimited number of times. Two combinations are unique if the frequency of at least one of the chosen numbers is different between the two combinations.",
+    "examples": [
+      {
+        "input": "candidates = [2,3,6,7], target = 7\n",
+        "output": "[[2,2,3],[7]]\n"
+      },
+      {
+        "input": "candidates = [2,3,5], target = 8\n",
+        "output": "[[2,2,2,2],[2,3,3],[3,5]]\n"
+      }
+    ],
+    "constraints": [
+      "1 <= candidates.length <= 30",
+      "1 <= candidates[i] <= 200",
+      "All elements of candidates are distinct.",
+      "1 <= target <= 500"
+    ],
+    "testCases": [
+      {
+        "input": "candidates = [2,3,6,7], target = 7\n",
+        "expectedOutput": "[[2,2,3],[7]]\n"
+      },
+      {
+        "input": "candidates = [2,3,5], target = 8\n",
+        "expectedOutput": "[[2,2,2,2],[2,3,3],[3,5]]\n"
+      },
+      {
+        "input": "candidates = [2], target = 1\n",
+        "expectedOutput": "[]\n"
+      },
+       {
+        "input": "candidates = [1,2], target = 3\n",
+        "expectedOutput": "[[1,1,1],[1,2],[2,1]]\n"
+      },
+      {
+        "input": "candidates = [1,2,3], target = 4\n",
+        "expectedOutput": "[[1,1,1,1],[1,1,2],[1,2,1],[1,3],[2,1,1],[2,2],[3,1]]\n"
+      },
+      {
+        "input": "candidates = [7,3,2], target = 18\n",
+        "expectedOutput": "[[2,2,2,2,2,2,2,2,2],[2,2,2,2,2,2,3,3],[2,2,2,2,2,3,2,3],[2,2,2,2,3,2,2,3],[2,2,2,3,2,2,2,3],[2,2,3,2,2,2,2,3],[2,3,2,2,2,2,2,3],[3,2,2,2,2,2,2,3],[2,2,2,2,2,3,3,3,3],[2,2,2,2,3,2,3,3,3],[2,2,2,3,2,2,3,3,3],[2,2,3,2,2,2,3,3,3],[2,3,2,2,2,2,3,3,3],[3,2,2,2,2,2,3,3,3],[2,2,2,2,3,3,3,3,3],[2,2,2,3,2,3,3,3,3],[2,2,3,2,2,3,3,3,3],[2,3,2,2,2,3,3,3,3],[3,2,2,2,2,3,3,3,3],[2,2,2,3,3,3,3,3,3],[2,2,3,2,3,3,3,3,3],[2,3,2,2,3,3,3,3,3],[3,2,2,2,3,3,3,3,3],[3,3,2,2,3,3,3,3,3]]\n"
+      }
+    ],
+    "hints": [
+      "Use backtracking to explore all possible combinations.",
+      "The recursion can include the same candidate multiple times.",
+      "Maintain a current combination and its sum.",
+      "If the current sum equals the target, add the combination to the result.",
+      "If the current sum exceeds the target, backtrack.",
+      "To avoid duplicate combinations, start the next recursive call from the current index."
+    ],
+    "tags": ["Array", "Backtracking"]
+  },
+  {
+    "problemId": 28,
+    "courseId": "hp",
+    "title": "Rotate Image",
+    "difficulty": "Medium",
+    "description": "You are given an n x n 2D matrix representing an image. Rotate the image by 90 degrees (clockwise). You have to rotate the image in-place, which means you have to modify the input 2D matrix directly. DO NOT allocate another 2D matrix and do the rotation.",
+    "examples": [
+      {
+        "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]\n",
+        "output": "[[7,4,1],[8,5,2],[9,6,3]]\n"
+      },
+      {
+        "input": "matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]\n",
+        "output": "[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]\n"
+      }
+    ],
+    "constraints": [
+      "n == matrix.length == matrix[i].length",
+      "1 <= n <= 20",
+      "-1000 <= matrix[i][j] <= 1000"
+    ],
+    "testCases": [
+      {
+        "input": "matrix = [[1,2,3],[4,5,6],[7,8,9]]\n",
+        "expectedOutput": "[[7,4,1],[8,5,2],[9,6,3]]\n"
+      },
+      {
+        "input": "matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]]\n",
+        "expectedOutput": "[[15,13,2,5],[14,3,4,1],[12,6,8,9],[16,7,10,11]]\n"
+      },
+      {
+        "input": "matrix = [[1]]\n",
+        "expectedOutput": "[[1]]\n"
+      },
+      {
+        "input": "matrix = [[1,2],[3,4]]\n",
+        "expectedOutput": "[[3,1],[4,2]]\n"
+      },
+      {
+        "input": "matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12],[13,14,15,16]]\n",
+        "expectedOutput": "[[13,9,5,1],[14,10,6,2],[15,11,7,3],[16,12,8,4]]\n"
+      }
+    ],
+    "hints": [
+      "The key is to perform the rotation in-place.",
+      "Observe that elements are swapped in a circular fashion.",
+      "Divide the matrix into concentric squares.",
+      "For each square, rotate its boundaries by swapping the elements of the four sides.",
+      "You can iterate through the first layer and rotate elements in groups of four.",
+      "Be careful with the indices to avoid out-of-bounds access and duplicate swaps.",
+      "A two-step approach can also work: 1. Transpose the matrix. 2. Reverse each row."
+    ],
+    "tags": ["Array", "Matrix", "In-Place"]
+  },
+  {
+    "problemId": 29,
+    "courseId": "hp",
+    "title": "Implement strStr()",
+    "difficulty": "Medium",
+    "description": "Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.  Return 0 if needle is an empty string.",
+    "examples": [
+      {
+        "input": "haystack = \"hello\", needle = \"ll\"\n",
+        "output": "2\n"
+      },
+      {
+        "input": "haystack = \"aaaaa\", needle = \"bba\"\n",
+        "output": "-1\n"
+      },
+       {
+        "input": "haystack = \"\", needle = \"\"\n",
+        "output": "0\n"
+      }
+    ],
+    "constraints": [
+      "0 <= haystack.length, needle.length <= 5 * 10^4",
+      "haystack and needle consist of only lowercase English characters."
+    ],
+    "testCases": [
+      {
+        "input": "haystack = \"hello\", needle = \"ll\"\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "haystack = \"aaaaa\", needle = \"bba\"\n",
+        "expectedOutput": "-1\n"
+      },
+      {
+        "input": "haystack = \"\", needle = \"\"\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "haystack = \"abc\", needle = \"c\"\n",
+        "expectedOutput": "2\n"
+      },
+      {
+        "input": "haystack = \"mississippi\", needle = \"issip\"\n",
+        "expectedOutput": "4\n"
+      },
+      {
+        "input": "haystack = \"a\", needle = \"a\"\n",
+        "expectedOutput": "0\n"
+      },
+      {
+        "input": "haystack = \"hello\", needle = \"world\"\n",
+        "expectedOutput": "-1\n"
+      }
+    ],
+    "hints": [
+      "The problem is also known as \"Find the first occurrence of a substring in a string\".",
+      "Iterate through the haystack string.",
+      "For each index i in haystack, check if the substring of haystack starting at i matches the needle string.",
+      "If a match is found, return the index i.",
+      "If no match is found after iterating through the entire haystack, return -1.",
+      "Consider the case where needle is an empty string.  In this case, you should return 0.",
+      "Be careful about edge cases and boundary conditions to avoid index out of bounds errors.",
+      "For improved performance, look into more advanced string searching algorithms like the KMP algorithm, or the Rabin-Karp algorithm."
+    ],
+    "tags": ["String", "Two Pointers", "String Matching"]
+  },
+  {
+    "problemId": 30,
+    "courseId": "hp",
+    "title": "Word Search",
+    "difficulty": "Medium",
+    "description": "Given an m x n grid of characters board and a string word, return true if word exists in the grid. The word can be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.",
+    "examples": [
+      {
+        "input": "board = [['A','B','C','E'],['S','F','C','S'],['A','D','E','E']], word = \"ABCCED\"\n",
+        "output": "true\n"
+      },
+      {
+        "input": "board = [['A','B','C','E'],['S','F','C','S'],['A','D','E','E']], word = \"SEE\"\n",
+        "output": "true\n"
+      },
+      {
+        "input": "board = [['A','B','C','E'],['S','F','C','S'],['A','D','E','E']], word = \"ABCB\"\n",
+        "output": "false\n"
+      }
+    ],
+    "constraints": [
+      "m == board.length",
+      "n == board[i].length",
+      "1 <= m, n <= 6",
+      "1 <= word.length <= 15",
+      "board[i][j] and word consist of only uppercase and lowercase English letters."
+    ],
+    "testCases": [
+      {
+        "input": "board = [['A','B','C','E'],['S','F','C','S'],['A','D','E','E']], word = \"ABCCED\"\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "board = [['A','B','C','E'],['S','F','C','S'],['A','D','E','E']], word = \"SEE\"\n",
+        "expectedOutput": "true\n"
+      },
+      {
+        "input": "board = [['A','B','C','E'],['S','F','C','S'],['A','D','E','E']], word = \"ABCB\"\n",
+        "expectedOutput": "false\n"
+      },
+      {
+        "input": "board = [['a','a','a','a'],['a','a','a','a'],['a','a','a','a']], word = \"aaaaaaaaaaaaa\"\n",
+        "expectedOutput": "true\n"
+      },
+      {
+          "input": "board = [['A','B','C','E'],['S','F','C','S'],['A','D','E','E']], word = \"ABCESCFADE\"\n",
+          "expectedOutput": "true\n"
+      },
+      {
+          "input": "board = [['A','B','C','E'],['S','F','C','S'],['A','D','E','E']], word = \"ABCD\"\n",
+          "expectedOutput": "false\n"
+      }
+    ],
+    "hints": [
+      "Use backtracking to search for the word in the grid.",
+      "For each cell in the grid, check if it matches the first letter of the word.",
+      "If it matches, start a recursive search for the remaining letters of the word.",
+      "In the recursive function, check the adjacent cells (up, down, left, right) for the next letter in the word.",
+      "Mark the current cell as visited to avoid using it twice in the same path.",
+      "If a path is found that matches the entire word, return true.",
+      "If no path is found, backtrack by unmarking the current cell and return false.",
+      "Consider the edge cases: empty board, empty word."
+    ],
+    "tags": ["Array", "Backtracking", "Matrix"]
+  }
+]
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1910 @@
+[
+     {
+        "problemId": 1,
+        "courseId": "wipro",
+        "title": "Sock Merchant",
+        "difficulty": "Easy",
+        "description": "Alex works at a clothing store. There is a large pile of socks that must be paired by color for sale. Given an array of integers representing the color of each sock, determine how many pairs of socks with matching colors there are.",
+        "examples": [
+          {
+            "input": "9\n10 20 20 10 10 30 50 10 20\n",
+            "output": "3\n"
+          }
+        ],
+        "constraints": [
+          "1 <= n <= 100",
+          "1 <= ar[i] <= 100, where 0 <= i < n"
+        ],
+        "testCases": [
+          {
+            "input": "9\n10 20 20 10 10 30 50 10 20\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "7\n1 2 1 2 1 3 2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "10\n1 1 3 1 2 1 3 3 3 3\n",
+            "expectedOutput": "4\n"
+          },
+          {
+              "input":"1\n1\n",
+              "expectedOutput":"0\n"
+          },
+          {
+              "input":"2\n1 1\n",
+              "expectedOutput":"1\n"
+          },
+          {
+              "input":"3\n1 1 2\n",
+              "expectedOutput":"1\n"
+          },
+          {
+              "input":"4\n1 1 2 2\n",
+              "expectedOutput":"2\n"
+          }
+        ],
+        "hints": [
+          "Use a hash map (dictionary) to count the occurrences of each color.",
+          "Iterate through the array and update the counts in the hash map.",
+          "Iterate through the hash map and divide each count by 2 to get the number of pairs for that color.",
+          "Sum the number of pairs for each color to get the total number of pairs.",
+          "Handle the edge case where the array is empty."
+        ],
+        "tags": ["Socks", "Hash Map", "Counting", "Array"]
+      },
+       {
+        "problemId": 2,
+        "courseId": "wipro",
+        "title": "Counting Valleys",
+        "difficulty": "Easy",
+        "description": "Gary is an avid hiker. He tracks his hikes meticulously. During his last hike, he took exactly n steps. For every step he took, he noted if it was an uphill or a downhill step. Given Gary's sequence of up and down steps during his last hike, find and print the number of valleys he walked through.",
+        "examples": [
+          {
+            "input": "8\nUDDDUDUU\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "2 <= N <= 10^6"
+        ],
+        "testCases": [
+          {
+            "input": "8\nUDDDUDUU\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "12\nDDUDDUUDUDUD\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "8\nUDUUUDDD\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "10\nUDUUDDDDUU\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "2\nDU\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input":"6\nDDUDUU\n",
+            "expectedOutput":"1\n"
+          },
+          {
+            "input":"10\nDDDDDUUUUU\n",
+            "expectedOutput":"1\n"
+          }
+        ],
+        "hints": [
+          "Keep track of the current altitude.",
+          "A valley starts when the altitude goes below sea level (0).",
+          "A valley ends when the altitude returns to sea level (0).",
+          "Increment the valley count only when a valley ends.",
+          "Iterate through the string, updating the altitude for each step (U or D)."
+        ],
+        "tags": ["Hiking", "Valleys", "Altitude", "String Traversal"]
+      },
+       {
+        "problemId": 3,
+        "courseId": "wipro",
+        "title": "Left Rotation",
+        "difficulty": "Easy",
+        "description": "A left rotation operation on an array shifts each of the array’s elements 1 unit to the left. Given an array of integers and a number d, perform d left rotations on the array and return the updated array.",
+        "examples": [
+          {
+            "input": "5 4\n1 2 3 4 5\n",
+            "output": "5 1 2 3 4\n"
+          },
+          {
+            "input": "20 10\n41 73 89 7 10 1 59 58 84 77 77 97 58 1 86 58 26 10 86 51\n",
+            "output": "77 97 58 1 86 58 26 10 86 51 41 73 89 7 10 1 59 58 84 77\n"
+          }
+        ],
+        "constraints": [
+          "1 <= n <= 10^5",
+          "1 <= d <= n",
+          "1 <= a[i] <= 10^8"
+        ],
+        "testCases": [
+          {
+            "input": "5 4\n1 2 3 4 5\n",
+            "expectedOutput": "5 1 2 3 4\n"
+          },
+          {
+            "input": "20 10\n41 73 89 7 10 1 59 58 84 77 77 97 58 1 86 58 26 10 86 51\n",
+            "expectedOutput": "77 97 58 1 86 58 26 10 86 51 41 73 89 7 10 1 59 58 84 77\n"
+          },
+          {
+            "input": "5 1\n1 2 3 4 5\n",
+            "expectedOutput": "2 3 4 5 1\n"
+          },
+          {
+            "input": "5 5\n1 2 3 4 5\n",
+            "expectedOutput": "1 2 3 4 5\n"
+          },
+          {
+            "input": "3 2\n1 2 3\n",
+            "expectedOutput": "3 1 2\n"
+          },
+          {
+            "input":"10 3\n1 2 3 4 5 6 7 8 9 10\n",
+            "expectedOutput":"4 5 6 7 8 9 10 1 2 3\n"
+          },
+          {
+            "input":"4 2\n10 20 30 40\n",
+            "expectedOutput":"30 40 10 20\n"
+          }
+        ],
+        "hints": [
+          "Create a new array to store the rotated elements.",
+          "Calculate the new index for each element after rotation.",
+          "Copy the elements from the original array to the new array based on the calculated indices.",
+          "Return the new array.",
+          "Alternatively, use slicing to perform the rotation in place."
+        ],
+        "tags": ["Array Rotation", "Left Rotation", "Array Manipulation"]
+      },
+       {
+        "problemId": 4,
+        "courseId": "wipro",
+        "title": "Identical Matrices",
+        "difficulty": "Easy",
+        "description": "Given two matrices, check if they are identical. Two matrices are identical if they have the same dimensions and all corresponding elements are equal.",
+        "examples": [
+          {
+            "input": "[[1, 2, 3], [4, 5, 6]]\n[[1, 2, 3], [4, 5, 6]]\n",
+            "output": "true\n"
+          },
+          {
+            "input": "[[1, 2], [3, 4]]\n[[1, 2], [3, 5]]\n",
+            "output": "false\n"
+          }
+        ],
+        "constraints": [
+          "1 <= rows, columns <= 100",
+          "-100 <= matrix elements <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "[[1, 2, 3], [4, 5, 6]]\n[[1, 2, 3], [4, 5, 6]]\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[[1, 2], [3, 4]]\n[[1, 2], [3, 5]]\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "[[1]]\n[[1]]\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[[1, 2], [3, 4]]\n[[1, 2, 3], [4, 5, 6]]\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "[[1, 2, 3]]\n[[1, 2, 3]]\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[[]]\n[[]]\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input":"[[1,2],[3,4]]\n[[1,2],[4,3]]\n",
+            "expectedOutput":"false\n"
+          }
+        ],
+        "hints": [
+          "Check if the dimensions of the two matrices are the same.",
+          "If the dimensions are different, the matrices are not identical.",
+          "If the dimensions are the same, iterate through the matrices and compare corresponding elements.",
+          "If any corresponding elements are different, the matrices are not identical.",
+          "If all corresponding elements are equal, the matrices are identical."
+        ],
+        "tags": ["Matrix Comparison", "Identical Matrices", "Matrix"]
+      },
+       {
+        "problemId": 5,
+        "courseId": "wipro",
+        "title": "Spiral Matrix",
+        "difficulty": "Medium",
+        "description": "Given a 2D array (matrix), print the elements in spiral form.",
+        "examples": [
+          {
+            "input": "[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]\n",
+            "output": "1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10\n"
+          },
+          {
+            "input": "[[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12], [13, 14, 15, 16, 17, 18]]\n",
+            "output": "1 2 3 4 5 6 12 18 17 16 15 14 13 7 8 9 10 11\n"
+          }
+        ],
+        "constraints": [
+          "1 <= rows, columns <= 100",
+          "-100 <= matrix elements <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "[[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]\n",
+            "expectedOutput": "1 2 3 4 8 12 16 15 14 13 9 5 6 7 11 10\n"
+          },
+          {
+            "input": "[[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12], [13, 14, 15, 16, 17, 18]]\n",
+            "expectedOutput": "1 2 3 4 5 6 12 18 17 16 15 14 13 7 8 9 10 11\n"
+          },
+          {
+            "input": "[[1]]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[[1, 2], [3, 4]]\n",
+            "expectedOutput": "1 2 4 3\n"
+          },
+          {
+            "input": "[[1, 2, 3]]\n",
+            "expectedOutput": "1 2 3\n"
+          },
+          {
+            "input": "[[1], [2], [3]]\n",
+            "expectedOutput": "1 2 3\n"
+          },
+          {
+            "input":"[[1,2,3,4,5],[6,7,8,9,10],[11,12,13,14,15]]\n",
+            "expectedOutput":"1 2 3 4 5 10 15 14 13 12 11 6 7 8 9\n"
+          }
+        ],
+        "hints": [
+          "Use four variables to track the boundaries of the matrix: top, bottom, left, and right.",
+          "Iterate through the matrix in a spiral pattern, moving the boundaries accordingly.",
+          "Print the elements in the current row from left to right.",
+          "Print the elements in the current column from top to bottom.",
+          "Print the elements in the current row from right to left.",
+          "Print the elements in the current column from bottom to top.",
+          "Update the boundaries after each iteration.",
+          "Handle the case where the matrix is empty or has only one element."
+        ],
+        "tags": ["Spiral Matrix", "Matrix Traversal", "2D Array"]
+      },
+       {
+        "problemId": 6,
+        "courseId": "wipro",
+        "title": "Pythagorean Triples",
+        "difficulty": "Medium",
+        "description": "Given a limit, generate all Pythagorean Triples with values smaller than the given limit. A Pythagorean triplet is a set of three integers a, b, and c such that a^2 + b^2 = c^2.",
+        "examples": [
+          {
+            "input": "20\n",
+            "output": "3 4 5\n8 6 10\n5 12 13\n15 8 17\n12 16 20\n"
+          }
+        ],
+        "constraints": [
+          "1 <= limit <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "20\n",
+            "expectedOutput": "3 4 5\n8 6 10\n5 12 13\n15 8 17\n12 16 20\n"
+          },
+          {
+            "input": "10\n",
+            "expectedOutput": "3 4 5\n8 6 10\n"
+          },
+          {
+            "input": "50\n",
+            "expectedOutput": "3 4 5\n8 6 10\n5 12 13\n15 8 17\n12 16 20\n21 20 29\n35 12 37\n24 32 40\n9 40 41\n45 28 53\n"
+          },
+          {
+            "input": "100\n",
+            "expectedOutput": "3 4 5\n8 6 10\n5 12 13\n15 8 17\n12 16 20\n21 20 29\n35 12 37\n24 32 40\n9 40 41\n45 28 53\n63 16 65\n16 63 65\n33 56 65\n52 48 70\n65 36 73\n48 55 73\n39 80 89\n60 80 100\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": ""
+          },
+          {
+             "input":"2\n",
+             "expectedOutput":""
+          },
+          {
+            "input":"5\n",
+            "expectedOutput":"3 4 5\n"
+          }
+        ],
+        "hints": [
+          "Use the formula a = m^2 - n^2, b = 2 * m * n, and c = m^2 + n^2 to generate Pythagorean triples.",
+          "Iterate through possible values of m and n, where m > n > 0.",
+          "Calculate a, b, and c using the formula.",
+          "Check if a, b, and c are less than the given limit.",
+          "If they are, print the triplet.",
+          "Optimize the loop bounds to avoid generating duplicates or triples exceeding the limit."
+        ],
+        "tags": ["Pythagorean Triples", "Mathematics", "Number Theory"]
+      },
+       {
+        "problemId": 7,
+        "courseId": "wipro",
+        "title": "Sum of Two Numbers as Arrays",
+        "difficulty": "Medium",
+        "description": "Given two numbers A and B represented as arrays of digits, find the sum of the two numbers and return the sum as an array of digits.",
+        "examples": [
+          {
+            "input": "[1, 2, 3]\n[4, 5, 6]\n",
+            "output": "[5, 7, 9]\n"
+          },
+          {
+            "input": "[9, 9, 9]\n[1]\n",
+            "output": "[1, 0, 0, 0]\n"
+          },
+          {
+            "input": "[1]\n[9, 9, 9]\n",
+            "output": "[1, 0, 0, 0]\n"
+          },
+          {
+            "input": "[1,0,0]\n[9,0,0]\n",
+            "output":"[1,0,0,0]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N, M <= 1000",
+          "0 <= A[i], B[i] <= 9"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 3]\n[4, 5, 6]\n",
+            "expectedOutput": "[5, 7, 9]\n"
+          },
+          {
+            "input": "[9, 9, 9]\n[1]\n",
+            "expectedOutput": "[1, 0, 0, 0]\n"
+          },
+          {
+            "input": "[1]\n[9, 9, 9]\n",
+            "expectedOutput": "[1, 0, 0, 0]\n"
+          },
+          {
+            "input": "[1, 0, 0]\n[9, 0, 0]\n",
+            "expectedOutput": "[1, 0, 0, 0]\n"
+          },
+          {
+            "input": "[1]\n[1]\n",
+            "expectedOutput": "[2]\n"
+          },
+          {
+            "input": "[9]\n[1]\n",
+            "expectedOutput": "[1, 0]\n"
+          },
+           {
+              "input":"[1,2,3,4,5]\n[6,7,8,9,10]\n",
+              "expectedOutput":"[8,0,2,3,5]\n"
+           }
+        ],
+        "hints": [
+          "Start from the least significant digits (rightmost elements) of both arrays.",
+          "Add the digits along with any carry from the previous addition.",
+          "Store the result digit in a new array.",
+          "Update the carry for the next addition.",
+          "If the arrays have different lengths, handle the remaining digits of the longer array.",
+          "If there is a carry left after processing all digits, add it to the beginning of the result array.",
+          "Reverse the result array to get the correct order of digits."
+        ],
+        "tags": ["Array Addition", "Number Sum", "Array Manipulation"]
+      },
+       {
+        "problemId": 8,
+        "courseId": "wipro",
+        "title": "Reverse a Number",
+        "difficulty": "Easy",
+        "description": "Given an integer, reverse the digits of the number.",
+        "examples": [
+          {
+            "input": "123\n",
+            "output": "321\n"
+          },
+          {
+            "input": "-123\n",
+            "output": "-321\n"
+          },
+          {
+            "input": "120\n",
+            "output": "21\n"
+          }
+        ],
+        "constraints": [
+          "-2^31 <= number <= 2^31 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "123\n",
+            "expectedOutput": "321\n"
+          },
+          {
+            "input": "-123\n",
+            "expectedOutput": "-321\n"
+          },
+          {
+            "input": "120\n",
+            "expectedOutput": "21\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "-1\n",
+            "expectedOutput": "-1\n"
+          },
+          {
+            "input": "1000\n",
+            "expectedOutput": "1\n"
+          }
+        ],
+        "hints": [
+          "Handle the sign of the number separately.",
+          "Use a loop to extract the last digit of the number.",
+          "Append the extracted digit to the reversed number.",
+          "Remove the last digit from the original number.",
+          "Repeat the process until the original number becomes 0.",
+          "If the original number was negative, negate the reversed number."
+        ],
+        "tags": ["Reverse Number", "Integer Manipulation", "Number Theory"]
+      },
+       {
+        "problemId": 9,
+        "courseId": "wipro",
+        "title": "Game of Differences",
+        "difficulty": "Hard",
+        "description": "Two players are given sets of N distinct integers. They take turns choosing two distinct integers X and Y from their sets such that the absolute difference |X-Y| is not already in the set. The player then adds |X-Y| to the set. The player who cannot make a valid move loses. Determine who wins the game: the first player or the second player.",
+        "examples": [
+          {
+            "input": "[1, 2, 3]\n",
+            "output": "First\n"
+          },
+          {
+            "input": "[1, 2]\n",
+            "output": "First\n"
+          },
+          {
+            "input": "[2, 4, 6, 8]\n",
+            "output": "First\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 100",
+          "1 <= integers <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 3]\n",
+            "expectedOutput": "First\n"
+          },
+          {
+            "input": "[1, 2]\n",
+            "expectedOutput": "First\n"
+          },
+          {
+            "input": "[2, 4, 6, 8]\n",
+            "expectedOutput": "First\n"
+          },
+          {
+            "input": "[1, 2, 4]\n",
+            "expectedOutput": "First\n"
+          },
+          {
+            "input": "[1, 5, 7, 10]\n",
+            "expectedOutput": "First\n"
+          },
+          {
+            "input":"[10, 20, 30]\n",
+            "expectedOutput":"First\n"
+          },
+          {
+            "input":"[1, 2, 3, 4, 5, 6, 7]\n",
+            "expectedOutput":"First\n"
+          }
+        ],
+        "hints": [
+          "The game will always end.",
+          "The set of integers will always grow until it reaches a point where no more differences can be added.",
+          "The final set will always have a pattern.",
+          "The final set will contain all multiples of the greatest common divisor (GCD) of the initial set's differences, up to the maximum value in the initial set.",
+          "The number of moves possible is (max_val - min_val) / gcd(differences).",
+          "If the number of moves is odd, the first player wins. Otherwise, the second player wins.",
+          "Calculate the GCD of the differences between the numbers in the initial set.",
+          "Calculate the maximum number of moves possible.",
+          "Determine the winner based on whether the maximum number of moves is odd or even."
+        ],
+        "tags": ["Game Theory", "GCD", "Greatest Common Divisor", "Differences"]
+      },
+       {
+        "problemId": 10,
+        "courseId": "wipro",
+        "title": "Single Digit Sum",
+        "difficulty": "Easy",
+        "description": "Given an array 'arr' of 'N' length, where each element is a single digit, return the single-digit sum of all array elements. If the initial sum is not a single digit, repeatedly add the digits of the sum until a single-digit result is obtained.",
+        "examples": [
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "output": "6\n"
+          },
+          {
+            "input": "[9, 9, 9, 9]\n",
+            "output": "9\n"
+          },
+          {
+            "input": "[1]\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 100",
+          "0 <= arr[i] <= 9"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input": "[9, 9, 9, 9]\n",
+            "expectedOutput": "9\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[0]\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "[1,1,1,1,1,1,1,1,1]\n",
+            "expectedOutput": "9\n"
+          },
+          {
+            "input":"[1,2,3,4,5,6,7,8,9]\n",
+            "expectedOutput":"9\n"
+          },
+           {
+              "input":"[1,2,3,4,0]\n",
+              "expectedOutput":"1\n"
+           }
+        ],
+        "hints": [
+          "Calculate the initial sum of all array elements.",
+          "If the initial sum is a single digit, return it.",
+          "If the initial sum is not a single digit, repeatedly add the digits of the sum.",
+          "Continue adding the digits until the sum becomes a single digit.",
+          "Use modulo and division operations to extract and add the digits of the sum.",
+          "Handle edge cases like empty arrays or arrays with only one element."
+        ],
+        "tags": ["Single Digit Sum", "Digit Sum", "Array Manipulation"]
+      },
+       {
+        "problemId": 11,
+        "courseId": "wipro",
+        "title": "Triangle Patterns",
+        "difficulty": "Medium",
+        "description": "Given an integer N, print a pattern consisting of a left triangle, a right triangle, and a mirror image of the combined top half. The pattern should have N rows.",
+        "examples": [
+          {
+            "input": "3\n",
+            "output": "* * \n* ** *\n** *** **\n** *** **\n* ** *\n * *\n"
+          },
+          {
+            "input": "2\n",
+            "output": "* \n* *\n* *\n *\n"
+          },
+          {
+            "input": "1\n",
+            "output": "\n\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "3\n",
+            "expectedOutput": "* * \n* ** *\n** *** **\n** *** **\n* ** *\n * *\n"
+          },
+          {
+            "input": "2\n",
+            "expectedOutput": "* \n* *\n* *\n *\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "\n\n"
+          },
+          {
+            "input": "4\n",
+            "expectedOutput": "* * \n* ** *\n** *** **\n*** **** ***\n*** **** ***\n** *** **\n* ** *\n * *\n"
+          },
+          {
+            "input": "5\n",
+            "expectedOutput": "* * \n* ** *\n** *** **\n*** **** ***\n**** ***** ****\n**** ***** ****\n*** **** ***\n** *** **\n* ** *\n * *\n"
+          },
+          {
+              "input":"6\n",
+              "expectedOutput":"* * \n* ** *\n** *** **\n*** **** ***\n**** ***** ****\n***** ****** *****\n***** ****** *****\n**** ***** ****\n*** **** ***\n** *** **\n* ** *\n * *\n"
+          }
+        ],
+        "hints": [
+          "Divide the pattern into three parts: left triangle, right triangle, and mirror image.",
+          "The left and right triangles have N rows.",
+          "The mirror image part also has N rows.",
+          "Use nested loops to print the triangles.",
+          "Calculate the number of spaces and asterisks for each row.",
+          "Handle the case where N is 1 separately."
+        ],
+        "tags": ["Triangle Patterns", "Character Patterns", "Nested Loops"]
+      },
+       {
+        "problemId": 12,
+        "courseId": "wipro",
+        "title": "Binary to Decimal",
+        "difficulty": "Easy",
+        "description": "Given a binary number as a string 'S' of size 'N', convert it into its integer decimal equivalent and print it.",
+        "examples": [
+          {
+            "input": "101\n",
+            "output": "5\n"
+          },
+          {
+            "input": "1111\n",
+            "output": "15\n"
+          },
+          {
+            "input": "0\n",
+            "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 32",
+          "S consists of '0' and '1' characters only."
+        ],
+        "testCases": [
+          {
+            "input": "101\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input": "1111\n",
+            "expectedOutput": "15\n"
+          },
+          {
+            "input": "0\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "1000000000\n",
+            "expectedOutput": "512\n"
+          },
+          {
+            "input":"101010\n",
+            "expectedOutput":"42\n"
+          },
+          {
+            "input":"11111111\n",
+            "expectedOutput":"255\n"
+          }
+        ],
+        "hints": [
+          "Iterate through the binary string from right to left.",
+          "For each digit, multiply it by 2 raised to the power of its position (starting from 0).",
+          "Add the result to the decimal equivalent.",
+          "Handle the case where the input string is empty or contains only '0'."
+        ],
+        "tags": ["Binary to Decimal", "String Conversion", "Number Theory"]
+      },
+       {
+        "problemId": 13,
+        "courseId": "wipro",
+        "title": "Backspace Comparison",
+        "difficulty": "Medium",
+        "description": "Alice challenged Bob to write the same word as his on a typewriter. Both are kids and are making some mistakes in typing and are making use of the ‘#’ key on a typewriter to delete the last character printed on it. An empty text remains empty even after backspaces. Given two strings representing what Bob and Alice typed, determine if they resulted in the same word.",
+        "examples": [
+          {
+            "input": "ab#c\nac#c\n",
+            "output": "YES\n"
+          },
+          {
+            "input": "ab##\nc#d#\n",
+            "output": "YES\n"
+          },
+          {
+            "input": "a#c\nb\n",
+            "output": "NO\n"
+          }
+        ],
+        "constraints": [
+          "1 <= Bob.length <= 10^5",
+          "1 <= Alice.length <= 10^5",
+          "Bob and Alice only contain lowercase letters and '#' characters."
+        ],
+        "testCases": [
+          {
+            "input": "ab#c\nac#c\n",
+            "expectedOutput": "YES\n"
+          },
+          {
+            "input": "ab##\nc#d#\n",
+            "expectedOutput": "YES\n"
+          },
+          {
+            "input": "a#c\nb\n",
+            "expectedOutput": "NO\n"
+          },
+          {
+            "input": "a##c\n#a#c\n",
+            "expectedOutput": "YES\n"
+          },
+          {
+            "input": "xywrrmp\nx#y#wrrmu#p\n",
+            "expectedOutput": "YES\n"
+          },
+          {
+            "input":"abc####\nxyz####\n",
+            "expectedOutput":"YES\n"
+          },
+          {
+            "input":"a#b#c#d#e#f#g#h#i#j#k#l#m#n#o#p#q#r#s#t#u#v#w#x#y#z#\nabcdefghijklmnopqrstuvwxyz\n",
+            "expectedOutput":"NO\n"
+          }
+        ],
+        "hints": [
+          "Simulate the typing process for both strings.",
+          "Use a stack or a list to keep track of the characters typed.",
+          "When a '#' is encountered, remove the last character from the stack (if it's not empty).",
+          "After processing both strings, compare the resulting strings.",
+          "If the resulting strings are the same, output 'YES'; otherwise, output 'NO'."
+        ],
+        "tags": ["Backspace Comparison", "String Manipulation", "Stack"]
+      },
+       {
+        "problemId": 14,
+        "courseId": "wipro",
+        "title": "Reverse String Kth Character",
+        "difficulty": "Easy",
+        "description": "Given a string of characters, reverse the string and find the kth character in the reversed string.",
+        "examples": [
+          {
+            "input": "5 2\nabcde\n",
+            "output": "d\n"
+          },
+          {
+            "input": "3 1\nxyz\n",
+            "output": "z\n"
+          },
+          {
+            "input": "4 4\nwert\n",
+            "output": "w\n"
+          }
+        ],
+        "constraints": [
+          "1 <= k <= n <= 10^6",
+          "String contains only lowercase Latin letters."
+        ],
+        "testCases": [
+          {
+            "input": "5 2\nabcde\n",
+            "expectedOutput": "d\n"
+          },
+          {
+            "input": "3 1\nxyz\n",
+            "expectedOutput": "z\n"
+          },
+          {
+            "input": "4 4\nwert\n",
+            "expectedOutput": "w\n"
+          },
+          {
+            "input": "1 1\na\n",
+            "expectedOutput": "a\n"
+          },
+          {
+            "input": "10 5\nabcdefghij\n",
+            "expectedOutput": "f\n"
+          },
+          {
+            "input":"7 3\nqwertyu\n",
+            "expectedOutput":"r\n"
+          },
+          {
+            "input":"6 6\nasdfgh\n",
+            "expectedOutput":"a\n"
+          }
+        ],
+        "hints": [
+          "Reverse the string.",
+          "Return the character at index k-1 in the reversed string.",
+          "Alternatively, you can directly access the character at index n-k in the original string without explicitly reversing it.",
+          "Handle edge cases like empty strings or k out of bounds."
+        ],
+        "tags": ["Reverse String", "Kth Character", "String Manipulation"]
+      },
+       {
+        "problemId": 15,
+        "courseId": "wipro",
+        "title": "Spaceship Fleets",
+        "difficulty": "Hard",
+        "description": "Given n spaceships with initial positions and speeds, determine the number of distinct fleets that will arrive at a distant star system. When a faster spaceship catches up to a slower one, it reduces its speed to match the slower spaceship's speed, forming a fleet.",
+        "examples": [
+          {
+            "input": "3\n10\n0 5 3\n2 1 4\n",
+            "output": "2\n"
+          },
+          {
+            "input": "4\n10\n0 2 4 6\n1 1 1 1\n",
+            "output": "1\n"
+          },
+          {
+            "input": "4\n10\n0 2 4 8\n1 2 3 4\n",
+            "output": "4\n"
+          }
+        ],
+        "constraints": [
+          "1 <= n <= 10^5",
+          "0 < k <= 10^6",
+          "0 <= P[i] < k",
+          "0 < S[i] <= 10"
+        ],
+        "testCases": [
+          {
+            "input": "3\n10\n0 5 3\n2 1 4\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "4\n10\n0 2 4 6\n1 1 1 1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "4\n10\n0 2 4 8\n1 2 3 4\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "1\n10\n0\n1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "2\n10\n0 5\n1 2\n",
+            "expectedOutput": "2\n"
+          },
+          {
+             "input":"5\n10\n0 1 2 3 4\n5 4 3 2 1\n",
+             "expectedOutput":"1\n"
+          },
+          {
+              "input":"5\n10\n0 1 2 3 4\n1 2 3 4 5\n",
+              "expectedOutput":"5\n"
+          }
+        ],
+        "hints": [
+          "Calculate the arrival time for each spaceship.",
+          "Sort the spaceships based on their arrival times.",
+          "Iterate through the sorted spaceships and determine fleet formations.",
+          "Keep track of the last arriving fleet's arrival time.",
+          "If a spaceship arrives at the same time as the last fleet, it joins that fleet.",
+          "If a spaceship arrives later, it forms a new fleet.",
+          "Count the number of distinct fleets formed.",
+          "Handle the edge cases where all spaceships arrive at the same time or at different times."
+        ],
+        "tags": ["Spaceship Fleets", "Arrival Time", "Sorting", "Fleet Formation"]
+      },
+       {
+        "problemId": 16,
+        "courseId": "wipro",
+        "title": "Street Race Alert",
+        "difficulty": "Medium",
+        "description": "During a street race, N cars have given speeds. The police will be alerted if the total number of speed variation pairs exceeds a threshold X. A pair of cars (i, j) has a speed variation if the absolute difference in their speeds is at least K. Determine whether the total speed variation count is greater than the given threshold X.",
+        "examples": [
+          {
+            "input": "3 2 2\n1 4 6\n",
+            "output": "YES\n"
+          },
+          {
+            "input": "4 3 3\n1 2 3 4\n",
+            "output": "NO\n"
+          },
+          {
+            "input": "5 1 10\n1 2 3 4 5\n",
+            "output": "NO\n"
+          }
+        ],
+        "constraints": [
+          "1 <= N <= 2 * 10^5",
+          "1 <= K, X <= 10^8",
+          "1 <= S[i] <= 10^8"
+        ],
+        "testCases": [
+          {
+            "input": "3 2 2\n1 4 6\n",
+            "expectedOutput": "YES\n"
+          },
+          {
+            "input": "4 3 3\n1 2 3 4\n",
+            "expectedOutput": "NO\n"
+          },
+          {
+            "input": "5 1 10\n1 2 3 4 5\n",
+            "expectedOutput": "NO\n"
+          },
+          {
+            "input": "2 10 1\n1 20\n",
+            "expectedOutput": "YES\n"
+          },
+          {
+            "input": "1 1 1\n1\n",
+            "expectedOutput": "NO\n"
+          },
+          {
+            "input":"6 3 5\n1 4 7 10 13 16\n",
+            "expectedOutput":"YES\n"
+          },
+          {
+            "input":"6 5 4\n1 2 3 4 5 15\n",
+            "expectedOutput":"YES\n"
+          }
+        ],
+        "hints": [
+          "Iterate through all pairs of cars (i, j).",
+          "Calculate the absolute difference between their speeds.",
+          "If the absolute difference is at least K, increment the speed variation count.",
+          "After iterating through all pairs, compare the speed variation count with the threshold X.",
+          "If the count is greater than X, print 'YES'; otherwise, print 'NO'.",
+          "Optimize the solution for large N to avoid exceeding time limits."
+        ],
+        "tags": ["Street Race", "Speed Variation", "Pair Comparison"]
+      },
+      {
+        "problemId": 17,
+        "courseId": "wipro",
+        "title": "Lexicographically Smallest String",
+        "difficulty": "Medium",
+        "description": "Given a string s of length n and an integer k, you can choose one of the first k characters of the string and move it to the end of the string. Your task is to return the lexicographically smallest string you can obtain after applying this operation any number of times. The string s consists of lowercase English letters only.",
+        "examples": [
+          {
+            "input": "cba\n1\n",
+            "output": "abc\n"
+          },
+          {
+            "input": "cba\n2\n",
+            "output": "acb\n"
+          },
+          {
+            "input": "cba\n3\n",
+            "output": "abc\n"
+          }
+        ],
+        "constraints": [
+          "1 <= k <= n <= 10^3"
+        ],
+        "testCases": [
+          {
+            "input": "cba\n1\n",
+            "expectedOutput": "abc\n"
+          },
+          {
+            "input": "cba\n2\n",
+            "expectedOutput": "acb\n"
+          },
+          {
+            "input": "cba\n3\n",
+            "expectedOutput": "abc\n"
+          },
+          {
+            "input": "abc\n1\n",
+            "expectedOutput": "abc\n"
+          },
+          {
+            "input": "abc\n2\n",
+            "expectedOutput": "abc\n"
+          },
+          {
+            "input": "abc\n3\n",
+            "expectedOutput": "abc\n"
+          },
+          {
+            "input": "bacd\n2\n",
+            "expectedOutput": "acdb\n"
+          },
+          {
+            "input": "bacd\n3\n",
+            "expectedOutput": "abdc\n"
+          },
+          {
+            "input": "bacd\n4\n",
+            "expectedOutput": "abcd\n"
+          }
+        ],
+        "hints": [
+          "If k is 1, repeatedly move the first character to the end and compare the resulting strings to find the lexicographically smallest one.",
+          "If k is greater than 1, you can sort the string because you can move any character to any position.",
+          "Sort the string directly to obtain the lexicographically smallest result when k > 1.",
+          "Handle the edge case where k is equal to n."
+        ],
+        "tags": ["Lexicographically Smallest String", "String Manipulation", "Sorting"]
+      },
+       {
+        "problemId": 18,
+        "courseId": "wipro",
+        "title": "Nearest Greater Element to Right",
+        "difficulty": "Medium",
+        "description": "Given an array of integers, find the nearest greater element to the right for each element in the array. If there is no greater element to the right, return -1.",
+        "examples": [
+          {
+            "input": "[1, 3, 2, 4]\n",
+            "output": "[3, 4, 4, -1]\n"
+          },
+          {
+            "input": "[4, 3, 2, 1]\n",
+            "output": "[-1, -1, -1, -1]\n"
+          },
+          {
+            "input": "[1, 5, 3, 7, 2]\n",
+            "output": "[5, 7, 7, -1, -1]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 10^5",
+          "-10^9 <= array elements <= 10^9"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 3, 2, 4]\n",
+            "expectedOutput": "[3, 4, 4, -1]\n"
+          },
+          {
+            "input": "[4, 3, 2, 1]\n",
+            "expectedOutput": "[-1, -1, -1, -1]\n"
+          },
+          {
+            "input": "[1, 5, 3, 7, 2]\n",
+            "expectedOutput": "[5, 7, 7, -1, -1]\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "[-1]\n"
+          },
+          {
+            "input": "[5, 4, 3, 2, 6]\n",
+            "expectedOutput": "[6, 6, 6, 6, -1]\n"
+          },
+          {
+            "input": "[6, 5, 4, 3, 2]\n",
+            "expectedOutput": "[-1, -1, -1, -1, -1]\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "[2, 3, 4, 5, -1]\n"
+          }
+        ],
+        "hints": [
+          "Use a stack to keep track of elements and their indices.",
+          "Iterate through the array from right to left.",
+          "For each element, pop elements from the stack that are smaller than the current element.",
+          "If the stack is not empty, the top element is the nearest greater element to the right.",
+          "If the stack is empty, there is no greater element to the right (-1).",
+          "Push the current element and its index onto the stack.",
+          "Return the array of nearest greater elements."
+        ],
+        "tags": ["Nearest Greater Element", "Stack", "Array"]
+      },
+       {
+        "problemId": 19,
+        "courseId": "wipro",
+        "title": "Minimum Deletions for Palindrome",
+        "difficulty": "Medium",
+        "description": "Given a string, calculate the minimum number of deletions required to make the string a palindrome.",
+        "examples": [
+          {
+            "input": "aebcbda\n",
+            "output": "2\n"
+          },
+          {
+            "input": "geeksforgeeks\n",
+            "output": "8\n"
+          },
+          {
+            "input": "aba\n",
+            "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of string <= 1000",
+          "String consists of lowercase English letters only."
+        ],
+        "testCases": [
+          {
+            "input": "aebcbda\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "geeksforgeeks\n",
+            "expectedOutput": "8\n"
+          },
+          {
+            "input": "aba\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "abc\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "racecar\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "madam\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "abcdba\n",
+            "expectedOutput": "1\n"
+          }
+        ],
+        "hints": [
+          "Find the longest palindromic subsequence (LPS) of the string.",
+          "The minimum number of deletions is the length of the string minus the length of the LPS.",
+          "Use dynamic programming to find the LPS.",
+          "Create a 2D array dp where dp[i][j] represents the length of the LPS of the substring s[i...j].",
+          "Initialize the diagonal elements of dp with 1.",
+          "Iterate through the substrings of increasing length and update the dp array.",
+          "If s[i] == s[j], dp[i][j] = dp[i+1][j-1] + 2.",
+          "If s[i] != s[j], dp[i][j] = max(dp[i+1][j], dp[i][j-1]).",
+          "Return the length of the string minus dp[0][length-1]."
+        ],
+        "tags": ["Minimum Deletions", "Palindrome", "Dynamic Programming", "Longest Palindromic Subsequence"]
+      },
+       {
+        "problemId": 20,
+        "courseId": "wipro",
+        "title": "Identical Binary Trees",
+        "difficulty": "Easy",
+        "description": "Given two binary trees, check if they are identical. Two binary trees are considered identical if they have the same structure and corresponding nodes have the same values.",
+        "examples": [
+          {
+            "input": "Tree1: [1, 2, 3]\nTree2: [1, 2, 3]\n",
+            "output": "true\n"
+          },
+          {
+            "input": "Tree1: [1, 2]\nTree2: [1, null, 2]\n",
+            "output": "false\n"
+          },
+          {
+            "input": "Tree1: [1, 2, 3]\nTree2: [1, 3, 2]\n",
+            "output": "false\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number of nodes in each tree <= 100",
+          "-100 <= node values <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "Tree1: [1, 2, 3]\nTree2: [1, 2, 3]\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "Tree1: [1, 2]\nTree2: [1, null, 2]\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "Tree1: [1, 3, 2]\nTree2: [1, 2, 3]\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "Tree1: [1]\nTree2: [1]\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "Tree1: []\nTree2: []\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "Tree1: [1,2,3,4,5]\nTree2: [1,2,3,4,5]\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "Tree1: [1,2,3,4,5]\nTree2: [1,2,3,4,6]\n",
+            "expectedOutput": "false\n"
+          }
+        ],
+        "hints": [
+          "Use recursion to traverse both trees simultaneously.",
+          "Check if both trees are empty. If they are, they are identical.",
+          "If one tree is empty and the other is not, they are not identical.",
+          "If both trees are not empty, check if the values of the current nodes are the same.",
+          "Recursively check if the left subtrees and right subtrees are identical.",
+          "Return true if all conditions are met, otherwise return false."
+        ],
+        "tags": ["Identical Binary Trees", "Binary Tree", "Recursion", "Tree Traversal"]
+      },
+       {
+        "problemId": 21,
+        "courseId": "wipro",
+        "title": "Subset Sum",
+        "difficulty": "Medium",
+        "description": "Given an integer set and a target sum, determine if there exists a subset within the set that adds up to the target sum.",
+        "examples": [
+          {
+            "input": "[2, 3, 7, 8, 10]\n11\n",
+            "output": "true\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n10\n",
+            "output": "true\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n20\n",
+            "output": "false\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of set <= 100",
+          "0 <= elements of set <= 1000",
+          "0 <= target sum <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "[2, 3, 7, 8, 10]\n11\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n10\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n20\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "[1]\n1\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[1]\n2\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "[]\n0\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input":"[10,20,30,40,50]\n80\n",
+            "expectedOutput":"true\n"
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve the problem.",
+          "Create a 2D boolean array dp where dp[i][j] is true if there is a subset of the first i elements that sums to j.",
+          "Initialize the first column of dp to true (a subset with sum 0 always exists).",
+          "Initialize the first row of dp appropriately (dp[0][0] = true and dp[0][j] = false for j > 0).",
+          "Iterate through the array and update the dp array using the following rules:",
+          "  - If the current element is less than or equal to the current sum, dp[i][j] = dp[i-1][j] or dp[i-1][j-set[i-1]].",
+          "  - If the current element is greater than the current sum, dp[i][j] = dp[i-1][j].",
+          "Return dp[length of set][target sum]."
+        ],
+        "tags": ["Subset Sum", "Dynamic Programming", "Set", "Target Sum"]
+      },
+       {
+        "problemId": 22,
+        "courseId": "wipro",
+        "title": "First Non-Repeating Character",
+        "difficulty": "Easy",
+        "description": "Given a string, find the first non-repeating character in it. If there is no non-repeating character, return null.",
+        "examples": [
+          {
+            "input": "leetcode\n",
+            "output": "l\n"
+          },
+          {
+            "input": "loveleetcode\n",
+            "output": "v\n"
+          },
+          {
+            "input": "aabb\n",
+            "output": "null\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of string <= 10^5",
+          "String consists of lowercase English letters only."
+        ],
+        "testCases": [
+          {
+            "input": "leetcode\n",
+            "expectedOutput": "l\n"
+          },
+          {
+            "input": "loveleetcode\n",
+            "expectedOutput": "v\n"
+          },
+          {
+            "input": "aabb\n",
+            "expectedOutput": "null\n"
+          },
+          {
+            "input": "a\n",
+            "expectedOutput": "a\n"
+          },
+          {
+            "input": "abcabcde\n",
+            "expectedOutput": "d\n"
+          },
+          {
+            "input": "abcabcd\n",
+            "expectedOutput": "d\n"
+          },
+          {
+            "input": "abcabc\n",
+            "expectedOutput": "null\n"
+          }
+        ],
+        "hints": [
+          "Use a hash map (dictionary) to store the character counts.",
+          "Iterate through the string and update the character counts in the hash map.",
+          "Iterate through the string again and check if the character count is 1.",
+          "If a character with count 1 is found, return that character.",
+          "If no character with count 1 is found, return null."
+        ],
+        "tags": ["First Non-Repeating Character", "String", "Hash Map"]
+      },
+       {
+        "problemId": 23,
+        "courseId": "wipro",
+        "title": "Smallest Missing Positive Integer",
+        "difficulty": "Hard",
+        "description": "Given an unsorted array of integers, find the smallest missing positive integer.",
+        "examples": [
+          {
+            "input": "[1, 2, 0]\n",
+            "output": "3\n"
+          },
+          {
+            "input": "[3, 4, -1, 1]\n",
+            "output": "2\n"
+          },
+          {
+            "input": "[7, 8, 9, 11, 12]\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 5 * 10^5",
+          "-2^31 <= array elements <= 2^31 - 1"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 0]\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "[3, 4, -1, 1]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[7, 8, 9, 11, 12]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[2]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[-1, -2, -3]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "6\n"
+          }
+        ],
+        "hints": [
+          "Ignore non-positive numbers.",
+          "Use the array itself as a hash table.",
+          "For each positive number num, if num is in the range [1, n], move it to its correct position (index num - 1).",
+          "After rearranging the array, iterate through it and find the first index i where nums[i] != i + 1.",
+          "Return i + 1 as the smallest missing positive integer.",
+          "If all numbers are in their correct positions, return n + 1.",
+          "Handle edge cases like empty arrays or arrays with no positive numbers."
+        ],
+        "tags": ["Smallest Missing Positive", "Array", "Hash Table"]
+      },
+       {
+        "problemId": 24,
+        "courseId": "wipro",
+        "title": "Reverse Linked List",
+        "difficulty": "Easy",
+        "description": "Given the head of a singly linked list, reverse the list, and return the reversed list.",
+        "examples": [
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "output": "[5, 4, 3, 2, 1]\n"
+          },
+          {
+            "input": "[1, 2]\n",
+            "output": "[2, 1]\n"
+          },
+          {
+            "input": "[]\n",
+            "output": "[]\n"
+          }
+        ],
+        "constraints": [
+          "0 <= number of nodes in the list <= 5000",
+          "-5000 <= Node.val <= 5000"
+        ],
+        "testCases": [
+          {
+            "input": "[1, 2, 3, 4, 5]\n",
+            "expectedOutput": "[5, 4, 3, 2, 1]\n"
+          },
+          {
+            "input": "[1, 2]\n",
+            "expectedOutput": "[2, 1]\n"
+          },
+          {
+            "input": "[]\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "[1]\n"
+          },
+          {
+            "input": "[1,2,3]\n",
+            "expectedOutput": "[3,2,1]\n"
+          },
+          {
+            "input": "[5,4,3,2,1]\n",
+            "expectedOutput": "[1,2,3,4,5]\n"
+          },
+          {
+            "input":"[1,1,1,1,1]\n",
+            "expectedOutput":"[1,1,1,1,1]\n"
+          }
+        ],
+        "hints": [
+          "Use three pointers: prev, curr, and next.",
+          "Initialize prev to null and curr to head.",
+          "Iterate through the list, updating the pointers in each iteration.",
+          "In each iteration, set next to curr.next, curr.next to prev, prev to curr, and curr to next.",
+          "After the loop, prev will be the new head of the reversed list.",
+          "Return prev.",
+          "Handle the edge case where the list is empty or has only one node."
+        ],
+        "tags": ["Reverse Linked List", "Linked List", "Pointers"]
+      },
+       {
+        "problemId": 25,
+        "courseId": "wipro",
+        "title": "Depth of Binary Tree",
+        "difficulty": "Easy",
+        "description": "Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.",
+        "examples": [
+          {
+            "input": "[3, 9, 20, null, null, 15, 7]\n",
+            "output": "3\n"
+          },
+          {
+            "input": "[1, null, 2]\n",
+            "output": "2\n"
+          },
+          {
+            "input": "[]\n",
+            "output": "0\n"
+          }
+        ],
+        "constraints": [
+          "0 <= number of nodes in the tree <= 10^4",
+          "-100 <= Node.val <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "[3, 9, 20, null, null, 15, 7]\n",
+            "expectedOutput": "3\n"
+          },
+          {
+            "input": "[1, null, 2]\n",
+            "expectedOutput": "2\n"
+          },
+          {
+            "input": "[]\n",
+            "expectedOutput": "0\n"
+          },
+          {
+            "input": "[1]\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[1,2,3,4,5,6,7,8]\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "[1,null,2,null,3,null,4,null,5]\n",
+            "expectedOutput": "5\n"
+          },
+          {
+            "input":"[1,2]\n",
+            "expectedOutput":"2\n"
+          }
+        ],
+        "hints": [
+          "Use recursion to traverse the binary tree.",
+          "For each node, calculate the depth of its left and right subtrees.",
+          "Return the maximum depth of the left and right subtrees plus 1 (for the current node).",
+          "Handle the base case where the node is null (return 0).",
+          "Handle the edge case where the tree is empty."
+        ],
+        "tags": ["Depth of Binary Tree", "Binary Tree", "Recursion", "Tree Traversal"]
+      },
+       {
+        "problemId": 26,
+        "courseId": "wipro",
+        "title": "Breadth-First Search (BFS)",
+        "difficulty": "Medium",
+        "description": "Implement a breadth-first search (BFS) traversal of a graph. Given an adjacency list representation of a graph and a starting node, return the BFS traversal of the graph.",
+        "examples": [
+          {
+            "input": "{0: [1, 2], 1: [2], 2: [0, 3], 3: [3]}\n0\n",
+            "output": "[0, 1, 2, 3]\n"
+          },
+          {
+            "input": "{0: [1, 2], 1: [3, 4], 2: [5], 3: [], 4: [], 5: []}\n0\n",
+            "output": "[0, 1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "{0: []}\n0\n",
+            "output": "[0]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number of nodes in graph <= 100",
+          "0 <= node values <= 99"
+        ],
+        "testCases": [
+          {
+            "input": "{0: [1, 2], 1: [2], 2: [0, 3], 3: [3]}\n0\n",
+            "expectedOutput": "[0, 1, 2, 3]\n"
+          },
+          {
+            "input": "{0: [1, 2], 1: [3, 4], 2: [5], 3: [], 4: [], 5: []}\n0\n",
+            "expectedOutput": "[0, 1, 2, 3, 4, 5]\n"
+          },
+          {
+            "input": "{0: []}\n0\n",
+            "expectedOutput": "[0]\n"
+          },
+          {
+            "input": "{1: [2, 3], 2: [4], 3: [4], 4: []}\n1\n",
+            "expectedOutput": "[1, 2, 3, 4]\n"
+          },
+          {
+            "input": "{1: [2], 2: [3], 3: [1]}\n1\n",
+            "expectedOutput": "[1, 2, 3]\n"
+          },
+          {
+            "input": "{0: [1], 1: [2], 2: [3], 3: [4], 4: [0]}\n0\n",
+            "expectedOutput": "[0, 1, 2, 3, 4]\n"
+          },
+          {
+            "input":"{0: [1,2,3], 1: [], 2: [], 3: []}\n0\n",
+            "expectedOutput":"[0, 1, 2, 3]\n"
+          }
+        ],
+        "hints": [
+          "Use a queue to store the nodes to be visited.",
+          "Use a set or list to keep track of visited nodes.",
+          "Start by adding the starting node to the queue and marking it as visited.",
+          "While the queue is not empty, dequeue a node and visit all its neighbors.",
+          "Add unvisited neighbors to the queue and mark them as visited.",
+          "Continue until the queue is empty.",
+          "Return the list of visited nodes in the order they were visited."
+        ],
+        "tags": ["Breadth-First Search", "BFS", "Graph Traversal", "Queue"]
+      },
+       {
+        "problemId": 27,
+        "courseId": "wipro",
+        "title": "Balanced Parentheses",
+        "difficulty": "Easy",
+        "description": "Given an expression string, check if the parentheses are balanced. Balanced parentheses mean that each opening parenthesis has a corresponding closing parenthesis in the correct order.",
+        "examples": [
+          {
+            "input": "({[]})\n",
+            "output": "true\n"
+          },
+          {
+            "input": "({[}])\n",
+            "output": "false\n"
+          },
+          {
+            "input": "()\n",
+            "output": "true\n"
+          },
+          {
+            "input":"([]){}\n",
+            "output":"true\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of expression <= 10^4",
+          "Expression contains only parentheses: '(', ')', '{', '}', '[', ']'."
+        ],
+        "testCases": [
+          {
+            "input": "({[]})\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "({[}])\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "()\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[]\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "{}\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "([)]\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input":"([]){}\n",
+            "expectedOutput":"true\n"
+          }
+        ],
+        "hints": [
+          "Use a stack to keep track of opening parentheses.",
+          "Iterate through the expression string.",
+          "If an opening parenthesis is encountered, push it onto the stack.",
+          "If a closing parenthesis is encountered, check if the stack is empty or if the top of the stack does not match the closing parenthesis.",
+          "If the stack is empty or the top of the stack does not match, the parentheses are not balanced (return false).",
+          "If the stack is empty after iterating through the entire string, the parentheses are balanced (return true).",
+          "Handle the case where the expression is empty."
+        ],
+        "tags": ["Balanced Parentheses", "Stack", "Expression Parsing"]
+      },
+       {
+        "problemId": 28,
+        "courseId": "wipro",
+        "title": "Sort Strings by Length",
+        "difficulty": "Medium",
+        "description": "Given an array of strings, sort the strings by their lengths in ascending order without using built-in sorting functions.",
+        "examples": [
+          {
+            "input": "[\"apple\", \"banana\", \"kiwi\", \"orange\"]\n",
+            "output": "[\"kiwi\", \"apple\", \"orange\", \"banana\"]\n"
+          },
+          {
+            "input": "[\"a\", \"bb\", \"ccc\"]\n",
+            "output": "[\"a\", \"bb\", \"ccc\"]\n"
+          },
+          {
+            "input": "[\"longstring\", \"short\", \"medium\"]\n",
+            "output": "[\"short\", \"medium\", \"longstring\"]\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 100",
+          "1 <= length of each string <= 100"
+        ],
+        "testCases": [
+          {
+            "input": "[\"apple\", \"banana\", \"kiwi\", \"orange\"]\n",
+            "expectedOutput": "[\"kiwi\", \"apple\", \"orange\", \"banana\"]\n"
+          },
+          {
+            "input": "[\"a\", \"bb\", \"ccc\"]\n",
+            "expectedOutput": "[\"a\", \"bb\", \"ccc\"]\n"
+          },
+          {
+            "input": "[\"longstring\", \"short\", \"medium\"]\n",
+            "expectedOutput": "[\"short\", \"medium\", \"longstring\"]\n"
+          },
+          {
+            "input": "[\"a\"]\n",
+            "expectedOutput": "[\"a\"]\n"
+          },
+          {
+            "input": "[]\n",
+            "expectedOutput": "[]\n"
+          },
+          {
+            "input": "[\"abc\", \"ab\", \"a\", \"abcd\"]\n",
+            "expectedOutput": "[\"a\", \"ab\", \"abc\", \"abcd\"]\n"
+          },
+          {
+            "input": "[\"z\", \"yy\", \"xxx\", \"wwww\"]\n",
+            "expectedOutput": "[\"z\", \"yy\", \"xxx\", \"wwww\"]\n"
+          }
+        ],
+        "hints": [
+          "Implement a sorting algorithm like bubble sort, insertion sort, or selection sort.",
+          "Modify the comparison logic to compare the lengths of the strings instead of the strings themselves.",
+          "Iterate through the array and compare the lengths of adjacent strings.",
+          "If the length of the current string is greater than the length of the next string, swap them.",
+          "Repeat the process until the array is sorted.",
+          "Handle the edge case where the array is empty."
+        ],
+        "tags": ["Sort Strings by Length", "String Sorting", "Sorting Algorithm"]
+      },
+       {
+        "problemId": 29,
+        "courseId": "wipro",
+        "title": "0/1 Knapsack Problem",
+        "difficulty": "Medium",
+        "description": "Given a set of items with weights and values, and a knapsack with a maximum weight capacity, determine the maximum total value of items that can be included in the knapsack such that the total weight is less than or equal to the knapsack's capacity. Each item can either be included or excluded (0/1).",
+        "examples": [
+          {
+            "input": "[{weight: 10, value: 60}, {weight: 20, value: 100}, {weight: 30, value: 120}]\n50\n",
+            "output": "220\n"
+          },
+          {
+            "input": "[{weight: 1, value: 1}, {weight: 2, value: 6}, {weight: 3, value: 10}, {weight: 4, value: 16}]\n7\n",
+            "output": "22\n"
+          },
+          {
+            "input": "[{weight: 1, value: 1}]\n1\n",
+            "output": "1\n"
+          }
+        ],
+        "constraints": [
+          "1 <= number of items <= 100",
+          "1 <= weight of each item <= 100",
+          "1 <= value of each item <= 1000",
+          "1 <= knapsack capacity <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "[{weight: 10, value: 60}, {weight: 20, value: 100}, {weight: 30, value: 120}]\n50\n",
+            "expectedOutput": "220\n"
+          },
+          {
+            "input": "[{weight: 1, value: 1}, {weight: 2, value: 6}, {weight: 3, value: 10}, {weight: 4, value: 16}]\n7\n",
+            "expectedOutput": "22\n"
+          },
+          {
+            "input": "[{weight: 1, value: 1}]\n1\n",
+            "expectedOutput": "1\n"
+          },
+          {
+            "input": "[{weight: 1, value: 1}, {weight: 2, value: 2}, {weight: 3, value: 3}]\n4\n",
+            "expectedOutput": "4\n"
+          },
+          {
+            "input": "[{weight: 2, value: 3}, {weight: 3, value: 4}, {weight: 4, value: 5}, {weight: 5, value: 6}]\n5\n",
+            "expectedOutput": "6\n"
+          },
+          {
+            "input":"[]\n10\n",
+            "expectedOutput":"0\n"
+          },
+          {
+            "input":"[{weight: 10, value: 100}]\n5\n",
+            "expectedOutput":"0\n"
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve the problem.",
+          "Create a 2D array dp where dp[i][w] represents the maximum value that can be obtained with the first i items and a knapsack capacity of w.",
+          "Initialize the first row and column of dp to 0.",
+          "Iterate through the items and knapsack capacities and update the dp array using the following rules:",
+          "  - If the weight of the current item is less than or equal to the current knapsack capacity, dp[i][w] = max(value of current item + dp[i-1][w-weight of current item], dp[i-1][w]).",
+          "  - If the weight of the current item is greater than the current knapsack capacity, dp[i][w] = dp[i-1][w].",
+          "Return dp[number of items][knapsack capacity]."
+        ],
+        "tags": ["0/1 Knapsack", "Dynamic Programming", "Knapsack Problem"]
+      },
+       {
+        "problemId": 30,
+        "courseId": "wipro",
+        "title": "Subset Sum Exists",
+        "difficulty": "Medium",
+        "description": "Given an array of integers and a target sum, determine if there exists a subset of the array whose elements sum up to the target sum.",
+        "examples": [
+          {
+            "input": "[3, 34, 4, 12, 5, 2]\n9\n",
+            "output": "true\n"
+          },
+          {
+            "input": "[3, 34, 4, 12, 5, 2]\n30\n",
+            "output": "false\n"
+          },
+          {
+            "input": "[1, 2, 3]\n4\n",
+            "output": "true\n"
+          }
+        ],
+        "constraints": [
+          "1 <= length of array <= 100",
+          "0 <= elements of array <= 1000",
+          "0 <= target sum <= 1000"
+        ],
+        "testCases": [
+          {
+            "input": "[3, 34, 4, 12, 5, 2]\n9\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[3, 34, 4, 12, 5, 2]\n30\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "[1, 2, 3]\n4\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[1]\n1\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[1]\n2\n",
+            "expectedOutput": "false\n"
+          },
+          {
+            "input": "[]\n0\n",
+            "expectedOutput": "true\n"
+          },
+          {
+            "input": "[10, 20, 30, 40, 50]\n80\n",
+            "expectedOutput": "true\n"
+          }
+        ],
+        "hints": [
+          "Use dynamic programming to solve the problem.",
+          "Create a 2D boolean array dp where dp[i][j] is true if there is a subset of the first i elements that sums to j.",
+          "Initialize the first column of dp to true (a subset with sum 0 always exists).",
+          "Initialize the first row of dp appropriately (dp[0][0] = true and dp[0][j] = false for j > 0).",
+          "Iterate through the array and update the dp array using the following rules:",
+          "  - If the current element is less than or equal to the current sum, dp[i][j] = dp[i-1][j] or dp[i-1][j-array[i-1]].",
+          "  - If the current element is greater than the current sum, dp[i][j] = dp[i-1][j].",
+          "Return dp[length of array][target sum]."
+        ],
+        "tags": ["Subset Sum", "Dynamic Programming", "Array"]
+      }
+]
